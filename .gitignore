@@ -1,8 +1,19 @@
+#
 # Ignore all files, enables us to whitelist afterwards.
+#
+
 *
 
 #
-# Configuration
+# Repository dependencies.
+#
+
+!.gitconfig
+!.gitignore
+!README.md
+
+#
+# Configuration.
 #
 
 !config.sh
@@ -10,11 +21,9 @@
 !Caskfile
 
 #
-# Tools[1]
+# Tools[1].
 #
 
-!.gitconfig
-!.gitignore
 !.bashrc
 !.bash_profile
 !.zshrc
