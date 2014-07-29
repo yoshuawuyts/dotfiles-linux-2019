@@ -1,0 +1,21 @@
+# Ignore all files, enables us to whitelist afterwards.
+*
+
+#
+# Configuration
+#
+
+!config.sh
+!Brewfile
+!Caskfile
+
+#
+# Tools[1]
+#
+
+!.gitconfig
+!.gitignore
+!.bashrc
+!.bash_profile
+!.zshrc
+!.vim

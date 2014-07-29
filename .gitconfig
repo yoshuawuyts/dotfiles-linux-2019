@@ -1,0 +1,7 @@
+[user]
+	name = yoshuawuyts
+	email = i@yoshuawuyts.com
+[credential]
+	helper = osxkeychain
+[push]
+	default = matching
