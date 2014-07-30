@@ -41,6 +41,7 @@ install sqlite
 install wget
 install zsh
 
+install homebrew/binary/packer
 install homebrew/versions/lua52
 
 # Remove outdated versions from the cellar
