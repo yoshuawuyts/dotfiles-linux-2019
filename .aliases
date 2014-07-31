@@ -2,8 +2,8 @@
 # Core utils.
 #
 
-alias ls='gls -ohppgn --color=auto --group-directories-first'
-alias la='ls -ApC'
+# alias la='ls -ApC'
+alias ls='gls -ohpgn --color=auto --group-directories-first -o'
 alias rm='rm -rf'
 alias t='tree -a -L 3 -A -C -I "node_modules|.git"'
 
