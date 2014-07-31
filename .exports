@@ -1,0 +1,21 @@
+#
+# User configuration
+#
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+#
+# Docker
+#
+
+export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
+
+#
+# Android
+# 
+
+export ANDROID_HOME=/opt/android-sdk/sdk
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export PATH=$PATH:/usr/lib/jvm/java-6-openjdk/bin

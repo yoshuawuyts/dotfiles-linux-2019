@@ -1,0 +1,38 @@
+#
+# Core utils.
+#
+
+alias ls='gls -ohppgn --color=auto --group-directories-first'
+alias la='ls -ApC'
+alias rm='rm -rf'
+alias t='tree -a -L 3 -A -C -I "node_modules|.git"'
+
+#
+# Git.
+#
+
+alias git branch='git branch --color'
+alias git checkout='git checkout -q'
+alias git clean='git branch --merged | xargs git branch -d'
+alias git diff='git diff --word-diff'
+alias git log='git log --color --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+alias git pull='git pull --rebase'
+alias git push='git push -q --tags && git push -q'
+alias git rebase='git rebase -i'
+alias git status='git status -s'
+alias s='status'
+
+#
+# Web development.
+# 
+
+alias shs='sudo python -m SimpleHTTPServer'
+alias h='httpster -p 1337'
+alias pkg='pkg-name'
+alias g='gulp'
+
+#
+# Android
+#
+
+alias avd='android avd'

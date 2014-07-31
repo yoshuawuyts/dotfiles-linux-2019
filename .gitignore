@@ -13,7 +13,7 @@
 !README.md
 
 #
-# Configuration.
+# Setup.
 #
 
 !config.sh
@@ -21,10 +21,12 @@
 !Caskfile
 
 #
-# Tools[1].
+# Configuration.
 #
 
+!.aliases
 !.bashrc
 !.bash_profile
+!.exports
 !.zshrc
 !.vim
