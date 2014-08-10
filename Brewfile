@@ -40,6 +40,7 @@ install rename
 install sqlite
 install wget
 install zsh
+install consul
 
 install homebrew/binary/packer
 install homebrew/versions/lua52

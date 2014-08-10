@@ -15,7 +15,7 @@ source ~/.exports
 source ~/.aliases
 
 #
-# Version managers
+# Version managers.
 #
 
 source /Users/yoshuawuyts/.gvm/scripts/gvm
