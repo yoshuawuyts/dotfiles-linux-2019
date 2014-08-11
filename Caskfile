@@ -6,22 +6,23 @@ tap caskroom/versions
 
 # Formulae
 cask install atom
-cask install dropbox              
+cask install dropbox
 cask install firefox
-cask install google-chrome        
-cask install google-chrome-canary 
-cask install google-drive         
-cask install iterm2               
-cask install miro-video-converter 
-cask install node-webkit          
-cask install opera                
+cask install google-chrome
+cask install google-chrome-canary
+cask install google-drive
+cask install iterm2
+cask install miro-video-converter
+cask install node-webkit
+cask install opera
 cask install sketch-tool
 cask install sonos
 cask install spotify
-cask install sublime-text         
-cask install the-unarchiver       
-cask install transmission         
+cask install sublime-text
+cask install the-unarchiver
+cask install transmission
 cask install ukelele
 cask install vagrant
-cask install virtualbox           
-cask install vlc                  
+cask install virtualbox
+cask install vlc
+cask install licecap
