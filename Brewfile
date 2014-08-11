@@ -43,6 +43,7 @@ install zsh
 install consul
 install riak
 install nsq
+install jq
 
 install homebrew/binary/packer
 install homebrew/versions/lua52
