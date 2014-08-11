@@ -41,6 +41,8 @@ install sqlite
 install wget
 install zsh
 install consul
+install riak
+install nsq
 
 install homebrew/binary/packer
 install homebrew/versions/lua52
