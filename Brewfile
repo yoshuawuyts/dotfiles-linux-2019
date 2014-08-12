@@ -44,6 +44,8 @@ install consul
 install riak
 install nsq
 install jq
+install redis
+install postresql
 
 install homebrew/binary/packer
 install homebrew/versions/lua52
