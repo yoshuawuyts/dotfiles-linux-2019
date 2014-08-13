@@ -1,4 +1,5 @@
 # Linter
+[![Build Status](https://travis-ci.org/AtomLinter/Linter.svg)](https://travis-ci.org/AtomLinter/Linter)
 
 Lint your code with ease in [Atom](http://atom.io).
 
@@ -11,24 +12,28 @@ The idea is to stop the linter plugins war, by providing a top level API for lin
 - [linter-phpcs](https://atom.io/packages/linter-phpcs), for PHP, using `phpc`
 - [linter-phpmd](https://atom.io/packages/linter-phpmd), for PHP, using `phpmd`
 - [linter-pylint](https://atom.io/packages/linter-pylint), for Python, using `pylint`
-- [linter-pyflakes](https://atom.io/packages/linter-pyflakes), for python, using `pyflakes`.
+- [linter-pyflakes](https://atom.io/packages/linter-pyflakes), for python, using `pyflakes`
 - [linter-pep8](https://atom.io/packages/linter-pep8), for python, using `pep8`.
-- [linter-flake8](https://atom.io/packages/linter-flake8), for python, using `flake8`.
+- [linter-flake8](https://atom.io/packages/linter-flake8), for python, using `flake8`
 - [linter-javac](https://atom.io/packages/linter-javac), for Java, using `javac`
 - [linter-jshint](https://atom.io/packages/linter-jshint), for JavaScript and JSON, using `jshint`
 - [linter-jscs](https://atom.io/packages/linter-jscs), for JavaScript, using `jscs`
-- [linter-jsxhint](https://atom.io/packages/linter-jsxhint), for JSX (React.js), using `jsxhint`.
+- [linter-jsxhint](https://atom.io/packages/linter-jsxhint), for JSX (React.js), using `jsxhint`
+- [linter-eslint](https://atom.io/packages/linter-eslint), for JavaScript, using `eslint`
 - [linter-scss-lint](https://atom.io/packages/linter-scss-lint), for SASS/SCSS, using `scss-lint`
 - [linter-coffeelint](https://atom.io/packages/linter-coffeelint), for CoffeeScript, using `coffeelint`
 - [linter-csslint](https://atom.io/packages/linter-csslint), for CSS, using `csslint`
 - [linter-rubocop](https://atom.io/packages/linter-rubocop), for Ruby and Ruby on Rails, using `rubocop`
 - [linter-tslint](https://atom.io/packages/linter-tslint), for Typescript, using `tslint`
 - [linter-xmllint](https://atom.io/packages/linter-xmllint), for XML, using `xmllint`
-- [linter-shellcheck](https://atom.io/packages/linter-shellcheck), for Bash, using `shellcheck`.
-- [linter-scalac](https://atom.io/packages/linter-scalac), for Scala, using `scalac`.
-- [linter-clang](https://atom.io/packages/linter-clang), for C / C++, using `clang`.
-- [linter-ruby](https://atom.io/packages/linter-ruby), for ruby, using `ruby -wc`.
-- [linter-lua](https://atom.io/packages/linter-lua), for Lua, using `luac -p`.
+- [linter-shellcheck](https://atom.io/packages/linter-shellcheck), for Bash, using `shellcheck`
+- [linter-scalac](https://atom.io/packages/linter-scalac), for Scala, using `scalac`
+- [linter-clang](https://atom.io/packages/linter-clang), for C / C++, using `clang`
+- [linter-ruby](https://atom.io/packages/linter-ruby), for ruby, using `ruby -wc`
+- [linter-lua](https://atom.io/packages/linter-lua), for Lua, using `luac -p`
+- [linter-clojure](https://atom.io/packages/linter-clojure), for Clojure, using `clojure`
+- [linter-puppet-lint](https://atom.io/packages/linter-puppet-lint), for Puppet, using `puppet-lint`
+- [linter-js-yaml](https://atom.io/packages/linter-js-yaml), for Yaml, using `js-yaml`
 
 ## Features
 
@@ -54,6 +59,8 @@ The idea is to stop the linter plugins war, by providing a top level API for lin
 ## Common errors
 
 * `env: node: No such file or directory` – There's a problem with your node path – [check this](http://stackoverflow.com/a/20077620).
+* `spawn ENOENT` or `spawn ENOTDIR` - A linter can't find a path to the executable. Try starting Atom from a shell via `atom` to make sure it gets your `PATH`. See also [#102](https://github.com/AtomLinter/Linter/issues/102), [#150](https://github.com/AtomLinter/Linter/issues/150).
+* Gutters and highlights not working? Make sure you're using the React editor. The [old editor is deprecated](http://blog.atom.io/2014/07/22/default-to-react-editor.html).
 
 ## Documentation
 http://atomlinter.github.io/Linter/

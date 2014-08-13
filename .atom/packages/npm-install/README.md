@@ -10,6 +10,16 @@ Uses [detective](http://github.com/substack/node-detective) to analyse the curre
 
 Open the Command Palette, and type `npm install` if you're in a JavaScript or CoffeeScript file.
 
+## Fixing your PATH ##
+
+In some cases, Atom won't always have the correct path to resolve npm. This
+will result in an `ENOENT` error. In that case, add the following to the top
+of your init script:
+
+``` javascript
+process.env.PATH = ':/usr/local/bin'
+```
+
 ## License ##
 
 MIT. See [LICENSE.md](http://github.com/hughsk/npm-install/blob/master/LICENSE.md) for details.

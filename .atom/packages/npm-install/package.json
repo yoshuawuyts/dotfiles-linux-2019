@@ -1,7 +1,7 @@
 {
   "name": "npm-install",
   "main": "./index",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Automatically install and save any missing npm modules being used in the current file",
   "activationEvents": [
@@ -17,25 +17,27 @@
     "atom": ">0.50.0"
   },
   "dependencies": {
-    "remove-element": "0.0.0",
-    "domify": "^1.2.2",
-    "safe-json-parse": "^1.0.1",
-    "resolve": "^0.6.1",
-    "coffee-script": "^1.7.1",
     "ansi-html-stream": "0.0.3",
+    "coffee-script": "^1.7.1",
     "detective": "^2.4.1",
-    "findup": "^0.1.3"
+    "domify": "^1.2.2",
+    "findup": "^0.1.3",
+    "map-async": "^0.1.1",
+    "npm-stats": "^0.3.0",
+    "remove-element": "0.0.0",
+    "resolve": "^0.6.1",
+    "safe-json-parse": "^1.0.1"
   },
-  "readme": "# npm-install [![Flattr this!](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=hughskennedy&url=http://github.com/hughsk/npm-install&title=npm-install&description=hughsk/npm-install%20on%20GitHub&language=en_GB&tags=flattr,github,javascript&category=software)[![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges) #\n\nAutomatically install and save any missing npm modules being used in the current file.\n\n![Imgur](http://i.imgur.com/yH6kdSq.gif)\n\nUses [detective](http://github.com/substack/node-detective) to analyse the current file for require calls, installing and saving any that aren't already in the project's `package.json` file.\n\n## Usage ##\n\nOpen the Command Palette, and type `npm install` if you're in a JavaScript or CoffeeScript file.\n\n## License ##\n\nMIT. See [LICENSE.md](http://github.com/hughsk/npm-install/blob/master/LICENSE.md) for details.\n",
+  "readme": "# npm-install [![Flattr this!](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=hughskennedy&url=http://github.com/hughsk/npm-install&title=npm-install&description=hughsk/npm-install%20on%20GitHub&language=en_GB&tags=flattr,github,javascript&category=software)[![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges) #\n\nAutomatically install and save any missing npm modules being used in the current file.\n\n![Imgur](http://i.imgur.com/yH6kdSq.gif)\n\nUses [detective](http://github.com/substack/node-detective) to analyse the current file for require calls, installing and saving any that aren't already in the project's `package.json` file.\n\n## Usage ##\n\nOpen the Command Palette, and type `npm install` if you're in a JavaScript or CoffeeScript file.\n\n## Fixing your PATH ##\n\nIn some cases, Atom won't always have the correct path to resolve npm. This\nwill result in an `ENOENT` error. In that case, add the following to the top\nof your init script:\n\n``` javascript\nprocess.env.PATH = ':/usr/local/bin'\n```\n\n## License ##\n\nMIT. See [LICENSE.md](http://github.com/hughsk/npm-install/blob/master/LICENSE.md) for details.\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/hughsk/atom-npm-install/issues"
   },
   "homepage": "https://github.com/hughsk/atom-npm-install",
-  "_id": "npm-install@0.1.0",
+  "_id": "npm-install@1.0.0",
   "dist": {
-    "shasum": "941091f354eadbb1f5639107987cb10407f45682"
+    "shasum": "cbdecd481b1ee5a28052ba0b7dfd4c34a7acca2c"
   },
-  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114522-2661-lvi5vv/package.tgz",
-  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114522-2661-lvi5vv/package.tgz"
+  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114713-19315-h7322z/package.tgz",
+  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114713-19315-h7322z/package.tgz"
 }

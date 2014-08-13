@@ -77,8 +77,9 @@ describe "Linter:lintFile", ->
       super editor
 
   beforeEach ->
-    editor = atom.workspace.openSync 'linter-spec.coffee'
-    linter = new CatFileLinter(editor)
+    waitsForPromise ->
+      atom.workspace.open('linter-spec.coffee').then (editor) ->
+        linter = new CatFileLinter(editor)
 
   it "lints file whose name is without space", ->
     flag = false
@@ -100,6 +101,34 @@ describe "Linter:lintFile", ->
       linter.lintFile "fixture/messages with space.txt", (messages) ->
         console.log messages
         expect(messages.length).toBe(2)
+        flag = true
+
+    waitsFor ->
+      flag
+    , "lint file finished"
+
+  it "lints when command is an array", ->
+    flag = false
+
+    runs ->
+      linter.cmd = ['cat']
+      linter.lintFile "fixture/messages.txt", (messages) ->
+        console.log messages
+        expect(messages.length).toBe(2)
+        flag = true
+
+    waitsFor ->
+      flag
+    , "lint file finished"
+
+  it "lints when command is an array with arguments containing spaces", ->
+    flag = false
+
+    runs ->
+      linter.cmd = ['cat', 'fixture/messages with space.txt']
+      linter.lintFile "fixture/messages.txt", (messages) ->
+        console.log messages
+        expect(messages.length).toBe(4)
         flag = true
 
     waitsFor ->

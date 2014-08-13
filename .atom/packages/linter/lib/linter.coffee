@@ -1,6 +1,7 @@
 {XRegExp} = require 'xregexp'
 path = require 'path'
-{Range, Point, BufferedProcess, BufferedNodeProcess} = require 'atom'
+{Range, Point, BufferedProcess} = require 'atom'
+{log, warn} = require './utils'
 
 # Public: The base class for linters.
 # Subclasses must at a minimum define the attributes syntax, cmd, and regex.
@@ -40,6 +41,7 @@ class Linter
 
   isNodeExecutable: no
 
+  # TODO: what does this mean?
   errorStream: 'stdout'
 
   # Public: Construct a linter passing it's base editor
@@ -50,11 +52,16 @@ class Linter
   getCmdAndArgs: (filePath) ->
     cmd = @cmd
 
-    # here guarantee `cmd` does not have space or quote mark issue
-    cmd_list = cmd.split(' ').concat [filePath]
+    if not Array.isArray(cmd)
+      cmd_list = cmd.split(' ').concat [filePath]
+    else
+      cmd_list = cmd.concat [filePath]
 
     if @executablePath
-      cmd_list[0] = path.join @executablePath,cmd_list[0]
+      cmd_list[0] = path.join @executablePath, cmd_list[0]
+
+    if @isNodeExecutable
+      cmd_list.unshift(@getNodeExecutablePath())
 
     # if there are "@filename" placeholders, replace them with real file path
     cmd_list = cmd_list.map (cmd_item) ->
@@ -63,8 +70,7 @@ class Linter
       else
         return cmd_item
 
-    if atom.config.get('linter.lintDebug')
-      console.log 'command and arguments', cmd_list
+    log 'command and arguments', cmd_list
 
     {
       command: cmd_list[0],
@@ -86,31 +92,28 @@ class Linter
     # build the command with arguments to lint the file
     {command, args} = @getCmdAndArgs(filePath)
 
-    if atom.config.get('linter.lintDebug')
-      console.log 'is node executable: ' + @isNodeExecutable
-
-    # use BufferedNodeProcess if the linter is node executable
-    if @isNodeExecutable
-      Process = BufferedNodeProcess
-    else
-      Process = BufferedProcess
+    log 'is node executable: ' + @isNodeExecutable
 
     # options for BufferedProcess, same syntax with child_process.spawn
     options = {cwd: @cwd}
 
-    stdout = (output) =>
-      if atom.config.get('linter.lintDebug')
-        console.log 'stdout', output
-      if @errorStream is 'stdout'
-        @processMessage(output, callback)
+    dataStdout = []
+    dataStderr = []
 
-    stderr = (output) =>
-      if atom.config.get('linter.lintDebug')
-        console.warn 'stderr', output
-      if @errorStream is 'stderr'
-        @processMessage(output, callback)
+    stdout = (output) ->
+      log 'stdout', output
+      dataStdout += output
 
-    process = new Process({command, args, options, stdout, stderr})
+    stderr = (output) ->
+      warn 'stderr', output
+      dataStderr += output
+
+    exit = =>
+      data = if @errorStream is 'stdout' then dataStdout else dataStderr
+      @processMessage data, callback
+
+    process = new BufferedProcess({command, args, options,
+                                   stdout, stderr, exit})
 
     # Don't block UI more than 5seconds, it's really annoying on big files
     setTimeout ->
@@ -212,10 +215,9 @@ class Linter
       position = new Point(rowStart, match.col)
       scopes = @getEditorScopesForPosition(position)
 
-      while innerMostScope = scopes.pop()
+      while innerMostScope = scopes?.pop()
         range = @getGetRangeForScopeAtPosition(innerMostScope, position)
-        if range?
-          return range
+        return range if range?
 
     match.colStart ?= match.col
     colStart = decrementParse match.colStart

@@ -3,8 +3,10 @@ var JSONParse = require('safe-json-parse')
 var ansihtml = require('ansi-html-stream')
 var spawn = require('child_process').spawn
 var remove = require('remove-element')
+var stats = require('npm-stats')()
 var coffee = require('coffee-script')
 var detective = require('detective')
+var map = require('map-async')
 var domify = require('domify')
 var findup = require('findup')
 var path = require('path')
@@ -94,6 +96,8 @@ function save(opts) {
       return module.split('/')[0]
     }).filter(function(module) {
       return module !== '.'
+          && module !== '..'
+          && module !== 'atom'
     })
 
     if (!found.length) return notice(messages.cantFind)
@@ -118,30 +122,42 @@ function save(opts) {
       if (!found.length) return notice(messages.alreadyInstalled, 'success')
       if (npm) return notice(messages.oneAtATime, 'warning')
 
-      npm = spawn('npm', [
-          'install'
-        , '--color=always'
-        , flag
-      ].concat(found), {
-          cwd: cwd
-        , env: process.env
+      return map(found, function(name, next) {
+        stats.module(name).info(function(err, data) {
+          if (err && err.message !== 'missing') return next(err)
+          next(null, data ? name : null)
+        })
+      }, function(err, found) {
+        found = found.filter(Boolean)
+
+        if (!found.length) return notice(messages.alreadyInstalled, 'success')
+
+        npm = spawn('npm', [
+            'install'
+          , '--color=always'
+          , flag
+        ].concat(found), {
+            cwd: cwd
+          , env: process.env
+        })
+
+        npm.stdout.pipe(output)
+        npm.stderr.pipe(output)
+        npm.once('exit', function(code) {
+          npm = null
+          if (code === 0) return setTimeout(remove.bind(null, panel), 1000)
+          notice('Invalid exit code from npm: ' + code, 'warning')
+        })
+
+        inner.innerHTML = ''
+        output.on('data', function(data) {
+          inner.innerHTML += data
+        })
+
+        if (!panel.parentNode)
+          view.appendToBottom(panel)
       })
 
-      npm.stdout.pipe(output)
-      npm.stderr.pipe(output)
-      npm.once('exit', function(code) {
-        npm = null
-        if (code === 0) return setTimeout(remove.bind(null, panel), 1000)
-        notice('Invalid exit code from npm: ' + code, 'warning')
-      })
-
-      inner.innerHTML = ''
-      output.on('data', function(data) {
-        inner.innerHTML += data
-      })
-
-      if (!panel.parentNode)
-        view.appendToBottom(panel)
     })
   }
 }

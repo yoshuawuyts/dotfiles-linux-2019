@@ -1,3 +1,34 @@
+# v0.5.12
+
+### Bug Fixes
+* Fix "multiple linters on the same file" problem for real
+
+# v0.5.11
+
+### New Linters
+* [linter-puppet-lint](https://atom.io/packages/linter-puppet-lint), for Puppet, using `puppet-lint`
+* [linter-js-yaml](https://atom.io/packages/linter-js-yaml), for Yaml, using `js-yaml`
+
+# v0.5.8
+
+### Bug Fixes
+* Fix for multiple linters on the same file (#139)
+
+### New Linters
+* [linter-clojure](https://atom.io/packages/linter-clojure), for Clojure, using clojure.
+
+# v0.5.7
+
+### Bug Fixes
+* Fix linters not working on Windows ([#148](https://github.com/AtomLinter/linter/pull/148), [#112](https://github.com/AtomLinter/linter/issue/112))
+* Also fix [#157](https://github.com/AtomLinter/linter/issues/157])
+
+
+# v0.5.6
+
+### Bug Fixes
+* Resolve too many linter warnings cover screen bug ([##132](https://github.com/AtomLinter/Linter/issues/132]))
+
 # v0.5.3
 
 ### New Linters
