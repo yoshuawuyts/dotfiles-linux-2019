@@ -1,0 +1,32 @@
+@import "ui-variables";
+
+.tree-view {
+	font-size: @font-size;
+	background: @tree-view-background-color;
+	color: @text-color;
+
+	.selected:before {
+		background: @background-color-subtle;
+	}
+}
+
+.list-tree li:not(.list-nested-item).selected {
+	color: @text-color;
+}
+
+.focusable-panel {
+
+	&:focus {
+
+		.selected:before {
+			background: @background-color-subtle;
+		}
+
+		.selected > .name,
+		.selected > .name:before,
+		.selected > .list-item > .name,
+		.selected > .list-item > .name:before {
+			color: #000;
+		}
+	}
+}

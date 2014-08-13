@@ -1,0 +1,26 @@
+{
+  "name": "tomorrow",
+  "theme": "syntax",
+  "version": "0.2.0",
+  "private": false,
+  "description": "An Atom port of the vim Tomorrow theme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/speric/atom-tomorrow"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "## Tomorrow Syntax Theme\n\nTomorrow is an Atom port of the vim Tomorrow theme, for syntax.\n\n![Tomorrow Syntax Theme](http://cl.ly/image/071z3g1y1A3A/download/tomorrow-cap.png)\n\n### Installation\n\nRun the following command:\n\n```sh\napm install tomorrow\n```\n\nThen go to `Atom > Preferences > Themes` and in the `Syntax Themes` dropdown, select `Tomorrow` from the list.\n\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/speric/atom-tomorrow/issues"
+  },
+  "homepage": "https://github.com/speric/atom-tomorrow",
+  "_id": "tomorrow@0.2.0",
+  "dist": {
+    "shasum": "f38597e9cd04cd0bec41dd779ae29dd8641b6bcc"
+  },
+  "_from": "/Users/yoshuawuyts/.atom/.node-gyp/.atom/.apm/tomorrow/0.2.0/package.tgz"
+}

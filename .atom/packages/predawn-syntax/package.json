@@ -1,0 +1,26 @@
+{
+  "name": "predawn-syntax",
+  "theme": "syntax",
+  "version": "0.1.2",
+  "description": "Syntax color scheme that accompanies the Predawn UI Theme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamiewilson/predawn-syntax"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# This is the color scheme that accompanies Predawn, a dark interface and syntax theme for [Atom](https://atom.io/packages/predawn-ui) and [Sublime Text](https://sublime.wbond.net/packages/Predawn).\n\n## Installation\n\nEither, search for it in the Packages section in you Atom settings tab. Or from the command-line run:\n\n```\napm install predawn-syntax\n```\n\n![Predawn syntax and UI](https://raw.githubusercontent.com/jamiewilson/predawn-syntax/master/predawn-atom.png)\n\nView on Atom.io at http://atom.io/packages/predawn-syntax\n\n## Sublime Text\n[You can also find Predawn for Sublime Text here.](https://github.com/jamiewilson/predawn)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jamiewilson/predawn-syntax/issues"
+  },
+  "homepage": "https://github.com/jamiewilson/predawn-syntax",
+  "_id": "predawn-syntax@0.1.2",
+  "dist": {
+    "shasum": "511bec0ed04702afc1e0c6e434c3d3ef183a9e47"
+  },
+  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114713-17296-17z4zw0/package.tgz",
+  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114713-17296-17z4zw0/package.tgz"
+}

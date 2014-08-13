@@ -1,0 +1,26 @@
+{
+  "name": "spacegray-light-ui",
+  "theme": "ui",
+  "version": "0.1.0",
+  "description": "Port of the Spacegray Sublime theme http://kkga.github.io/spacegray to Atom",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aesarius/spacegray-light-ui"
+  },
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# Spacegray Light UI theme\n\nPort of the [Spacegray](http://kkga.github.io/spacegray) Sublime theme to Atom.\n\n![screenshot](http://i.imgur.com/d5maNSZ.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/aesarius/spacegray-light-ui/issues"
+  },
+  "homepage": "https://github.com/aesarius/spacegray-light-ui",
+  "_id": "spacegray-light-ui@0.1.0",
+  "dist": {
+    "shasum": "78578141307403c0d75481c215e048396463cb6e"
+  },
+  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114520-2142-11g3o9o/package.tgz",
+  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114520-2142-11g3o9o/package.tgz"
+}

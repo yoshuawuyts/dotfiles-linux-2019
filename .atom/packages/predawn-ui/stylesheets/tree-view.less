@@ -1,0 +1,127 @@
+.tree-view {
+  background: @tree-view-background-color;
+  padding: 12px;
+}
+
+.tree-view:before {
+  content: 'folders';
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 11px;
+  color: rgb(120,120,120);
+  font-weight: bold;
+}
+
+.list-tree {
+  line-height: 16px !important;
+  font-size: 11px;
+  vertical-align: middle;
+
+  &.has-collapsable-children .list-nested-item {
+    & > .list-tree > li,
+    & > .list-group > li {
+      padding-left: 12px;
+    }
+  }
+
+  .selected:before {
+    background-color: transparent;
+  }
+
+  li:not(.list-nested-item) {
+    color: rgb(140, 140, 140);
+  }
+
+  li.list-nested-item {
+
+    &.status-modified .list-item,
+    .status-ignored.list-item {
+      color: rgb(140, 140, 140);
+    }
+
+    &.directory .list-item:not(.file),
+    &.selected.directory .list-item:not(.file) {
+      color: rgb(210, 210, 210);
+    }
+
+    .list-item:hover,
+    &.selected .list-item:hover {
+      color: white !important;
+    }
+
+    .header:before {
+      display: none !important;
+    }
+
+    &.expanded .icon-repo,
+    &.expanded .icon-file-directory {
+      &:before {
+        background-image: @group-open-icon;
+        content: " ";
+        width: 24px;
+        height: 16px;
+        margin-right: 0 !important;
+        top: 4px;
+      }
+    }
+
+    &.collapsed .icon-repo,
+    &.collapsed .icon-file-directory {
+      &:before {
+        background-image: @group-closed-icon;
+        content: " ";
+        width: 24px;
+        height: 16px;
+        margin-right: 0 !important;
+        top: 4px;
+      }
+    }
+    &.expanded .icon-file-symlink-directory {
+      &:before {
+        background-image: @icon-file-symlink-directory;
+        content: " ";
+        width: 24px;
+        height: 16px;
+        margin-right: 0 !important;
+        top: 4px;
+      }
+    }
+
+    &.collapsed .icon-file-symlink-directory {
+      &:before {
+        background-image: @icon-file-symlink-directory;
+        content: " ";
+        width: 24px;
+        height: 16px;
+        margin-right: 0 !important;
+        top: 4px;
+      }
+    }
+  }
+
+  .list-item {
+    transition: color 100ms ease-in-out;
+    .icon-file-text:before,
+    .icon-file-media:before,
+    .icon-book:before {
+      content: '';
+      width: 0;
+      margin-right: 0 !important;
+    }
+  }
+
+  li:not(.list-nested-item) {
+    &.selected {
+      color: white !important;
+
+      &:before {
+        background-color: #2c2c2c;
+      }
+    }
+  }
+
+  .file {
+    margin-left: 24px !important;
+  }
+}

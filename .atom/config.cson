@@ -1,0 +1,19 @@
+'exception-reporting':
+  'userId': '9d041072-abc0-ea2e-b7ca-ca3b4ce8744c'
+'welcome':
+  'showOnStartup': false
+'metrics':
+  'userId': '98d5d79a1a1943670b58ba8b21304b919cd84c0f'
+'editor':
+  'showIndentGuide': true
+  'fontFamily': 'Source Code Pro'
+  'fontSize': 15
+'core':
+  'themes': [
+    'predawn-ui'
+    'predawn-syntax'
+  ]
+  'useReactEditor': true
+'linter':
+  'showHighlighting': false
+  'showStatusBarWhenCursorIsInErrorRange': true

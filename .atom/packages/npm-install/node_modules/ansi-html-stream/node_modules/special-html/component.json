@@ -1,0 +1,17 @@
+{
+  "name": "special-html",
+  "description": "Convert special UTF-8 characters in a string to their HTML escape code equivalents.",
+  "version": "0.0.1",
+  "keywords": [
+    "special",
+    "characters",
+    "html",
+    "utf8",
+    "replace",
+    "escape"
+  ],
+  "dependencies": {},
+  "scripts": [
+    "index.js"
+  ]
+}

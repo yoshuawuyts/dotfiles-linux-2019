@@ -1,0 +1,75 @@
+@import "ui-variables";
+@import "ui-mixins";
+
+.btn-background (@color, @hover-color, @selected-color, @border-color, @text-color, @text-color-hover) {
+  color: @text-color;
+  background-color: @color;
+  border: 1px solid @border-color;
+
+  &:hover {
+    color: @text-color;
+    background: @background-color-subtle;
+    border: 1px solid @text-color;
+  }
+  &:active,
+  &.selected:hover,
+  &.selected:hover:active {
+    color: @color;
+    background: @base-background-color;
+  }
+}
+
+.btn-variant (@color) {
+  @bg: @color;
+  @hover: @color;
+  @selected: @color;
+  @border: @color;
+  .btn-background(@bg, @hover, @selected, @border, @text-color-selected, @text-color-selected);
+}
+
+.btn {
+  border-radius: 0;
+  .btn-background(@button-background-color, @button-background-color-hover, @button-background-color-selected, @button-border-color, @text-color, @text-color-highlight);
+  .selected {
+    background: @text-color-subtle;
+    border: 1px solid #000;
+  }
+}
+
+.btn.btn-primary {
+  .btn-variant(@background-color-info);
+}
+.btn.btn-info {
+  .btn-variant(@background-color-info);
+}
+.btn.btn-success {
+  .btn-variant(@background-color-success);
+}
+.btn.btn-warning {
+  .btn-variant(@background-color-warning);
+}
+.btn.btn-error {
+  .btn-variant(@background-color-error);
+}
+
+.btn-group {
+    .btn:last-child,
+    .btn:first-child,
+    .dropdown-toggle {
+        border-radius: 0;
+        border: 1px solid @base-border-color;
+
+        &:hover {
+          border-color: @text-color;
+        }
+    }
+
+    .btn.selected,
+    .btn.selected:last-child {
+      border: 1px solid @text-color;
+
+      &:hover {
+        color: @text-color;
+      }
+    }
+}

@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+var map = require('map-stream')
+var split = require('split')
+var ansi = require('../')({
+  chunked: 'line'
+})
+
+process.stdin.resume()
+process.stdin.setEncoding('utf8')
+
+process.stdin
+  .pipe(split())
+  .pipe(ansi)
+  .pipe(map(function(line, next) {
+    next(null, line + '\n')
+  }))
+  .pipe(process.stdout)
+
+console.log('<pre style="background-color:#000; color:#fff; padding:2em; overflow-x:scroll; max-width:80em">')
+
+process.on('exit', function() {
+  console.log('</pre>')
+})

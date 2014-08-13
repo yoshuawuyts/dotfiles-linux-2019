@@ -1,0 +1,60 @@
+@import "ui-mixins";
+@import "ui-variables";
+@import "buttons";
+
+.panel {
+  &.bordered {
+    color: auto;
+    border: 1px solid @base-border-color;
+    border-radius: @component-border-radius;
+  }
+}
+
+.tool-panel {
+  .text(normal);
+  position: relative;
+  background-color: @tool-panel-background-color;
+
+  .cursor-position {
+    color: @text-color-warning;
+  }
+
+  a {
+    color: @text-color-info;
+  }
+
+  &.panel-bottom {
+    border-top: 1px solid @tool-panel-border-color;
+  }
+
+  &.panel-left {
+    border-right: 1px solid @tool-panel-border-color;
+  }
+
+  &.panel-right {
+    border-left: 1px solid @tool-panel-border-color;
+  }
+
+  .inset-panel {
+    border-radius: @component-border-radius;
+
+    border: 1px solid @tool-panel-border-color;
+  }
+}
+
+.inset-panel {
+  position: relative;
+  background-color: @inset-panel-background-color;
+}
+
+.panel-heading {
+  border-bottom: none;
+  padding: @component-padding - 2px @component-padding;
+
+  background-color: @panel-heading-background-color;
+  .btn {
+    &:hover {
+      color: @text-color;
+    }
+  }
+}

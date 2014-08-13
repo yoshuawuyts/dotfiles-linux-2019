@@ -1,0 +1,102 @@
+@import "ui-variables";
+
+.editor.mini {
+  color: #fff;
+  background-color: @base-background-color;
+  border-radius: @component-border-radius;
+  padding-left: 5px;
+
+  .selection .region { background-color: #3a3a3a; }
+}
+
+.editor.editor-colors.mini.is-focused {
+  background-color: #252525;
+  .selection .region { background-color: #4c4c4c; }
+}
+
+// FIXME: these should go in syntax themes?
+.editor .gutter.drop-shadow {
+  -webkit-box-shadow: -2px 0 10px 2px #222;
+}
+
+@-webkit-keyframes highlight {
+  from { background-color: #3a3a3a; }
+  to { background-color: null; }
+}
+
+.editor .highlighted.selection .region {
+  -webkit-animation-name: highlight;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+}
+
+
+.editor,
+.editor.react {
+  .wrap-guide {
+    background-color: #5a5a5a;
+  }
+
+  .scroll-view {
+    padding-left: 0;
+  }
+
+  .gutter {
+    color: #666;
+    background-color: #282828;
+    border-right: none;
+
+    .cursor-line {
+      background-color: #232323;
+      opacity: 1;
+    }
+
+    .line-number {
+      text-indent: 0.5em;
+      padding-right: 0.5em;
+      opacity: 1;
+      .icon-right {
+        opacity: 1;
+        padding: 0 2px 0 0;
+      }
+      &.foldable .icon-right:before {
+          background: @fold-open-icon;
+          background-size: cover;
+          content: ' ';
+          height: 1.2em;
+          width: 1.6em;
+      }
+      &.foldable.folded .icon-right:before {
+          background: @fold-closed-icon;
+          background-size: cover;
+          content: ' ';
+          height: 1.2em;
+          width: 1.6em;
+      }
+    }
+
+    .gutter:hover .line-number.foldable .icon-right:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .line.cursor-line {
+    &:before {
+      content: ' ';
+      position: absolute;
+      left: 0;
+      right: 0;
+      z-index: -3;
+      background-color: rgb(37,37,37);
+    }
+  }
+
+  .cursor {
+    border-color: @cursor-color;
+    border-left-width: @cursor-width;
+  }
+}
+
+.editor-colors {
+  background-color: @base-background-color;
+}

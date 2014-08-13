@@ -1,0 +1,29 @@
+{
+  "name": "travis-ci-status",
+  "main": "./lib/travis-ci-status",
+  "version": "0.10.0",
+  "description": "Add Travis CI status of the project to the Atom status bar. ",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tombell/travis-ci-status"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "travis-ci": "1.2.0"
+  },
+  "readme": "# Travis CI Status Package\n\nAdd Travis CI status of the project to the Atom status bar.\n\n![Travis CI Status](https://raw.github.com/tombell/travis-ci-status/master/screenshots/travis-ci-status.png)\n\n## Installing\n\nUse the Atom package manager, which can be found in the Settings view or run\n`apm install travis-ci-status` from the command line.\n\n## Usage\n\nThe Travis CI build status for your repository will be indicated by the\nclock-arrow icon in the status bar. The icon will appear orange when it's\nrequesting the build status, green if the build was successful and red if the\nbuild failed.\n\nThe build status is updated when the project is first opened in Atom and from\nthen on whenever the \"status\" of the project repository changes. The handling of\nthese events was borrowed from the `git-view.coffee` part of the `status-bar`\npackage.\n\n### Travis Pro\n\nYou are able to use this with Travis Pro if you enable it in the settings view.\nYou will also need to generate and set a\n[GitHub API token](https://github.com/settings/tokens/new) to be able to\nauthenticate with the Travis Pro API.\n\n### Commands\n\nThe following commands are available for users to keymap.\n\n* `travis-ci-status:toggle` - Toggle the status bar entry\n* `travis-ci-status:toggle-build-matrix` - Toggle the build matrix panel\n* `travis-ci-status:open-on-travis` - Open the project on the Travis CI site\n\n## Coming Soon\n\n* Better icon for the status bar\n\nFeel free to open an issue to discuss potential features to add or improve.\n\n## Support\n\nIf you wish to support this package and help further its development, feel free\nto tip via Gittip.\n\n[![Gittip](http://img.shields.io/gittip/tombell.png)](https://www.gittip.com/tombell/)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/tombell/travis-ci-status/issues"
+  },
+  "homepage": "https://github.com/tombell/travis-ci-status",
+  "_id": "travis-ci-status@0.10.0",
+  "dist": {
+    "shasum": "439d807dfe57b81f90a1f7adf9c4b0b482ae24ff"
+  },
+  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-11476-5559-17ckzb4/package.tgz",
+  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-11476-5559-17ckzb4/package.tgz"
+}

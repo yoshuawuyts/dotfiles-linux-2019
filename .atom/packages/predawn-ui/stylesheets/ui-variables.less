@@ -1,0 +1,110 @@
+// Icons
+@tab-close-icon: -webkit-image-set(url("atom://predawn-ui/images/tab-close.png") 1x, url("atom://predawn-ui/images/tab-close@2x.png") 2x);
+@tab-close-icon-hover: -webkit-image-set(url("atom://predawn-ui/images/tab-close-hover.png") 1x, url("atom://predawn-ui/images/tab-close-hover@2x.png") 2x);
+@tab-close-icon-dirty: -webkit-image-set(url("atom://predawn-ui/images/tab-dirty.png") 1x, url("atom://predawn-ui/images/tab-dirty@2x.png") 2x);
+@fold-open-icon: -webkit-image-set(url("atom://predawn-ui/images/fold-open.png") 1x, url("atom://predawn-ui/images/fold-open@2x.png") 2x);
+@fold-closed-icon: -webkit-image-set(url("atom://predawn-ui/images/fold-closed.png") 1x, url("atom://predawn-ui/images/fold-closed@2x.png") 2x);
+@group-open-icon: -webkit-image-set(url("atom://predawn-ui/images/group-open.png") 1x, url("atom://predawn-ui/images/group-open@2x.png") 2x);
+@group-open-icon-selected: -webkit-image-set(url("atom://predawn-ui/images/group-open-selected.png") 1x, url("atom://predawn-ui/images/group-open-selected@2x.png") 2x);
+@group-closed-icon: -webkit-image-set(url("atom://predawn-ui/images/group-closed.png") 1x, url("atom://predawn-ui/images/group-closed@2x.png") 2x);
+@group-closed-icon-selected: -webkit-image-set(url("atom://predawn-ui/images/group-closed-selected.png") 1x, url("atom://predawn-ui/images/group-closed-selected@2x.png") 2x);
+@icon-file-symlink-directory: -webkit-image-set(url("atom://predawn-ui/images/icon-file-symlink-directory.png") 1x, url("atom://predawn-ui/images/icon-file-symlink-directory@2x.png") 2x);
+
+
+// Needed variables
+@text-color: rgba(255, 255, 255, 0.8);
+@text-color-subtle: rgba(255, 255, 255, 0.5);
+@text-color-highlight: #f18260;
+@text-color-selected: @text-color-highlight;
+
+@text-color-info: #5293d8;
+@text-color-success: #26c26a;
+@text-color-warning: #ff982d;
+@text-color-error: #c00;
+
+@text-color-ignored: @text-color-subtle;
+@text-color-added: @text-color-success;
+@text-color-renamed: @text-color-info;
+@text-color-modified: @text-color-warning;
+@text-color-removed: @text-color-error;
+
+@background-color-info: #0098ff;
+@background-color-success: #17ca65;
+@background-color-warning: #ffaa2c;
+@background-color-error: #c00;
+@background-color-highlight: transparent;
+@background-color-selected: #4182C4;
+
+@app-background-color: #282828;
+
+@base-background-color: #282828;
+@base-border-color: transparent;
+
+@pane-item-background-color: @base-background-color;
+@pane-item-border-color: @base-border-color;
+
+@input-background-color: #212224;
+@input-border-color: @base-border-color;
+
+@tool-panel-background-color: #232323;
+@tool-panel-border-color: @base-border-color;
+
+@inset-panel-background-color: @tool-panel-background-color;
+@inset-panel-border-color: @base-border-color;
+
+@panel-heading-background-color: #43484d;
+@panel-heading-border-color: @base-border-color;
+
+@overlay-background-color: #414141;
+@overlay-border-color: @base-border-color;
+
+@button-background-color: @base-background-color;
+@button-background-color-hover: lighten(@button-background-color, 5%);
+@button-background-color-active: darken(@button-background-color, 5%);
+@button-background-color-selected: #5c6064;
+@button-border-color: @base-border-color;
+
+@tab-bar-background-color: #1f1f1f;
+@tab-bar-border-color: darken(@tab-background-color-active, 10%);
+@tab-background-color: #1f1f1f;
+@tab-background-color-hover: lighten(@tab-background-color, 8%);
+@tab-background-color-active: #282828;
+@tab-border-color: #484848;
+
+@tree-view-background-color: #333333;
+@tree-view-border-color: @tool-panel-border-color;
+
+@scrollbar-background-color: rgba(42, 42, 42, 0.5);
+@scrollbar-color: rgba(92, 92, 92, 0.5);
+
+@ui-site-color-1: @background-color-success; // green
+@ui-site-color-2: @background-color-info; // blue
+@ui-site-color-3: @background-color-warning; // orange
+@ui-site-color-4: #db2ff4; // purple
+@ui-site-color-5: #f5e11d; // yellow
+
+@tip-background-color: @text-color-highlight;
+@tip-text-color: #fff;
+
+@cursor-color: @text-color-highlight;
+
+
+// Sizes
+
+@font-size: 13px;
+
+@disclosure-arrow-size: 12px;
+
+@component-padding: 6px;
+@component-icon-padding: 5px;
+@component-icon-size: 16px;
+@component-line-height: 25px;
+@component-border-radius: 0;
+
+@tab-height: 50px;
+@cursor-width: 2px;
+
+
+// Other
+
+@font-family: 'Lucida Grande', 'Segoe UI', sans-serif;

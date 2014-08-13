@@ -1,0 +1,64 @@
+.editor.mini {
+  background: #FFF;
+  box-sizing:border-box;
+  font-family:"Helvetica Neue" !important;
+  font-size:12px;
+  padding: 0 5px;
+  border-radius: 3px;
+  background:#fff;
+  border-style:solid;
+  border-width:1px;
+  box-shadow:0 1px 0 rgba(0,0,0,.05);
+  border-top-color:#C9C9C9!important;
+  border-left-color:#C3C3C3!important;
+  border-right-color:#C3C3C3!important;
+  border-bottom-color:#BCBCBC!important;
+  line-height:23px;
+
+  .placeholder-text {
+    color:#999;
+  }
+
+  .cursor {
+    border-color:#ccc;
+  }
+
+  .gutter.drop-shadow {
+    -webkit-box-shadow: -2px 0px 10px 2px #222222;
+  }
+
+  // &.is-focused {
+  //   outline: auto 5px -webkit-focus-ring-color;
+  // }
+}
+
+.editor-colors.mini {
+  color:#555;
+}
+
+.editor.mini .selection .region {
+  background-color: rgba(56,146,227,0.25);
+}
+
+.wrap-guide {
+  display: none!important;
+}
+
+@-webkit-keyframes highlight {
+  from {
+    background-color: rgba(56,146,227,0.7);
+  }
+  to {
+    background-color: null;
+  }
+}
+
+.editor .highlighted.selection .region {
+  -webkit-animation-name: highlight;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+}
+
+.editor .invisible-character {
+  opacity:0.25;
+}

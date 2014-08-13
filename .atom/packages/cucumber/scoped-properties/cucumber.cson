@@ -1,0 +1,17 @@
+'.text.gherkin.feature':
+  'editor':
+    'completions': [
+      'As a'
+      'As an'
+      'I want to'
+      'So that'
+      'Story:'
+      'Scenario:'
+      'Scenario Outline:'
+      'Given'
+      'Then'
+      'When'
+      'And'
+      'But'
+    ]
+    'increaseIndentPattern': 'Scenario: .*'

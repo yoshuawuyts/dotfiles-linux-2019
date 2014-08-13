@@ -1,0 +1,26 @@
+{
+  "name": "white-ui",
+  "theme": "ui",
+  "version": "2.0.5",
+  "description": "Minimal white UI theme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/williamtguerra/white-ui"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# White theme\n\nMinimal white UI theme for Atom.\n\n![](https://raw.githubusercontent.com/williamtguerra/atom-white-ui/master/screenshot.png)\n\n* No rounded corners\n* No bevels\n* No gradients\n* No shadows\n\n## Install\n\nFrom the command line:\n\n```bash\n$ apm install white-ui\n```\n\nAlternatively, open Atom Preferences, select Themes > Search for `white`,\nthen Install.\n\nActivate the theme by selecting the Themes section of Preferences.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/williamtguerra/white-ui/issues"
+  },
+  "homepage": "https://github.com/williamtguerra/white-ui",
+  "_id": "white-ui@2.0.5",
+  "dist": {
+    "shasum": "f8f2cb1d7130d2f51d17ccbab25e820ee24d46aa"
+  },
+  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114522-9915-1w6zfuh/package.tgz",
+  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114522-9915-1w6zfuh/package.tgz"
+}

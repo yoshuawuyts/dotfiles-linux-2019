@@ -1,0 +1,32 @@
+'.source.ruby.rspec.cucumber.steps':
+  'Cucumber Multiline Steps':
+    'prefix': 'steps'
+    'body': 'steps <<-CUCUMBER\n${1:`pbpaste`}\nCUCUMBER'
+  'Given Step':
+    'prefix': 'giv'
+    'body': 'Given ${1:step name} do\n  $0\nend\n\n'
+  'Then Step':
+    'prefix': 'the'
+    'body': 'Then ${1:step name} do\n  $0\nend\n\n'
+  'When Step':
+    'prefix': 'whe'
+    'body': 'When ${1:step name} do\n  $0\nend\n\n'
+'.text.gherkin.feature':
+  'Scenario (heading only)':
+    'prefix': 'sc'
+    'body': 'Scenario: ${1:title}\n$0\n'
+  'Scenario Outline':
+    'prefix': 'sco'
+    'body': 'Scenario Outline: ${1:title}\n  Given ${2:context}\n  When ${3:event}\n  Then ${4:outcome}\n'
+  'Scenario':
+    'prefix': 'sce'
+    'body': 'Scenario: ${1:title}\n  Given ${2:context}\n  When ${3:event}\n  Then ${4:outcome}\n$0\n$0\n'
+  'Feature':
+    'prefix': 'fea'
+    'body': 'Feature: ${1:`#!/usr/bin/env ruby\n\ttitle = (ENV[\'TM_FILENAME\'] || \'title\').gsub(/\\..*$/, \'\').gsub(/[-_]/, \' \')\n\tputs title[0..0].upcase + title[1..-1].downcase\n\t`}\n  In order to ${2:value}\n  As a ${3:role}\n  I want ${4:feature}\n\n  $0\n'
+  'Then Step Plaintext':
+    'prefix': 'the'
+    'body': 'Then ${1:outcome}'
+  'When Step Plaintext':
+    'prefix': 'whe'
+    'body': 'When ${1:event}'

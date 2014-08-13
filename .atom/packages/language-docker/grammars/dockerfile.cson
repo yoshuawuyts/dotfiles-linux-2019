@@ -1,0 +1,41 @@
+'name': 'Dockerfile'
+'fileTypes': [
+  'Dockerfile'
+]
+'patterns': [
+  {
+    'match': '^\\s*(ONBUILD\\s+)?(FROM|MAINTAINER|RUN|EXPOSE|ENV|ADD|VOLUME|USER|WORKDIR|CMD|ENTRYPOINT)\\s'
+    'captures':
+      '0':
+        'name': 'keyword.control.dockerfile'
+      '1':
+        'name': 'keyword.other.special-method.dockerfile'
+  }
+  {
+    'begin': '"'
+    'end': '"'
+    'name': 'string.quoted.double.dockerfile'
+    'patterns': [
+      {
+        'match': '\\\\.'
+        'name': 'constant.character.escaped.dockerfile'
+      }
+    ]
+  }
+  {
+    'begin': '\''
+    'end': '\''
+    'name': 'string.quoted.single.dockerfile'
+    'patterns': [
+      {
+        'match': '\\\\.'
+        'name': 'constant.character.escaped.dockerfile'
+      }
+    ]
+  }
+  {
+    'match': '^\\s*#.*$'
+    'name': 'comment.block.dockerfile'
+  }
+]
+'scopeName': 'source.dockerfile'

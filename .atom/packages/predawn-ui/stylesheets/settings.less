@@ -1,0 +1,10 @@
+@import "ui-variables";
+
+.settings-view .config-menu .nav > li.active > a {
+  background-color: @text-color-highlight;
+}
+
+.form-control:focus {
+  border-color: lighten(@text-color-highlight, 10%);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px fade(@text-color-highlight, 60%);
+}

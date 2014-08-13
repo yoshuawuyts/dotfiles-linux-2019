@@ -1,0 +1,31 @@
+{
+  "name": "autocomplete-paths",
+  "main": "./lib/autocomplete-paths",
+  "version": "0.7.0",
+  "description": "Adds path autocompletion to autocomplete+",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saschagehlich/autocomplete-paths"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "underscore-plus": "~1.1.2",
+    "autocomplete-plus": "git://github.com/saschagehlich/autocomplete-plus.git",
+    "fuzzaldrin": "~1.0.0"
+  },
+  "readme": "# autocomplete-paths package [![Build Status](https://travis-ci.org/saschagehlich/autocomplete-paths.svg?branch=master)](https://travis-ci.org/saschagehlich/autocomplete-paths)\n\n[View the changelog](https://github.com/saschagehlich/autocomplete-paths/blob/master/CHANGELOG.md)\n\nAdds path autocompletion to autocomplete+\n\n![autocomplete-paths](http://s1.directupload.net/images/140411/p5kvife6.gif)\n\n## Installation\n\nYou can install autocomplete-paths using the Preferences pane.\n\n**Please make sure you have autocomplete-plus installed as well**\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/saschagehlich/autocomplete-paths/issues"
+  },
+  "homepage": "https://github.com/saschagehlich/autocomplete-paths",
+  "_id": "autocomplete-paths@0.7.0",
+  "dist": {
+    "shasum": "7e7a8636d782eb74d271479ab94153095e88f040"
+  },
+  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114713-18342-hhlsuw/package.tgz",
+  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114713-18342-hhlsuw/package.tgz"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "language-docker",
+  "version": "1.1.1",
+  "private": false,
+  "description": "Dockerfile syntax highlighting",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jagregory/language-docker"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# Atom Docker syntax highlighting\n\nAtom syntax highlighting for Dockerfiles.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jagregory/language-docker/issues"
+  },
+  "homepage": "https://github.com/jagregory/language-docker",
+  "_id": "language-docker@1.1.1",
+  "dist": {
+    "shasum": "699a1caea11df22a9c6acb917632c80c571f168c"
+  },
+  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-11476-71747-q2l7gf/package.tgz",
+  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-11476-71747-q2l7gf/package.tgz"
+}
