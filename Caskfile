@@ -18,10 +18,8 @@ cask install opera
 cask install sketch-tool
 cask install sonos
 cask install spotify
-cask install sublime-text
 cask install the-unarchiver
 cask install transmission
-cask install ukelele
 cask install vagrant
 cask install virtualbox
 cask install vlc
