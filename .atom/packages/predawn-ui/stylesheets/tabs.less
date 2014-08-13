@@ -3,6 +3,8 @@
   line-height: @tab-height;
   background-color: @tab-bar-background-color;
 
+
+
   .tab {
     display: inline-block;
     height: @tab-height;
@@ -16,6 +18,9 @@
 
     .title {
       opacity: @text-color-subtle;
+      &:before {
+        color: rgba(255,255,255,0.25) !important;
+      }
     }
 
     &:first-child {

@@ -53,62 +53,15 @@
     .header:before {
       display: none !important;
     }
-
-    &.expanded .icon-repo,
-    &.expanded .icon-file-directory {
-      &:before {
-        background-image: @group-open-icon;
-        content: " ";
-        width: 24px;
-        height: 16px;
-        margin-right: 0 !important;
-        top: 4px;
-      }
-    }
-
-    &.collapsed .icon-repo,
-    &.collapsed .icon-file-directory {
-      &:before {
-        background-image: @group-closed-icon;
-        content: " ";
-        width: 24px;
-        height: 16px;
-        margin-right: 0 !important;
-        top: 4px;
-      }
-    }
-    &.expanded .icon-file-symlink-directory {
-      &:before {
-        background-image: @icon-file-symlink-directory;
-        content: " ";
-        width: 24px;
-        height: 16px;
-        margin-right: 0 !important;
-        top: 4px;
-      }
-    }
-
-    &.collapsed .icon-file-symlink-directory {
-      &:before {
-        background-image: @icon-file-symlink-directory;
-        content: " ";
-        width: 24px;
-        height: 16px;
-        margin-right: 0 !important;
-        top: 4px;
-      }
-    }
   }
 
-  .list-item {
-    transition: color 100ms ease-in-out;
-    .icon-file-text:before,
-    .icon-file-media:before,
-    .icon-book:before {
-      content: '';
-      width: 0;
-      margin-right: 0 !important;
-    }
+  .icon:before {
+    color: rgba(255,255,255,0.25);
+    transition: color 200ms ease;
+  }
+
+  .selected .icon:before {
+    color: #f18260 !important;
   }
 
   li:not(.list-nested-item) {
@@ -116,12 +69,8 @@
       color: white !important;
 
       &:before {
-        background-color: #2c2c2c;
+        background-color: #282828;
       }
     }
-  }
-
-  .file {
-    margin-left: 24px !important;
   }
 }
