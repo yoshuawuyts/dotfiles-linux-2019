@@ -46,6 +46,8 @@ install nsq
 install jq
 install redis
 install postresql
+install xz
+install cowthink
 
 install homebrew/binary/packer
 install homebrew/versions/lua52
