@@ -1,7 +1,7 @@
 {
   "name": "predawn-ui",
   "theme": "ui",
-  "version": "0.3.4",
+  "version": "0.3.6",
   "description": "Predawn UI Theme for Atom",
   "repository": {
     "type": "git",
@@ -11,16 +11,16 @@
   "engines": {
     "atom": ">0.50.0"
   },
-  "readme": "# Predawn\n\n### A dark interface and syntax theme for [Atom](https://atom.io/packages/predawn-ui) and [Sublime Text](https://sublime.wbond.net/packages/Predawn).\n\n## About\n\nPredawn is a minimal interface theme and a syntax color scheme. It was originally just a slightly tweaked version (called Flatland-Alt) of the [Flatland](https://github.com/thinkpixellab/flatland) theme, which itself is a flat reworking of [Soda](https://github.com/buymeasoda/soda-theme/). I decided to keep going with cusomization and rework the entire theme. But I owe a lot to Flatland and Soda. Thanks guys!\n\nAlso, big thanks to @johman10 and @adammw for helping get this ported over!\n\n![Predawn UI and Syntax Themes](https://raw.githubusercontent.com/jamiewilson/predawn-ui/master/images/predawn-atom.png)\n\n\n## Installation\n\nEither, search for it in the Packages section in you Atom settings tab. Or from the command-line run:\n\n\tapm install predawn-ui\n\nAlso, view on Atom.io at http://atom.io/packages/predawn-ui\n\n## Syntax Theme\nI also highly reccomend installing the accompanying syntax theme, called [**predawn-syntax**](https://github.com/jamiewilson/predawn-syntax).\n\n## I also threw in some dock icons just for fun:\n![Atom Predawn Dock Icons](https://raw.githubusercontent.com/jamiewilson/predawn-ui/master/dock-icons/atom-predawn-dock-icons.png)\n\n## Sublime Text\n[You can also find Predawn for Sublime Text here.](https://github.com/jamiewilson/predawn)\n",
+  "readme": "# Predawn for Atom\n\n### A dark UI and [syntax theme](https://github.com/jamiewilson/predawn-syntax) for [Atom](https://atom.io/packages/predawn-ui) and [Sublime Text](https://sublime.wbond.net/packages/Predawn)\n\n# About\n\nPredawn is a minimal interface theme and a syntax color scheme. It was originally just a slightly tweaked version (called Flatland-Alt) of the [Flatland](https://github.com/thinkpixellab/flatland) theme, which itself is a flat reworking of [Soda](https://github.com/buymeasoda/soda-theme/). I decided to keep going with cusomization and rework the entire theme. But I owe a lot to Flatland and Soda. Thanks guys!\n\nAlso, big thanks to [@johman10](http://github.com/johman10) and [@adammw](http://github.com/adammw) for helping get this ported over!\n\n![Predawn UI and Syntax Themes](https://raw.githubusercontent.com/jamiewilson/predawn-ui/master/images/predawn-atom.png)\n\n\n# Installation\n\nEither, search for it in the Packages section in you Atom settings tab. Or from the command-line run:\n\n\tapm install predawn-ui\n\nAlso, view on Atom.io at http://atom.io/packages/predawn-ui\n\n## Syntax Theme\nI also highly reccomend installing the accompanying syntax theme, called [**predawn-syntax**](https://github.com/jamiewilson/predawn-syntax).\n\n## I also threw in some dock icons just for fun:\n![Atom Predawn Dock Icons](https://raw.githubusercontent.com/jamiewilson/predawn-ui/master/dock-icons/atom-predawn-dock-icons.png)\n\n## Sublime Text\n[You can also find Predawn for Sublime Text here.](https://github.com/jamiewilson/predawn)\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/jamiewilson/predawn-ui/issues"
   },
   "homepage": "https://github.com/jamiewilson/predawn-ui",
-  "_id": "predawn-ui@0.3.4",
+  "_id": "predawn-ui@0.3.6",
   "dist": {
-    "shasum": "53580467f12bd1a28747caa6c00f9e3ed1ca09ea"
+    "shasum": "f86656067185e8c0459240a8c66d6500ca0e8fa1"
   },
-  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114713-11519-zmfyl6/package.tgz",
-  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114713-11519-zmfyl6/package.tgz"
+  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114714-12222-1d37bc3/package.tgz",
+  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114714-12222-1d37bc3/package.tgz"
 }
