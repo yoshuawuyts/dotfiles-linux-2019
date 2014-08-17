@@ -1,0 +1,26 @@
+{
+  "name": "language-go",
+  "description": "Go language support in Atom",
+  "version": "0.16.0",
+  "license": "MIT",
+  "engines": {
+    "atom": "*",
+    "node": "*"
+  },
+  "homepage": "http://atom.github.io/language-go",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atom/language-go.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atom/language-go/issues"
+  },
+  "readme": "# Go language support in Atom\n\nAdds syntax highlighting and snippets to Go files in Atom.\n\nOriginally [converted](http://atom.io/docs/latest/converting-a-text-mate-bundle)\nfrom the [Go TextMate bundle](https://github.com/rsms/Go.tmbundle).\n\nContributions are greatly appreciated. Please fork this repository and open a\npull request to add snippets, make grammar tweaks, etc.\n",
+  "readmeFilename": "README.md",
+  "_id": "language-go@0.16.0",
+  "dist": {
+    "shasum": "54be06d33af8650604cdf290d08acb91fe1578c6"
+  },
+  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114717-7976-15byk9a/package.tgz",
+  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114717-7976-15byk9a/package.tgz"
+}
