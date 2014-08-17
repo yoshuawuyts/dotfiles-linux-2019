@@ -13,9 +13,15 @@ cd dotfiles && \
 source ./setup/index.sh
 ```
 
+## Resources
+- [mathiasbynens/dotfiles][mathias]
+- [kevensuttle/osxdefaults][osx]
+
 ## License
 [MIT](https://tldrlegal.com/license/mit-license) ©
 [Yoshua Wuyts](yoshuawuyts.com)
 
 [brewfile]: https://github.com/yoshuawuyts/dotfiles/blob/master/.setup/Brewfile
 [caskfile]: https://github.com/yoshuawuyts/dotfiles/blob/master/.setup/Caskfile
+[mathias]: https://github.com/mathiasbynens/dotfiles
+[osx]: https://github.com/kevinSuttle/OSXDefaults/blob/master/.osx
