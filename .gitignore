@@ -16,9 +16,7 @@
 # Setup.
 #
 
-!config.sh
-!Brewfile
-!Caskfile
+!.setup/
 
 #
 # Configuration.
