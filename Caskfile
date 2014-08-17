@@ -19,7 +19,7 @@ cask install sketch-tool
 cask install sonos
 cask install spotify
 cask install the-unarchiver
-cask install transmission
+cask install utorrent
 cask install vagrant
 cask install virtualbox
 cask install vlc
