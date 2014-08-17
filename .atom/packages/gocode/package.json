@@ -1,0 +1,31 @@
+{
+  "name": "gocode",
+  "version": "0.2.1",
+  "main": "./lib/autocomplete",
+  "description": "Golang auto completions by gocode",
+  "activationEvents": {
+    "gocode:toggle": ".editor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/typester/atom-gocode"
+  },
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {
+    "underscore-plus": "1.x"
+  },
+  "readme": "# Atom gocode completion package\n\nGolang auto completions by [gocode](https://github.com/nsf/gocode).\n\n\n## Usage\n\nTo activate gocode completion, run `gocode:toggle` via CommandPalette,\nor apply some keybindings in your keymap.cson:\n\n```coffee\n'.active.pane':\n  'ctrl-;': 'gocode:toggle'\n```\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/typester/atom-gocode/issues"
+  },
+  "homepage": "https://github.com/typester/atom-gocode",
+  "_id": "gocode@0.2.1",
+  "dist": {
+    "shasum": "00d1cbf8655af41e42eebdbf9be2a7321c057cfd"
+  },
+  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114715-11164-1hd5d9i/package.tgz",
+  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114715-11164-1hd5d9i/package.tgz"
+}

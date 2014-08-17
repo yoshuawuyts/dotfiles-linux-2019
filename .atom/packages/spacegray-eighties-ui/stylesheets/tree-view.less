@@ -1,0 +1,24 @@
+@import "ui-variables";
+
+.tree-view {
+  font-size: @font-size;
+  font-family: @font-family;
+  background-color: @tree-background-color;
+
+  >.directory.entry.selected:before {
+    height: @tab-height;
+  }
+}
+
+.focusable-panel {
+  opacity: 1;
+
+  &:focus {
+    .selected > .name,
+    .selected > .name:before,
+    .selected > .list-item > .name,
+    .selected > .list-item > .name:before {
+      color: #fff !important;
+    }
+  }
+}

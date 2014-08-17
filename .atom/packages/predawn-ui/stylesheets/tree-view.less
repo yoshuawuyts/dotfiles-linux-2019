@@ -19,9 +19,12 @@
   vertical-align: middle;
 
   &.has-collapsable-children .list-nested-item {
-    & > .list-tree > li,
-    & > .list-group > li {
-      padding-left: 12px;
+    > .list-tree {
+      > li,
+      li.list-item {
+        padding-left: 21px !important;
+        margin-left: 0;
+      }
     }
   }
 
@@ -57,7 +60,7 @@
 
   .icon:before {
     color: rgba(255,255,255,0.25);
-    transition: color 200ms ease;
+    text-align: left;
   }
 
   .selected .icon:before {

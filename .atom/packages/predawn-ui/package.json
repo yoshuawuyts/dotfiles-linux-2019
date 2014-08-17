@@ -1,7 +1,7 @@
 {
   "name": "predawn-ui",
   "theme": "ui",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "Predawn UI Theme for Atom",
   "repository": {
     "type": "git",
@@ -17,10 +17,10 @@
     "url": "https://github.com/jamiewilson/predawn-ui/issues"
   },
   "homepage": "https://github.com/jamiewilson/predawn-ui",
-  "_id": "predawn-ui@0.3.6",
+  "_id": "predawn-ui@0.3.7",
   "dist": {
-    "shasum": "f86656067185e8c0459240a8c66d6500ca0e8fa1"
+    "shasum": "acd3fb85bfbb62b4e9918bb77f0d787a811c98f3"
   },
-  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114714-12222-1d37bc3/package.tgz",
-  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114714-12222-1d37bc3/package.tgz"
+  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114715-10811-ls41vb/package.tgz",
+  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114715-10811-ls41vb/package.tgz"
 }

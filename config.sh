@@ -11,3 +11,6 @@ killall SystemUIServer;
 # create a setup folder with all necessary setup files
 
 # run a 'clean' command: rm -f ~/.zcompdump*
+
+# Install Homebrew
+# ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"

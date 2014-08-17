@@ -1,0 +1,63 @@
+@import "ui-mixins";
+@import "ui-variables";
+@import "buttons";
+
+.pane-item {
+  .panel {
+    border-color: fadeout(@inset-panel-border-color, 30%);
+  }
+}
+
+.panes {
+  .pane {
+    background-color: @editor-background-color;
+
+    .item-views .pane-item {
+      background-color: @editor-background-color;
+      font-family: @font-family-code;
+      font-size: @font-size;
+    }
+
+    &:focus {
+      background-color: @app-background-color;
+    }
+  }
+
+  .pane-row > * {
+    border-right: 1px solid @pane-item-border-color;
+    &:last-child { border-right: none; }
+  }
+
+  .pane-column > * {
+    border-bottom: 1px solid @pane-item-border-color;
+    &:last-child { border-bottom: none; }
+  }
+}
+
+.preview-pane {
+  .list-tree li.list-nested-item > .list-item {
+    color: @05;
+  }
+
+  .list-tree li:not(.list-nested-item) {
+    color: @05;
+  }
+
+  .highlight-info {
+    color: @05;
+    background-color: @00;
+    border: 1px solid @0A;
+    border-radius: 3px;
+    padding: 2px 1px;
+  }
+  .preview-count {
+    .highlight-info {
+      color: @0A;
+      background-color: @00;
+      border: none;
+    }
+  }
+  .results-view .line-number {
+    color: @09;
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "spacegray-eighties-ui",
+  "theme": "ui",
+  "version": "0.7.0",
+  "description": "Port of the Spacegray Eighties (http://kkga.github.io/spacegray) Sublime Text theme to Atom",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emilyemorehouse/spacegray-eighties-ui"
+  },
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# Spacegray Eighties UI theme\n\nPort of the [Spacegray Eighties](http://kkga.github.io/spacegray) Sublime Text theme to Atom.\nUI Theme to match base16 Eighties Syntax (http://chriskempson.github.io/base16/#eighties). \n\nIf these colors aren't to your liking, [check out my other packages!](https://atom.io/users/emilyemorehouse)\nOr make a request.\n\n\nCredit to  [cannikin's original port](https://github.com/cannikin/spacegray-dark-ui).\n\n![screenshot](https://s3-us-west-2.amazonaws.com/emilyemorehouse/spacegrayeighties)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/emilyemorehouse/spacegray-eighties-ui/issues"
+  },
+  "homepage": "https://github.com/emilyemorehouse/spacegray-eighties-ui",
+  "_id": "spacegray-eighties-ui@0.7.0",
+  "dist": {
+    "shasum": "d13560612bf66ebf4cf6e6ba23b790ee8325f043"
+  },
+  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114716-6070-18mpus1/package.tgz",
+  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114716-6070-18mpus1/package.tgz"
+}

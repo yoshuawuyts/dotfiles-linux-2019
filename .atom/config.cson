@@ -10,8 +10,8 @@
   'fontSize': 15
 'core':
   'themes': [
-    'predawn-ui'
-    'predawn-syntax'
+    'spacegray-eighties-ui'
+    'tomorrow-night-eighties'
   ]
   'useReactEditor': true
 'linter':
