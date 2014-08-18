@@ -25,3 +25,4 @@ cask install virtualbox
 cask install vlc
 cask install licecap
 cask install calibre
+cask install spectacle
