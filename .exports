@@ -25,3 +25,9 @@ export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 export PATH=$PATH:/usr/lib/jvm/java-6-openjdk/bin
+
+#
+# Node.
+#
+
+export NVM_DIR=~/.nvm

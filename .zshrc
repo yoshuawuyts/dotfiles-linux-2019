@@ -19,5 +19,5 @@ source ~/.aliases
 #
 
 source /Users/yoshuawuyts/.gvm/scripts/gvm
+source $(brew --prefix nvm)/nvm.sh
 source ~/.rvm/scripts/rvm
-source ~/.nvm/nvm.sh

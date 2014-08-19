@@ -48,6 +48,7 @@ install redis
 install postresql
 install xz
 install cowthink
+install mercurial
 
 install homebrew/binary/packer
 install homebrew/versions/lua52
