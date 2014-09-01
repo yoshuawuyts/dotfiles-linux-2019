@@ -1,3 +1,18 @@
+# v0.5.15
+
+### New Features
+* Allow `executablePath` to be a path to an actual executable. Fixes some
+  `spawn ENOTDIR` errors (See [#190][190], [#102][102], [#95][95])
+
+[95]: https://github.com/AtomLinter/Linter/issues/95#issuecomment-50035054
+[102]: https://github.com/AtomLinter/Linter/issues/102#issuecomment-47029312
+[190]: https://github.com/AtomLinter/Linter/issues/190)
+
+# v0.5.14
+
+### Bug Fixes
+* Fix `spawn ENOENT` errors in projects that have `package.json` files (See [#119](https://github.com/AtomLinter/Linter/issues/119), [#179](https://github.com/AtomLinter/Linter/pull/179))
+
 # v0.5.12
 
 ### Bug Fixes

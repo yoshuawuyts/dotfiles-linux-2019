@@ -1,6 +1,8 @@
-{XRegExp} = require 'xregexp'
+fs = require 'fs'
 path = require 'path'
 {Range, Point, BufferedProcess} = require 'atom'
+_ = require 'lodash'
+{XRegExp} = require 'xregexp'
 {log, warn} = require './utils'
 
 # Public: The base class for linters.
@@ -11,8 +13,8 @@ class Linter
   # list/tuple of strings. Names should be all lowercase.
   @syntax: ''
 
-  # A string, list, tuple or callable that returns a string, list or tuple,
-  # containing the command line (with arguments) used to lint.
+  # A string or array containing the command line (with arguments) used to
+  # lint.
   cmd: ''
 
   # A regex pattern used to extract information from the executable's output.
@@ -48,17 +50,31 @@ class Linter
   constructor: (@editor) ->
     @cwd = path.dirname(editor.getUri())
 
+  # Private: Exists mostly so we can use statSync without slowing down linting.
+  # TODO: Do this at constructor time?
+  _cachedStatSync: _.memoize (path) ->
+    fs.statSync path
+
   # Private: get command and args for atom.BufferedProcess for execution
   getCmdAndArgs: (filePath) ->
     cmd = @cmd
 
-    if not Array.isArray(cmd)
-      cmd_list = cmd.split(' ').concat [filePath]
+    # ensure we have an array
+    cmd_list = if Array.isArray cmd
+      cmd.slice()  # copy since we're going to modify it
     else
-      cmd_list = cmd.concat [filePath]
+      cmd.split ' '
+
+    cmd_list.push filePath
 
     if @executablePath
-      cmd_list[0] = path.join @executablePath, cmd_list[0]
+      stats = @_cachedStatSync @executablePath
+      if stats.isDirectory()
+        cmd_list[0] = path.join @executablePath, cmd_list[0]
+      else
+        # because of the name exectablePath, people sometimes set it to the
+        # full path of the linter executable
+        cmd_list[0] = @executablePath
 
     if @isNodeExecutable
       cmd_list.unshift(@getNodeExecutablePath())
@@ -80,9 +96,7 @@ class Linter
   # Private: Provide the node executable path for use when executing a node
   #          linter
   getNodeExecutablePath: ->
-    path.join require.resolve('package'),
-      '..',
-      'apm/node_modules/atom-package-manager/bin/node'
+    path.join atom.packages.apmPath, '..', 'node'
 
   # Public: Primary entry point for a linter, executes the linter then calls
   #         processMessage in order to handle standard output

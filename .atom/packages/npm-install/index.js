@@ -131,8 +131,11 @@ function save(opts) {
         found = found.filter(Boolean)
 
         if (!found.length) return notice(messages.alreadyInstalled, 'success')
+        var exe = process.platform === 'win32'
+          ? 'npm.cmd'
+          : 'npm'
 
-        npm = spawn('npm', [
+        npm = spawn(exe, [
             'install'
           , '--color=always'
           , flag

@@ -1,7 +1,7 @@
 {
   "name": "npm-install",
   "main": "./index",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "Automatically install and save any missing npm modules being used in the current file",
   "activationEvents": [
@@ -28,16 +28,16 @@
     "resolve": "^0.6.1",
     "safe-json-parse": "^1.0.1"
   },
-  "readme": "# npm-install [![Flattr this!](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=hughskennedy&url=http://github.com/hughsk/npm-install&title=npm-install&description=hughsk/npm-install%20on%20GitHub&language=en_GB&tags=flattr,github,javascript&category=software)[![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges) #\n\nAutomatically install and save any missing npm modules being used in the current file.\n\n![Imgur](http://i.imgur.com/yH6kdSq.gif)\n\nUses [detective](http://github.com/substack/node-detective) to analyse the current file for require calls, installing and saving any that aren't already in the project's `package.json` file.\n\n## Usage ##\n\nOpen the Command Palette, and type `npm install` if you're in a JavaScript or CoffeeScript file.\n\n## Fixing your PATH ##\n\nIn some cases, Atom won't always have the correct path to resolve npm. This\nwill result in an `ENOENT` error. In that case, add the following to the top\nof your init script:\n\n``` javascript\nprocess.env.PATH = ':/usr/local/bin'\n```\n\n## License ##\n\nMIT. See [LICENSE.md](http://github.com/hughsk/npm-install/blob/master/LICENSE.md) for details.\n",
+  "readme": "# npm-install [![Flattr this!](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=hughskennedy&url=http://github.com/hughsk/npm-install&title=npm-install&description=hughsk/npm-install%20on%20GitHub&language=en_GB&tags=flattr,github,javascript&category=software)[![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges) #\n\nAutomatically install and save any missing npm modules being used in the current file.\n\n![Imgur](http://i.imgur.com/yH6kdSq.gif)\n\nUses [detective](http://github.com/substack/node-detective) to analyse the current file for require calls, installing and saving any that aren't already in the project's `package.json` file.\n\n## Usage ##\n\nOpen the Command Palette, and type `npm install` if you're in a JavaScript or CoffeeScript file.\n\n## Fixing your PATH ##\n\nIn some cases, Atom won't always have the correct path to resolve npm. This\nwill result in an `ENOENT` error. In that case, add the following to the top\nof your init script:\n\n``` javascript\nprocess.env.PATH = ':/usr/local/bin'\n```\n\n## Keybindings ##\n\nAs of version `2.0.0` keybindings are not included by default. If you miss\nthese shortcuts, simply add the following to your keymap file:\n\n``` coffeescript\n'.workspace':\n  'ctrl-alt-i': 'npm-install:save'\n  'ctrl-alt-d': 'npm-install:save-dev'\n```\n\n## License ##\n\nMIT. See [LICENSE.md](http://github.com/hughsk/npm-install/blob/master/LICENSE.md) for details.\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/hughsk/atom-npm-install/issues"
   },
   "homepage": "https://github.com/hughsk/atom-npm-install",
-  "_id": "npm-install@1.0.0",
+  "_id": "npm-install@2.0.0",
   "dist": {
-    "shasum": "cbdecd481b1ee5a28052ba0b7dfd4c34a7acca2c"
+    "shasum": "7a756201a3f95be4804be4f96c088773797e57ed"
   },
-  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114713-19315-h7322z/package.tgz",
-  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114713-19315-h7322z/package.tgz"
+  "_resolved": "/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-11481-72635-rpmr0j/package.tgz",
+  "_from": "/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-11481-72635-rpmr0j/package.tgz"
 }

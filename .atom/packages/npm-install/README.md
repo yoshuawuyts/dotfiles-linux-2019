@@ -20,6 +20,17 @@ of your init script:
 process.env.PATH = ':/usr/local/bin'
 ```
 
+## Keybindings ##
+
+As of version `2.0.0` keybindings are not included by default. If you miss
+these shortcuts, simply add the following to your keymap file:
+
+``` coffeescript
+'.workspace':
+  'ctrl-alt-i': 'npm-install:save'
+  'ctrl-alt-d': 'npm-install:save-dev'
+```
+
 ## License ##
 
 MIT. See [LICENSE.md](http://github.com/hughsk/npm-install/blob/master/LICENSE.md) for details.

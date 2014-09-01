@@ -60,7 +60,7 @@ class BuildStatusView extends View
   #
   # Returns an object for the pane item if it exists, else undefined.
   getActiveItem: ->
-    atom.workspaceView.getActivePaneItem()
+    atom.workspace.getActivePaneItem()
 
   # Internal: Subcribe to events on the projects repository object.
   #
