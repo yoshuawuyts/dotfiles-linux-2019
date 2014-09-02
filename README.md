@@ -9,8 +9,9 @@ Paste this snippet in `terminal.app`:
 ```bash
 cd ~/ && \
 git clone https://github.com/yoshuawuyts/dotfiles.git && \
-cd dotfiles && \
-source ./setup/index.sh
+mv ./dotfiles/** ~/ && \
+mv ./dotfiles.* ~/ && \
+sh ./.setup/index.sh
 ```
 
 ## Resources
