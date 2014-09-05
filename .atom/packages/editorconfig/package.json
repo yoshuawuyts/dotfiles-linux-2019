@@ -1,0 +1,35 @@
+{
+  "name": "editorconfig",
+  "version": "0.2.0",
+  "description": "Helps developers maintain consistent coding styles between different editors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sindresorhus/atom-editorconfig"
+  },
+  "private": true,
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "http://sindresorhus.com"
+  },
+  "engines": {
+    "atom": ">=0.60.0"
+  },
+  "dependencies": {
+    "emissary": "^1.0.0",
+    "editorconfig": "^0.11.4"
+  },
+  "readme": "# EditorConfig\n\n[Atom package](https://atom.io/packages/editorconfig)\n\n> [EditorConfig](http://editorconfig.org) helps developers maintain consistent coding styles between different editors\n\n![](https://f.cloud.github.com/assets/170270/2327994/dfe40cb4-a3f6-11e3-862f-894999973373.png)\n\n\n## Install\n\n```bash\n$ apm install editorconfig\n```\n\nOr Settings ➔ Packages ➔ Search for `editorconfig`\n\n\n## Getting started\n\nSee the EditorConfig [documentation](http://editorconfig.org).\n\n\n## Supported properties\n\n- root\n- indent_style\n- indent_size\n\n\n## Features\n\n- Applies the above settings from your `.editorconfig` file\n- Syntax highlights `.editorconfig` files\n\n\n## Example file\n\n```ini\n# editorconfig.org\nroot = true\n\n[*]\nindent_style = space\nindent_size = 4\nend_of_line = lf\ncharset = utf-8\ntrim_trailing_whitespace = true\ninsert_final_newline = true\n```\n\n\n## License\n\n[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)\n",
+  "readmeFilename": "readme.md",
+  "bugs": {
+    "url": "https://github.com/sindresorhus/atom-editorconfig/issues"
+  },
+  "homepage": "https://github.com/sindresorhus/atom-editorconfig",
+  "_id": "editorconfig@0.2.0",
+  "dist": {
+    "shasum": "4415d4d3e7e934c7724289a250111cfcbb0a2c08"
+  },
+  "_resolved": "/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-11482-86269-e9ifks/package.tgz",
+  "_from": "/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-11482-86269-e9ifks/package.tgz"
+}
