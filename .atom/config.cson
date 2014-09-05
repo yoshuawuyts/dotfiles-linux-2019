@@ -7,13 +7,15 @@
 'editor':
   'showIndentGuide': true
   'fontFamily': 'Source Code Pro'
-  'fontSize': 13
+  'fontSize': 14
 'core':
   'themes': [
     'spacegray-eighties-ui'
     'tomorrow-night-eighties'
   ]
   'useReactEditor': true
+  'audioBeep': false
 'linter':
   'showHighlighting': false
   'showStatusBarWhenCursorIsInErrorRange': true
+'tree-view': {}
