@@ -1,6 +1,7 @@
 _ = require 'lodash'
 fs = require 'fs'
 temp = require 'temp'
+path = require 'path'
 {log} = require './utils'
 
 
@@ -27,7 +28,6 @@ class LinterView
     @editorView = editorView
     @statusBarView = statusBarView
     @markers = null
-    @guttersShowing = false
 
     @initLinters(linters)
 
@@ -112,16 +112,27 @@ class LinterView
 
   # Public: lint the current file in the editor using the live buffer
   lint: ->
+    return if @linters.length is 0
     @totalProcessed = 0
     @messages = []
     @destroyMarkers()
-    if @linters.length > 0
-      temp.open {suffix: @editor.getGrammar().scopeName}, (err, info) =>
-        info.completedLinters = 0
-        fs.write info.fd, @editor.getText(), =>
-          fs.close info.fd, (err) =>
-            for linter in @linters
-              linter.lintFile(info.path, (messages) => @processMessage(messages, info, linter))
+
+    # create temp dir because some linters are sensitive to file names
+    temp.mkdir
+      prefix: 'AtomLinter'
+      suffix: @editor.getGrammar().scopeName
+    , (err, tmpDir) =>
+      throw err if err?
+      fileName = path.basename @editor.getPath()
+      tempFileInfo =
+        completedLinters: 0
+        path: path.join tmpDir, fileName
+      fs.writeFile tempFileInfo.path, @editor.getText(), (err) =>
+        throw err if err?
+        for linter in @linters
+          linter.lintFile tempFileInfo.path, (messages) =>
+            @processMessage messages, tempFileInfo, linter
+        return
 
   # Internal: Process the messages returned by linters and render them.
   #
@@ -148,29 +159,23 @@ class LinterView
   display: ->
     @destroyMarkers()
 
-    if @showGutters and not @guttersShowing
-      @guttersShowing = true
-      @editorView.gutter.addClass("linter-gutter-enabled")
-    else if not @showGutters and @guttersShowing
-      @guttersShowing = false
-      @editorView.gutter.removeClass("linter-gutter-enabled")
+    if @showGutters or @showHighlighting
+      @markers ?= []
+      for message in @messages
+        klass = if message.level == 'error'
+          'linter-error'
+        else if message.level == 'warning'
+          'linter-warning'
+        continue unless klass?  # skip other messages
 
-    @markers ?= []
-    for message in @messages
-      klass = if message.level == 'error'
-        'linter-error'
-      else if message.level == 'warning'
-        'linter-warning'
-      continue unless klass?  # skip other messages
+        marker = @editor.markBufferRange message.range, invalidate: 'never'
+        @markers.push marker
 
-      marker = @editor.markBufferRange message.range, invalidate: 'never'
-      @markers.push marker
+        if @showGutters
+          @editor.decorateMarker marker, type: 'gutter', class: klass
 
-      if @showGutters
-        @editor.decorateMarker marker, type: 'gutter', class: klass
-
-      if @showHighlighting
-        @editor.decorateMarker marker, type: 'highlight', class: klass
+        if @showHighlighting
+          @editor.decorateMarker marker, type: 'highlight', class: klass
 
     @displayStatusBar()
 

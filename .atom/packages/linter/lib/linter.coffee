@@ -127,12 +127,14 @@ class Linter
       @processMessage data, callback
 
     process = new BufferedProcess({command, args, options,
-                                   stdout, stderr, exit})
+                                  stdout, stderr, exit})
 
     # Don't block UI more than 5seconds, it's really annoying on big files
+    timeout_s = 5
     setTimeout ->
       process.kill()
-    , 5000
+      warn "command `#{command}` timed out after #{timeout_s}s"
+    , timeout_s * 1000
 
   # Private: process the string result of a linter execution using the regex
   #          as the message builder
@@ -187,9 +189,12 @@ class Linter
     return @editor.lineLengthForBufferRow row
 
   getEditorScopesForPosition: (position) ->
-    # Easy fix when line is removed before it can get lighted
     try
-      @editor.displayBuffer.tokenizedBuffer.scopesForPosition position
+      # return a copy in case it gets mutated (hint: it does)
+      _.clone @editor.displayBuffer.tokenizedBuffer.scopesForPosition(position)
+    catch
+      # this can throw if the line has since been deleted
+      []
 
   getGetRangeForScopeAtPosition: (innerMostScope, position) ->
     return @editor
@@ -229,7 +234,7 @@ class Linter
       position = new Point(rowStart, match.col)
       scopes = @getEditorScopesForPosition(position)
 
-      while innerMostScope = scopes?.pop()
+      while innerMostScope = scopes.pop()
         range = @getGetRangeForScopeAtPosition(innerMostScope, position)
         return range if range?
 

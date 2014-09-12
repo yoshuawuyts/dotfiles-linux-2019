@@ -1,40 +1,26 @@
-// The ui-variables file is provided by base themes provided by Atom.
-//
-// See https://github.com/atom/atom-dark-ui/blob/master/stylesheets/ui-variables.less
-// for a full listing of what's available.
-// @import 'ui-variables';
+@import 'ui-variables';
+@import 'octicon-utf-codes';
+@import 'octicons';
 
-@import '../node_modules/font-awesome/less/variables';
-@fa-font-path: "https://netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts"; // for referencing Bootstrap CDN font files directly
-@import '../node_modules/font-awesome/less/path';
+@iconCopySize: 14px;
 
-@error-color: #b22222;
-@warning-color: #DAA520;
-
-.gutter.linter-gutter-enabled .line-number {
-  &:before {
-    visibility: hidden;
-    position: relative;
-    bottom: .19em;
-    margin-right: .6em;
-    content: "\f111";
-    font-size:  0.7em;
-    display: inline-block;
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    -webkit-font-smoothing: antialiased;
+.gutter .line-number {
+  &.linter-warning .icon-right {
+    visibility: visible;
+    &:before {
+      color: @text-color-warning;
+      content: @primitive-dot;
+      font-size: 1.1em;
+    }
   }
 
-  &.linter-warning:before {
-    visibility: visible !important;
-    color: @warning-color;
-
-  }
-
-  &.linter-error:before {
-    visibility: visible !important;
-    color: @error-color;
+  &.linter-error .icon-right {
+    visibility: visible;
+    &:before {
+      color: @text-color-error;
+      content: @primitive-dot;
+      font-size: 1.1em;
+    }
   }
 }
 
@@ -62,30 +48,53 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     font-weight: normal !important;
+    padding: 0.5px 0 0.5px 0;
   }
   dd {
     padding-left: 25px;
     margin-left: 50px;
-    .error-message {
+    & > span {
       cursor: pointer;
+
+      &:hover {
+        color: @text-color-highlight;
+      }
     }
     .pos {
       color: rgba(255, 255, 255, 0.2);
       padding: 2px;
       border-radius: 1px 2px;
     }
+    .copy:before {
+      font-size: @iconCopySize;
+      width: @iconCopySize;
+      height: @iconCopySize;
+    }
+    .message-highlighted {
+      background-color: @background-color-highlight;
+    }
   }
 }
 
 .highlight {
   &.linter-warning .region {
-    background: linear-gradient(to bottom, @warning-color 0%, fadeout(@warning-color, 70%) 20%, fadeout(@warning-color, 70%) 80%, @warning-color 100%);
-    border-left: 2px solid @warning-color;
-    border-right: 2px solid @warning-color;
+    background: linear-gradient(
+      to bottom,
+      @background-color-warning 0%,
+      fadeout(@background-color-warning, 70%) 20%,
+      fadeout(@background-color-warning, 70%) 80%,
+      @background-color-warning 100%);
+    border-left: 2px solid @background-color-warning;
+    border-right: 2px solid @background-color-warning;
   }
   &.linter-error .region {
-    background: linear-gradient(to bottom, @error-color 0%, fadeout(@error-color, 70%) 20%, fadeout(@error-color, 70%) 80%, @error-color 100%);
-    border-left: 2px solid @error-color;
-    border-right: 2px solid @error-color;
+    background: linear-gradient(
+      to bottom,
+      @background-color-error 0%,
+      fadeout(@background-color-error, 70%) 20%,
+      fadeout(@background-color-error, 70%) 80%,
+      @background-color-error 100%);
+    border-left: 2px solid @background-color-error;
+    border-right: 2px solid @background-color-error;
   }
 }

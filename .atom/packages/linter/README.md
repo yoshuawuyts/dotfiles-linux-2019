@@ -15,6 +15,7 @@ The idea is to stop the linter plugins war, by providing a top level API for lin
 - [linter-pyflakes](https://atom.io/packages/linter-pyflakes), for Python, using `pyflakes`
 - [linter-pep8](https://atom.io/packages/linter-pep8), for Python, using `pep8`.
 - [linter-flake8](https://atom.io/packages/linter-flake8), for Python, using `flake8`
+- [linter-pylama](https://atom.io/packages/linter-pylama), for Python, using `pylama`
 - [linter-javac](https://atom.io/packages/linter-javac), for Java, using `javac`
 - [linter-jshint](https://atom.io/packages/linter-jshint), for JavaScript and JSON, using `jshint`
 - [linter-jscs](https://atom.io/packages/linter-jscs), for JavaScript, using `jscs`
@@ -29,6 +30,7 @@ The idea is to stop the linter plugins war, by providing a top level API for lin
 - [linter-shellcheck](https://atom.io/packages/linter-shellcheck), for Bash, using `shellcheck`
 - [linter-scalac](https://atom.io/packages/linter-scalac), for Scala, using `scalac`
 - [linter-clang](https://atom.io/packages/linter-clang), for C / C++, using `clang`
+- [linter-cpplint](https://atom.io/packages/linter-cpplint), for C++, using `cpplint`
 - [linter-ruby](https://atom.io/packages/linter-ruby), for Ruby, using `ruby -wc`
 - [linter-lua](https://atom.io/packages/linter-lua), for Lua, using `luac -p`
 - [linter-clojure](https://atom.io/packages/linter-clojure), for Clojure, using `clojure`
@@ -37,6 +39,12 @@ The idea is to stop the linter plugins war, by providing a top level API for lin
 - [linter-erb](https://atom.io/packages/linter-erb), for .erb files, using `erb -x`
 - [linter-hlint](https://atom.io/packages/linter-hlint), for Haskell files, using `hlint`
 - [linter-tidy](https://atom.io/packages/linter-tidy), for HTML, using `tidy`
+- [linter-htmlhint](https://atom.io/packages/linter-htmlhint), for html, using `htmlhint`
+- [linter-squirrel](https://atom.io/packages/linter-squirrel), for squirrel, using `squirrel-compiler`
+- [linter-codscriptizer](https://atom.io/packages/linter-codscriptizer), for CoDScript, using `codscriptizer -l`
+- [linter-harbour](https://atom.io/packages/linter-harbour), for Harbour, using `harbour`
+- [linter-rust](https://atom.io/packages/linter-rust), for Rust, using `rustc`
+
 
 ## Features
 

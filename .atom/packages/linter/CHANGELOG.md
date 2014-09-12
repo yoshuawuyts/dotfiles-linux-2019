@@ -1,3 +1,49 @@
+# v0.6.1
+
+### Bug fixes
+* Fix keyboard shortcuts not working on lines containing lint messages
+  (See [#84][84], [#194][194])
+
+[84]: https://github.com/AtomLinter/Linter/issues/84
+[194]: https://github.com/AtomLinter/Linter/issues/194
+
+# v0.6.0
+
+### New features
+* Option to always show all messages in status bar (See [#196][196])
+
+### New linters
+* htmlhint, pylama, squirrel, CoDscript
+
+[196]: https://github.com/AtomLinter/Linter/pull/196
+
+# v0.5.18
+
+### Bug Fixes
+* Compatibility with [git-diff][gitdiff] (See [#121][121], [#202][202])
+
+[121]: https://github.com/AtomLinter/Linter/issues/121
+[202]: https://github.com/AtomLinter/Linter/issues/202
+[gitdiff]: https://atom.io/packages/git-diff
+
+# v0.5.17
+
+### Bug Fixes
+* Fix regression for multiple linters in one file (See [#193][193],
+  [#194][194])
+
+[193]: https://github.com/AtomLinter/Linter/issues/193
+[194]: https://github.com/AtomLinter/Linter/pull/194
+
+# v0.5.16
+
+### Bug Fixes
+* Better compatibility with `rubocop` and `GHC-mod` (See [#192][192],
+  [AtomLinter/rubocop#2][rubocop2])
+
+[192]: https://github.com/AtomLinter/Linter/issues/192
+[rubocop2]: https://github.com/AtomLinter/linter-rubocop/issues/2
+
 # v0.5.15
 
 ### New Features
@@ -6,7 +52,7 @@
 
 [95]: https://github.com/AtomLinter/Linter/issues/95#issuecomment-50035054
 [102]: https://github.com/AtomLinter/Linter/issues/102#issuecomment-47029312
-[190]: https://github.com/AtomLinter/Linter/issues/190)
+[190]: https://github.com/AtomLinter/Linter/issues/190
 
 # v0.5.14
 
