@@ -4,7 +4,7 @@
     "name": "Matt Berkowitz"
   },
   "main": "./lib/autoclose-html",
-  "version": "0.8.0",
+  "version": "0.11.0",
   "private": true,
   "description": "Automates closing of HTML Tags",
   "repository": {
@@ -21,6 +21,11 @@
       "name": "Evan Hahn",
       "email": "me@evanhahn.com",
       "url": "http://evanhahn.com"
+    },
+    {
+      "name": "Mat Silva",
+      "email": "askmatsilva@.com",
+      "url": "https://github.com/matsilva"
     }
   ],
   "readme": "# Auto Close HTML package for Atom Text Editor\n\nWill automatically add closing tags when you complete the opening tag.\n\nInstall using\n\n`apm install autoclose-html`\n\nUnder normal circumstances ending tags will be inserted on the same line for inline elements and with `\\n\\t\\n` in between for block elements. This is determined by attaching an element of the given type to the window and checking it's calculated `display` value.\nYou can use Force Inline and Force Block preferences to override this.\n\n0.7.0 Note: Removed the option to enable/disable auto closing. Just disable/remove the plugin to stop.\n\n# Options\n\n## Force Inline\n\nElements in this comma delimited list will render their closing tags on the same line, even if the display check yields block.\n\n## Force Block\n\nElements in this comma delimited list will render their closing tags with an empty, tabbed line between. If for some reason you think you're being tricky and put an element in both Force Inline and Force Block, block will override inline.\n\n## Never Close\n\nElements in this comma delimited list should *not* render a closing tag\n\n## Make Never Close Elements Self Closing\n\nWill convert elements in Never Close list from `<br>` to `<br />`\n\n## Ignore Garmmar\nUnder normal circumstances this package will only run in editors with HTML set as the grammar. If you would like to force it to run else where, check this.  Please note templating languages which use `<` and `>` for things other than HTML will likely trigger false-positives/be annoying.\n\n\n# TODO\n* Add option to autocomplete after `</` of closing tag. (requires parsing of whole document to figure out what the open element is)\n* Add better support for other grammars (ideally find a way to handle it in a grammar agnostic fashion that won't require per language regex)\n",
@@ -29,10 +34,10 @@
     "url": "https://github.com/mattberkowitz/autoclose-html/issues"
   },
   "homepage": "https://github.com/mattberkowitz/autoclose-html",
-  "_id": "autoclose-html@0.8.0",
+  "_id": "autoclose-html@0.11.0",
   "dist": {
-    "shasum": "4fd8704205b5c990742182c59c50ea3536ed01bd"
+    "shasum": "d09621573f32ea371d6a079a6a51ab01ef7e50c8"
   },
-  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114713-18411-x8sdhg/package.tgz",
-  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114713-18411-x8sdhg/package.tgz"
+  "_resolved": "C:\\Users\\msilva\\AppData\\Local\\Temp\\d-114711-6236-8rgida\\package.tgz",
+  "_from": "/Users/yoshuawuyts/.atom/.node-gyp/.atom/.apm/autoclose-html/0.11.0/package.tgz"
 }

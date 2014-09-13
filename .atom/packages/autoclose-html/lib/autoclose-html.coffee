@@ -1,5 +1,4 @@
-
-concatPattern = /\s*[\s,|]+\s*/g
+concatPattern = /\s*[,|]+\s*/g
 isTagLikePattern = /<(?![\!\/])([a-z]{1}[^>\s]*)/i
 isOpeningTagLikePattern = /<(?![\!\/])([a-z]{1}[^>\s]*)/i
 isClosingTagLikePattern = /<\/([a-z]{1}[^>\s]*)/i
@@ -9,6 +8,7 @@ module.exports =
     neverClose:[]
     forceInline: []
     forceBlock: []
+    grammars: ['HTML']
     makeNeverCLoseSelfClosing: false
     ignoreGrammar: false
     configDefaults:
@@ -18,9 +18,16 @@ module.exports =
         makeNeverCloseElementsSelfClosing: false
         forceInline: 'title, h1, h2, h3, h4, h5, h6'
         forceBlock: ''
-        ignoreGrammar: false
+        additionalGrammars: ''
 
     activate: () ->
+
+        #keeping this to correct the old value
+        atom.config.observe 'autoclose-html.ignoreGrammar', callNow:true, (value) =>
+            if value is true
+                atom.config.set 'autoclose-html.additionalGrammars', '*'
+                @ignoreGrammar = true
+            atom.config.set 'autoclose-html.ignoreGrammar', null
 
         atom.config.observe 'autoclose-html.neverClose', callNow:true, (value) =>
             @neverClose = value.split(concatPattern)
@@ -31,13 +38,14 @@ module.exports =
         atom.config.observe 'autoclose-html.forceBlock', callNow:true, (value) =>
             @forceBlock = value.split(concatPattern)
 
+        atom.config.observe 'autoclose-html.additionalGrammars', callNow:true, (value) =>
+            if(value.indexOf('*') > -1)
+                @ignoreGrammar = true
+            else
+                @grammars = ['HTML'].concat(value.split(concatPattern))
+
         atom.config.observe 'autoclose-html.makeNeverCloseElementsSelfClosing', {callNow:true}, (value) =>
             @makeNeverCLoseSelfClosing = value
-
-        atom.config.observe 'autoclose-html.ignoreGrammar', callNow:true, (value) =>
-            @ignoreGrammar = value
-            atom.workspaceView.eachEditorView (editorView) =>
-                editorView.trigger 'editor:grammar-changed'
 
         @_events()
 
@@ -93,16 +101,16 @@ module.exports =
 
     _events: () ->
 
-        fcn = (e) =>
+        @autocloseFcn = (e) =>
             if e?.newText is '>'
                 @execAutoclose e
 
         atom.workspaceView.eachEditorView (editorView) =>
             editorView.command 'editor:grammar-changed', {}, () =>
                 grammar = editorView.editor.getGrammar()
-                if grammar.name?.length > 0 and (@ignoreGrammar or grammar.name is 'HTML')
-                    editorView.editor.buffer.off 'changed', fcn
-                    editorView.editor.buffer.on 'changed', fcn
+                if grammar.name?.length > 0 and (@ignoreGrammar or grammar.name in @grammars)
+                    editorView.editor.buffer.off 'changed.autoclose-html'
+                    editorView.editor.buffer.on 'changed.autoclose-html', @autocloseFcn
                 else
-                    editorView.editor.buffer.off 'changed', fcn
+                    editorView.editor.buffer.off 'changed.autoclose-html'
             editorView.trigger 'editor:grammar-changed'
