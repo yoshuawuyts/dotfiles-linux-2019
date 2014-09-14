@@ -27,3 +27,4 @@ cask install licecap
 cask install calibre
 cask install spectacle
 cask install squidman
+cask install flux-beta
