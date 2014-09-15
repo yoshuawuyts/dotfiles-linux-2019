@@ -19,3 +19,4 @@
   'showHighlighting': false
   'showStatusBarWhenCursorIsInErrorRange': true
 'tree-view': {}
+'autoclose-html': {}
