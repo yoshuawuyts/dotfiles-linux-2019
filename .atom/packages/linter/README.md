@@ -3,7 +3,7 @@
 
 Lint your code with ease in [Atom](http://atom.io).
 
-![linter-jscs](https://github.com/AtomLinter/linter-jscs/raw/master/example.gif)
+![atom-inline-messages](inline-comments.gif)
 
 The idea is to stop the linter plugins war, by providing a top level API for linters to parse and display errors in the Atom editor.
 
@@ -22,6 +22,7 @@ The idea is to stop the linter plugins war, by providing a top level API for lin
 - [linter-jsxhint](https://atom.io/packages/linter-jsxhint), for JSX (React.js), using `jsxhint`
 - [linter-eslint](https://atom.io/packages/linter-eslint), for JavaScript, using `eslint`
 - [linter-scss-lint](https://atom.io/packages/linter-scss-lint), for SASS/SCSS, using `scss-lint`
+- [linter-less](https://atom.io/packages/linter-less), for LESS, using `less`
 - [linter-coffeelint](https://atom.io/packages/linter-coffeelint), for CoffeeScript, using `coffeelint`
 - [linter-csslint](https://atom.io/packages/linter-csslint), for CSS, using `csslint`
 - [linter-rubocop](https://atom.io/packages/linter-rubocop), for Ruby and Ruby on Rails, using `rubocop`
@@ -44,6 +45,7 @@ The idea is to stop the linter plugins war, by providing a top level API for lin
 - [linter-codscriptizer](https://atom.io/packages/linter-codscriptizer), for CoDScript, using `codscriptizer -l`
 - [linter-harbour](https://atom.io/packages/linter-harbour), for Harbour, using `harbour`
 - [linter-rust](https://atom.io/packages/linter-rust), for Rust, using `rustc`
+- [linter-dartanalyzer](https://atom.io/packages/linter-dartanalyzer), for Dart using `dartanalyzer`
 
 
 ## Features
@@ -65,6 +67,7 @@ The idea is to stop the linter plugins war, by providing a top level API for lin
 * **Show gutters**: [On / Off] - Show dot in the gutter on line error
 * **Show messages around cursor** [On / Off] - Show error description in the status bar
 * **Show status bar when cursor is in error range** [On / Off] - Either show status bar when the cursor is on the error line, or show it when the cursor is focus the range of wrong code
+* **Show error inline** [On / Off] - Shows the error or warning message next to the code as opposed to in the status bar.
 * **Lint on change interval** [in ms] - Interval between two lints while you are writing code
 
 ## Common errors

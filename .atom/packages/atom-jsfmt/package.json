@@ -1,0 +1,28 @@
+{
+  "name": "atom-jsfmt",
+  "description": "jsfmt integration with Atom",
+  "main": "./main",
+  "version": "0.6.0",
+  "repository": {
+    "url": "https://github.com/bichiliad/atom-jsfmt.git",
+    "type": "git"
+  },
+  "engines": {
+    "atom": "^0.94.0"
+  },
+  "dependencies": {
+    "jsfmt": "git://github.com/rdio/jsfmt.git#409621868fc"
+  },
+  "readme": "atom-jsfmt\n==========\n\n`atom-jsfmt` is a [`jsfmt`][jsfmt] plugin for the Atom text editor. It's pretty nifty.\n\nFeatures\n--------\n - **Format command**: Run the `Jsfmt: Format` command to keep your code tidy.\n - **Format on Save**: `atom-jsfmt` will auto-format your javascript on save.\n\nInstallation\n------------\n\nMake sure you have `jsfmt` installed, and then just install `atom-jsfmt` as you would any other package.\n\n```bash\nnpm install -g jsfmt\napm install atom-jsfmt\n# Or search for / install atom-jsfmt in Atom's package browser\n```\nIf you have `jsfmt` installed in a location other than `/usr/local/bin/jsfmt`, be sure to set this location in the\n`atom-jsfmt` preferences (under \"Path To Jsfmt\").\n\nOptions\n-------\n\n - **Path To Jsfmt**: This is the path to the `jsfmt` binary. Defaults to `/usr/local/bin/jsfmt`.\n   Note that binaries on your `$PATH` [may not currently be accessible to Atom][env].\n - **Show Errors**: Whether or not you want to see error messages. You probably do.\n   This is set to `true` by default.\n - **Format On Save**: Whether or not you automatically want to format your javascript\n   files when you save. Defaults to `true`.\n\n\n\nTo do\n-----\n\n - Allow for input of custom rules\n - Add searching functionality\n - Flag lines with errors\n - Add a \"Format project\" command\n - Test / fix issues with react editor\n\n\nCredit\n------\n\n - [`jsfmt`][jsfmt] is written and maintained by the good folks at [rdio][rdio].\n - Inspiration taken from [Darkhelmet's gofmt package][gofmt].\n\n\nChangelog\n---------\nThe changelog can be viewed [here][changelog].\n\n\nLicense\n-------\nAtom-jsfmt is licensed under the MIT license, which can be viewed [here][license].\n\n\n[gofmt]:https://github.com/darkhelmet/atom-gofmt\n[jsfmt]:http://rdio.github.io/jsfmt/\n[rdio]:https://github.com/rdio\n[changelog]:./CHANGELOG.md\n[license]:./LICENSE.md\n[env]:http://discuss.atom.io/t/atom-command-doesnt-pass-environment-variables-to-atom/1596\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/bichiliad/atom-jsfmt/issues"
+  },
+  "homepage": "https://github.com/bichiliad/atom-jsfmt",
+  "_id": "atom-jsfmt@0.6.0",
+  "dist": {
+    "shasum": "db979fc6bdb6f3f20ff60e07202a49abc0729ddd"
+  },
+  "_resolved": "/private/var/folders/mr/rrxz6nyn3478rx6hskc3hvx00000gn/T/d-114826-25751-19isybw/package.tgz",
+  "_from": "/private/var/folders/mr/rrxz6nyn3478rx6hskc3hvx00000gn/T/d-114826-25751-19isybw/package.tgz"
+}

@@ -21,3 +21,5 @@
   'showStatusBarWhenCursorIsInErrorRange': true
 'tree-view': {}
 'autoclose-html': {}
+'atom-jsfmt':
+  'formatOnSave': false

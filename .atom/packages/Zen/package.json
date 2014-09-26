@@ -1,0 +1,31 @@
+{
+  "name": "Zen",
+  "main": "./lib/zen",
+  "version": "0.6.0",
+  "private": true,
+  "description": "Distraction free writing.",
+  "activationEvents": [
+    "zen:toggle"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/defunkt/zen"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# Zen\n\nDistraction free writing for Atom.\n\nToggle with `cmd-ctrl-z`.\n\n## Before:\n\n![](https://f.cloud.github.com/assets/2/2290454/c7304340-a01d-11e3-8b89-018775a8612b.png)\n\n## After:\n\n![](https://f.cloud.github.com/assets/2/2290455/ce99e97e-a01d-11e3-8808-ebec40e959b4.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/defunkt/zen/issues"
+  },
+  "homepage": "https://github.com/defunkt/zen",
+  "_id": "Zen@0.6.0",
+  "dist": {
+    "shasum": "07643e3830877c492f88e176b6c4e69ef4105380"
+  },
+  "_resolved": "/private/var/folders/mr/rrxz6nyn3478rx6hskc3hvx00000gn/T/d-114823-68804-t48chg/package.tgz",
+  "_from": "/private/var/folders/mr/rrxz6nyn3478rx6hskc3hvx00000gn/T/d-114823-68804-t48chg/package.tgz"
+}
