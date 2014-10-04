@@ -1,0 +1,26 @@
+{
+  "name": "seti-syntax",
+  "theme": "syntax",
+  "version": "0.1.7",
+  "description": "Seti Syntax - A subtle dark colored theme for Atom.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jesseweed/seti-syntax"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.99.0"
+  },
+  "readme": "# Seti Syntax\n\nA subtle dark colored syntax theme for Atom. [Seti UI](https://atom.io/themes/seti-ui) also available.\n\n![Screenshot](https://github.com/jesseweed/seti-syntax/raw/master/screenshot.png)\n\n\n### Custom Icons\n[ ![Screenshot](https://github.com/jesseweed/seti-syntax/raw/master/_icons/circular/circular-128x128.png) ](_icons/circular/)\n[ ![Screenshot](https://github.com/jesseweed/seti-syntax/raw/master/_icons/rounded/rounded-128x128.png) ](_icons/rounded/)\n[ ![Screenshot](https://github.com/jesseweed/seti-syntax/raw/master/_icons/squared/squared-128x128.png) ](_icons/squared/)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jesseweed/seti-syntax/issues"
+  },
+  "homepage": "https://github.com/jesseweed/seti-syntax",
+  "_id": "seti-syntax@0.1.7",
+  "dist": {
+    "shasum": "7e6162c3c0c863abc56530217c79c14a9cb31ddd"
+  },
+  "_resolved": "/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-114830-23695-124zjuy/package.tgz",
+  "_from": "/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-114830-23695-124zjuy/package.tgz"
+}

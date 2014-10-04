@@ -1,0 +1,5 @@
+'.source.jade':
+  'editor':
+    'increaseIndentPattern': '(?x)\n\t\t\t^\\s*(  # start with any whitespace\n\t\t\t\t([\\w#.-]+(\\(.*?\\))?  # first tag\n\t\t\t\t (:\\s*[\\w#.-]+(\\(.*?\\))?)*  # additional tags\n\t\t\t\t \\.?$)  # end tag with . or end of line\n\t\t\t\t|(:[a-z]\\w*($|\\())  # filters\n\t\t\t\t|(//-?$)  # multiline comments\n\t\t\t\t|(-\\s+(if|else|while)(\\s+|$))  # embedded js control flow\n\t\t\t\t|((for|if|else if|else|each|until|while|unless|case\n\t\t\t\t   |when|block|append|prepend)(\\s+|$))  # jade block first-class\n\t\t\t)'
+    'decreaseIndentPattern': '^\\s*(- )?(else)\\b.*$'
+    'commentStart': '//- '

@@ -1,0 +1,44 @@
+@import "ui-mixins";
+@import "ui-variables";
+@import "buttons";
+
+.pane-item {
+  .panel {
+    border-color: fadeout(@inset-panel-border-color, 30%);
+  }
+}
+
+.panes {
+  .pane {
+    background-color: lighten(@app-background-color, 5%);
+    &:focus {
+      background-color: @app-background-color;
+    }
+  }
+
+  .pane-row > * {
+    border-right: 1px solid @pane-item-border-color;
+    &:last-child { border-right: none; }
+  }
+
+  .pane-column > * {
+    border-bottom: 1px solid @pane-item-border-color;
+    &:last-child { border-bottom: none; }
+  }
+}
+
+// Inactive Pane
+.pane:not(.active) {
+  opacity: 0.8;
+
+  .editor {
+    background-color: lighten(@app-background-color, 2%);
+  }
+
+  .tab.active {
+    border-bottom: solid 4px darken(@tab-highlight-color, 20%);
+    &:before {
+      border-bottom: solid 4px darken(@tab-highlight-color, 20%);
+    }
+  }
+}

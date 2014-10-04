@@ -1,0 +1,27 @@
+{
+  "name": "language-jade",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Jade TextMate bundle converted for Atom",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devongovett/atom-jade"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# atom-jade\n\nThe [Jade TextMate bundle](https://github.com/davidrios/jade-tmbundle) converted\nfor [Atom](https://atom.io/).\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/devongovett/atom-jade/issues"
+  },
+  "homepage": "https://github.com/devongovett/atom-jade",
+  "_id": "language-jade@0.3.0",
+  "dist": {
+    "shasum": "12a443ddb50901611b8178ec5457ac85c02463c0"
+  },
+  "_resolved": "/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-11494-64655-1057icp/package.tgz",
+  "_from": "/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-11494-64655-1057icp/package.tgz"
+}
