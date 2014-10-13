@@ -7,8 +7,8 @@
 'editor':
   'showIndentGuide': true
   'fontFamily': 'Source Code Pro'
-  'fontSize': 14
   'invisibles': {}
+  'fontSize': 14
 'core':
   'themes': [
     'spacegray-eighties-ui'
