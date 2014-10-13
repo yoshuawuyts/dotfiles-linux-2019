@@ -1,11 +1,20 @@
-# Keybindings require three things to be fully defined: A selector that is
-# matched against the focused element, the keystroke and the command to
-# execute.
-#
-# Below is a basic keybinding which registers on all platforms by applying to
-# the root workspace element.
-
-# For more detailed documentation see
-# https://atom.io/docs/latest/advanced/keymaps
-'.workspace':
+'.platform-darwin .workspace':
+  'ctrl-shift-cmd-F': 'zen:toggle'
   'cmd-ctrl-z': 'zen:toggle'
+'.platform-darwin .workspace .editor:not(.mini)':
+  'ctrl-shift-cmd-F': 'zen:toggle'
+  'cmd-ctrl-z': 'zen:toggle'
+
+'.platform-linux .workspace':
+  'shift-f11': 'zen:toggle'
+  'ctrl-shift-Z': 'zen:toggle'
+'.platform-linux .workspace .editor:not(.mini)':
+  'shift-f11': 'zen:toggle'
+  'ctrl-shift-Z': 'zen:toggle'
+
+'.platform-win32 .workspace':
+  'shift-f11': 'zen:toggle'
+  'ctrl-shift-Z': 'zen:toggle'
+'.platform-win32 .workspace .editor:not(.mini)':
+  'shift-f11': 'zen:toggle'
+  'ctrl-shift-Z': 'zen:toggle'

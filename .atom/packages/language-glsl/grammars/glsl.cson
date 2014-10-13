@@ -21,6 +21,10 @@
 'name': 'GLSL'
 'patterns': [
   {
+    'match': '\\.(x|y|z|w|r|g|b|a){1,4}'
+    'name': 'keyword.operator.glsl'
+  }
+  {
     'match': '\\b(break|case|continue|default|discard|do|else|for|if|return|switch|while)\\b'
     'name': 'keyword.control.glsl'
   }
@@ -47,6 +51,28 @@
   {
     'match': '\\b(asm|double|enum|extern|goto|inline|long|short|sizeof|static|typedef|union|unsigned|volatile)\\b'
     'name': 'invalid.illegal.glsl'
+  }
+  {
+    'comment': 'glslify export statements'
+    'begin': '#(pragma glslify:)\\s*(export)(\\()([^(]+)(\\))'
+    'beginCaptures': {
+      '1': { 'name': 'meta.preprocessor.keyword.import.define.glsl' }
+      '2': { 'name': 'keyword.operator.glsl' }
+      '4': { 'name': 'entity.name.function.glsl' }
+    }
+    'end': '\\n'
+  }
+  {
+    'comment': 'glslify require statements'
+    'begin': '#(pragma glslify:)([^=]+)(\\s*=\\s*)?(require)(\\()([^(]+)(\\))'
+    'beginCaptures': {
+      '1': { 'name': 'meta.preprocessor.keyword.import.define.glsl' }
+      '2': { 'name': 'entity.name.function.glsl' }
+      '3': { 'name': 'operator.glsl' }
+      '4': { 'name': 'keyword.operator.glsl' }
+      '6': { 'name': 'string.quoted.double' }
+    }
+    'end': '\\n'
   }
   {
     'include': 'source.c'

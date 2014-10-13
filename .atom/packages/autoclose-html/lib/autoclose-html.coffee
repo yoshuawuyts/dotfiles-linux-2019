@@ -59,7 +59,7 @@ module.exports =
 
         document.body.appendChild ele
         ret = window.getComputedStyle(ele).getPropertyValue('display') in ['inline', 'inline-block', 'none']
-        document.body.appendChild ele
+        document.body.removeChild ele
 
         ret
 

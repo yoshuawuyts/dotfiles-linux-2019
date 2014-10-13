@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.1",
   "name": "language-glsl",
   "description": "Atom language support for GLSL",
   "repository": {
@@ -22,12 +22,12 @@
     "editor",
     "syntax"
   ],
-  "readme": "# language-glsl package\n\nAdds syntax highlighting and snippets to GLSL files in Atom.\n\nOriginally\n[converted](http://atom.io/docs/latest/converting-a-text-mate-bundle)\nfrom [polym0rph](https://github.com/polym0rph)'s\n[GLSL TextMate bundle](https://github.com/polym0rph/GLSL.tmbundle).\n",
+  "readme": "# language-glsl package\n\nAdds syntax highlighting and snippets to GLSL files in Atom.\n\nOriginally\n[converted](http://atom.io/docs/latest/converting-a-text-mate-bundle)\nfrom [polym0rph](https://github.com/polym0rph)'s\n[GLSL TextMate bundle](https://github.com/polym0rph/GLSL.tmbundle).\n\nExtended to support [glslify](http://github.com/stackgl/glslify) require/export\nstatements.\n\n![language-glsl](http://imgur.com/dJGHJ1m.png)\n",
   "readmeFilename": "README.md",
-  "_id": "language-glsl@0.1.0",
+  "_id": "language-glsl@0.2.1",
   "dist": {
-    "shasum": "88db487a8a939eda4905533a8bf121a6d3ab4f82"
+    "shasum": "ed217fcfd18d85bf1a2bab2400fe89184458d5c7"
   },
-  "_resolved": "/private/var/folders/mr/rrxz6nyn3478rx6hskc3hvx00000gn/T/d-114823-68206-1q8rwlk/package.tgz",
-  "_from": "/private/var/folders/mr/rrxz6nyn3478rx6hskc3hvx00000gn/T/d-114823-68206-1q8rwlk/package.tgz"
+  "_resolved": "/private/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-114913-16265-1m1gem1/package.tgz",
+  "_from": "/private/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-114913-16265-1m1gem1/package.tgz"
 }
