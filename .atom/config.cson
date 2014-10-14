@@ -8,7 +8,8 @@
   'showIndentGuide': true
   'fontFamily': 'Source Code Pro'
   'invisibles': {}
-  'fontSize': 14
+  'fontSize': 12
+  'softWrapAtPreferredLineLength': true
 'core':
   'themes': [
     'spacegray-eighties-ui'
