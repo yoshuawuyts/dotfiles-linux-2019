@@ -1,26 +1,25 @@
-'exception-reporting':
-  'userId': '9d041072-abc0-ea2e-b7ca-ca3b4ce8744c'
-'welcome':
-  'showOnStartup': false
-'metrics':
-  'userId': '98d5d79a1a1943670b58ba8b21304b919cd84c0f'
-'editor':
-  'showIndentGuide': true
-  'fontFamily': 'Source Code Pro'
-  'invisibles': {}
-  'fontSize': 12
-  'softWrapAtPreferredLineLength': true
-'core':
-  'themes': [
-    'spacegray-eighties-ui'
-    'tomorrow-night-eighties'
-  ]
-  'useReactEditor': true
-  'audioBeep': false
-'linter':
-  'showHighlighting': false
-  'showStatusBarWhenCursorIsInErrorRange': true
-'tree-view': {}
-'autoclose-html': {}
-'atom-jsfmt':
-  'formatOnSave': false
+'global':
+  'exception-reporting':
+    'userId': '9d041072-abc0-ea2e-b7ca-ca3b4ce8744c'
+  'welcome':
+    'showOnStartup': false
+  'metrics':
+    'userId': '98d5d79a1a1943670b58ba8b21304b919cd84c0f'
+  'editor':
+    'showIndentGuide': true
+    'fontFamily': 'Source Code Pro'
+    'fontSize': 12
+    'softWrapAtPreferredLineLength': true
+  'core':
+    'themes': [
+      'spacegray-eighties-ui'
+      'tomorrow-night-eighties'
+    ]
+    'useReactEditor': true
+    'audioBeep': false
+  'linter':
+    'showHighlighting': false
+    'showStatusBarWhenCursorIsInErrorRange': true
+  'atom-jsfmt':
+    'formatOnSave': false
+  'autoclose-html': {}
