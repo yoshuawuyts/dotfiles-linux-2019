@@ -31,3 +31,11 @@ export PATH=$PATH:/usr/lib/jvm/java-6-openjdk/bin
 #
 
 export NVM_DIR=~/.nvm
+
+#
+# Go
+#
+
+export GOPATH="$HOME/Repositories/go/"
+export PATH=$PATH:$GOPATH/bin
+CDPATH=.:$GOPATH/src/p:$GOPATH/src/
