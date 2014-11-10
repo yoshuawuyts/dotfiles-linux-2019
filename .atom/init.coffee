@@ -1,4 +1,10 @@
 #
+# Path
+#
+
+process.env.PATH += ':/Users/yoshuawuyts/.nvm/v0.10.31/bin/'
+
+#
 # Module dependencies
 #
 

@@ -16,3 +16,7 @@
 #   'ctrl-P': 'core:move-up'
 #   'ctrl-p': 'core:move-down'
 #
+
+'.workspace':
+  'ctrl-alt-i': 'npm-install:save'
+  'ctrl-alt-d': 'npm-install:save-dev'
