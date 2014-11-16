@@ -1,10 +1,9 @@
 #!/bin/bash
 
-################################################################################
-#
-#  Configure OS X paths
-#
-################################################################################
+# configure osx paths
+main() {
+  defaults write com.apple.screencapture location ~/Google\ Drive/Screenshots;
+  killall SystemUIServer;
+}
 
-defaults write com.apple.screencapture location ~/Google\ Drive/Screenshots;
-killall SystemUIServer;
+main;
