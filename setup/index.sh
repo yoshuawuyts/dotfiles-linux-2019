@@ -1,15 +1,15 @@
 #!/bin/bash
 
 install_brewDeps() {
-  brew bundle ~/.setup/Brewfile;
-  brew bundle ~/.setup/Brewfile;
-  brew bundle ~/.setup/Brewfile;
+  brew bundle ./setup/Brewfile;
+  brew bundle ./setup/Brewfile;
+  brew bundle ./setup/Brewfile;
 }
 
 install_caskDeps() {
-  brew bundle ~/.setup/Caskfile;
-  brew bundle ~/.setup/Caskfile;
-  brew bundle ~/.setup/Caskfile;
+  brew bundle ./setup/Caskfile;
+  brew bundle ./setup/Caskfile;
+  brew bundle ./setup/Caskfile;
 }
 
 install_languages() {
@@ -18,8 +18,12 @@ install_languages() {
   bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer);
 }
 
+link_dotfiles() {
+  source ./setup/link.sh
+}
+
 configure_osx() {
-  source ~/.setup/osx.sh;
+  source ./setup/osx.sh;
   git config --global credential.helper osxkeychain;
 }
 
