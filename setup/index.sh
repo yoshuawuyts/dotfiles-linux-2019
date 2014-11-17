@@ -1,5 +1,9 @@
 #!/bin/bash
 
+install_homebrew() {
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+}
+
 install_brewDeps() {
   brew bundle ./setup/Brewfile;
   brew bundle ./setup/Brewfile;
@@ -28,6 +32,7 @@ configure_osx() {
 }
 
 main() {
+  install_homebrew;
   install_brewDeps;
   install_caskDeps;
   install_languages;
