@@ -1,7 +1,7 @@
 #!/bin/bash
 
-create_dires() {
-  mkdir $(cat ./setup/Dirsfile|grep -v "#");
+create_dirs() {
+  mkdir -p $(cat ./setup/Dirsfile|grep -v "#");
 }
 
 install_homebrew() {
