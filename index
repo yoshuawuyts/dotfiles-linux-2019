@@ -5,15 +5,11 @@ install_homebrew() {
 }
 
 install_brewDeps() {
-  brew bundle ./setup/Brewfile;
-  brew bundle ./setup/Brewfile;
-  brew bundle ./setup/Brewfile;
+  brew install $(cat ./setup/Brewfile|grep -v "#")
 }
 
 install_caskDeps() {
-  brew bundle ./setup/Caskfile;
-  brew bundle ./setup/Caskfile;
-  brew bundle ./setup/Caskfile;
+  brew cask install $(cat ./setup/Caskfile|grep -v "#")
 }
 
 install_languages() {
