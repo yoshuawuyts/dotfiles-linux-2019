@@ -41,6 +41,7 @@ link_dotfiles() {
 
 configure_zsh() {
   curl -L http://install.ohmyz.sh | sh;
+  chsh -s /bin/zsh;
   zsh;
 }
 
