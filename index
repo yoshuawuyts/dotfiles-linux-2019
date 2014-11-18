@@ -25,6 +25,9 @@ install_languages() {
   curl -sSL https://get.rvm.io | bash -s stable;
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)";
   bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer);
+  nvm install 0.10;
+  nvm install 0.11;
+  nvm alias default 0.10;
 }
 
 configure_osx() {
@@ -36,7 +39,8 @@ link_dotfiles() {
   source ./setup/link.sh
 }
 
-start_zsh() {
+configure_zsh() {
+  curl -L http://install.ohmyz.sh | sh;
   zsh;
 }
 
@@ -48,7 +52,7 @@ main() {
   install_languages;
   configure_osx;
   link_dotfiles;
-  start_zsh;
+  configure_zsh;
 }
 
 main;
