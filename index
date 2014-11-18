@@ -29,7 +29,7 @@ link_dotfiles() {
 
 configure_osx() {
   source ./setup/osx.sh;
-  source ./setup/git.sh
+  source ./setup/git.sh;
 }
 
 main() {
