@@ -7,9 +7,14 @@ setup_keychain() {
   git config --global credential.helper osxkeychain;
 }
 
+setup_config() {
+  git config --global push.default simple;
+}
+
 main() {
   setup_git;
   setup_keychain;
+  setup_config;
 }
 
 main;
