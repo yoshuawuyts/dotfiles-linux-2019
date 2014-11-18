@@ -1,17 +1,28 @@
 # Dotfiles
 Dotfiles and provisioner for OS X.
 
-Installs [brew formulae][brewfile], [OS X applications][caskfile] and
-sets up sensible defaults.
+Version controlled dotfiles. Symlinks the dotfiles from the repository into
+root, installs applications and configures the OS, using all from one command.
 
 ## Installation
 ```sh
 git clone https://github.com/yoshuawuyts/dotfiles.git Repositories/yoshua/dotfiles
-cd dotfiles
-make
 ```
 
-## Resources
+## Usage
+```
+Usage:
+
+  make [command]
+
+Commands:
+
+  all                    :install
+  install                Install all the things
+  help                   Display help
+```
+
+## See also
 - [mathiasbynens/dotfiles][mathias]
 - [kevensuttle/osxdefaults][osx]
 
