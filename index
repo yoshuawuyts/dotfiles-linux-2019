@@ -42,7 +42,7 @@ link_dotfiles() {
 configure_zsh() {
   curl -L http://install.ohmyz.sh | sh;
   chsh -s /bin/zsh;
-  zsh;
+  rm ~/.zshrc;
 }
 
 main() {
@@ -52,8 +52,8 @@ main() {
   install_caskDeps;
   install_languages;
   configure_osx;
-  link_dotfiles;
   configure_zsh;
+  link_dotfiles;
 }
 
 main;
