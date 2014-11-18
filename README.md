@@ -2,7 +2,7 @@
 Dotfiles and provisioner for OS X.
 
 Version controlled dotfiles. Symlinks the dotfiles from the repository into
-root, installs applications and configures the OS, using all from one command.
+root, installs applications and configures the OS, all from one command.
 
 ## Installation
 ```sh
