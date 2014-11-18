@@ -5,11 +5,16 @@ install_homebrew() {
 }
 
 install_brewDeps() {
-  brew install $(cat ./setup/Brewfile|grep -v "#")
+  brew update;
+  brew upgrade;
+  brew install $(cat ./setup/Brewfile|grep -v "#");
+  brew cleanup;
 }
 
 install_caskDeps() {
-  brew cask install $(cat ./setup/Caskfile|grep -v "#")
+  install caskroom/cask/brew-cask;
+  tap caskroom/versions;
+  brew cask install $(cat ./setup/Caskfile|grep -v "#");
 }
 
 install_languages() {

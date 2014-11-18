@@ -6,7 +6,7 @@ sets up sensible defaults.
 
 ## Installation
 ```sh
-git clone https://github.com/yoshuawuyts/dotfiles.git
+git clone https://github.com/yoshuawuyts/dotfiles.git Repositories/yoshua/dotfiles
 cd dotfiles
 make
 ```

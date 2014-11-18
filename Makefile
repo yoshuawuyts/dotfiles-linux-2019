@@ -1,7 +1,7 @@
 all: install
 
 install:
-	@./setup/index.sh
+	@./index
 
 help:
 	@echo "Usage:"
