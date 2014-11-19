@@ -34,7 +34,7 @@ configure_osx() {
 }
 
 link_dotfiles() {
-  source ./setup/link.sh
+  source ./setup/link.sh;
 }
 
 configure_zsh() {
