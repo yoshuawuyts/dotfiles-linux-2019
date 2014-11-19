@@ -18,6 +18,5 @@ source ~/.aliases
 # Version managers.
 #
 
-source /Users/yoshuawuyts/.gvm/scripts/gvm
 source $(brew --prefix nvm)/nvm.sh
 source ~/.rvm/scripts/rvm

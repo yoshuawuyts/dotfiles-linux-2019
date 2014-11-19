@@ -2,40 +2,35 @@
 # User configuration
 #
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+configure_path() {
+  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+}
 
-#
-# Docker
-#
+configure_docker() {
+  export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375;
+}
 
-export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
 
-#
-# Terraform
-#
+configure_terraform() {
+  export PATH=$PATH:~/Library/Terraform;
+}
 
-export PATH=$PATH:~/Library/Terraform
+configure_node() {
+  export NVM_DIR=~/.nvm;
+}
 
-#
-# Android
-#
+configure_go() {
+  if [ "" = "${GOPATH}" ]; then
+    export GOPATH="/some/dir"
+  fi
+}
 
-export ANDROID_HOME=/opt/android-sdk/sdk
-export PATH=$ANDROID_HOME/tools:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-export PATH=$PATH:/usr/lib/jvm/java-6-openjdk/bin
+main() {
+  configure_path;
+  configure_docker;
+  configure_terraform;
+  configure_node;
+  configure_go;
+}
 
-#
-# Node.
-#
-
-export NVM_DIR=~/.nvm
-
-#
-# Go
-#
-
-export GOPATH="$HOME/Repositories/go/"
-export PATH=$PATH:$GOPATH/bin
-CDPATH=.:$GOPATH/src/p:$GOPATH/src/
+main;
