@@ -13,7 +13,15 @@ configure_screenshot_location() {
   killall SystemUIServer;
 }
 
+configure_trackpad() {
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadRotate -bool true;
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true;
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true;
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerPinchGesture 2;
+}
+
 main() {
+  configure_trackpad;
   configure_keyboard;
   configure_screenshot_location;
 }
