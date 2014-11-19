@@ -3,7 +3,7 @@
 #
 
 configure_path() {
-  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+  export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 }
 
 configure_docker() {
@@ -21,7 +21,7 @@ configure_node() {
 
 configure_go() {
   if [ "" = "${GOPATH}" ]; then
-    export GOPATH="/some/dir"
+    # export GOPATH="/some/dir"
   fi
 }
 
