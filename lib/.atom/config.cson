@@ -9,7 +9,6 @@
     'showIndentGuide': true
     'fontFamily': 'Source Code Pro'
     'fontSize': 14
-    'invisibles': {}
   'core':
     'themes': [
       'spacegray-eighties-ui'
