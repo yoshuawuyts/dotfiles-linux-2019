@@ -1,4 +1,4 @@
-{$, View, TextEditorView} = require 'atom'
+{$, View} = require 'atom'
 Delegato = require 'delegato'
 {CompositeDisposable, Disposable} = require 'event-kit'
 
@@ -49,9 +49,10 @@ class MinimapView extends View
   @delegatesProperty 'lineHeight', toMethod: 'getLineHeight'
   @delegatesProperty 'charWidth', toMethod: 'getCharWidth'
 
-  @content: ->
+  @content: ({minimapView}) ->
     @div class: 'minimap', =>
-      @subview 'openQuickSettings', new MinimapOpenQuickSettingsView if atom.config.get('minimap.displayPluginsControls')
+      if atom.config.get('minimap.displayPluginsControls')
+        @subview 'openQuickSettings', new MinimapOpenQuickSettingsView(minimapView)
       @div outlet: 'miniScroller', class: "minimap-scroller"
       @div outlet: 'miniWrapper', class: "minimap-wrapper", =>
         @div outlet: 'miniUnderlayer', class: "minimap-underlayer"
@@ -81,7 +82,7 @@ class MinimapView extends View
 
     @subscriptions = new CompositeDisposable
 
-    super
+    super({minimapView: this, editorView})
 
     @computeScale()
     @miniScrollView = @renderView.scrollView
@@ -183,9 +184,11 @@ class MinimapView extends View
 
   # Destroys this view and release all its subobjects.
   destroy: ->
+    @resetMinimapWidthWithWrap()
     @paneView.removeClass('with-minimap')
     @off()
     @obsPane.dispose()
+    @subscriptions.dispose()
     @unsubscribe()
     @observer.disconnect()
 
@@ -194,9 +197,14 @@ class MinimapView extends View
     @remove()
 
   setEditorView: (@editorView) ->
+
     @editor = @editorView.getEditor()
     @paneView = @editorView.getPaneView()
     @renderView?.setEditorView(@editorView)
+
+    if @obsPane?
+      @obsPane.dispose()
+      @obsPane = @paneView.model.observeActiveItem @onActiveItemChanged
 
   #    ########  ####  ######  ########  ##          ###    ##    ##
   #    ##     ##  ##  ##    ## ##     ## ##         ## ##    ##  ##
@@ -322,22 +330,22 @@ class MinimapView extends View
     adjustWidth = atom.config.get('minimap.adjustMinimapWidthToSoftWrap')
     displayLeft = atom.config.get('minimap.displayMinimapOnLeft')
 
+
     if wraps and adjustWidth and size
       maxWidth = (size * @getCharWidth()) + 'px'
 
       @css maxWidth: maxWidth
       if displayLeft
-        @editorView.find('.editor-contents').css paddingLeft: maxWidth
+        @editorView.css paddingLeft: maxWidth
       else
-        @editorView.find('.editor-contents').css paddingRight: maxWidth
+        @editorView.css paddingRight: maxWidth
         @editorView.find('.vertical-scrollbar').css right: maxWidth
 
   # Internal: Resets the styles modified when the minimap width is adjusted
   # based on the soft-wrap.
   resetMinimapWidthWithWrap: ->
     @css maxWidth: ''
-    @editorView.find('.editor-contents').css paddingRight: ''
-    @editorView.find('.editor-contents').css paddingLeft: ''
+    @editorView.css paddingRight: '', paddingLeft: ''
     @editorView.find('.vertical-scrollbar').css right: ''
 
   # Internal: Updates the vertical scrolling of the minimap.

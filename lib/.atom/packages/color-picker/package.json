@@ -1,7 +1,7 @@
 {
   "name": "color-picker",
   "main": "./lib/ColorPicker",
-  "version": "1.2.4",
+  "version": "1.2.6",
   "private": true,
   "description": "A Color Picker for the Atom Editor. Right click a color and select color picker to open it.",
   "repository": {
@@ -18,10 +18,30 @@
     "url": "https://github.com/thomaslindstrom/color-picker/issues"
   },
   "homepage": "https://github.com/thomaslindstrom/color-picker",
-  "_id": "color-picker@1.2.4",
+  "_id": "color-picker@1.2.6",
   "dist": {
-    "shasum": "2b15fedc838a365f17a3c13aad21ebefd2d1186c"
+    "shasum": "0fdfbfb06e13b3402a12a86e41775759a25aac89"
   },
-  "_resolved": "/private/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-114913-16255-nyoxtm/package.tgz",
-  "_from": "/private/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-114913-16255-nyoxtm/package.tgz"
+  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-29551-1gqsvg6/package.tgz",
+  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-29551-1gqsvg6/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/ColorPicker-alphaSelector.coffee",
+        "lib/ColorPicker-convert.coffee",
+        "lib/ColorPicker-hueSelector.coffee",
+        "lib/ColorPicker-regexes.coffee",
+        "lib/ColorPicker-saturationSelector.coffee",
+        "lib/ColorPicker-view.coffee",
+        "lib/ColorPicker.coffee",
+        "lib/variable-inspector.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }

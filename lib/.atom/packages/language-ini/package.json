@@ -1,0 +1,36 @@
+{
+  "name": "language-ini",
+  "version": "1.3.0",
+  "description": "Syntax support for ini files.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jacobbednarz/atom-language-ini"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# Ini syntax support in Atom\n\nSyntax support for .ini files. Ported from\n[textmate/ini](https://github.com/textmate/ini.tmbundle) for Atom.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jacobbednarz/atom-language-ini/issues"
+  },
+  "homepage": "https://github.com/jacobbednarz/atom-language-ini",
+  "_id": "language-ini@1.3.0",
+  "dist": {
+    "shasum": "5663548f6eb264bb24c8d0c54c0bc00ea0d371be"
+  },
+  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-37728-8w3fju/package.tgz",
+  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-37728-8w3fju/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

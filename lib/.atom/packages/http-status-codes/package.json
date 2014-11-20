@@ -1,0 +1,41 @@
+{
+  "name": "http-status-codes",
+  "main": "./lib/http-status-codes",
+  "version": "1.0.2",
+  "description": "This package shows a list of HTTP status codes.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/josa42/atom-http-status-codes"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# http-status-codes package\n\nThis package shows a list of HTTP status codes.\n\n![Screenshot](https://github.com/josa42/atom-http-status-codes/blob/master/screenshot.gif?raw=true)\n\nInspired by [HttpStatusCode for Sublime Text](https://github.com/jugyo/SublimeHttpStatusCode).\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/josa42/atom-http-status-codes/issues"
+  },
+  "homepage": "https://github.com/josa42/atom-http-status-codes",
+  "_id": "http-status-codes@1.0.2",
+  "dist": {
+    "shasum": "797ee95949b2bfa511bec0d836300c1eb7c7b2f0"
+  },
+  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-29653-1n3o2xr/package.tgz",
+  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-29653-1n3o2xr/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/http-status-codes-view.coffee",
+        "lib/http-status-codes.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

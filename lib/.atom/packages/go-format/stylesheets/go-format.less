@@ -1,0 +1,26 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/stylesheets/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+
+.go-format-status {
+  float: left;
+  vertical-align: bottom;
+  margin-top: 1px;
+
+  .error {
+    color: #A00;
+  }
+}
+
+.editor {
+  .gutter {
+    .go-format-error {
+      border-left: 2px solid #a00 !important;
+    }
+    .go-format-error-msg {
+      margin-right: 3px;
+    }
+  }
+}

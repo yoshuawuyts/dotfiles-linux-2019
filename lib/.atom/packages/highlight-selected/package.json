@@ -1,0 +1,88 @@
+{
+  "name": "highlight-selected",
+  "main": "./lib/highlight-selected",
+  "version": "0.6.3",
+  "description": "Highlights the current word selected when double clicking",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/richrace/highlight-selected"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.123.0"
+  },
+  "dependencies": {
+    "underscore-plus": "1.x"
+  },
+  "devDependencies": {
+    "coffee-script": "latest",
+    "coffeelint": "latest",
+    "coffeelint-jasmine": "latest"
+  },
+  "readme": "# Highlight Selected\n\nDouble click on a word to highlight it throughout the open file.\n\nThis is something hacky I've put together as I missed the functionality that Sublime gave. As such, it's doesn't work 100% but is good enough to start!\n\nSome code and has been take from Atom's find and replace package ([link](https://github.com/atom/find-and-replace))\n\nPlease log any issues and pull requests are more than welcome!\n\n![Gif in action](http://i.imgur.com/C5FnzzQ.gif)\n\n# Issues and Todo\n\n- Some double click events are not triggered\n- Refactor and tidy up the code\n- Add specs to test it\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/richrace/highlight-selected/issues"
+  },
+  "homepage": "https://github.com/richrace/highlight-selected",
+  "_id": "highlight-selected@0.6.3",
+  "dist": {
+    "shasum": "4793c9dd3c719ad540dec2e4a19a473e3d525be4"
+  },
+  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-37869-4oofov/package.tgz",
+  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-37869-4oofov/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "underscore-plus",
+        "version": "1.6.1",
+        "path": "node_modules/underscore-plus/lib/underscore-plus.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      }
+    ],
+    "extensions": {
+      ".json": [
+        "coffeelint.json",
+        "node_modules/underscore-plus/node_modules/underscore/package.json",
+        "node_modules/underscore-plus/package.json",
+        "package.json"
+      ],
+      ".coffee": [
+        "lib/highlight-selected.coffee",
+        "lib/highlighted-area-view.coffee"
+      ],
+      ".js": [
+        "node_modules/underscore-plus/lib/underscore-plus.js",
+        "node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
+        "node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "",
+          "lib",
+          "spec/fixtures",
+          "spec"
+        ],
+        "dependencies": {
+          "underscore-plus": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/underscore-plus/lib",
+          "node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      }
+    ]
+  }
+}

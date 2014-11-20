@@ -1,3 +1,39 @@
+3.3.13 / 2014-11-20
+==================
+
+* fix minimap styles persisting after minimap deactivation
+* remove key bindings for toggling command
+
+3.3.12 / 2014-11-19
+==================
+
+* remove forgotten logging
+
+3.3.11 / 2014-11-19
+==================
+
+* fix access to minimap view in quick settings
+
+3.3.10 / 2014-11-18
+==================
+
+* fix minimap removed when the active item of a previous owner changed
+
+3.3.9 / 2014-11-18
+==================
+
+* fix pane and editor styles when shadow dom is enabled
+
+3.3.8 / 2014-11-14
+==================
+
+* exclude handling of text editor views that doesn't belong to a pane view
+
+3.3.7 / 2014-11-12
+==================
+
+* fix links to documentation in Readme
+
 3.3.6 / 2014-11-06
 ==================
 

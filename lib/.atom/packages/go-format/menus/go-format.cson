@@ -1,0 +1,12 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Go'
+      'submenu': [
+        { 'label': 'Format', 'command': 'go-format:format' }
+      ]
+    ]
+  }
+]
