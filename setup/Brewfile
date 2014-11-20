@@ -25,7 +25,6 @@ boost
 brew-cask
 bsdmake
 cairo
-cargo-completion
 cloog
 cowsay
 dirmngr
@@ -92,4 +91,3 @@ xz
 zsh
 
 homebrew/binary/packer
-homebrew/versions/lua52

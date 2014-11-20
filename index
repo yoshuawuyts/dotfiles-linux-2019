@@ -23,8 +23,6 @@ install_caskDeps() {
 
 install_languages() {
   curl -sSL https://get.rvm.io | bash -s stable;
-  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)";
-  bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer);
   nvm install 0.10;
   nvm install 0.11;
   nvm alias default 0.10;
@@ -36,7 +34,7 @@ configure_osx() {
 }
 
 link_dotfiles() {
-  source ./setup/link.sh
+  source ./setup/link.sh;
 }
 
 configure_zsh() {

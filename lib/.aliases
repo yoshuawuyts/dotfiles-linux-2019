@@ -3,8 +3,8 @@
 #
 
 # alias la='ls -ApC'
-alias ls='gls -ohpgn --color=auto --group-directories-first -o'
-alias rm='rm -rf'
+alias la='gls -ohpgn --color=auto --group-directories-first -o'
+alias rmrf='rm -rf'
 alias t='tree -a -L 3 -A -C -I "node_modules|.git"'
 
 #
@@ -15,7 +15,7 @@ alias git branch='git branch --color'
 alias git checkout='git checkout -q'
 alias git clean='git branch --merged | xargs git branch -d'
 alias git diff='git diff --patch-with-stat --color=always --word-diff=color'
-alias git log='git log --color --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+alias glog='git log --color --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias git pull='git pull --rebase'
 alias git push='git push -q --tags && git push -q'
 alias git rebase='git rebase -i'
