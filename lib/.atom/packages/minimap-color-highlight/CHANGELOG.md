@@ -1,3 +1,10 @@
+<a name="v3.0.3"></a>
+# v3.0.3 (2014-10-22)
+
+## :bug: Bug Fixes
+
+- Add description in package.json
+
 <a name="v3.0.2"></a>
 # v3.0.2 (2014-10-22)
 

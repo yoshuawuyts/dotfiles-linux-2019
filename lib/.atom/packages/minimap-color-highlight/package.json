@@ -1,8 +1,8 @@
 {
   "name": "minimap-color-highlight",
   "main": "./lib/minimap-color-highlight",
-  "version": "3.0.2",
-  "description": "A short description of your package",
+  "version": "3.0.3",
+  "description": "A minimap binding for the atom-color-highlight package.",
   "author": {
     "name": "Cédric Néhémie",
     "email": "cedric.nehemie@gmail.com"
@@ -26,12 +26,12 @@
     "url": "https://github.com/abe33/minimap-color-highlight/issues"
   },
   "homepage": "https://github.com/abe33/minimap-color-highlight",
-  "_id": "minimap-color-highlight@3.0.2",
+  "_id": "minimap-color-highlight@3.0.3",
   "dist": {
-    "shasum": "548ccc56971b7254b238af784d782efb043ddf9a"
+    "shasum": "689c166e55d6e1f502f5d84198b2a27e0b6e16e7"
   },
-  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-37807-1xbs8tq/package.tgz",
-  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-37807-1xbs8tq/package.tgz",
+  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141026-19513-pubx07/package.tgz",
+  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141026-19513-pubx07/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -72,7 +72,7 @@
       },
       {
         "name": "q",
-        "version": "1.1.1",
+        "version": "1.1.2",
         "path": "node_modules/q/q.js"
       },
       {
@@ -125,8 +125,6 @@
         "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js",
         "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js",
         "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.min.js",
-        "node_modules/q/benchmark/compare-with-callbacks.js",
-        "node_modules/q/benchmark/scenarios.js",
         "node_modules/q/q.js",
         "node_modules/q/queue.js",
         "node_modules/underscore-plus/lib/underscore-plus.js",

@@ -83,6 +83,8 @@ class Linter
     cmd_list = cmd_list.map (cmd_item) ->
       if /@filename/i.test(cmd_item)
         return cmd_item.replace(/@filename/gi, filePath)
+      if /@tempdir/i.test(cmd_item)
+        return cmd_item.replace(/@tempdir/gi, path.dirname(filePath))
       else
         return cmd_item
 
@@ -92,6 +94,9 @@ class Linter
       command: cmd_list[0],
       args: cmd_list.slice(1)
     }
+
+  getReportFilePath: (filePath) ->
+    path.join(path.dirname(filePath), @reportFilePath)
 
   # Private: Provide the node executable path for use when executing a node
   #          linter
@@ -113,6 +118,7 @@ class Linter
 
     dataStdout = []
     dataStderr = []
+    exited = false
 
     stdout = (output) ->
       log 'stdout', output
@@ -123,15 +129,27 @@ class Linter
       dataStderr += output
 
     exit = =>
-      data = if @errorStream is 'stdout' then dataStdout else dataStderr
+      exited = true
+      switch @errorStream
+        when 'file'
+          reportFilePath = @getReportFilePath(filePath)
+          if fs.existsSync reportFilePath
+            data = fs.readFileSync(reportFilePath)
+        when 'stdout' then data = dataStdout
+        else data = dataStderr
       @processMessage data, callback
 
     process = new BufferedProcess({command, args, options,
                                   stdout, stderr, exit})
 
     # Don't block UI more than 5seconds, it's really annoying on big files
+    # TODO: This doesn't actually block a UI thread, but it does cause lint
+    # warnings to flash. A better fix would be to diff new lint messages with
+    # existing ones and remove those that are no longer present. Right now we
+    # just remove all existing ones, and add all new ones.
     timeout_s = 5
     setTimeout ->
+      return if exited
       process.kill()
       warn "command `#{command}` timed out after #{timeout_s}s"
     , timeout_s * 1000
@@ -187,7 +205,8 @@ class Linter
     match.message
 
   lineLengthForRow: (row) ->
-    return @editor.lineLengthForBufferRow row
+    text = @editor.lineTextForBufferRow row
+    return text?.length or 0
 
   getEditorScopesForPosition: (position) ->
     try

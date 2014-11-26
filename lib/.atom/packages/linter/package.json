@@ -1,7 +1,7 @@
 {
   "name": "linter",
   "main": "./lib/init",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "private": true,
   "description": "Validates your code using linters.",
   "repository": {
@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "engines": {
-    "atom": ">=0.125.0",
+    "atom": ">=0.132.0",
     "node": ">= 0.10.0"
   },
   "dependencies": {
@@ -39,16 +39,856 @@
     "load-grunt-tasks": "^0.4.0",
     "pygments": "^0.2.0"
   },
-  "readme": "# Linter\n[![Build Status](https://travis-ci.org/AtomLinter/Linter.svg)](https://travis-ci.org/AtomLinter/Linter)\n\nLint your code with ease in [Atom](http://atom.io).\n\n![atom-inline-messages](inline-comments.gif)\n\nThe idea is to stop the linter plugins war, by providing a top level API for linters to parse and display errors in the Atom editor.\n\n## Available linters\n- [linter-php](https://atom.io/packages/linter-php), for PHP using `php -l`\n- [linter-phpcs](https://atom.io/packages/linter-phpcs), for PHP, using `phpc`\n- [linter-phpmd](https://atom.io/packages/linter-phpmd), for PHP, using `phpmd`\n- [linter-pylint](https://atom.io/packages/linter-pylint), for Python, using `pylint`\n- [linter-pyflakes](https://atom.io/packages/linter-pyflakes), for Python, using `pyflakes`\n- [linter-pep8](https://atom.io/packages/linter-pep8), for Python, using `pep8`.\n- [linter-flake8](https://atom.io/packages/linter-flake8), for Python, using `flake8`\n- [linter-pylama](https://atom.io/packages/linter-pylama), for Python, using `pylama`\n- [linter-javac](https://atom.io/packages/linter-javac), for Java, using `javac`\n- [linter-jshint](https://atom.io/packages/linter-jshint), for JavaScript and JSON, using `jshint`\n- [linter-jscs](https://atom.io/packages/linter-jscs), for JavaScript, using `jscs`\n- [linter-jsxhint](https://atom.io/packages/linter-jsxhint), for JSX (React.js), using `jsxhint`\n- [linter-eslint](https://atom.io/packages/linter-eslint), for JavaScript, using `eslint`\n- [linter-scss-lint](https://atom.io/packages/linter-scss-lint), for SASS/SCSS, using `scss-lint`\n- [linter-less](https://atom.io/packages/linter-less), for LESS, using `less`\n- [linter-coffeelint](https://atom.io/packages/linter-coffeelint), for CoffeeScript, using `coffeelint`\n- [linter-csslint](https://atom.io/packages/linter-csslint), for CSS, using `csslint`\n- [linter-rubocop](https://atom.io/packages/linter-rubocop), for Ruby and Ruby on Rails, using `rubocop`\n- [linter-tslint](https://atom.io/packages/linter-tslint), for Typescript, using `tslint`\n- [linter-xmllint](https://atom.io/packages/linter-xmllint), for XML, using `xmllint`\n- [linter-shellcheck](https://atom.io/packages/linter-shellcheck), for Bash, using `shellcheck`\n- [linter-scalac](https://atom.io/packages/linter-scalac), for Scala, using `scalac`\n- [linter-clang](https://atom.io/packages/linter-clang), for C / C++, using `clang`\n- [linter-cpplint](https://atom.io/packages/linter-cpplint), for C++, using `cpplint`\n- [linter-ruby](https://atom.io/packages/linter-ruby), for Ruby, using `ruby -wc`\n- [linter-lua](https://atom.io/packages/linter-lua), for Lua, using `luac -p`\n- [linter-clojure](https://atom.io/packages/linter-clojure), for Clojure, using `clojure`\n- [linter-puppet-lint](https://atom.io/packages/linter-puppet-lint), for Puppet, using `puppet-lint`\n- [linter-js-yaml](https://atom.io/packages/linter-js-yaml), for Yaml, using `js-yaml`\n- [linter-erb](https://atom.io/packages/linter-erb), for .erb files, using `erb -x`\n- [linter-hlint](https://atom.io/packages/linter-hlint), for Haskell files, using `hlint`\n- [linter-tidy](https://atom.io/packages/linter-tidy), for HTML, using `tidy`\n- [linter-htmlhint](https://atom.io/packages/linter-htmlhint), for html, using `htmlhint`\n- [linter-squirrel](https://atom.io/packages/linter-squirrel), for squirrel, using `squirrel-compiler`\n- [linter-codscriptizer](https://atom.io/packages/linter-codscriptizer), for CoDScript, using `codscriptizer -l`\n- [linter-harbour](https://atom.io/packages/linter-harbour), for Harbour, using `harbour`\n- [linter-rust](https://atom.io/packages/linter-rust), for Rust, using `rustc`\n- [linter-dartanalyzer](https://atom.io/packages/linter-dartanalyzer), for Dart using `dartanalyzer`\n\n\n## Features\n\n* **Lint on edit** – Instant error reporting for you! (And it's fast!)\n* **Modular** – You install only the linters you need.\n* **Active** – New linters are out every week.\n\n## Installation\n\n1. `$ apm install linter` – Install the main package.\n2. `$ apm install linter-jshint` – Install the linter you need, here `jshint`.\n\n## Configuration\n\n* **Lint on save** [On / Off] - Lint the file when you save it\n* **Lint on change** [On / Off] - Lint the file as you type\n* **Show highlighting** [On / Off] - Highlight the range of wrong code\n* **Show gutters**: [On / Off] - Show dot in the gutter on line error\n* **Show messages around cursor** [On / Off] - Show error description in the status bar\n* **Show status bar when cursor is in error range** [On / Off] - Either show status bar when the cursor is on the error line, or show it when the cursor is focus the range of wrong code\n* **Show error inline** [On / Off] - Shows the error or warning message next to the code as opposed to in the status bar.\n* **Lint on change interval** [in ms] - Interval between two lints while you are writing code\n\n## Common errors\n\n* `env: node: No such file or directory` – There's a problem with your node path – [check this](http://stackoverflow.com/a/20077620).\n* `spawn ENOENT` or `spawn ENOTDIR` - A linter can't find a path to the executable. Try starting Atom from a shell via `atom` to make sure it gets your `PATH`. See also [#102](https://github.com/AtomLinter/Linter/issues/102), [#150](https://github.com/AtomLinter/Linter/issues/150).\n* Gutters and highlights not working? Make sure you're using the React editor. The [old editor is deprecated](http://blog.atom.io/2014/07/22/default-to-react-editor.html).\n\n## Documentation\nhttp://atomlinter.github.io/Linter/\n\n## Coming soon\n\n- linter-pep257, for python, using `pep257`.\n- linter-rst, for reStructuredText, using `docutils`.\n- linter-phplint, for PHP, using `phplint`.\n- linter-jsl, for JavaScript, using `jsl`.\n- linter-oclitnt, for C / C++ / Objective-C, using `OCLint`.\n\n## Contributing\n\nIf you're going to submit a pull request, please try to follow\n[the official contribution guidelines of Atom](https://atom.io/docs/latest/contributing).\n\nYou need `nodejs` and `grunt-cli` installed before contributing.\nRun `bower install node` then `npm install -g grunt-cli`.\n\nAlso, run `$ grunt dev` before any submission and while developing, it will achieves severals tasks:\n\n* Compile and lint the CoffeeScript files\n* Lint the stylesheets\n* Lint any trailing spaces and ensure new line at end of file\n\nYou can generate the doc with `$ grunt doc`, it will open in your default browser.\n\n## Donation\n[![Share the love!](https://chewbacco-stuff.s3.amazonaws.com/donate.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KXUYS4ARNHCN8)\n[![donate-paypal](https://s3-eu-west-1.amazonaws.com/chewbacco-stuff/donate-paypal.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KXUYS4ARNHCN8)\n",
+  "readme": "# Linter\n[![Build Status](https://travis-ci.org/AtomLinter/Linter.svg)](https://travis-ci.org/AtomLinter/Linter)\n\nLint your code with ease in [Atom](http://atom.io).\n\n![atom-inline-messages](inline-comments.gif)\n\nThe idea is to stop the linter plugins war, by providing a top level API for linters to parse and display errors in the Atom editor.\n\n## Available linters\n#### for JavaScript\n- [linter-jshint](https://atom.io/packages/linter-jshint), for JavaScript and JSON, using `jshint`\n- [linter-jscs](https://atom.io/packages/linter-jscs), for JavaScript, using `jscs`\n- [linter-jsxhint](https://atom.io/packages/linter-jsxhint), for JSX (React.js), using `jsxhint`\n- [linter-eslint](https://atom.io/packages/linter-eslint), for JavaScript, using `eslint`\n- [linter-gjslint](https://atom.io/packages/linter-gjslint), for JavaScript, using `gjslint`\n\n#### for CoffeeScript\n- [linter-coffeelint](https://atom.io/packages/linter-coffeelint), for CoffeeScript, using `coffeelint`\n\n#### for Typescript\n- [linter-tslint](https://atom.io/packages/linter-tslint), for Typescript, using `tslint`\n\n#### for Dart\n- [linter-dartanalyzer](https://atom.io/packages/linter-dartanalyzer), for Dart using `dartanalyzer`\n\n\n#### for Ruby and Ruby on Rails\n- [linter-rubocop](https://atom.io/packages/linter-rubocop), for Ruby and Ruby on Rails, using `rubocop`\n- [linter-ruby](https://atom.io/packages/linter-ruby), for Ruby, using `ruby -wc`\n- [linter-erb](https://atom.io/packages/linter-erb), for .erb files, using `erb -x`\n\n#### for PHP\n- [linter-php](https://atom.io/packages/linter-php), for PHP using `php -l`\n- [linter-phpcs](https://atom.io/packages/linter-phpcs), for PHP, using `phpc`\n- [linter-phpmd](https://atom.io/packages/linter-phpmd), for PHP, using `phpmd`\n\n#### for Python\n- [linter-pylint](https://atom.io/packages/linter-pylint), for Python, using `pylint`\n- [linter-pyflakes](https://atom.io/packages/linter-pyflakes), for Python, using `pyflakes`\n- [linter-pep8](https://atom.io/packages/linter-pep8), for Python, using `pep8`.\n- [linter-flake8](https://atom.io/packages/linter-flake8), for Python, using `flake8`\n- [linter-pylama](https://atom.io/packages/linter-pylama), for Python, using `pylama`\n\n#### for Java\n- [linter-javac](https://atom.io/packages/linter-javac), for Java, using `javac`\n\n#### for CSS / SASS / SCSS / LESS\n- [linter-scss-lint](https://atom.io/packages/linter-scss-lint), for SASS/SCSS, using `scss-lint`\n- [linter-less](https://atom.io/packages/linter-less), for LESS, using `less`\n- [linter-csslint](https://atom.io/packages/linter-csslint), for CSS, using `csslint`\n\n#### for XML\n- [linter-xmllint](https://atom.io/packages/linter-xmllint), for XML, using `xmllint`\n\n#### for Bash\n- [linter-shellcheck](https://atom.io/packages/linter-shellcheck), for Bash, using `shellcheck`\n\n#### for Scala\n- [linter-scalac](https://atom.io/packages/linter-scalac), for Scala, using `scalac`\n\n#### for C / C++\n- [linter-clang](https://atom.io/packages/linter-clang), for C / C++, using `clang`\n- [linter-cpplint](https://atom.io/packages/linter-cpplint), for C++, using `cpplint`\n\n#### for Lua\n- [linter-lua](https://atom.io/packages/linter-lua), for Lua, using `luac -p`\n\n#### for Clojure\n- [linter-clojure](https://atom.io/packages/linter-clojure), for Clojure, using `clojure`\n\n#### for Puppet\n- [linter-puppet-lint](https://atom.io/packages/linter-puppet-lint), for Puppet, using `puppet-lint`\n\n#### for Yaml\n- [linter-js-yaml](https://atom.io/packages/linter-js-yaml), for Yaml, using `js-yaml`\n\n#### for Haskell\n- [linter-hlint](https://atom.io/packages/linter-hlint), for Haskell files, using `hlint`\n\n#### for HTML\n- [linter-tidy](https://atom.io/packages/linter-tidy), for HTML, using `tidy`\n- [linter-htmlhint](https://atom.io/packages/linter-htmlhint), for html, using `htmlhint`\n\n#### for Squirrel\n- [linter-squirrel](https://atom.io/packages/linter-squirrel), for squirrel, using `squirrel-compiler`\n\n#### for CoDScript\n- [linter-codscriptizer](https://atom.io/packages/linter-codscriptizer), for CoDScript, using `codscriptizer -l`\n\n#### for harbour\n- [linter-harbour](https://atom.io/packages/linter-harbour), for Harbour, using `harbour`\n\n#### for Rust\n- [linter-rust](https://atom.io/packages/linter-rust), for Rust, using `rustc`\n\n#### for Elixir\n- [linter-elixirc](https://atom.io/packages/linter-elixirc), for Elixir, using `elixirc`\n\n#### for Erlang\n- [linter-erlc](https://atom.io/packages/linter-erlc), for Erlang, using `erlc`\n\n#### for ActionScript/Flash/Flex/AIR\n- [linter-flexpmd](https://atom.io/packages/linter-flexpmd),for ActionScript/Flash/Flex/AIR, using flexpmd\n\n## Features\n\n* **Lint on edit** – Instant error reporting for you! (And it's fast!)\n* **Modular** – You install only the linters you need.\n* **Active** – New linters are out every week.\n\n## Installation\n\n1. `$ apm install linter` – Install the main package.\n2. `$ apm install linter-jshint` – Install the linter you need, here `jshint`.\n\n## Configuration\n\n* **Lint on save** [On / Off] - Lint the file when you save it\n* **Lint on change** [On / Off] - Lint the file as you type\n* **Show highlighting** [On / Off] - Highlight the range of wrong code\n* **Show gutters**: [On / Off] - Show dot in the gutter on line error\n* **Show messages around cursor** [On / Off] - Show error description in the status bar\n* **Show status bar when cursor is in error range** [On / Off] - Either show status bar when the cursor is on the error line, or show it when the cursor is focus the range of wrong code\n* **Show error inline** [On / Off] - Shows the error or warning message next to the code as opposed to in the status bar.\n* **Lint on change interval** [in ms] - Interval between two lints while you are writing code\n\n## Common errors\n\n* `env: node: No such file or directory` – There's a problem with your node path – [check this](http://stackoverflow.com/a/20077620).\n* `spawn ENOENT` or `spawn ENOTDIR` - A linter can't find a path to the executable. Try starting Atom from a shell via `atom` to make sure it gets your `PATH`. See also [#102](https://github.com/AtomLinter/Linter/issues/102), [#150](https://github.com/AtomLinter/Linter/issues/150).\n* Gutters and highlights not working? Make sure you're using the React editor. The [old editor is deprecated](http://blog.atom.io/2014/07/22/default-to-react-editor.html).\n\n## Documentation\nhttp://atomlinter.github.io/Linter/\n\n## Coming soon\n\n- linter-pep257, for python, using `pep257`.\n- linter-rst, for reStructuredText, using `docutils`.\n- linter-phplint, for PHP, using `phplint`.\n- linter-jsl, for JavaScript, using `jsl`.\n- linter-oclitnt, for C / C++ / Objective-C, using `OCLint`.\n\n## Contributing\n\nIf you're going to submit a pull request, please try to follow\n[the official contribution guidelines of Atom](https://atom.io/docs/latest/contributing).\n\nYou need `nodejs` and `grunt-cli` installed before contributing.\nRun `bower install node` then `npm install -g grunt-cli`.\n\nAlso, run `$ grunt dev` before any submission and while developing, it will achieves severals tasks:\n\n* Compile and lint the CoffeeScript files\n* Lint the stylesheets\n* Lint any trailing spaces and ensure new line at end of file\n\nYou can generate the doc with `$ grunt doc`, it will open in your default browser.\n\n## Donation\n[![Share the love!](https://chewbacco-stuff.s3.amazonaws.com/donate.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KXUYS4ARNHCN8)\n\n[![donate-paypal](https://s3-eu-west-1.amazonaws.com/chewbacco-stuff/donate-paypal.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KXUYS4ARNHCN8)\n\n<a class=\"coinbase-button\" data-code=\"2945dab392cb1cefbb7097e4cd17a603\" data-button-style=\"custom_small\" href=\"https://www.coinbase.com/checkouts/2945dab392cb1cefbb7097e4cd17a603\">Donate Bitcoins</a><script src=\"https://www.coinbase.com/assets/button.js\" type=\"text/javascript\"></script>\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/AtomLinter/Linter/issues"
   },
   "homepage": "https://github.com/AtomLinter/Linter",
-  "_id": "linter@0.7.3",
+  "_id": "linter@0.7.4",
   "dist": {
-    "shasum": "f25dcfbf6ce32f541f02f4875cc0ec560395eb84"
+    "shasum": "c7a24f8060a311450e8274c86fcd22cc437b0fd8"
   },
-  "_resolved": "/private/var/folders/mr/rrxz6nyn3478rx6hskc3hvx00000gn/T/d-114826-26141-1ebmddh/package.tgz",
-  "_from": "/private/var/folders/mr/rrxz6nyn3478rx6hskc3hvx00000gn/T/d-114826-26141-1ebmddh/package.tgz"
+  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141024-43023-zfasm8/package.tgz",
+  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141024-43023-zfasm8/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "chai",
+        "version": "1.10.0",
+        "path": "node_modules/chai/index.js"
+      },
+      {
+        "name": "assertion-error",
+        "version": "1.0.0",
+        "path": "node_modules/chai/node_modules/assertion-error/index.js"
+      },
+      {
+        "name": "deep-eql",
+        "version": "0.1.3",
+        "path": "node_modules/chai/node_modules/deep-eql/index.js"
+      },
+      {
+        "name": "type-detect",
+        "version": "0.1.1",
+        "path": "node_modules/chai/node_modules/deep-eql/node_modules/type-detect/index.js"
+      },
+      {
+        "name": "emissary",
+        "version": "1.3.1",
+        "path": "node_modules/emissary/lib/emissary.js"
+      },
+      {
+        "name": "harmony-collections",
+        "version": "0.3.7",
+        "path": "node_modules/emissary/node_modules/harmony-collections/harmony-collections.js"
+      },
+      {
+        "name": "mixto",
+        "version": "1.0.0",
+        "path": "node_modules/emissary/node_modules/mixto/lib/mixin.js"
+      },
+      {
+        "name": "property-accessors",
+        "version": "1.1.0",
+        "path": "node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js"
+      },
+      {
+        "name": "harmony-collections",
+        "version": "0.3.7",
+        "path": "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js"
+      },
+      {
+        "name": "underscore-plus",
+        "version": "1.6.1",
+        "path": "node_modules/emissary/node_modules/underscore-plus/lib/underscore-plus.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/emissary/node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      },
+      {
+        "name": "jshint",
+        "version": "2.5.10",
+        "path": "node_modules/jshint/src/jshint.js"
+      },
+      {
+        "name": "cli",
+        "version": "0.6.5",
+        "path": "node_modules/jshint/node_modules/cli/cli.js"
+      },
+      {
+        "name": "glob",
+        "version": "3.2.11",
+        "path": "node_modules/jshint/node_modules/cli/node_modules/glob/glob.js"
+      },
+      {
+        "name": "inherits",
+        "version": "2.0.1",
+        "path": "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/inherits/inherits.js"
+      },
+      {
+        "name": "minimatch",
+        "version": "0.3.0",
+        "path": "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/minimatch/minimatch.js"
+      },
+      {
+        "name": "lru-cache",
+        "version": "2.5.0",
+        "path": "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js"
+      },
+      {
+        "name": "sigmund",
+        "version": "1.0.0",
+        "path": "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/minimatch/node_modules/sigmund/sigmund.js"
+      },
+      {
+        "name": "console-browserify",
+        "version": "1.1.0",
+        "path": "node_modules/jshint/node_modules/console-browserify/index.js"
+      },
+      {
+        "name": "date-now",
+        "version": "0.1.4",
+        "path": "node_modules/jshint/node_modules/console-browserify/node_modules/date-now/index.js"
+      },
+      {
+        "name": "exit",
+        "version": "0.1.2",
+        "path": "node_modules/jshint/node_modules/exit/lib/exit.js"
+      },
+      {
+        "name": "htmlparser2",
+        "version": "3.8.2",
+        "path": "node_modules/jshint/node_modules/htmlparser2/lib/index.js"
+      },
+      {
+        "name": "domelementtype",
+        "version": "1.1.3",
+        "path": "node_modules/jshint/node_modules/htmlparser2/node_modules/domelementtype/index.js"
+      },
+      {
+        "name": "domhandler",
+        "version": "2.3.0",
+        "path": "node_modules/jshint/node_modules/htmlparser2/node_modules/domhandler/index.js"
+      },
+      {
+        "name": "domutils",
+        "version": "1.5.0",
+        "path": "node_modules/jshint/node_modules/htmlparser2/node_modules/domutils/index.js"
+      },
+      {
+        "name": "entities",
+        "version": "1.0.0",
+        "path": "node_modules/jshint/node_modules/htmlparser2/node_modules/entities/index.js"
+      },
+      {
+        "name": "readable-stream",
+        "version": "1.1.13",
+        "path": "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/readable.js"
+      },
+      {
+        "name": "core-util-is",
+        "version": "1.0.1",
+        "path": "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/core-util-is/lib/util.js"
+      },
+      {
+        "name": "inherits",
+        "version": "2.0.1",
+        "path": "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/inherits/inherits.js"
+      },
+      {
+        "name": "isarray",
+        "version": "0.0.1",
+        "path": "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/isarray/index.js"
+      },
+      {
+        "name": "string_decoder",
+        "version": "0.10.31",
+        "path": "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/string_decoder/index.js"
+      },
+      {
+        "name": "minimatch",
+        "version": "1.0.0",
+        "path": "node_modules/jshint/node_modules/minimatch/minimatch.js"
+      },
+      {
+        "name": "lru-cache",
+        "version": "2.5.0",
+        "path": "node_modules/jshint/node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js"
+      },
+      {
+        "name": "sigmund",
+        "version": "1.0.0",
+        "path": "node_modules/jshint/node_modules/minimatch/node_modules/sigmund/sigmund.js"
+      },
+      {
+        "name": "shelljs",
+        "version": "0.3.0",
+        "path": "node_modules/jshint/node_modules/shelljs/shell.js"
+      },
+      {
+        "name": "strip-json-comments",
+        "version": "1.0.2",
+        "path": "node_modules/jshint/node_modules/strip-json-comments/strip-json-comments.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/jshint/node_modules/underscore/underscore.js"
+      },
+      {
+        "name": "lodash",
+        "version": "2.4.1",
+        "path": "node_modules/lodash/dist/lodash.js"
+      },
+      {
+        "name": "rimraf",
+        "version": "2.2.8",
+        "path": "node_modules/rimraf/rimraf.js"
+      },
+      {
+        "name": "shelljs",
+        "version": "0.2.6",
+        "path": "node_modules/shelljs/shell.js"
+      },
+      {
+        "name": "sinon",
+        "version": "1.12.1",
+        "path": "node_modules/sinon/lib/sinon.js"
+      },
+      {
+        "name": "formatio",
+        "version": "1.1.1",
+        "path": "node_modules/sinon/node_modules/formatio/lib/formatio.js"
+      },
+      {
+        "name": "samsam",
+        "version": "1.1.1",
+        "path": "node_modules/sinon/node_modules/formatio/node_modules/samsam/lib/samsam.js"
+      },
+      {
+        "name": "lolex",
+        "version": "1.1.0",
+        "path": "node_modules/sinon/node_modules/lolex/src/lolex.js"
+      },
+      {
+        "name": "util",
+        "version": "0.10.3",
+        "path": "node_modules/sinon/node_modules/util/util.js"
+      },
+      {
+        "name": "inherits",
+        "version": "2.0.1",
+        "path": "node_modules/sinon/node_modules/util/node_modules/inherits/inherits.js"
+      },
+      {
+        "name": "temp",
+        "version": "0.8.1",
+        "path": "node_modules/temp/lib/temp.js"
+      },
+      {
+        "name": "xregexp",
+        "version": "2.0.0",
+        "path": "node_modules/xregexp/xregexp-all.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "Gruntfile.coffee",
+        "lib/init.coffee",
+        "lib/inline-view.coffee",
+        "lib/linter-view.coffee",
+        "lib/linter.coffee",
+        "lib/statusbar-view.coffee",
+        "lib/util.coffee",
+        "lib/utils.coffee",
+        "node_modules/jshint/node_modules/cli/examples/static.coffee"
+      ],
+      ".json": [
+        "coffeelint.json",
+        "node_modules/chai/bower.json",
+        "node_modules/chai/node_modules/assertion-error/package.json",
+        "node_modules/chai/node_modules/deep-eql/node_modules/type-detect/package.json",
+        "node_modules/chai/node_modules/deep-eql/package.json",
+        "node_modules/chai/package.json",
+        "node_modules/emissary/node_modules/harmony-collections/package.json",
+        "node_modules/emissary/node_modules/mixto/package.json",
+        "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/package.json",
+        "node_modules/emissary/node_modules/property-accessors/package.json",
+        "node_modules/emissary/node_modules/underscore-plus/node_modules/underscore/package.json",
+        "node_modules/emissary/node_modules/underscore-plus/package.json",
+        "node_modules/emissary/package.json",
+        "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/inherits/package.json",
+        "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/minimatch/node_modules/lru-cache/package.json",
+        "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/minimatch/node_modules/sigmund/package.json",
+        "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/minimatch/package.json",
+        "node_modules/jshint/node_modules/cli/node_modules/glob/package.json",
+        "node_modules/jshint/node_modules/cli/package.json",
+        "node_modules/jshint/node_modules/console-browserify/.testem.json",
+        "node_modules/jshint/node_modules/console-browserify/node_modules/date-now/.testem.json",
+        "node_modules/jshint/node_modules/console-browserify/node_modules/date-now/package.json",
+        "node_modules/jshint/node_modules/console-browserify/package.json",
+        "node_modules/jshint/node_modules/exit/package.json",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/domelementtype/package.json",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/domhandler/package.json",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/domutils/package.json",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/entities/maps/decode.json",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/entities/maps/entities.json",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/entities/maps/legacy.json",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/entities/maps/xml.json",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/entities/package.json",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/core-util-is/package.json",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/inherits/package.json",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/isarray/component.json",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/isarray/package.json",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/string_decoder/package.json",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/package.json",
+        "node_modules/jshint/node_modules/htmlparser2/package.json",
+        "node_modules/jshint/node_modules/minimatch/node_modules/lru-cache/package.json",
+        "node_modules/jshint/node_modules/minimatch/node_modules/sigmund/package.json",
+        "node_modules/jshint/node_modules/minimatch/package.json",
+        "node_modules/jshint/node_modules/shelljs/.documentup.json",
+        "node_modules/jshint/node_modules/shelljs/package.json",
+        "node_modules/jshint/node_modules/strip-json-comments/package.json",
+        "node_modules/jshint/node_modules/underscore/package.json",
+        "node_modules/jshint/package.json",
+        "node_modules/lodash/package.json",
+        "node_modules/rimraf/package.json",
+        "node_modules/shelljs/.documentup.json",
+        "node_modules/shelljs/package.json",
+        "node_modules/sinon/node_modules/formatio/node_modules/samsam/package.json",
+        "node_modules/sinon/node_modules/formatio/package.json",
+        "node_modules/sinon/node_modules/lolex/package.json",
+        "node_modules/sinon/node_modules/util/node_modules/inherits/package.json",
+        "node_modules/sinon/node_modules/util/package.json",
+        "node_modules/sinon/package.json",
+        "node_modules/temp/package.json",
+        "node_modules/xregexp/package.json",
+        "package.json"
+      ],
+      ".js": [
+        "node_modules/chai/chai.js",
+        "node_modules/chai/index.js",
+        "node_modules/chai/karma.conf.js",
+        "node_modules/chai/karma.sauce.js",
+        "node_modules/chai/lib/chai/assertion.js",
+        "node_modules/chai/lib/chai/config.js",
+        "node_modules/chai/lib/chai/core/assertions.js",
+        "node_modules/chai/lib/chai/interface/assert.js",
+        "node_modules/chai/lib/chai/interface/expect.js",
+        "node_modules/chai/lib/chai/interface/should.js",
+        "node_modules/chai/lib/chai/utils/addChainableMethod.js",
+        "node_modules/chai/lib/chai/utils/addMethod.js",
+        "node_modules/chai/lib/chai/utils/addProperty.js",
+        "node_modules/chai/lib/chai/utils/flag.js",
+        "node_modules/chai/lib/chai/utils/getActual.js",
+        "node_modules/chai/lib/chai/utils/getEnumerableProperties.js",
+        "node_modules/chai/lib/chai/utils/getMessage.js",
+        "node_modules/chai/lib/chai/utils/getName.js",
+        "node_modules/chai/lib/chai/utils/getPathValue.js",
+        "node_modules/chai/lib/chai/utils/getProperties.js",
+        "node_modules/chai/lib/chai/utils/index.js",
+        "node_modules/chai/lib/chai/utils/inspect.js",
+        "node_modules/chai/lib/chai/utils/objDisplay.js",
+        "node_modules/chai/lib/chai/utils/overwriteChainableMethod.js",
+        "node_modules/chai/lib/chai/utils/overwriteMethod.js",
+        "node_modules/chai/lib/chai/utils/overwriteProperty.js",
+        "node_modules/chai/lib/chai/utils/test.js",
+        "node_modules/chai/lib/chai/utils/transferFlags.js",
+        "node_modules/chai/lib/chai/utils/type.js",
+        "node_modules/chai/lib/chai.js",
+        "node_modules/chai/node_modules/assertion-error/index.js",
+        "node_modules/chai/node_modules/deep-eql/index.js",
+        "node_modules/chai/node_modules/deep-eql/karma.conf.js",
+        "node_modules/chai/node_modules/deep-eql/lib/eql.js",
+        "node_modules/chai/node_modules/deep-eql/node_modules/type-detect/index.js",
+        "node_modules/chai/node_modules/deep-eql/node_modules/type-detect/lib/type.js",
+        "node_modules/chai/sauce.browsers.js",
+        "node_modules/emissary/lib/behavior.js",
+        "node_modules/emissary/lib/emissary.js",
+        "node_modules/emissary/lib/emitter.js",
+        "node_modules/emissary/lib/helpers.js",
+        "node_modules/emissary/lib/signal.js",
+        "node_modules/emissary/lib/subscriber.js",
+        "node_modules/emissary/lib/subscription.js",
+        "node_modules/emissary/node_modules/harmony-collections/harmony-collections.js",
+        "node_modules/emissary/node_modules/harmony-collections/harmony-collections.min.js",
+        "node_modules/emissary/node_modules/mixto/lib/mixin.js",
+        "node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js",
+        "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js",
+        "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.min.js",
+        "node_modules/emissary/node_modules/underscore-plus/lib/underscore-plus.js",
+        "node_modules/emissary/node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
+        "node_modules/emissary/node_modules/underscore-plus/node_modules/underscore/underscore.js",
+        "node_modules/jshint/data/ascii-identifier-data.js",
+        "node_modules/jshint/data/non-ascii-identifier-part-only.js",
+        "node_modules/jshint/data/non-ascii-identifier-start.js",
+        "node_modules/jshint/dist/jshint-rhino.js",
+        "node_modules/jshint/dist/jshint.js",
+        "node_modules/jshint/node_modules/cli/cli.js",
+        "node_modules/jshint/node_modules/cli/examples/cat.js",
+        "node_modules/jshint/node_modules/cli/examples/command.js",
+        "node_modules/jshint/node_modules/cli/examples/echo.js",
+        "node_modules/jshint/node_modules/cli/examples/glob.js",
+        "node_modules/jshint/node_modules/cli/examples/long_desc.js",
+        "node_modules/jshint/node_modules/cli/examples/progress.js",
+        "node_modules/jshint/node_modules/cli/examples/sort.js",
+        "node_modules/jshint/node_modules/cli/examples/spinner.js",
+        "node_modules/jshint/node_modules/cli/examples/static.js",
+        "node_modules/jshint/node_modules/cli/index.js",
+        "node_modules/jshint/node_modules/cli/node_modules/glob/examples/g.js",
+        "node_modules/jshint/node_modules/cli/node_modules/glob/examples/usr-local.js",
+        "node_modules/jshint/node_modules/cli/node_modules/glob/glob.js",
+        "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/inherits/inherits.js",
+        "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/inherits/inherits_browser.js",
+        "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/inherits/test.js",
+        "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/minimatch/minimatch.js",
+        "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js",
+        "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/minimatch/node_modules/sigmund/bench.js",
+        "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/minimatch/node_modules/sigmund/sigmund.js",
+        "node_modules/jshint/node_modules/console-browserify/index.js",
+        "node_modules/jshint/node_modules/console-browserify/node_modules/date-now/index.js",
+        "node_modules/jshint/node_modules/console-browserify/node_modules/date-now/seed.js",
+        "node_modules/jshint/node_modules/exit/Gruntfile.js",
+        "node_modules/jshint/node_modules/exit/lib/exit.js",
+        "node_modules/jshint/node_modules/htmlparser2/lib/CollectingHandler.js",
+        "node_modules/jshint/node_modules/htmlparser2/lib/FeedHandler.js",
+        "node_modules/jshint/node_modules/htmlparser2/lib/Parser.js",
+        "node_modules/jshint/node_modules/htmlparser2/lib/ProxyHandler.js",
+        "node_modules/jshint/node_modules/htmlparser2/lib/Stream.js",
+        "node_modules/jshint/node_modules/htmlparser2/lib/Tokenizer.js",
+        "node_modules/jshint/node_modules/htmlparser2/lib/WritableStream.js",
+        "node_modules/jshint/node_modules/htmlparser2/lib/index.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/domelementtype/index.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/domhandler/index.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/domhandler/lib/element.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/domhandler/lib/node.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/domutils/index.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/domutils/lib/helpers.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/domutils/lib/legacy.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/domutils/lib/manipulation.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/domutils/lib/querying.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/domutils/lib/stringify.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/domutils/lib/traversal.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/entities/index.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/entities/lib/decode.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/entities/lib/decode_codepoint.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/entities/lib/encode.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/duplex.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/lib/_stream_duplex.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/lib/_stream_passthrough.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/lib/_stream_readable.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/lib/_stream_transform.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/lib/_stream_writable.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/core-util-is/lib/util.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/core-util-is/util.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/inherits/inherits.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/inherits/inherits_browser.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/inherits/test.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/isarray/build/build.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/isarray/index.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/string_decoder/index.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/passthrough.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/readable.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/transform.js",
+        "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/writable.js",
+        "node_modules/jshint/node_modules/minimatch/minimatch.js",
+        "node_modules/jshint/node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js",
+        "node_modules/jshint/node_modules/minimatch/node_modules/sigmund/bench.js",
+        "node_modules/jshint/node_modules/minimatch/node_modules/sigmund/sigmund.js",
+        "node_modules/jshint/node_modules/shelljs/global.js",
+        "node_modules/jshint/node_modules/shelljs/make.js",
+        "node_modules/jshint/node_modules/shelljs/scripts/generate-docs.js",
+        "node_modules/jshint/node_modules/shelljs/scripts/run-tests.js",
+        "node_modules/jshint/node_modules/shelljs/shell.js",
+        "node_modules/jshint/node_modules/shelljs/src/cat.js",
+        "node_modules/jshint/node_modules/shelljs/src/cd.js",
+        "node_modules/jshint/node_modules/shelljs/src/chmod.js",
+        "node_modules/jshint/node_modules/shelljs/src/common.js",
+        "node_modules/jshint/node_modules/shelljs/src/cp.js",
+        "node_modules/jshint/node_modules/shelljs/src/dirs.js",
+        "node_modules/jshint/node_modules/shelljs/src/echo.js",
+        "node_modules/jshint/node_modules/shelljs/src/error.js",
+        "node_modules/jshint/node_modules/shelljs/src/exec.js",
+        "node_modules/jshint/node_modules/shelljs/src/find.js",
+        "node_modules/jshint/node_modules/shelljs/src/grep.js",
+        "node_modules/jshint/node_modules/shelljs/src/ln.js",
+        "node_modules/jshint/node_modules/shelljs/src/ls.js",
+        "node_modules/jshint/node_modules/shelljs/src/mkdir.js",
+        "node_modules/jshint/node_modules/shelljs/src/mv.js",
+        "node_modules/jshint/node_modules/shelljs/src/popd.js",
+        "node_modules/jshint/node_modules/shelljs/src/pushd.js",
+        "node_modules/jshint/node_modules/shelljs/src/pwd.js",
+        "node_modules/jshint/node_modules/shelljs/src/rm.js",
+        "node_modules/jshint/node_modules/shelljs/src/sed.js",
+        "node_modules/jshint/node_modules/shelljs/src/tempdir.js",
+        "node_modules/jshint/node_modules/shelljs/src/test.js",
+        "node_modules/jshint/node_modules/shelljs/src/to.js",
+        "node_modules/jshint/node_modules/shelljs/src/toEnd.js",
+        "node_modules/jshint/node_modules/shelljs/src/which.js",
+        "node_modules/jshint/node_modules/strip-json-comments/cli.js",
+        "node_modules/jshint/node_modules/strip-json-comments/strip-json-comments.js",
+        "node_modules/jshint/node_modules/underscore/underscore-min.js",
+        "node_modules/jshint/node_modules/underscore/underscore.js",
+        "node_modules/jshint/src/cli.js",
+        "node_modules/jshint/src/jshint.js",
+        "node_modules/jshint/src/lex.js",
+        "node_modules/jshint/src/messages.js",
+        "node_modules/jshint/src/platforms/rhino.js",
+        "node_modules/jshint/src/reg.js",
+        "node_modules/jshint/src/reporters/checkstyle.js",
+        "node_modules/jshint/src/reporters/default.js",
+        "node_modules/jshint/src/reporters/jslint_xml.js",
+        "node_modules/jshint/src/reporters/non_error.js",
+        "node_modules/jshint/src/state.js",
+        "node_modules/jshint/src/style.js",
+        "node_modules/jshint/src/vars.js",
+        "node_modules/lodash/dist/lodash.compat.js",
+        "node_modules/lodash/dist/lodash.compat.min.js",
+        "node_modules/lodash/dist/lodash.js",
+        "node_modules/lodash/dist/lodash.min.js",
+        "node_modules/lodash/dist/lodash.underscore.js",
+        "node_modules/lodash/dist/lodash.underscore.min.js",
+        "node_modules/lodash/lodash.js",
+        "node_modules/rimraf/bin.js",
+        "node_modules/rimraf/rimraf.js",
+        "node_modules/shelljs/global.js",
+        "node_modules/shelljs/make.js",
+        "node_modules/shelljs/scripts/generate-docs.js",
+        "node_modules/shelljs/scripts/run-tests.js",
+        "node_modules/shelljs/shell.js",
+        "node_modules/shelljs/src/cat.js",
+        "node_modules/shelljs/src/cd.js",
+        "node_modules/shelljs/src/chmod.js",
+        "node_modules/shelljs/src/common.js",
+        "node_modules/shelljs/src/cp.js",
+        "node_modules/shelljs/src/dirs.js",
+        "node_modules/shelljs/src/echo.js",
+        "node_modules/shelljs/src/error.js",
+        "node_modules/shelljs/src/exec.js",
+        "node_modules/shelljs/src/find.js",
+        "node_modules/shelljs/src/grep.js",
+        "node_modules/shelljs/src/ls.js",
+        "node_modules/shelljs/src/mkdir.js",
+        "node_modules/shelljs/src/mv.js",
+        "node_modules/shelljs/src/popd.js",
+        "node_modules/shelljs/src/pushd.js",
+        "node_modules/shelljs/src/pwd.js",
+        "node_modules/shelljs/src/rm.js",
+        "node_modules/shelljs/src/sed.js",
+        "node_modules/shelljs/src/tempdir.js",
+        "node_modules/shelljs/src/test.js",
+        "node_modules/shelljs/src/to.js",
+        "node_modules/shelljs/src/toEnd.js",
+        "node_modules/shelljs/src/which.js",
+        "node_modules/sinon/lib/sinon/assert.js",
+        "node_modules/sinon/lib/sinon/behavior.js",
+        "node_modules/sinon/lib/sinon/call.js",
+        "node_modules/sinon/lib/sinon/collection.js",
+        "node_modules/sinon/lib/sinon/extend.js",
+        "node_modules/sinon/lib/sinon/format.js",
+        "node_modules/sinon/lib/sinon/log_error.js",
+        "node_modules/sinon/lib/sinon/match.js",
+        "node_modules/sinon/lib/sinon/mock.js",
+        "node_modules/sinon/lib/sinon/sandbox.js",
+        "node_modules/sinon/lib/sinon/spy.js",
+        "node_modules/sinon/lib/sinon/stub.js",
+        "node_modules/sinon/lib/sinon/test.js",
+        "node_modules/sinon/lib/sinon/test_case.js",
+        "node_modules/sinon/lib/sinon/times_in_words.js",
+        "node_modules/sinon/lib/sinon/typeOf.js",
+        "node_modules/sinon/lib/sinon/util/core.js",
+        "node_modules/sinon/lib/sinon/util/event.js",
+        "node_modules/sinon/lib/sinon/util/fake_server.js",
+        "node_modules/sinon/lib/sinon/util/fake_server_with_clock.js",
+        "node_modules/sinon/lib/sinon/util/fake_timers.js",
+        "node_modules/sinon/lib/sinon/util/fake_xdomain_request.js",
+        "node_modules/sinon/lib/sinon/util/fake_xml_http_request.js",
+        "node_modules/sinon/lib/sinon/util/timers_ie.js",
+        "node_modules/sinon/lib/sinon/util/xdr_ie.js",
+        "node_modules/sinon/lib/sinon/util/xhr_ie.js",
+        "node_modules/sinon/lib/sinon.js",
+        "node_modules/sinon/node_modules/formatio/autolint.js",
+        "node_modules/sinon/node_modules/formatio/buster.js",
+        "node_modules/sinon/node_modules/formatio/lib/formatio.js",
+        "node_modules/sinon/node_modules/formatio/node_modules/samsam/autolint.js",
+        "node_modules/sinon/node_modules/formatio/node_modules/samsam/lib/samsam.js",
+        "node_modules/sinon/node_modules/lolex/lolex.js",
+        "node_modules/sinon/node_modules/lolex/src/lolex.js",
+        "node_modules/sinon/node_modules/util/node_modules/inherits/inherits.js",
+        "node_modules/sinon/node_modules/util/node_modules/inherits/inherits_browser.js",
+        "node_modules/sinon/node_modules/util/node_modules/inherits/test.js",
+        "node_modules/sinon/node_modules/util/support/isBuffer.js",
+        "node_modules/sinon/node_modules/util/support/isBufferBrowser.js",
+        "node_modules/sinon/node_modules/util/util.js",
+        "node_modules/sinon/pkg/sinon-1.11.1.js",
+        "node_modules/sinon/pkg/sinon-1.12.0.js",
+        "node_modules/sinon/pkg/sinon-1.12.1.js",
+        "node_modules/sinon/pkg/sinon-ie-1.11.1.js",
+        "node_modules/sinon/pkg/sinon-ie-1.12.0.js",
+        "node_modules/sinon/pkg/sinon-ie-1.12.1.js",
+        "node_modules/sinon/pkg/sinon-ie.js",
+        "node_modules/sinon/pkg/sinon-server-1.11.1.js",
+        "node_modules/sinon/pkg/sinon-server-1.12.0.js",
+        "node_modules/sinon/pkg/sinon-server-1.12.1.js",
+        "node_modules/sinon/pkg/sinon-timers-1.11.1.js",
+        "node_modules/sinon/pkg/sinon-timers-1.12.0.js",
+        "node_modules/sinon/pkg/sinon-timers-1.12.1.js",
+        "node_modules/sinon/pkg/sinon-timers-ie-1.11.1.js",
+        "node_modules/sinon/pkg/sinon-timers-ie-1.12.0.js",
+        "node_modules/sinon/pkg/sinon-timers-ie-1.12.1.js",
+        "node_modules/sinon/pkg/sinon.js",
+        "node_modules/temp/examples/grepcount.js",
+        "node_modules/temp/examples/pdfcreator.js",
+        "node_modules/temp/lib/temp.js",
+        "node_modules/temp/no_cleanup.js",
+        "node_modules/temp/no_cleanup_on_exit.js",
+        "node_modules/temp/no_cleanup_on_exit.spec.js",
+        "node_modules/xregexp/xregexp-all.js"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "",
+          "lib",
+          "spec"
+        ],
+        "dependencies": {
+          "chai": "^1.9.1",
+          "emissary": "^1.0.0",
+          "jshint": "^2.4.4",
+          "lodash": "^2.4.1",
+          "rimraf": "^2.2.8",
+          "shelljs": "^0.2.6",
+          "sinon": "^1.10.0",
+          "temp": "~0.8.0",
+          "xregexp": "2.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/chai",
+          "node_modules/chai/lib/chai",
+          "node_modules/chai/lib/chai/core",
+          "node_modules/chai/lib/chai/interface",
+          "node_modules/chai/lib/chai/utils",
+          "node_modules/chai/lib"
+        ],
+        "dependencies": {
+          "assertion-error": "1.0.0",
+          "deep-eql": "0.1.3"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/chai/node_modules/deep-eql",
+          "node_modules/chai/node_modules/deep-eql/lib"
+        ],
+        "dependencies": {
+          "type-detect": "0.1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/emissary/lib",
+          "node_modules/emissary"
+        ],
+        "dependencies": {
+          "underscore-plus": "1.x",
+          "mixto": "1.x",
+          "property-accessors": "^1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/emissary/node_modules/property-accessors/lib",
+          "node_modules/emissary/node_modules/property-accessors"
+        ],
+        "dependencies": {
+          "mixto": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/emissary/node_modules/underscore-plus/lib",
+          "node_modules/emissary/node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/jshint/data",
+          "node_modules/jshint/dist",
+          "node_modules/jshint",
+          "node_modules/jshint/src",
+          "node_modules/jshint/src/platforms",
+          "node_modules/jshint/src/reporters"
+        ],
+        "dependencies": {
+          "cli": "0.6.x",
+          "console-browserify": "1.1.x",
+          "exit": "0.1.x",
+          "htmlparser2": "3.8.x",
+          "minimatch": "1.0.x",
+          "shelljs": "0.3.x",
+          "strip-json-comments": "1.0.x",
+          "underscore": "1.6.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/jshint/node_modules/cli",
+          "node_modules/jshint/node_modules/cli/examples"
+        ],
+        "dependencies": {
+          "glob": "~ 3.2.1",
+          "exit": "0.1.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/jshint/node_modules/cli/node_modules/glob/examples",
+          "node_modules/jshint/node_modules/cli/node_modules/glob",
+          "node_modules/jshint/node_modules/cli/node_modules/glob/test"
+        ],
+        "dependencies": {
+          "inherits": "2",
+          "minimatch": "0.3"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/minimatch",
+          "node_modules/jshint/node_modules/cli/node_modules/glob/node_modules/minimatch/test"
+        ],
+        "dependencies": {
+          "lru-cache": "2",
+          "sigmund": "~1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/jshint/node_modules/console-browserify",
+          "node_modules/jshint/node_modules/console-browserify/test",
+          "node_modules/jshint/node_modules/console-browserify/test/static"
+        ],
+        "dependencies": {
+          "date-now": "^0.1.4"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/jshint/node_modules/htmlparser2/lib",
+          "node_modules/jshint/node_modules/htmlparser2",
+          "node_modules/jshint/node_modules/htmlparser2/test",
+          "node_modules/jshint/node_modules/htmlparser2/test/Events",
+          "node_modules/jshint/node_modules/htmlparser2/test/Feeds",
+          "node_modules/jshint/node_modules/htmlparser2/test/Stream"
+        ],
+        "dependencies": {
+          "domhandler": "2.3",
+          "domutils": "1.5",
+          "domelementtype": "1",
+          "readable-stream": "1.1",
+          "entities": "1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/jshint/node_modules/htmlparser2/node_modules/domhandler",
+          "node_modules/jshint/node_modules/htmlparser2/node_modules/domhandler/lib",
+          "node_modules/jshint/node_modules/htmlparser2/node_modules/domhandler/test/cases",
+          "node_modules/jshint/node_modules/htmlparser2/node_modules/domhandler/test"
+        ],
+        "dependencies": {
+          "domelementtype": "1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/jshint/node_modules/htmlparser2/node_modules/domutils",
+          "node_modules/jshint/node_modules/htmlparser2/node_modules/domutils/lib",
+          "node_modules/jshint/node_modules/htmlparser2/node_modules/domutils/test",
+          "node_modules/jshint/node_modules/htmlparser2/node_modules/domutils/test/tests"
+        ],
+        "dependencies": {
+          "domelementtype": "1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream",
+          "node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/lib"
+        ],
+        "dependencies": {
+          "core-util-is": "~1.0.0",
+          "isarray": "0.0.1",
+          "string_decoder": "~0.10.x",
+          "inherits": "~2.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/jshint/node_modules/minimatch",
+          "node_modules/jshint/node_modules/minimatch/test"
+        ],
+        "dependencies": {
+          "lru-cache": "2",
+          "sigmund": "~1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/sinon/lib/sinon",
+          "node_modules/sinon/lib/sinon/util",
+          "node_modules/sinon/lib",
+          "node_modules/sinon",
+          "node_modules/sinon/pkg"
+        ],
+        "dependencies": {
+          "formatio": "~1.1.1",
+          "util": ">=0.10.3 <1",
+          "lolex": "1.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/sinon/node_modules/formatio",
+          "node_modules/sinon/node_modules/formatio/lib",
+          "node_modules/sinon/node_modules/formatio/test"
+        ],
+        "dependencies": {
+          "samsam": "~1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/sinon/node_modules/util",
+          "node_modules/sinon/node_modules/util/support",
+          "node_modules/sinon/node_modules/util/test/browser",
+          "node_modules/sinon/node_modules/util/test/node"
+        ],
+        "dependencies": {
+          "inherits": "2.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/temp/examples",
+          "node_modules/temp/lib",
+          "node_modules/temp",
+          "node_modules/temp/test"
+        ],
+        "dependencies": {
+          "rimraf": "~2.2.6"
+        }
+      }
+    ]
+  }
 }

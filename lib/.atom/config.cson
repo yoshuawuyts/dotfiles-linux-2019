@@ -9,7 +9,6 @@
     'showIndentGuide': true
     'fontFamily': 'Source Code Pro'
     'fontSize': 14
-    'invisibles': {}
   'core':
     'themes': [
       'spacegray-eighties-ui'
@@ -22,4 +21,7 @@
     'showStatusBarWhenCursorIsInErrorRange': true
   'atom-jsfmt':
     'formatOnSave': false
+  'minimap':
+    'plugins':
+      'highlight-selected': true
   'autoclose-html': {}
