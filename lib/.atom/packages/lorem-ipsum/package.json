@@ -1,0 +1,137 @@
+{
+  "name": "lorem-ipsum",
+  "description": "Generate lorem ipsum text in Atom.",
+  "keywords": [
+    "lorem",
+    "ipsum",
+    "generate",
+    "generator",
+    "atom",
+    "package"
+  ],
+  "version": "0.3.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nickclaw/atom-lorem-ipsum"
+  },
+  "author": {
+    "name": "Nicholas Clawson",
+    "url": "http://nickclaw.com"
+  },
+  "main": "lib/index.coffee",
+  "activationEvents": [
+    "lorem-ipsum:sentence",
+    "lorem-ipsum:paragraph",
+    "lorem-ipsum:paragraphs"
+  ],
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {
+    "lorem-ipsum": "~1.0.1"
+  },
+  "readme": "lorem-ipsum\n==================\n\nGenerate lorem ipsum text of varying sizes in Atom.\n\n## Installation\n\n#### For Use\nInstall the Lorem Ipsum package using the command line\n\n    apm install lorem-ipsum\n\nOr install it from the Atom Package Manager.\n\n#### For Development\nIf you want to make changes to this project. Install the package using\n\n    apm develop lorem-ipsum\n\nThen open Atom in developer mode (Atom command tools must be installed)\n\n    cd path/to/package\n    atom --dev\n\n## Example\n\n#### Generate Sentence (ctrl-alt-s)\n> Labore sit nulla amet enim reprehenderit esse laborum Lorem quis in eu.\n\n#### Generate Paragraph (ctrl-alt-p)\n> Veniam veniam sit cupidatat mollit dolor proident. Ea est reprehenderit reprehenderit ullamco. Sunt dolore sint velit incididunt dolore reprehenderit ad sit. Do esse voluptate sit in consequat sint Lorem consectetur laboris elit ipsum. Fugiat excepteur dolor veniam sit velit aliquip laboris consectetur dolor incididunt sint proident.\n\n#### Generate Paragraphs (ctrl-alt-shift-p)\n> You can probably guess what this will look like... (3-5 paragraphs)\n\n## Settings\n\nIt's possible to customize the text generation settings. They are all currently\ndefined by `ranges`, which are 2 integers in ascending order, separated by a comma\n(weird results otherwise).\n\n![settings options](http://i.imgur.com/mUfClaT.png)\n\n#### Paragraph Range - `2, 5`\nThe number of paragraphs generated when you generate multiple paragraphs.\n\n#### Sentence Range - `4, 10`\nNumber of sentences in a paragraph.\n\n#### Word Range - `6, 15`\nNumber of words in a sentence.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/nickclaw/atom-lorem-ipsum/issues"
+  },
+  "homepage": "https://github.com/nickclaw/atom-lorem-ipsum",
+  "_id": "lorem-ipsum@0.3.0",
+  "dist": {
+    "shasum": "c41648f0dac94a8bcfd68aee50a68b1c09464616"
+  },
+  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-114114-25287-gaor33/package.tgz",
+  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-114114-25287-gaor33/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "lorem-ipsum",
+        "version": "1.0.1",
+        "path": "node_modules/lorem-ipsum/lib/generator.js"
+      },
+      {
+        "name": "optimist",
+        "version": "0.3.7",
+        "path": "node_modules/lorem-ipsum/node_modules/optimist/index.js"
+      },
+      {
+        "name": "wordwrap",
+        "version": "0.0.2",
+        "path": "node_modules/lorem-ipsum/node_modules/optimist/node_modules/wordwrap/index.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "lib/index.coffee"
+      ],
+      ".js": [
+        "node_modules/lorem-ipsum/bin/lorem-ipsum.bin.js",
+        "node_modules/lorem-ipsum/lib/clipper.js",
+        "node_modules/lorem-ipsum/lib/dictionary.js",
+        "node_modules/lorem-ipsum/lib/generator.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/example/bool.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/example/boolean_double.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/example/boolean_single.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/example/default_hash.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/example/default_singles.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/example/divide.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/example/line_count.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/example/line_count_options.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/example/line_count_wrap.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/example/nonopt.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/example/reflect.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/example/short.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/example/string.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/example/usage-options.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/example/xup.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/index.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/node_modules/wordwrap/example/center.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/node_modules/wordwrap/example/meat.js",
+        "node_modules/lorem-ipsum/node_modules/optimist/node_modules/wordwrap/index.js"
+      ],
+      ".json": [
+        "node_modules/lorem-ipsum/component.json",
+        "node_modules/lorem-ipsum/node_modules/optimist/node_modules/wordwrap/package.json",
+        "node_modules/lorem-ipsum/node_modules/optimist/package.json",
+        "node_modules/lorem-ipsum/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          "",
+          "spec"
+        ],
+        "dependencies": {
+          "lorem-ipsum": "~1.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/lorem-ipsum/bin",
+          "node_modules/lorem-ipsum",
+          "node_modules/lorem-ipsum/lib",
+          "node_modules/lorem-ipsum/test"
+        ],
+        "dependencies": {
+          "optimist": "~0.3.5"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/lorem-ipsum/node_modules/optimist/example",
+          "node_modules/lorem-ipsum/node_modules/optimist",
+          "node_modules/lorem-ipsum/node_modules/optimist/test/_",
+          "node_modules/lorem-ipsum/node_modules/optimist/test"
+        ],
+        "dependencies": {
+          "wordwrap": "~0.0.2"
+        }
+      }
+    ]
+  }
+}

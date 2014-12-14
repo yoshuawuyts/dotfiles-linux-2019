@@ -3,7 +3,7 @@
 
 Lint your code with ease in [Atom](http://atom.io).
 
-![atom-inline-messages](inline-comments.gif)
+![atom-inline-messages](https://raw.githubusercontent.com/AtomLinter/Linter/master/inline-comments.gif)
 
 The idea is to stop the linter plugins war, by providing a top level API for linters to parse and display errors in the Atom editor.
 
@@ -14,6 +14,7 @@ The idea is to stop the linter plugins war, by providing a top level API for lin
 - [linter-jsxhint](https://atom.io/packages/linter-jsxhint), for JSX (React.js), using `jsxhint`
 - [linter-eslint](https://atom.io/packages/linter-eslint), for JavaScript, using `eslint`
 - [linter-gjslint](https://atom.io/packages/linter-gjslint), for JavaScript, using `gjslint`
+- [linter-flow](https://atom.io/packages/linter-flow), for JavaScript, using `flow`
 
 #### for CoffeeScript
 - [linter-coffeelint](https://atom.io/packages/linter-coffeelint), for CoffeeScript, using `coffeelint`
@@ -78,7 +79,8 @@ The idea is to stop the linter plugins war, by providing a top level API for lin
 #### for Haskell
 - [linter-hlint](https://atom.io/packages/linter-hlint), for Haskell files, using `hlint`
 
-#### for HTML
+#### for HTML / Bootstrap
+- [linter-bootlint](https://atom.io/packages/linter-bootlint), for Bootstrap HTML, using `bootlint`
 - [linter-tidy](https://atom.io/packages/linter-tidy), for HTML, using `tidy`
 - [linter-htmlhint](https://atom.io/packages/linter-htmlhint), for html, using `htmlhint`
 

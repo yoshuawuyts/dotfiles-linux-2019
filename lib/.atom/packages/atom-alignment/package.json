@@ -1,0 +1,44 @@
+{
+  "name": "atom-alignment",
+  "main": "./lib/atom-alignment",
+  "version": "0.9.3",
+  "private": true,
+  "description": "A simple key-binding for aligning multi-line and multiple selections in Atom (Based on the sublime text plugin)",
+  "activationEvents": [
+    "atom-alignment:align"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Freyskeyd/atom-alignment"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# atom-alignment package\n\n[Atom package](https://atom.io/packages/atom-alignment)\n\n> Inspired by sublime text plugin ([sublime_alignment](https://github.com/wbond/sublime_alignment))\n\n\n## Usage\n\nA simple key-binding for aligning multi-line and multiple selections in Atom.\n\nuse `ctrl+cmd+a` (like sublime text)\n\n```javascript\nvar a = b;\nvar ab = c;\nvar abcd = d;\nvar ddddd =d;\n```\n\n```javascript\nvar a     = b;\nvar ab    = c;\nvar abcd  = d;\nvar ddddd = d;\n```\n\nOn multiple range line\n\n```javascript\nvar a = b;\nvar ab = c;\nvar notMePlease='NOOOO';\nvar abcd = d;\nvar ddddd =d;\n```\n\n```javascript\nvar a     = b;\nvar ab    = c;\nvar notMePlease='NOOOO';\nvar abcd  = d;\nvar ddddd = d;\n```\n\n## License\n\nMIT © [Simon Paitrault](http://www.freyskeyd.fr)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/Freyskeyd/atom-alignment/issues"
+  },
+  "homepage": "https://github.com/Freyskeyd/atom-alignment",
+  "_id": "atom-alignment@0.9.3",
+  "dist": {
+    "shasum": "687d7380ae8de3ba6face6bdff7096a4ae8a97a4"
+  },
+  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-114118-7976-14swroo/package.tgz",
+  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-114118-7976-14swroo/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/aligner.coffee",
+        "lib/atom-alignment.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

@@ -1,0 +1,16 @@
+'.text.restructuredtext':
+  'image':
+    'prefix': 'image'
+    'body': '.. image:: ${1:path}\n$0'
+  'link':
+    'prefix': 'link'
+    'body': '\n\\`${1:Title}<${2:http://link}>\\`_'
+  'section 1':
+    'prefix': 'sec'
+    'body': '${1:subsection name}\n${1/(.)|\\s/(?1:=:=)/g}\n$0'
+  'section 2':
+    'prefix': 'subs'
+    'body': '${1:subsection name}\n${1/(.)|\\s/(?1:*:*)/g}\n$0'
+  'section 3':
+    'prefix': 'sss'
+    'body': '${1:subsection name}\n${1/(.)|\\s/(?1:-:-)/g}\n$0'

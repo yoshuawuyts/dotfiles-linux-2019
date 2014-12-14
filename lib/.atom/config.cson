@@ -8,7 +8,8 @@
   'editor':
     'showIndentGuide': true
     'fontFamily': 'Source Code Pro'
-    'fontSize': 14
+    'autoIndentOnPaste': false
+    'fontSize': 7
   'core':
     'themes': [
       'spacegray-eighties-ui'
@@ -18,7 +19,7 @@
     'audioBeep': false
   'linter':
     'showHighlighting': false
-    'showStatusBarWhenCursorIsInErrorRange': true
+    'statusBar': 'Show error if the cursor is in range'
   'atom-jsfmt':
     'formatOnSave': false
   'minimap':
