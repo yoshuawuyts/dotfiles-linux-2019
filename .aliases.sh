@@ -1,16 +1,10 @@
-#
-# Core utils.
-#
 
-# alias la='ls -ApC'
+# Core utils.
 alias la='gls -ohpgn --color=auto --group-directories-first -o'
 alias rmrf='rm -rf'
 alias t='tree -a -L 3 -A -C -I "node_modules|.git"'
 
-#
 # Git.
-#
-
 alias git branch='git branch --color'
 alias git checkout='git checkout -q'
 alias git clean='git branch --merged | xargs git branch -d'
@@ -22,17 +16,8 @@ alias git rebase='git rebase -i'
 alias git status='git status -s'
 alias s='status'
 
-#
-# Web development.
-#
-
-alias shs='sudo python -m SimpleHTTPServer'
-alias h='httpster -p 1337'
+# Node utils.
 alias pkg='pkg-name'
-alias g='gulp'
 
-#
-# Android
-#
-
-alias avd='android avd'
+# Applications
+alias vlc='~/Applications/VLC.app/Contents/MacOS/VLC'

@@ -11,8 +11,8 @@ source $ZSH/oh-my-zsh.sh;
 # Imports.
 #
 
-source ~/.exports;
-source ~/.aliases;
+source ~/.exports.sh;
+source ~/.aliases.sh;
 
 #
 # Version managers.
