@@ -9,7 +9,7 @@
     'showIndentGuide': true
     'fontFamily': 'Source Code Pro'
     'autoIndentOnPaste': false
-    'fontSize': 7
+    'fontSize': 17
   'core':
     'themes': [
       'spacegray-eighties-ui'
