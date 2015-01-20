@@ -21,3 +21,6 @@ alias pkg='pkg-name'
 
 # Applications
 alias vlc='~/Applications/VLC.app/Contents/MacOS/VLC'
+
+# Tmux
+alias tmux='tmux -u2'
