@@ -1,19 +1,210 @@
-# make backspaces behave normally
-# in edit mode
-set backspace=2
+" Vim
+" ===
 
-set number
+" Source ~/.vimrc.before if it exists
+if filereadable(expand('~/.vimrc.before'))
+  source ~/.vimrc.before
+endif
 
-# enable pathogen package manager
-execute pathogen#infect()
+set nocompatible               " be iMproved
+filetype off                   " required!
 
-# enable syntax highlighting
-syntax on
+set rtp+=~/.vim/bundle/vundle/
+call vundle#begin()
+Plugin 'gmarik/vundle'
 
-# enable indenting based on filetype
+Plugin 'L9'
+Plugin 'chriskempson/base16-vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'gh:vim-ruby/vim-ruby'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/ZoomWin'
+Plugin 'mattn/webapi-vim'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'godlygeek/tabular'
+Plugin 'scrooloose/nerdtree'
+Plugin 'mattn/gist-vim'
+Plugin 'epmatsw/ag.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'tejr/vim-tmux'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-rbenv'
+Plugin 'gem.vim'
+Plugin 'zerowidth/vim-copy-as-rtf'
+Plugin 'kien/ctrlp.vim'
+Plugin 'justinmk/vim-gtfo'
+Plugin 'jayflo/vim-skip'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'gcmt/wildfire.vim'
+Plugin 'fatih/vim-go'
+Plugin 'benmills/vim-golang-alternate'
+Plugin 'junegunn/vim-github-dashboard'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'tpope/vim-projectionist'
+
+call vundle#end()            " required
 filetype plugin indent on
 
-# nerdtree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map <C-n> :NERDTreeToggle<CR>
+" Per-directory .vimrc files
+set exrc
+set secure
+
+" Syntax
+" ======
+
+syntax on
+syntax enable
+set t_Co=256
+
+" General Config
+" ==============
+
+let mapleader='\'
+set gfn=Menlo:h14
+set encoding=utf-8
+set number                      " Line numbers are good
+set backspace=indent,eol,start  " Allow backspace in insert mode
+set history=1000                " Store lots of :cmdline history
+set showcmd                     " Show incomplete cmds down the bottom
+set showmode                    " Show current mode down the bottom
+set gcr=a:blinkon0              " Disable cursor blink
+set autoread                    " Reload files changed outside vim
+set laststatus=2                " Always show status line
+set clipboard=unnamed           " Use system clipboard
+set hidden                      " Buffers can exist in the background
+set splitright                  " Opens vertical split right of current window
+set splitbelow                  " Opens horizontal split below current window
+"set shortmess=filnxtToOI       " see :help shortmess
+                                " http://items.sjbach.com/319/configuring-vim-right
+
+
+" Mouse
+" ======
+
+" Send more characters for redraws
+set ttyfast
+
+" Enable mouse use in all modes
+set mouse=a
+
+" Set this to the name of your terminal that supports mouse codes.
+" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
+set ttymouse=xterm2
+
+
+" Search Settings
+" ===============
+
+set incsearch        " Find the next match as we type the search
+set hlsearch         " Hilight searches by default
+set viminfo='100,f1  " Save up to 100 marks, enable capital marks
+
+" Turn Off Swap Files
+" ===================
+
+set noswapfile
+set nobackup
+set nowritebackup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+" Persistent Undo
+" ===============
+
+" Keep undo history across sessions, by storing in file
+" Only works in MacVim (gui) mode
+if has('gui_running')
+  set undodir=~/.vim/backups
+  set undofile
+  " Hide the toolbar
+  set guioptions-=T
+endif
+
+" Indentation and Display
+" =======================
+
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+
+filetype plugin on
+filetype indent on
+
+set list listchars=tab:\ \ ,trail:·   " Display tabs and trailing spaces visually
+set nowrap                            " Don't wrap lines
+set linebreak                         " Wrap lines at convenient points
+
+" Folds
+" =====
+
+set foldmethod=indent   " Fold based on indent
+set foldnestmax=3       " Deepest fold is 3 levels
+set nofoldenable        " Don't fold by default
+
+" Completion
+" ==========
+
+"set wildmode=list:longest
+set wildmode=longest,list,full
+set wildmenu                    " Enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~     " Stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+
+" Scrolling
+" =========
+
+" Start scrolling when we're getting close to margins
+set scrolloff=10
+set sidescrolloff=15
+set sidescroll=1
+
+" Status Line
+" ===========
+
+set statusline=                                 " Override default
+set statusline+=%{fugitive#statusline()[4:-2]}  " Show fugitive git info
+set statusline+=\ %f\ %m\ %r                    " Show filename/path
+set statusline+=%=                              " Set right-side status info after this line
+set statusline+=%l/%L:%v                        " Set <line number>/<total lines>:<column>
+set statusline+=\                               " Set ending space
+
+" NERDTree
+" ========
+function! ShowFileInNERDTree()
+  if exists("t:NERDTreeBufName")
+    NERDTreeFind
+  else
+    NERDTree
+    wincmd l
+    NERDTreeFind
+  endif
+endfunction
+map <leader>f :call ShowFileInNERDTree()<cr>
+
+" Plugin overrides
+source ~/.vim/autocmd.vim
+source ~/.vim/format.vim
+source ~/.vim/rails.vim
+source ~/.vim/ruby.vim
+source ~/.vim/common.vim
+source ~/.vim/tmux.vim
+source ~/.vim/ctrlp.vim
+source ~/.vim/go.vim
+source ~/.vim/snippets.vim
+source ~/.vim/writing.vim
+
+let base16colorspace=256
+colorscheme base16-ocean
+
+
+" Git Gutter
+" ==========
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_eager = 0
