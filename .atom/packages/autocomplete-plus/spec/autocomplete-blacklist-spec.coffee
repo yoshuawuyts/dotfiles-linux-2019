@@ -1,12 +1,9 @@
 {triggerAutocompletion, buildIMECompositionEvent, buildTextInputEvent} = require "./spec-helper"
-{$, TextEditorView, WorkspaceView} = require 'atom'
 _ = require "underscore-plus"
-AutocompleteView = require '../lib/autocomplete-view'
-Autocomplete = require '../lib/autocomplete'
 TestProvider = require "./lib/test-provider"
 
 describe "Autocomplete", ->
-  [activationPromise, completionDelay, editorView, editor, autocomplete] = []
+  [completionDelay, editorView, editor, mainModule] = []
 
   beforeEach ->
     runs ->
@@ -19,27 +16,19 @@ describe "Autocomplete", ->
       atom.config.set "autocomplete-plus.autoActivationDelay", completionDelay
       completionDelay += 100 # Rendering delay
 
-      # Spy on AutocompleteView#initialize
-      spyOn(AutocompleteView.prototype, "initialize").andCallThrough()
-
-      atom.workspaceView = new WorkspaceView()
-      atom.workspace = atom.workspaceView.model
-
     waitsForPromise -> atom.workspace.open("blacklisted.md").then (e) ->
       editor = e
-      atom.workspaceView.attachToDom()
 
     # Activate the package
-    waitsForPromise -> atom.packages.activatePackage("autocomplete-plus").then (a) -> autocomplete = a.mainModule
+    waitsForPromise -> atom.packages.activatePackage("autocomplete-plus")
 
     runs ->
-      editorView = atom.workspaceView.getActiveView()
+      editorView = atom.views.getView(editor)
+
 
   describe "Autocomplete File Blacklist", ->
-    it "should not show autocompletion for files that match the blacklist", ->
-      editorView.attachToDom()
-
+    it "should not show suggestions when working with files that match the blacklist", ->
       editor.insertText "a"
       advanceClock completionDelay
 
-      expect(editorView.find(".autocomplete-plus")).not.toExist()
+      expect(editorView.querySelector(".autocomplete-plus")).not.toExist()

@@ -9,16 +9,21 @@
   }
 }
 
-.autocomplete-plus {
-  width: auto !important;
+.autocomplete-plus.popover-list {
+
+  width: auto;
   display: inline-block;
   min-width: 200px;
   margin-left: 0;
   position: relative;
-  padding: 2px !important;
+  input {
+    position: absolute;
+    opacity: 0.00;
+  }
 
   ol.list-group {
-    overflow-y: auto !important;
+
+    overflow-y: visible;
     margin-top: 0;
     li {
       .clearfix();
@@ -31,11 +36,5 @@
         padding-top: 8px;
       }
     }
-  }
-
-  .hidden-input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
   }
 }

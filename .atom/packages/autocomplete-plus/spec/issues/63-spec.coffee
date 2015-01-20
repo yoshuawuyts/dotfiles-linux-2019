@@ -1,10 +1,7 @@
 require "../spec-helper"
-{$, TextEditorView, WorkspaceView} = require 'atom'
-AutocompleteView = require '../../lib/autocomplete-view'
-Autocomplete = require '../../lib/autocomplete'
 
 describe "Autocomplete", ->
-  [activationPromise, autocomplete, editorView, editor, completionDelay] = []
+  [mainModule, autocompleteManager, editorView, editor, completionDelay] = []
 
   describe "Issue 63", ->
     beforeEach ->
@@ -16,25 +13,26 @@ describe "Autocomplete", ->
         completionDelay = 100
         atom.config.set "autocomplete-plus.autoActivationDelay", completionDelay
         completionDelay += 100 # Rendering delay
-        atom.workspaceView = new WorkspaceView()
-        atom.workspace = atom.workspaceView.model
+
+        workspaceElement = atom.views.getView(atom.workspace)
+        jasmine.attachToDOM(workspaceElement)
+
 
       waitsForPromise -> atom.workspace.open("sample.js").then (e) ->
         editor = e
-        atom.workspaceView.attachToDom()
 
       # Activate the package
-      waitsForPromise -> atom.packages.activatePackage("autocomplete-plus").then (a) -> autocomplete = a
+      waitsForPromise -> atom.packages.activatePackage("autocomplete-plus").then (a) ->
+        mainModule = a.mainModule
+        autocompleteManager = mainModule.autocompleteManagers[0]
 
       runs ->
-        editorView = atom.workspaceView.getActiveView()
-        autocomplete = new AutocompleteView editorView
+        editorView = atom.views.getView(editor)
 
     it "it adds words to the wordlist when pressing a special character", ->
       runs ->
-        editorView.attachToDom()
         editor.insertText "somethingNew"
         editor.insertText ")"
 
-        provider = autocomplete.providers[0];
+        provider = autocompleteManager.providers[0]
         expect(provider.wordList.indexOf("somethingNew")).not.toEqual(-1)

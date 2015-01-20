@@ -1,3 +1,14 @@
+<a name="v3.1.0"></a>
+# v3.1.0 (2015-01-05)
+
+## :sparkles: Features
+
+- Implement support for both minimap v3 and v4 API ([dc01e08d](https://github.com/abe33/minimap-highlight-selected/commit/dc01e08de819c184effc75df75827480229260bf))
+
+## :bug: Bug Fixes
+
+- Fix error raised when typing in a mini editor ([3d78a2f8](https://github.com/abe33/minimap-highlight-selected/commit/3d78a2f89d57ef29557b44bcc1608243a5133270))
+
 <a name="v3.0.0"></a>
 # v3.0.0 (2014-09-19)
 

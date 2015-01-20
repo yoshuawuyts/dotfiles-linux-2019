@@ -1,6 +1,5 @@
 require "../spec-helper"
-{$, TextEditorView, WorkspaceView} = require 'atom'
-AutocompleteView = require '../../lib/autocomplete-view'
+AutocompleteManager = require '../../lib/autocomplete-manager'
 
 describe "Autocomplete", ->
   [activationPromise, editorView, editor, completionDelay] = []
@@ -16,34 +15,32 @@ describe "Autocomplete", ->
         atom.config.set "autocomplete-plus.autoActivationDelay", completionDelay
         completionDelay += 100 # Rendering delay
 
-        spyOn(AutocompleteView.prototype, "initialize").andCallThrough()
-
-        atom.workspaceView = new WorkspaceView()
-        atom.workspace = atom.workspaceView.model
+        workspaceElement = atom.views.getView(atom.workspace)
+        jasmine.attachToDOM(workspaceElement)
 
       waitsForPromise -> atom.workspace.open("issues/50.js").then (e) ->
         editor = e
-        atom.workspaceView.attachToDom()
 
       runs ->
-        editorView = atom.workspaceView.getActiveView()
+        editorView = atom.views.getView(editor)
 
-    it "autocomplete should show on only focus editorView", ->
+    it "autocomplete should only show for the editor that currently has focus", ->
       runs ->
-        editorView2 = editorView.splitRight()
+        editor2 = atom.workspace.paneForItem(editor).splitRight(copyActiveItem: true).getActiveItem()
+        editorView2 = atom.views.getView(editor2)
         editorView.focus()
 
-        autocomplete = new AutocompleteView editorView
-        autocomplete2 = new AutocompleteView editorView2
+        autocomplete = new AutocompleteManager(editor)
+        autocomplete2 = new AutocompleteManager(editor2)
 
         autocomplete.name = "autocomplete"
         autocomplete2.name = "autocomplete2"
 
         expect(editorView).toHaveFocus()
-        expect(editorView.find(".autocomplete-plus")).not.toExist()
+        expect(editorView.querySelector(".autocomplete-plus")).not.toExist()
 
         expect(editorView2).not.toHaveFocus()
-        expect(editorView2.find(".autocomplete-plus")).not.toExist()
+        expect(editorView2.querySelector(".autocomplete-plus")).not.toExist()
 
         editor.insertText "r"
 
@@ -55,13 +52,14 @@ describe "Autocomplete", ->
         expect(editorView).toHaveFocus()
         expect(editorView2).not.toHaveFocus()
 
-        expect(editorView.find(".autocomplete-plus")).toExist()
-        expect(editorView2.find(".autocomplete-plus")).not.toExist()
+        expect(editorView.querySelector(".autocomplete-plus")).toExist()
+        expect(editorView2.querySelector(".autocomplete-plus")).not.toExist()
 
-        autocomplete.trigger "autocomplete-plus:confirm"
+        autocompleteView = atom.views.getView(autocomplete)
+        atom.commands.dispatch autocompleteView, "autocomplete-plus:confirm"
 
         expect(editorView).toHaveFocus()
         expect(editorView2).not.toHaveFocus()
 
-        expect(editorView.find(".autocomplete-plus")).not.toExist()
-        expect(editorView2.find(".autocomplete-plus")).not.toExist()
+        expect(editorView.querySelector(".autocomplete-plus")).not.toExist()
+        expect(editorView2.querySelector(".autocomplete-plus")).not.toExist()

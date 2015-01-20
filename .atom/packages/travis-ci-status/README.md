@@ -2,7 +2,9 @@
 
 Add Travis CI status of the project to the Atom status bar.
 
-![Travis CI Status](https://raw.github.com/tombell/travis-ci-status/master/screenshots/travis-ci-status.png)
+**Please note:** I am no longer using Atom, this means I won't be actively
+maintaining this project. I will still accept pull requests for bug fixes and
+such.
 
 ## Installing
 

@@ -1,5 +1,7 @@
 # Linter
-[![Build Status](https://travis-ci.org/AtomLinter/Linter.svg)](https://travis-ci.org/AtomLinter/Linter)
+
+[![Gitter](https://img.shields.io/badge/gitter-join%20chat-1dce73.svg?style=flat)](https://gitter.im/AtomLinter/Linter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://img.shields.io/travis/AtomLinter/Linter.svg?style=flat)](https://travis-ci.org/AtomLinter/Linter)
 
 Lint your code with ease in [Atom](http://atom.io).
 
@@ -25,6 +27,8 @@ The idea is to stop the linter plugins war, by providing a top level API for lin
 #### for Dart
 - [linter-dartanalyzer](https://atom.io/packages/linter-dartanalyzer), for Dart using `dartanalyzer`
 
+#### for LiveScript
+- [linter-lsc](https://atom.io/packages/linter-lsc), for LiveScript, using `lsc -a`
 
 #### for Ruby and Ruby on Rails
 - [linter-rubocop](https://atom.io/packages/linter-rubocop), for Ruby and Ruby on Rails, using `rubocop`
@@ -129,9 +133,9 @@ The idea is to stop the linter plugins war, by providing a top level API for lin
 
 ## Common errors
 
+* `npm ERR! code ENOGIT` - You need to install git before installing linter. See [#114](https://github.com/AtomLinter/Linter/issues/102).
 * `env: node: No such file or directory` – There's a problem with your node path – [check this](http://stackoverflow.com/a/20077620).
 * `spawn ENOENT` or `spawn ENOTDIR` - A linter can't find a path to the executable. Try starting Atom from a shell via `atom` to make sure it gets your `PATH`. See also [#102](https://github.com/AtomLinter/Linter/issues/102), [#150](https://github.com/AtomLinter/Linter/issues/150).
-* Gutters and highlights not working? Make sure you're using the React editor. The [old editor is deprecated](http://blog.atom.io/2014/07/22/default-to-react-editor.html).
 
 ## Documentation
 http://atomlinter.github.io/Linter/

@@ -1,6 +1,6 @@
-{$, View} = require 'atom'
+{$, View} = require 'atom-space-pen-views'
 Delegato = require 'delegato'
-{CompositeDisposable, Disposable} = require 'event-kit'
+{CompositeDisposable, Disposable, Emitter} = require 'event-kit'
 
 MinimapRenderView = require './minimap-render-view'
 MinimapIndicator = require './minimap-indicator'
@@ -75,10 +75,9 @@ class MinimapView extends View
   # Creates a new {MinimapView}.
   #
   # editorView - The `TextEditorView` for which displaying a minimap.
-  constructor: (editorView) ->
+  constructor: (editorView, @paneView) ->
+    @emitter = new Emitter
     @setEditorView(editorView)
-
-    @paneView.addClass('with-minimap')
 
     @subscriptions = new CompositeDisposable
 
@@ -90,8 +89,9 @@ class MinimapView extends View
     @offsetTop = 0
     @indicator = new MinimapIndicator()
 
-    @scrollView = @editorView.scrollView
-    @scrollViewLines = @scrollView.find('.lines')
+    @scrollView = @getEditorViewRoot().querySelector('.scroll-view')
+
+    @scrollViewLines = @scrollView.querySelector('.lines')
 
     @subscribeToEditor()
 
@@ -103,18 +103,23 @@ class MinimapView extends View
   # Internal: Initializes the minimap view by registering to various events and
   # by retrieving the base configuration.
   initialize: ->
-    @on 'mousewheel', @onMouseWheel
-    @on 'mousedown', @onMouseDown
-    @miniVisibleArea.on 'mousedown', @onDragStart
+    @element.addEventListener 'mousewheel', @onMouseWheel
+    @element.addEventListener 'mousedown', @onMouseDown
+    @miniVisibleArea[0].addEventListener 'mousedown', @onDragStart
 
-    @obsPane = @paneView.model.observeActiveItem @onActiveItemChanged
+    @subscriptions.add new Disposable =>
+      @element.removeEventListener 'mousewheel', @onMouseWheel
+      @element.removeEventListener 'mousedown', @onMouseDown
+      @miniVisibleArea[0].removeEventListener 'mousedown', @onDragStart
+
+    @obsPane = @pane.observeActiveItem @onActiveItemChanged
 
     # Fix items moving to another pane.
     # @subscriptions.add @paneView.model.onDidRemoveItem ({item}) =>
     #   @destroy() if item is @editor
 
-    @subscribe @renderView, 'minimap:updated', @updateMinimapSize
-    @subscribe @renderView, 'minimap:scaleChanged', =>
+    @subscriptions.add @renderView.onDidUpdate @updateMinimapSize
+    @subscriptions.add @renderView.onDidChangeScale =>
       @computeScale()
       @updatePositions()
 
@@ -124,7 +129,7 @@ class MinimapView extends View
       @updateTopPosition()
 
     config = childList: true
-    @observer.observe @paneView.element, config
+    @observer.observe @paneView, config
 
     # Update the minimap whenever theme is reloaded
     @subscriptions.add atom.themes.onDidReloadAll =>
@@ -133,7 +138,9 @@ class MinimapView extends View
 
     # The resize:end event is dispatched at the end of an animated resize
     # to not flood the cpu with updates.
-    @subscribe $(window), 'resize:end', @onScrollViewResized
+    @subscriptions.add new Disposable =>
+      window.removeEventListener 'resize:end', @onScrollViewResized
+    window.addEventListener 'resize:end', @onScrollViewResized
 
     @miniScrollVisible = atom.config.get('minimap.minimapScrollIndicator')
     @miniScroller.toggleClass 'visible', @miniScrollVisible
@@ -172,39 +179,54 @@ class MinimapView extends View
     @subscriptions.add atom.config.observe 'editor.preferredLineLength', =>
       @updateMinimapSize()
 
+  onDidScroll: (callback) ->
+    @emitter.on 'did-scroll', callback
+
   # Internal: Computes the scale of the minimap display relatively to the
   # corresponding editor view.
   # The scale factor are used to map scrolling and offset from the minimap
   # to the editor and vice versa.
   computeScale: ->
-    originalLineHeight = parseInt(@editorView.find('.lines').css('line-height'))
+    originalLineHeight = @getEditorLineHeight()
     computedLineHeight = @getLineHeight()
 
     @scaleX = @scaleY = computedLineHeight / originalLineHeight
 
+  getEditorLineHeight: ->
+    lineHeight = window.getComputedStyle(@getEditorViewRoot().querySelector('.lines')).getPropertyValue('line-height')
+    parseInt(lineHeight)
+
   # Destroys this view and release all its subobjects.
   destroy: ->
     @resetMinimapWidthWithWrap()
-    @paneView.removeClass('with-minimap')
+    @paneView.classList.remove('with-minimap')
     @off()
     @obsPane.dispose()
     @subscriptions.dispose()
-    @unsubscribe()
     @observer.disconnect()
 
     @detachFromPaneView()
     @renderView.destroy()
     @remove()
 
-  setEditorView: (@editorView) ->
+  getTextEditor: -> @editor
 
-    @editor = @editorView.getEditor()
-    @paneView = @editorView.getPaneView()
+  setEditorView: (@editorView) ->
+    @editor = @editorView.getModel()
+    if @paneView?
+      @pane = @paneView.getModel()
+    else
+      @pane = atom.workspace.paneForItem(@editor)
+      @paneView = atom.views.getView(@pane)
+
     @renderView?.setEditorView(@editorView)
 
     if @obsPane?
       @obsPane.dispose()
-      @obsPane = @paneView.model.observeActiveItem @onActiveItemChanged
+      @obsPane = @pane.observeActiveItem @onActiveItemChanged
+
+  getEditorViewRoot: ->
+    @editorView.shadowRoot ? @editorView
 
   #    ########  ####  ######  ########  ##          ###    ##    ##
   #    ##     ##  ##  ##    ## ##     ## ##         ## ##    ##  ##
@@ -224,7 +246,8 @@ class MinimapView extends View
 
   # Internal: Attaches the minimap view to the DOM.
   attachToPaneView: ->
-    @paneView.append(this)
+    @paneView.appendChild(@element)
+    @computeScale()
     @updateTopPosition()
 
   # Internal: Detaches the minimap view to the DOM.
@@ -239,17 +262,17 @@ class MinimapView extends View
   # Internal: Returns the bounds of the `TextEditorView`.
   #
   # Returns an {Object}.
-  getEditorViewClientRect: -> @scrollView[0].getBoundingClientRect()
+  getEditorViewClientRect: -> @editorView.getBoundingClientRect()
 
   # Internal: Returns the bounds of the editor `ScrollView`.
   #
   # returns an {Object}.
-  getScrollViewClientRect: -> @scrollViewLines[0].getBoundingClientRect()
+  getScrollViewClientRect: -> @scrollViewLines.getBoundingClientRect()
 
   # Returns the bounds of the minimap.
   #
   # Returns an {Object}
-  getMinimapClientRect: -> @[0].getBoundingClientRect()
+  getMinimapClientRect: -> @element.getBoundingClientRect()
 
   #    ##     ## ########  ########     ###    ######## ########
   #    ##     ## ##     ## ##     ##   ## ##      ##    ##
@@ -330,23 +353,25 @@ class MinimapView extends View
     adjustWidth = atom.config.get('minimap.adjustMinimapWidthToSoftWrap')
     displayLeft = atom.config.get('minimap.displayMinimapOnLeft')
 
-
-    if wraps and adjustWidth and size
-      maxWidth = (size * @getCharWidth()) + 'px'
-
+    maxWidth = (size * @getCharWidth())
+    if wraps and adjustWidth and size and @width() > maxWidth
+      maxWidth = maxWidth + 'px'
       @css maxWidth: maxWidth
       if displayLeft
-        @editorView.css paddingLeft: maxWidth
+        @editorView.style.paddingLeft = maxWidth
       else
-        @editorView.css paddingRight: maxWidth
-        @editorView.find('.vertical-scrollbar').css right: maxWidth
+        @editorView.style.paddingRight = maxWidth
+        @getEditorViewRoot().querySelector('.vertical-scrollbar').style.right = maxWidth
 
   # Internal: Resets the styles modified when the minimap width is adjusted
   # based on the soft-wrap.
   resetMinimapWidthWithWrap: ->
     @css maxWidth: ''
-    @editorView.css paddingRight: '', paddingLeft: ''
-    @editorView.find('.vertical-scrollbar').css right: ''
+    @editorView.style.paddingRight = ''
+    @editorView.style.paddingLeft = ''
+    # When called in destroy with shadow DOM disabled, the vertical scrollbar
+    # is no longer reachable.
+    @getEditorViewRoot().querySelector('.vertical-scrollbar')?.style.right = ''
 
   # Internal: Updates the vertical scrolling of the minimap.
   #
@@ -357,8 +382,8 @@ class MinimapView extends View
     if top?
       overlayY = top
     else
-      scrollViewOffset = @scrollView.offset().top
-      overlayerOffset = @scrollView.find('.lines').offset().top
+      scrollViewOffset = @getEditorViewClientRect().top
+      overlayerOffset = @getScrollViewClientRect().top
       overlayY = -overlayerOffset + scrollViewOffset
 
     @indicator.setY(overlayY * @scaleY)
@@ -366,15 +391,15 @@ class MinimapView extends View
 
   # Internal: Updates the horizontal scrolling of the minimap.
   updateScrollX: =>
-    @indicator.setX(@scrollView[0].scrollLeft)
+    @indicator.setX(@editor.getScrollLeft())
     @updatePositions()
 
   # Internal: Updates the scroll of the minimap both horizontally and
   # vertically.
   updateScroll: =>
-    @indicator.setX(@scrollView[0].scrollLeft)
+    @indicator.setX(@editor.getScrollTop())
     @updateScrollY()
-    @trigger 'minimap:scroll'
+    @emitter.emit 'did-scroll'
 
   # Internal: Updates the position of the various elements of the minimap
   # after a scroll changes.
@@ -402,7 +427,7 @@ class MinimapView extends View
   # editor view offset. This is needed as the minimap is positioned absolutely
   # and the tree-view, or other packages, may affect the editor view position.
   updateTopPosition: ->
-    @offset top: (@offsetTop = @editorView.offset().top)
+    @offset top: (@offsetTop = @editorView.getBoundingClientRect().top)
 
   #    ######## ##     ## ######## ##    ## ########  ######
   #    ##       ##     ## ##       ###   ##    ##    ##    ##
@@ -416,26 +441,27 @@ class MinimapView extends View
 
   # Subscribes from the `Editor events`.
   subscribeToEditor: ->
-    @subscribe @editor, 'scroll-top-changed.minimap', @updateScrollY
+    @subscriptions.add @editor.onDidChangeScrollTop @updateScrollY
     # Hacked scroll-left
-    @subscribe @scrollView, 'scroll.minimap', @updateScrollX
+    @subscriptions.add @editor.onDidChangeScrollLeft @updateScrollX
 
     # We can't really know when a tab is dragged from a pane to
     # another one, but as it regains the focus after that we can
     # test if the parent view is still the same or is different.
-    @subscribe @editorView, 'focus', =>
-      if @editorView.getPaneView() isnt @paneView
+    @subscriptions.add new Disposable => @editorView.removeEventListener 'focus'
+    @editorView.addEventListener 'focus', =>
+      pane = atom.workspace.paneForItem(@editor)
+      paneView = atom.views.getView(pane)
+      if paneView isnt @paneView
         @detachFromPaneView()
-        @paneView = @editorView.getPaneView()
+        @paneView = paneView
         @attachToPaneView()
 
       true
 
   # Unsubscribes from the `Editor events`.
   unsubscribeFromEditor: ->
-    @unsubscribe @editor if @editor?
-    @unsubscribe @editorView if @editorView?
-    @unsubscribe @scrollView if @scrollView?
+    @subscriptions.dispose()
 
   # Event callbacks called when the active editor of a pane view
   # is changed.
@@ -453,11 +479,11 @@ class MinimapView extends View
   # the editor by the corresponding amount.
   onMouseWheel: (e) =>
     return if @isClicked
-    {wheelDeltaX, wheelDeltaY} = e.originalEvent
+    {wheelDeltaX, wheelDeltaY} = e
     if wheelDeltaX
-      @editorView.scrollLeft(@editorView.scrollLeft() - wheelDeltaX)
+      @editor.setScrollLeft(@editor.getScrollLeft() - wheelDeltaX)
     if wheelDeltaY
-      @editorView.scrollTop(@editorView.scrollTop() - wheelDeltaY)
+      @editor.setScrollTop(@editor.getScrollTop() - wheelDeltaY)
 
   # Receives the mouse down event on the minimap and scrolls the
   # editor accordingly to the mouse location.
@@ -467,12 +493,16 @@ class MinimapView extends View
     @isClicked = true
     e.preventDefault()
     e.stopPropagation()
-    # VisibleArea's center-y
-    y = e.pageY - @offsetTop
-    top = @indicator.computeFromCenterY(y) / @scaleY
-    # @note: currently, no animation.
-    @editorView.scrollTop(top)
-    # Fix trigger `mousewheel` event.
+
+    {pageY, target} = e
+
+    y = pageY - target.getBoundingClientRect().top
+    row = Math.floor(y / @getLineHeight()) + @getFirstVisibleScreenRow()
+
+    scrollTop = row * @getTextEditor().getLineHeightInPixels() - @getTextEditor().getHeight() / 2
+
+    @getTextEditor().setScrollTop(scrollTop)
+
     setTimeout =>
       @isClicked = false
     , 377
@@ -480,9 +510,10 @@ class MinimapView extends View
   # Receives the `resize:end` event and updates the minimap size and position
   # accordingly.
   onScrollViewResized: =>
-    @renderView.lineCanvas.height(@editorView.height())
+    @renderView.lineCanvas.height(@editorView.clientHeight)
     @updateMinimapSize()
     @updateMinimapView()
+    @updateMinimapWidthWithWrap()
     @renderView.forceUpdate()
 
   # Receives the mouse down event on the minimap visible area div and initiates
@@ -513,7 +544,7 @@ class MinimapView extends View
     # Here we have to compensate for the minimap scroll
     y = e.pageY - @offsetTop
     top = (y-@grabY) * (@indicator.scroller.height-@indicator.height) / (@indicator.wrapper.height-@indicator.height)
-    @editorView.scrollTop(top / @scaleY)
+    @editor.setScrollTop(top / @scaleY)
 
 
   #     #######  ######## ##     ## ######## ########

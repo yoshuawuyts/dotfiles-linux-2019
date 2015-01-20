@@ -1,7 +1,7 @@
 concatPattern = /\s*[,|]+\s*/g
-isTagLikePattern = /<(?![\!\/])([a-z]{1}[^>\s]*)/i
-isOpeningTagLikePattern = /<(?![\!\/])([a-z]{1}[^>\s]*)/i
-isClosingTagLikePattern = /<\/([a-z]{1}[^>\s]*)/i
+isTagLikePattern = /<(?![\!\/])([a-z]{1}[^>\s=\'\"]*)/i
+isOpeningTagLikePattern = /<(?![\!\/])([a-z]{1}[^>\s=\'\"]*)/i
+isClosingTagLikePattern = /<\/([a-z]{1}[^>\s=\'\"]*)/i
 
 module.exports =
 

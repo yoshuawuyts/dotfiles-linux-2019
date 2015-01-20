@@ -49,7 +49,7 @@
     'name': 'keyword.control.cucumber.table'
     'patterns': [
       {
-        'match': '\\w'
+        'match': '\\.'
         'name': 'source'
       }
     ]

@@ -1,6 +1,6 @@
 {
   "name": "editorconfig",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Helps developers maintain consistent coding styles between different editors",
   "license": "MIT",
   "repository": {
@@ -14,31 +14,36 @@
     "url": "http://sindresorhus.com"
   },
   "engines": {
-    "atom": ">=0.60.0"
+    "atom": ">=0.160.0"
   },
   "dependencies": {
-    "emissary": "^1.0.0",
-    "editorconfig": "^0.11.4"
+    "editorconfig": "^0.12.1",
+    "emissary": "^1.0.0"
   },
-  "readme": "# EditorConfig\n\n[Atom package](https://atom.io/packages/editorconfig)\n\n> [EditorConfig](http://editorconfig.org) helps developers maintain consistent coding styles between different editors\n\n![](https://f.cloud.github.com/assets/170270/2327994/dfe40cb4-a3f6-11e3-862f-894999973373.png)\n\n\n## Install\n\n```sh\n$ apm install editorconfig\n```\n\nOr Settings → Packages → Search for `editorconfig`\n\n\n## Getting started\n\nSee the EditorConfig [documentation](http://editorconfig.org).\n\n\n## Supported properties\n\n- root\n- indent_style\n- indent_size\n\n\n## Features\n\n- Applies the above settings from your `.editorconfig` file\n- Syntax highlights `.editorconfig` files\n\n\n## Example file\n\n```ini\n# editorconfig.org\nroot = true\n\n[*]\nindent_style = space\nindent_size = 4\nend_of_line = lf\ncharset = utf-8\ntrim_trailing_whitespace = true\ninsert_final_newline = true\n```\n\n\n## License\n\nMIT © [Sindre Sorhus](http://sindresorhus.com)\n",
+  "readme": "# EditorConfig\n\n[Atom package](https://atom.io/packages/editorconfig)\n\n> [EditorConfig](http://editorconfig.org) helps developers maintain consistent coding styles between different editors\n\n![](https://f.cloud.github.com/assets/170270/2327994/dfe40cb4-a3f6-11e3-862f-894999973373.png)\n\n\n## Install\n\n```sh\n$ apm install editorconfig\n```\n\nOr Settings → Packages → Search for `editorconfig`\n\n\n## Getting started\n\nSee the EditorConfig [documentation](http://editorconfig.org).\n\n\n## Supported properties\n\n- root\n- indent_style\n- indent_size\n- charset *(supported values: `latin1`, `utf-8`, `utf-16be`, `utf-16le`)*\n\n\n## Features\n\n- Applies the above settings from your `.editorconfig` file\n- Syntax highlights `.editorconfig` files\n\n\n## Example file\n\n```ini\n# editorconfig.org\nroot = true\n\n[*]\nindent_style = space\nindent_size = 4\nend_of_line = lf\ncharset = utf-8\ntrim_trailing_whitespace = true\ninsert_final_newline = true\n```\n\n\n## License\n\nMIT © [Sindre Sorhus](http://sindresorhus.com)\n",
   "readmeFilename": "readme.md",
   "bugs": {
     "url": "https://github.com/sindresorhus/atom-editorconfig/issues"
   },
   "homepage": "https://github.com/sindresorhus/atom-editorconfig",
-  "_id": "editorconfig@0.2.2",
+  "_id": "editorconfig@0.3.0",
   "dist": {
-    "shasum": "ae3948dac9244a28617e6f16b6844d6face32d5b"
+    "shasum": "de9f588aa49bf90f1a64cf099309ae30e4fb31c3"
   },
-  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-29560-o9z18i/package.tgz",
-  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-29560-o9z18i/package.tgz",
+  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-115020-39484-1iyl7ar/package.tgz",
+  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-115020-39484-1iyl7ar/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "editorconfig",
-        "version": "0.11.4",
+        "version": "0.12.1",
         "path": "node_modules/editorconfig/editorconfig.js"
+      },
+      {
+        "name": "bluebird",
+        "version": "2.8.1",
+        "path": "node_modules/editorconfig/node_modules/bluebird/js/main/bluebird.js"
       },
       {
         "name": "commander",
@@ -87,7 +92,7 @@
       },
       {
         "name": "underscore-plus",
-        "version": "1.6.1",
+        "version": "1.6.6",
         "path": "node_modules/emissary/node_modules/underscore-plus/lib/underscore-plus.js"
       },
       {
@@ -103,6 +108,81 @@
         "node_modules/editorconfig/lib/fnmatch.js",
         "node_modules/editorconfig/lib/ini.js",
         "node_modules/editorconfig/lib/version.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/browser/bluebird.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/browser/bluebird.min.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/any.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/assert.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/async.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/bluebird.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/call_get.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/cancel.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/captured_trace.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/catch_filter.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/direct_resolve.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/each.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/errors.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/errors_api_rejection.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/es5.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/filter.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/finally.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/generators.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/join.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/map.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/nodeify.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/progress.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/promise.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/promise_array.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/promise_resolver.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/promisify.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/props.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/queue.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/race.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/reduce.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/schedule.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/settle.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/some.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/synchronous_inspection.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/thenables.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/timers.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/using.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/main/util.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/any.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/assert.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/async.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/bluebird.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/call_get.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/cancel.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/captured_trace.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/catch_filter.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/direct_resolve.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/each.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/errors.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/errors_api_rejection.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/es5.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/filter.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/finally.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/generators.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/join.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/map.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/nodeify.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/progress.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/promise.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/promise_array.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/promise_resolver.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/promisify.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/props.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/queue.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/race.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/reduce.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/schedule.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/settle.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/some.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/synchronous_inspection.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/thenables.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/timers.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/using.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/zalgo/util.js",
+        "node_modules/editorconfig/node_modules/bluebird/zalgo.js",
         "node_modules/editorconfig/node_modules/commander/index.js",
         "node_modules/editorconfig/node_modules/commander/node_modules/keypress/index.js",
         "node_modules/editorconfig/node_modules/commander/node_modules/keypress/test.js",
@@ -128,6 +208,7 @@
         "test.js"
       ],
       ".json": [
+        "node_modules/editorconfig/node_modules/bluebird/package.json",
         "node_modules/editorconfig/node_modules/commander/node_modules/keypress/package.json",
         "node_modules/editorconfig/node_modules/commander/package.json",
         "node_modules/editorconfig/node_modules/lru-cache/package.json",
@@ -149,8 +230,8 @@
           ""
         ],
         "dependencies": {
-          "emissary": "^1.0.0",
-          "editorconfig": "^0.11.4"
+          "editorconfig": "^0.12.1",
+          "emissary": "^1.0.0"
         }
       },
       {
@@ -159,6 +240,7 @@
           "node_modules/editorconfig/lib"
         ],
         "dependencies": {
+          "bluebird": "^2.3.6",
           "commander": "~1.1.1",
           "lru-cache": "~2.0.0",
           "sigmund": "~1.0.0"

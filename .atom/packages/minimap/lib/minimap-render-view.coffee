@@ -1,16 +1,18 @@
 {ScrollView} = require 'atom-space-pen-views'
-{Emitter} = require 'emissary'
+{Emitter} = require 'event-kit'
 {CompositeDisposable, Disposable} = require 'event-kit'
 Delegato = require 'delegato'
 DecorationManagement = require './mixins/decoration-management'
+DOMStylesReader = require './mixins/dom-styles-reader'
+[deprecate] = []
 
 # Public: The {MinimapRenderView} class is responsible to render the minimap
 # onto its canvas.
 module.exports =
 class MinimapRenderView extends ScrollView
-  Emitter.includeInto(this)
   Delegato.includeInto(this)
   DecorationManagement.includeInto(this)
+  DOMStylesReader.includeInto(this)
 
   @delegatesMethods 'getMarker', 'findMarkers', toProperty: 'editor'
 
@@ -37,13 +39,14 @@ class MinimapRenderView extends ScrollView
   # Creates a new {MinimapRenderView}.
   constructor: ->
     @subscriptions = new CompositeDisposable
+    @emitter = new Emitter
+
     super
     @pendingChanges = []
     @context = @lineCanvas[0].getContext('2d')
     @tokenColorCache = {}
     @decorationColorCache = {}
     @initializeDecorations()
-    @tokenized = false
 
     @offscreenCanvas = document.createElement('canvas')
     @offscreenCtxt = @offscreenCanvas.getContext('2d')
@@ -53,16 +56,33 @@ class MinimapRenderView extends ScrollView
   initialize: ->
     @lineCanvas.webkitImageSmoothingEnabled = false
 
-    @subscriptions.add atom.config.observe 'minimap.interline', (@interline) =>
-      @emit 'minimap:scaleChanged'
+    subs = @subscriptions
+
+    subs.add atom.styles.onDidAddStyleElement =>
+      @invalidateCache()
       @forceUpdate()
-    @subscriptions.add atom.config.observe 'minimap.charWidth', (@charWidth) =>
-      @emit 'minimap:scaleChanged'
+
+    subs.add atom.styles.onDidRemoveStyleElement =>
+      @invalidateCache()
       @forceUpdate()
-    @subscriptions.add atom.config.observe 'minimap.charHeight', (@charHeight) =>
-      @emit 'minimap:scaleChanged'
+
+    subs.add atom.styles.onDidUpdateStyleElement =>
+      @invalidateCache()
       @forceUpdate()
-    @subscriptions.add atom.config.observe 'minimap.textOpacity', (@textOpacity) =>
+
+    subs.add atom.config.observe 'minimap.interline', (@interline) =>
+      @emitter.emit 'did-change-scale'
+      @forceUpdate()
+
+    subs.add atom.config.observe 'minimap.charWidth', (@charWidth) =>
+      @emitter.emit 'did-change-scale'
+      @forceUpdate()
+
+    subs.add atom.config.observe 'minimap.charHeight', (@charHeight) =>
+      @emitter.emit 'did-change-scale'
+      @forceUpdate()
+
+    subs.add atom.config.observe 'minimap.textOpacity', (@textOpacity) =>
       @forceUpdate()
 
   # Destroys the {MinimapRenderView} instance, unsubscribes from the listened
@@ -71,13 +91,19 @@ class MinimapRenderView extends ScrollView
     @subscriptions.dispose()
     @editorView = null
 
+  onDidUpdate: (callback) ->
+    @emitter.on 'did-update', callback
+
+  onDidChangeScale: (callback) ->
+    @emitter.on 'did-change-scale', callback
+
   # Sets the `TextEditorView` for which the {MinimapRenderView} instance
   # is displayed.
   #
   # editorView - The `TextEditorView` instance.
   setEditorView: (@editorView) ->
     @editor = @editorView.getModel()
-    @buffer = @editorView.getEditor().getBuffer()
+    @buffer = @editor.getBuffer()
     @displayBuffer = @editor.displayBuffer
 
     if @editor.onDidChangeScreenLines?
@@ -87,10 +113,8 @@ class MinimapRenderView extends ScrollView
       @subscriptions.add @editor.onDidChange (changes) => @stackChanges(changes)
 
     @subscriptions.add @displayBuffer.onDidTokenize =>
-      @tokenized = true
+      @invalidateIfFirstTokenization()
       @forceUpdate()
-
-    @tokenized = true if @displayBuffer.tokenizedBuffer.fullyTokenized
 
   #    ##     ## ########  ########     ###    ######## ########
   #    ##     ## ##     ## ##     ##   ## ##      ##    ##
@@ -107,7 +131,9 @@ class MinimapRenderView extends ScrollView
 
     #reset canvas virtual width/height
     @lineCanvas[0].width = @lineCanvas[0].offsetWidth * devicePixelRatio
-    @lineCanvas[0].height = @lineCanvas[0].offsetHeight * devicePixelRatio
+    @lineCanvas[0].height = @editorView.offsetHeight * devicePixelRatio
+    # Not sure why, but the style height of the canvas end up being 0
+    @lineCanvas[0].style.height = ''
 
     #is this scroll only or has content changed?
     hasChanges = @pendingChanges.length > 0
@@ -129,7 +155,7 @@ class MinimapRenderView extends ScrollView
     @offscreenFirstRow = firstRow
     @offscreenLastRow = lastRow
 
-    @emit 'minimap:updated' if hasChanges
+    @emitter.emit 'did-update' if hasChanges
 
   # Requests a render of the minimap to be performed on the next frame.
   #
@@ -147,8 +173,6 @@ class MinimapRenderView extends ScrollView
   #
   # All the caches are cleared when calling this method.
   forceUpdate: ->
-    @tokenColorCache = {}
-    @decorationColorCache = {}
     @offscreenFirstRow = null
     @offscreenLastRow = null
     @requestUpdate()
@@ -277,6 +301,12 @@ class MinimapRenderView extends ScrollView
       height: @getMinimapHeight()
     }
 
+  getDummyDOMRoot: (shadowRoot) ->
+    if shadowRoot
+      @minimapView.getEditorViewRoot()
+    else
+      @editorView
+
   # Returns a pixel position corresponding to a character's screen
   # position.
   #
@@ -311,7 +341,8 @@ class MinimapRenderView extends ScrollView
   #
   # Returns a {String}.
   getDefaultColor: ->
-    @transparentize(@minimapView.editorView.css('color'), @getTextOpacity())
+    color = @retrieveStyleFromDom(['.editor'], 'color', false, false)
+    @transparentize(color, @getTextOpacity())
 
   # Returns the text color for the passed-in `token` object.
   #
@@ -324,10 +355,7 @@ class MinimapRenderView extends ScrollView
   getTokenColor: (token) ->
     #Retrieve color from cache if available
     flatScopes = (token.scopeDescriptor or token.scopes).join()
-    if flatScopes not of @tokenColorCache
-      color = @retrieveTokenColorFromDom(token)
-      @tokenColorCache[flatScopes] = color
-    @tokenColorCache[flatScopes]
+    @retrieveTokenColorFromDom(token)
 
   # Returns the background color for the passed-in `decoration` object.
   #
@@ -341,10 +369,7 @@ class MinimapRenderView extends ScrollView
   getDecorationColor: (decoration) ->
     properties = decoration.getProperties()
     return properties.color if properties.color?
-    if properties.scope not of @decorationColorCache
-      color = @retrieveDecorationColorFromDom(decoration)
-      @decorationColorCache[properties.scope] = color
-    @decorationColorCache[properties.scope]
+    @retrieveDecorationColorFromDom(decoration)
 
   # Internal: Returns the text color for the passed-in token.
   #
@@ -363,40 +388,7 @@ class MinimapRenderView extends ScrollView
   #
   # Returns a {String}.
   retrieveDecorationColorFromDom: (decoration) ->
-    @retrieveStyleFromDom(decoration.getProperties().scope.split(/\s+/), 'background-color')
-
-  # Internal: This function insert a dummy element in the DOM to compute
-  # its style, return the specified property, and remove the element
-  # from the DOM.
-  #
-  # scopes - An {Array} of {String} reprensenting the scope to reproduce.
-  # property - The property {String} name.
-  #
-  # Returns a {String} of the property value.
-  retrieveStyleFromDom: (scopes, property) ->
-    @ensureDummyNodeExistence()
-
-    parent = @dummyNode
-    for scope in scopes
-      node = document.createElement('span')
-      # css class is the scope without the dots,
-      # see pushScope @ atom/atom/src/lines-component.coffee
-      node.className = scope.replace(/\.+/g, ' ')
-      parent.appendChild(node) if parent?
-      parent = node
-
-    value = getComputedStyle(parent).getPropertyValue(property)
-    @dummyNode.innerHTML = ''
-
-    value
-
-  # Internal: Creates a DOM node container for all the operations that
-  # need to read styles properties from DOM.
-  ensureDummyNodeExistence: ->
-    unless @dummyNode?
-      @dummyNode = document.createElement('span')
-      @dummyNode.style.visibility = 'hidden'
-      @editorView.append(@dummyNode)
+    @retrieveStyleFromDom(decoration.getProperties().scope.split(/\s+/), 'background-color', false)
 
   # Internal: Converts a `rgb(...)` color into a `rgba(...)` color
   # with the specified opacity.
@@ -440,7 +432,7 @@ class MinimapRenderView extends ScrollView
 
     # Whitespaces can be substituted by other characters so we need
     # to replace them when that's the case.
-    if line.invisibles?
+    if line? and line.invisibles?
       re = ///
       #{line.invisibles.cr}|
       #{line.invisibles.eol}|
@@ -469,7 +461,7 @@ class MinimapRenderView extends ScrollView
       for token in line.tokens
         w = token.screenDelta
         unless token.isOnlyWhitespace()
-          color = if displayCodeHighlights and @tokenized
+          color = if displayCodeHighlights
             @getTokenColor(token)
           else
             @getDefaultColor()

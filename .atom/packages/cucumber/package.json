@@ -1,6 +1,6 @@
 {
   "name": "cucumber",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": true,
   "description": "Cucumber support for atom. Converted from https://github.com/cucumber/cucumber-tmbundle",
   "repository": {
@@ -18,10 +18,20 @@
     "url": "https://github.com/edda/cucumber-atom/issues"
   },
   "homepage": "https://github.com/edda/cucumber-atom",
-  "_id": "cucumber@0.4.0",
+  "_id": "cucumber@0.4.1",
   "dist": {
-    "shasum": "44490ce2863f8cfa92141179a9fb8ca42713ceeb"
+    "shasum": "122729d32f58c51c7afd51daadfb0bd0e9ed9855"
   },
-  "_resolved": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114522-11351-cre0nx/package.tgz",
-  "_from": "/var/folders/hs/zb20k9853v1bgb9bt7vkm2jw0000gn/T/d-114522-11351-cre0nx/package.tgz"
+  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-115020-39470-k05k25/package.tgz",
+  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-115020-39470-k05k25/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }

@@ -1,4 +1,7 @@
 Mixin = require 'mixto'
+{TextEditor} = require 'atom'
+{CompositeDisposable} = require 'event-kit'
+{deprecate} = require 'grim'
 MinimapView = null
 
 # Public: Provides methods to manage minimap views per pane.
@@ -32,7 +35,7 @@ class ViewManagement extends Mixin
   # Public: Returns the {MinimapView} of the active editor view.
   #
   # Returns a {MinimapView}.
-  getActiveMinimap: -> @minimapForEditor(atom.workspace.getActiveEditor())
+  getActiveMinimap: -> @minimapForEditor(atom.workspace.getActiveTextEditor())
 
   # Public: Calls `iterator` for each present and future minimap views.
   # It returns a subscription {Object} with a `off` method so that
@@ -44,17 +47,24 @@ class ViewManagement extends Mixin
   #            * view - The {MinimapView} instance
   #
   # Returns an {Object}.
-  eachMinimapView: (iterator) ->
+  observeMinimaps: (iterator) ->
     return unless iterator?
     iterator({view: minimapView}) for id,minimapView of @minimapViews
     createdCallback = (minimapView) -> iterator(minimapView)
     disposable = @onDidCreateMinimap(createdCallback)
-    off: => disposable.dispose()
+    disposable.off = ->
+      deprecate('Use Disposable::dispose instead')
+      disposable.dispose()
+    disposable
+
+  eachMinimapView: (iterator) ->
+    deprecate('Use Minimap::observeMinimaps instead')
+    @observeMinimaps(iterator)
 
   # Internal: Destroys all views currently in use.
   destroyViews: ->
     view.destroy() for id, view of @minimapViews
-    @eachEditorViewSubscription?.off()
+    @observePaneSubscription?.dispose()
     @minimapViews = {}
 
   # Internal: Registers to each pane view existing or to be created and creates
@@ -64,42 +74,66 @@ class ViewManagement extends Mixin
     # the `eacheditorView` method. It returns a subscription object so we'll
     # store it and it will be used in the `deactivate` method to removes
     # the callback.
-    @eachEditorViewSubscription = atom.workspaceView.eachEditorView (editorView) =>
-      MinimapView ||= require '../minimap-view'
+    @observePaneSubscription = atom.workspace.observePanes (pane) =>
+      paneSubscriptions = new CompositeDisposable
+      paneView = atom.views.getView(pane)
 
-      editorId = editorView.editor.id
-      paneView = editorView.getPaneView()
+      paneSubscriptions.add pane.onDidDestroy =>
+        paneSubscriptions.dispose()
+        requestAnimationFrame => @updateAllViews()
 
-      return unless paneView?
+      paneSubscriptions.add pane.observeActiveItem (item) =>
+        if item instanceof TextEditor
+          paneView.classList.add('with-minimap')
+        else
+          paneView.classList.remove('with-minimap')
 
-      if (view = @minimapViews[editorId])?
-        view.setEditorView editorView
-        view.detachFromPaneView()
-        view.attachToPaneView()
-        return
+      paneSubscriptions.add pane.observeItems (item) =>
+        if item instanceof TextEditor
+          @onEditorAdded(item, pane)
+          paneView.classList.add('with-minimap')
+        else
+          paneView.classList.remove('with-minimap')
 
-      view = new MinimapView(editorView)
+      @updateAllViews()
 
-      @minimapViews[editorId] = view
+  onEditorAdded: (editor, pane) ->
+    MinimapView ||= require '../minimap-view'
+
+    editorId = editor.id
+    editorView = atom.views.getView(editor)
+    paneView = atom.views.getView(pane)
+
+    return unless editorView? and paneView?
+
+    if (view = @minimapViews[editorId])?
+      view.paneView = paneView
+      view.setEditorView editorView
+      view.detachFromPaneView()
+      view.attachToPaneView()
+      return
+
+    view = new MinimapView(editorView, paneView)
+
+    @minimapViews[editorId] = view
+
+    event = {view}
+    @emitter.emit('did-create-minimap', event)
+
+    view.updateMinimapRenderView()
+
+    subscriptions = new CompositeDisposable
+    subscriptions.add editor.onDidDestroy =>
+      view = @minimapViews[editorId]
 
       event = {view}
-      @emit('minimap-view:created', event)
-      @emitter.emit('did-create-minimap', event)
+      if view?
+        @emitter.emit('will-destroy-minimap', event)
 
-      view.updateMinimapRenderView()
+        view.destroy()
+        delete @minimapViews[editorId]
 
-      editorView.editor.on 'destroyed', =>
-        view = @minimapViews[editorId]
+        @emitter.emit('did-destroy-minimap', event)
 
-        event = {view}
-        if view?
-          @emit('minimap-view:will-be-destroyed', event)
-          @emitter.emit('will-destroy-minimap', event)
-
-          view.destroy()
-          delete @minimapViews[editorId]
-
-          @emit('minimap-view:destroyed', {view})
-          @emitter.emit('did-destroy-minimap', event)
-
-          paneView.addClass('with-minimap') if paneView.activeView?.hasClass('editor')
+        if paneView.getActiveView()?.classList.contains('editor')
+          paneView.classList.add('with-minimap')

@@ -4,7 +4,7 @@
 ]
 'patterns': [
   {
-    'match': '^\\s*(ONBUILD\\s+)?(FROM|MAINTAINER|RUN|EXPOSE|ENV|ADD|VOLUME|USER|WORKDIR|CMD|ENTRYPOINT)\\s'
+    'match': '^\\s*(ONBUILD\\s+)?(FROM|MAINTAINER|RUN|EXPOSE|ENV|ADD|COPY|VOLUME|USER|WORKDIR|CMD|ENTRYPOINT)\\s'
     'captures':
       '0':
         'name': 'keyword.control.dockerfile'

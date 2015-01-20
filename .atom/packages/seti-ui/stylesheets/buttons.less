@@ -22,7 +22,7 @@
 
 .find-and-replace .btn-group-find.btn-group .btn,
 .find-and-replace .btn-group-replace.btn-group .btn {
-  width: 49%;
+  width: 100%;
 }
 
 .find-and-replace .btn-group-find.btn-group .btn:last-child,
@@ -42,7 +42,8 @@
   .btn-background(@bg, @hover, @selected, @text-color-highlight);
 }
 
-.btn {
+.btn,
+.btn.icon {
   .btn-background(@button-background-color, @button-background-color-hover, @button-background-color-selected, @text-color);
 }
 

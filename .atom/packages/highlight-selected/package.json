@@ -1,7 +1,7 @@
 {
   "name": "highlight-selected",
   "main": "./lib/highlight-selected",
-  "version": "0.6.3",
+  "version": "0.7.0",
   "description": "Highlights the current word selected when double clicking",
   "repository": {
     "type": "git",
@@ -25,18 +25,18 @@
     "url": "https://github.com/richrace/highlight-selected/issues"
   },
   "homepage": "https://github.com/richrace/highlight-selected",
-  "_id": "highlight-selected@0.6.3",
+  "_id": "highlight-selected@0.7.0",
   "dist": {
-    "shasum": "4793c9dd3c719ad540dec2e4a19a473e3d525be4"
+    "shasum": "2a927fde4c7a26a49c619e23ffd22d45cffffe6c"
   },
-  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-37869-4oofov/package.tgz",
-  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-37869-4oofov/package.tgz",
+  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-115020-39498-n3ayy3/package.tgz",
+  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-115020-39498-n3ayy3/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "underscore-plus",
-        "version": "1.6.1",
+        "version": "1.6.6",
         "path": "node_modules/underscore-plus/lib/underscore-plus.js"
       },
       {

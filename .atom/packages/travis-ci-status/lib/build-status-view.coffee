@@ -73,6 +73,7 @@ class BuildStatusView extends View
       @subscribe repo, 'status-changed', (path, status) =>
         @update() if path is @getActiveItemPath()
       @subscribe repo, 'statuses-changed', @update
+      @update()
 
   # Internal: Update the repository build status from Travis CI.
   #
@@ -84,7 +85,7 @@ class BuildStatusView extends View
     details = @nwo.split '/'
 
     updateRepo = =>
-      atom.travis.repos(owner_name: details[0], name: details[1], @repoStatus)
+      atom.travis.repos(details[0], details[1]).get(@repoStatus)
 
     if atom.travis.pro
       token = atom.config.get('travis-ci-status.personalAccessToken')

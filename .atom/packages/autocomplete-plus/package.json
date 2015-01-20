@@ -1,46 +1,36 @@
 {
   "name": "autocomplete-plus",
-  "version": "0.22.3",
-  "main": "./lib/autocomplete",
+  "version": "1.1.0",
+  "main": "./lib/main",
   "description": "Display possible completions in the editor while typing",
   "repository": {
     "type": "git",
-    "url": "https://github.com/saschagehlich/autocomplete-plus"
+    "url": "https://github.com/atom-community/autocomplete-plus"
   },
   "engines": {
     "atom": "*"
   },
-  "contributors": [
-    {
-      "name": "Sascha Gehlich",
-      "email": "sascha@gehlich.us"
-    },
-    {
-      "name": "Joe Fitzgerald",
-      "email": "jfitzgerald@gopivotal.com"
-    }
-  ],
   "dependencies": {
     "async": ">=0.9.0",
-    "emissary": "1.x",
-    "fuzzaldrin": "~1.0.0",
-    "minimatch": "~0.2.14",
-    "semver": "~3.0.1",
+    "event-kit": ">=0.8.1",
+    "fuzzaldrin": ">=1.0.0",
+    "grim": ">=0.12.0",
+    "minimatch": ">=0.2.14",
     "temp": ">=0.7.0",
-    "underscore-plus": "1.x"
+    "underscore-plus": ">=1.0.0"
   },
-  "readme": "# autocomplete+ package [![Build Status](https://travis-ci.org/saschagehlich/autocomplete-plus.svg?branch=master)](https://travis-ci.org/saschagehlich/autocomplete-plus)\n\n[View the changelog](https://github.com/saschagehlich/autocomplete-plus/blob/master/CHANGELOG.md)\n\nView and insert possible completions in the editor while typing\n\n![Autocomplete+](http://s14.directupload.net/images/140304/y7r7g5df.gif)\n\n**Please note:** In the example above I have \"Enable Auto Activation\" enabled.\n\n![Enable auto activation setting](https://cloud.githubusercontent.com/assets/119684/3029677/fab41bb0-e037-11e3-85bf-a696996f2478.png)\n\n## Installation\n\nYou can install autocomplete+ using the Preferences pane.\n\n## Plugins\n\nAlso grab one of these awesome additions for autocomplete+:\n\n* [autocomplete-snippets](https://atom.io/packages/autocomplete-snippets)\n* [autocomplete-paths](https://atom.io/packages/autocomplete-paths)\n\n## Usage\n\nJust type some stuff, autocomplete+ will automatically show you some suggestions.\nPress `UP` and `DOWN` to select another suggestion, press `TAB` to confirm your selection.\nAdditional confirmation keymapping can be customised in your keymap.cson:\n```coffeescript\n\".autocomplete-plus input.hidden-input\":\n  \"enter\": \"autocomplete-plus:confirm\"\n```\n\n## Features\n\n* Shows autocompletion suggestions while typing\n* Two modes: Live and delayed autocompletion (instant might slow down performance)\n* Wordlist generation happens initially and on save (saves performance)\n* Suggestions are calculated using `fuzzaldrin` (better results)\n* File blacklisting\n* Automatic wordlist expansion while typing\n\n## Geeky Stuff: Adding Suggestion Providers\n\nSince version 0.12.0, other packages are able to register suggestion providers to the autocomplete-plus package.\n\n[See the tutorial on how to create and register suggestion providers](https://github.com/saschagehlich/autocomplete-plus/wiki/Tutorial:-Registering-and-creating-a-suggestion-provider)\n",
+  "readme": "# autocomplete+ package [![Build Status](https://travis-ci.org/atom-community/autocomplete-plus.svg?branch=master)](https://travis-ci.org/atom-community/autocomplete-plus)\n\n[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/atom-community/autocomplete-plus?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\n\n[View the changelog](https://github.com/atom-community/autocomplete-plus/releases)\n\nView and insert possible completions in the editor while typing\n\n![Autocomplete+](http://s14.directupload.net/images/140304/y7r7g5df.gif)\n\n**Please note:** In the example above I have \"Enable Auto Activation\" enabled.\n\n![Enable auto activation setting](https://cloud.githubusercontent.com/assets/119684/3029677/fab41bb0-e037-11e3-85bf-a696996f2478.png)\n\n## Installation\n\nYou can install autocomplete+ using the Preferences pane.\n\n## Plugins\n\nAlso grab one of these awesome additions for autocomplete+:\n\n* [autocomplete-snippets](https://atom.io/packages/autocomplete-snippets)\n* [autocomplete-paths](https://atom.io/packages/autocomplete-paths)\n\n## Usage\n\nJust type some stuff, and autocomplete+ will automatically show you some suggestions.\nPress `UP` and `DOWN` to select another suggestion, press `TAB` to confirm your selection.\nAdditional confirmation keymapping can be customised in your keymap.cson:\n\n```coffeescript\n'atom-text-editor:not(mini) .autocomplete-plus.autocomplete-suggestion-list':\n  'tab': 'unset!'\n  'enter': 'autocomplete-plus:confirm'\n```\n\n## Features\n\n* Shows autocompletion suggestions while typing\n* Two modes: Live and delayed autocompletion (instant might slow down performance)\n* Wordlist generation happens initially and on save (saves performance)\n* Suggestions are calculated using `fuzzaldrin` (better results)\n* File blacklisting\n* Automatic wordlist expansion while typing\n\n## Geeky Stuff: Adding Suggestion Providers\n\nSince version 0.12.0, other packages are able to register suggestion providers to the autocomplete-plus package.\n\n[See the tutorial on how to create and register suggestion providers](https://github.com/atom-community/autocomplete-plus/wiki/Tutorial:-Registering-and-creating-a-suggestion-provider)\n",
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/saschagehlich/autocomplete-plus/issues"
+    "url": "https://github.com/atom-community/autocomplete-plus/issues"
   },
-  "homepage": "https://github.com/saschagehlich/autocomplete-plus",
-  "_id": "autocomplete-plus@0.22.3",
+  "homepage": "https://github.com/atom-community/autocomplete-plus",
+  "_id": "autocomplete-plus@1.1.0",
   "dist": {
-    "shasum": "82d424cdc37db271a9c92125ab6587fd3fd35433"
+    "shasum": "7e04d37191102f52a9cf6314aba27037f4dcb10f"
   },
-  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-28393-sqrf5r/package.tgz",
-  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-1141020-28393-sqrf5r/package.tgz",
+  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-115020-39458-yawtgp/package.tgz",
+  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-115020-39458-yawtgp/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -50,54 +40,89 @@
         "path": "node_modules/async/lib/async.js"
       },
       {
+        "name": "event-kit",
+        "version": "1.0.1",
+        "path": "node_modules/event-kit/lib/event-kit.js"
+      },
+      {
+        "name": "fuzzaldrin",
+        "version": "2.1.0",
+        "path": "node_modules/fuzzaldrin/lib/fuzzaldrin.js"
+      },
+      {
+        "name": "grim",
+        "version": "1.1.0",
+        "path": "node_modules/grim/lib/grim.js"
+      },
+      {
+        "name": "coffeestack",
+        "version": "0.7.0",
+        "path": "node_modules/grim/node_modules/coffeestack/index.js"
+      },
+      {
+        "name": "coffee-script",
+        "version": "1.7.1",
+        "path": "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/coffee-script.js"
+      },
+      {
+        "name": "mkdirp",
+        "version": "0.3.5",
+        "path": "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/node_modules/mkdirp/index.js"
+      },
+      {
+        "name": "source-map",
+        "version": "0.1.43",
+        "path": "node_modules/grim/node_modules/coffeestack/node_modules/source-map/lib/source-map.js"
+      },
+      {
+        "name": "amdefine",
+        "version": "0.1.0",
+        "path": "node_modules/grim/node_modules/coffeestack/node_modules/source-map/node_modules/amdefine/amdefine.js"
+      },
+      {
         "name": "emissary",
         "version": "1.3.1",
-        "path": "node_modules/emissary/lib/emissary.js"
+        "path": "node_modules/grim/node_modules/emissary/lib/emissary.js"
       },
       {
         "name": "harmony-collections",
         "version": "0.3.7",
-        "path": "node_modules/emissary/node_modules/harmony-collections/harmony-collections.js"
+        "path": "node_modules/grim/node_modules/emissary/node_modules/harmony-collections/harmony-collections.js"
       },
       {
         "name": "mixto",
         "version": "1.0.0",
-        "path": "node_modules/emissary/node_modules/mixto/lib/mixin.js"
+        "path": "node_modules/grim/node_modules/emissary/node_modules/mixto/lib/mixin.js"
       },
       {
         "name": "property-accessors",
         "version": "1.1.0",
-        "path": "node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js"
+        "path": "node_modules/grim/node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js"
       },
       {
         "name": "harmony-collections",
         "version": "0.3.7",
-        "path": "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js"
-      },
-      {
-        "name": "fuzzaldrin",
-        "version": "1.0.0",
-        "path": "node_modules/fuzzaldrin/lib/fuzzaldrin.js"
+        "path": "node_modules/grim/node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js"
       },
       {
         "name": "minimatch",
-        "version": "0.2.14",
+        "version": "2.0.1",
         "path": "node_modules/minimatch/minimatch.js"
       },
       {
-        "name": "lru-cache",
-        "version": "2.5.0",
-        "path": "node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js"
+        "name": "brace-expansion",
+        "version": "1.1.0",
+        "path": "node_modules/minimatch/node_modules/brace-expansion/index.js"
       },
       {
-        "name": "sigmund",
-        "version": "1.0.0",
-        "path": "node_modules/minimatch/node_modules/sigmund/sigmund.js"
+        "name": "balanced-match",
+        "version": "0.2.0",
+        "path": "node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js"
       },
       {
-        "name": "semver",
-        "version": "3.0.1",
-        "path": "node_modules/semver/semver.js"
+        "name": "concat-map",
+        "version": "0.0.1",
+        "path": "node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/index.js"
       },
       {
         "name": "temp",
@@ -111,7 +136,7 @@
       },
       {
         "name": "underscore-plus",
-        "version": "1.6.1",
+        "version": "1.6.6",
         "path": "node_modules/underscore-plus/lib/underscore-plus.js"
       },
       {
@@ -122,28 +147,34 @@
     ],
     "extensions": {
       ".coffee": [
-        "lib/autocomplete-view.coffee",
-        "lib/autocomplete.coffee",
+        "lib/autocomplete-manager.coffee",
         "lib/fuzzy-provider.coffee",
-        "lib/perf.coffee",
+        "lib/main.coffee",
         "lib/provider.coffee",
-        "lib/simple-select-list-view.coffee",
-        "lib/suggestion.coffee",
-        "lib/utils.coffee"
+        "lib/select-list-element.coffee",
+        "lib/suggestion.coffee"
       ],
       ".json": [
         "node_modules/async/component.json",
         "node_modules/async/package.json",
-        "node_modules/emissary/node_modules/harmony-collections/package.json",
-        "node_modules/emissary/node_modules/mixto/package.json",
-        "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/package.json",
-        "node_modules/emissary/node_modules/property-accessors/package.json",
-        "node_modules/emissary/package.json",
+        "node_modules/event-kit/api.json",
+        "node_modules/event-kit/package.json",
         "node_modules/fuzzaldrin/package.json",
-        "node_modules/minimatch/node_modules/lru-cache/package.json",
-        "node_modules/minimatch/node_modules/sigmund/package.json",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/node_modules/mkdirp/package.json",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/package.json",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/node_modules/amdefine/package.json",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/package.json",
+        "node_modules/grim/node_modules/coffeestack/package.json",
+        "node_modules/grim/node_modules/emissary/node_modules/harmony-collections/package.json",
+        "node_modules/grim/node_modules/emissary/node_modules/mixto/package.json",
+        "node_modules/grim/node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/package.json",
+        "node_modules/grim/node_modules/emissary/node_modules/property-accessors/package.json",
+        "node_modules/grim/node_modules/emissary/package.json",
+        "node_modules/grim/package.json",
+        "node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/package.json",
+        "node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/package.json",
+        "node_modules/minimatch/node_modules/brace-expansion/package.json",
         "node_modules/minimatch/package.json",
-        "node_modules/semver/package.json",
         "node_modules/temp/node_modules/rimraf/package.json",
         "node_modules/temp/package.json",
         "node_modules/underscore-plus/node_modules/underscore/package.json",
@@ -152,31 +183,76 @@
       ],
       ".js": [
         "node_modules/async/lib/async.js",
-        "node_modules/emissary/lib/behavior.js",
-        "node_modules/emissary/lib/emissary.js",
-        "node_modules/emissary/lib/emitter.js",
-        "node_modules/emissary/lib/helpers.js",
-        "node_modules/emissary/lib/signal.js",
-        "node_modules/emissary/lib/subscriber.js",
-        "node_modules/emissary/lib/subscription.js",
-        "node_modules/emissary/node_modules/harmony-collections/harmony-collections.js",
-        "node_modules/emissary/node_modules/harmony-collections/harmony-collections.min.js",
-        "node_modules/emissary/node_modules/mixto/lib/mixin.js",
-        "node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js",
-        "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js",
-        "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.min.js",
+        "node_modules/event-kit/lib/composite-disposable.js",
+        "node_modules/event-kit/lib/disposable.js",
+        "node_modules/event-kit/lib/emitter.js",
+        "node_modules/event-kit/lib/event-kit.js",
         "node_modules/fuzzaldrin/lib/filter.js",
         "node_modules/fuzzaldrin/lib/fuzzaldrin.js",
-        "node_modules/fuzzaldrin/vendor/stringscore.js",
+        "node_modules/fuzzaldrin/lib/matcher.js",
+        "node_modules/fuzzaldrin/lib/scorer.js",
+        "node_modules/grim/lib/deprecation.js",
+        "node_modules/grim/lib/grim.js",
+        "node_modules/grim/node_modules/coffeestack/index.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/browser.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/cake.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/coffee-script.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/command.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/grammar.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/helpers.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/index.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/lexer.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/nodes.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/optparse.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/parser.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/register.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/repl.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/rewriter.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/scope.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script/sourcemap.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/node_modules/mkdirp/examples/pow.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/node_modules/mkdirp/index.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/register.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/Makefile.dryice.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/build/assert-shim.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/build/mini-require.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/build/suffix-browser.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/build/test-prefix.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/build/test-suffix.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/lib/source-map/array-set.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/lib/source-map/base64-vlq.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/lib/source-map/base64.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/lib/source-map/binary-search.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/lib/source-map/mapping-list.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/lib/source-map/source-map-consumer.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/lib/source-map/source-map-generator.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/lib/source-map/source-node.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/lib/source-map/util.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/lib/source-map.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/node_modules/amdefine/amdefine.js",
+        "node_modules/grim/node_modules/coffeestack/node_modules/source-map/node_modules/amdefine/intercept.js",
+        "node_modules/grim/node_modules/emissary/lib/behavior.js",
+        "node_modules/grim/node_modules/emissary/lib/emissary.js",
+        "node_modules/grim/node_modules/emissary/lib/emitter.js",
+        "node_modules/grim/node_modules/emissary/lib/helpers.js",
+        "node_modules/grim/node_modules/emissary/lib/signal.js",
+        "node_modules/grim/node_modules/emissary/lib/subscriber.js",
+        "node_modules/grim/node_modules/emissary/lib/subscription.js",
+        "node_modules/grim/node_modules/emissary/node_modules/harmony-collections/harmony-collections.js",
+        "node_modules/grim/node_modules/emissary/node_modules/harmony-collections/harmony-collections.min.js",
+        "node_modules/grim/node_modules/emissary/node_modules/mixto/lib/mixin.js",
+        "node_modules/grim/node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js",
+        "node_modules/grim/node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js",
+        "node_modules/grim/node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.min.js",
+        "node_modules/minimatch/benchmark.js",
+        "node_modules/minimatch/browser.js",
         "node_modules/minimatch/minimatch.js",
-        "node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js",
-        "node_modules/minimatch/node_modules/sigmund/bench.js",
-        "node_modules/minimatch/node_modules/sigmund/sigmund.js",
-        "node_modules/semver/foot.js",
-        "node_modules/semver/head.js",
-        "node_modules/semver/semver.browser.js",
-        "node_modules/semver/semver.js",
-        "node_modules/semver/semver.min.js",
+        "node_modules/minimatch/node_modules/brace-expansion/example.js",
+        "node_modules/minimatch/node_modules/brace-expansion/index.js",
+        "node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/example.js",
+        "node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js",
+        "node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/example/map.js",
+        "node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/index.js",
         "node_modules/temp/examples/grepcount.js",
         "node_modules/temp/examples/pdfcreator.js",
         "node_modules/temp/lib/temp.js",
@@ -203,18 +279,69 @@
         ],
         "dependencies": {
           "async": ">=0.9.0",
-          "emissary": "1.x",
-          "fuzzaldrin": "~1.0.0",
-          "minimatch": "~0.2.14",
-          "semver": "~3.0.1",
+          "event-kit": ">=0.8.1",
+          "fuzzaldrin": ">=1.0.0",
+          "grim": ">=0.12.0",
+          "minimatch": ">=0.2.14",
           "temp": ">=0.7.0",
-          "underscore-plus": "1.x"
+          "underscore-plus": ">=1.0.0"
         }
       },
       {
         "paths": [
-          "node_modules/emissary/lib",
-          "node_modules/emissary"
+          "node_modules/event-kit",
+          "node_modules/event-kit/lib"
+        ],
+        "dependencies": {
+          "grim": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/grim/lib",
+          "node_modules/grim"
+        ],
+        "dependencies": {
+          "coffeestack": "^0.7.0",
+          "emissary": "^1.2.0",
+          "underscore-plus": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/grim/node_modules/coffeestack"
+        ],
+        "dependencies": {
+          "coffee-script": "~1.7.0",
+          "source-map": "~0.1.31"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script/lib/coffee-script",
+          "node_modules/grim/node_modules/coffeestack/node_modules/coffee-script"
+        ],
+        "dependencies": {
+          "mkdirp": "~0.3.5"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/grim/node_modules/coffeestack/node_modules/source-map",
+          "node_modules/grim/node_modules/coffeestack/node_modules/source-map/build",
+          "node_modules/grim/node_modules/coffeestack/node_modules/source-map/lib/source-map",
+          "node_modules/grim/node_modules/coffeestack/node_modules/source-map/lib",
+          "node_modules/grim/node_modules/coffeestack/node_modules/source-map/test",
+          "node_modules/grim/node_modules/coffeestack/node_modules/source-map/test/source-map"
+        ],
+        "dependencies": {
+          "amdefine": ">=0.0.4"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/grim/node_modules/emissary/lib",
+          "node_modules/grim/node_modules/emissary"
         ],
         "dependencies": {
           "underscore-plus": "1.x",
@@ -224,8 +351,8 @@
       },
       {
         "paths": [
-          "node_modules/emissary/node_modules/property-accessors/lib",
-          "node_modules/emissary/node_modules/property-accessors"
+          "node_modules/grim/node_modules/emissary/node_modules/property-accessors/lib",
+          "node_modules/grim/node_modules/emissary/node_modules/property-accessors"
         ],
         "dependencies": {
           "mixto": "1.x"
@@ -237,8 +364,17 @@
           "node_modules/minimatch/test"
         ],
         "dependencies": {
-          "lru-cache": "2",
-          "sigmund": "~1.0.0"
+          "brace-expansion": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/minimatch/node_modules/brace-expansion",
+          "node_modules/minimatch/node_modules/brace-expansion/test"
+        ],
+        "dependencies": {
+          "balanced-match": "^0.2.0",
+          "concat-map": "0.0.1"
         }
       },
       {

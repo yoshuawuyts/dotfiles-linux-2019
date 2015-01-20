@@ -1,23 +1,19 @@
 {CompositeDisposable} = require 'event-kit'
+{requirePackages} = require 'atom-utils'
+MinimapHighlightSelectedView = null
 
 class MinimapHighlightSelected
   constructor: ->
     @subscriptions = new CompositeDisposable
 
   activate: (state) ->
-    @highlightSelectedPackage = atom.packages.getLoadedPackage('highlight-selected')
-    @minimapPackage = atom.packages.getLoadedPackage('minimap')
+    requirePackages('minimap', 'highlight-selected')
+    .then ([@minimap, @highlightSelected]) =>
+      return @deactivate() unless @minimap.versionMatch('>= 3.5.0')
 
-    return @deactivate() unless @highlightSelectedPackage? and @minimapPackage?
+      MinimapHighlightSelectedView = require('./minimap-highlight-selected-view')()
 
-    @MinimapHighlightSelectedView = require('./minimap-highlight-selected-view')()
-
-    @minimap = require @minimapPackage.path
-    @highlightSelected = require @highlightSelectedPackage.path
-
-    return @deactivate() unless @minimap.versionMatch('3.x')
-
-    @minimap.registerPlugin 'highlight-selected', this
+      @minimap.registerPlugin 'highlight-selected', this
 
   deactivate: ->
     @deactivatePlugin()
@@ -29,7 +25,6 @@ class MinimapHighlightSelected
   isActive: -> @active
   activatePlugin: ->
     return if @active
-    return unless @minimap.active
 
     @active = true
 
@@ -49,7 +44,7 @@ class MinimapHighlightSelected
     return if @viewsCreated
 
     @viewsCreated = true
-    @view = new @MinimapHighlightSelectedView(@minimap)
+    @view = new MinimapHighlightSelectedView(@minimap)
     @view.handleSelection()
 
   destroyViews: =>

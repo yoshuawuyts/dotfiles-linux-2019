@@ -1,7 +1,7 @@
 {
   "name": "travis-ci-status",
   "main": "./lib/travis-ci-status",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "Add Travis CI status of the project to the Atom status bar. ",
   "repository": {
     "type": "git",
@@ -12,18 +12,446 @@
     "atom": ">0.50.0"
   },
   "dependencies": {
-    "travis-ci": "1.2.0"
+    "travis-ci": "^2.0.3"
   },
-  "readme": "# Travis CI Status Package\n\nAdd Travis CI status of the project to the Atom status bar.\n\n![Travis CI Status](https://raw.github.com/tombell/travis-ci-status/master/screenshots/travis-ci-status.png)\n\n## Installing\n\nUse the Atom package manager, which can be found in the Settings view or run\n`apm install travis-ci-status` from the command line.\n\n## Usage\n\nThe Travis CI build status for your repository will be indicated by the\nclock-arrow icon in the status bar. The icon will appear orange when it's\nrequesting the build status, green if the build was successful and red if the\nbuild failed.\n\nThe build status is updated when the project is first opened in Atom and from\nthen on whenever the \"status\" of the project repository changes. The handling of\nthese events was borrowed from the `git-view.coffee` part of the `status-bar`\npackage.\n\n### Travis Pro\n\nYou are able to use this with Travis Pro if you enable it in the settings view.\nYou will also need to generate and set a\n[GitHub API token](https://github.com/settings/tokens/new) to be able to\nauthenticate with the Travis Pro API.\n\n### Commands\n\nThe following commands are available for users to keymap.\n\n* `travis-ci-status:toggle` - Toggle the status bar entry\n* `travis-ci-status:toggle-build-matrix` - Toggle the build matrix panel\n* `travis-ci-status:open-on-travis` - Open the project on the Travis CI site\n\n## Coming Soon\n\n* Better icon for the status bar\n\nFeel free to open an issue to discuss potential features to add or improve.\n\n## Support\n\nIf you wish to support this package and help further its development, feel free\nto tip via Gittip.\n\n[![Gittip](http://img.shields.io/gittip/tombell.png)](https://www.gittip.com/tombell/)\n",
+  "readme": "# Travis CI Status Package\n\nAdd Travis CI status of the project to the Atom status bar.\n\n**Please note:** I am no longer using Atom, this means I won't be actively\nmaintaining this project. I will still accept pull requests for bug fixes and\nsuch.\n\n## Installing\n\nUse the Atom package manager, which can be found in the Settings view or run\n`apm install travis-ci-status` from the command line.\n\n## Usage\n\nThe Travis CI build status for your repository will be indicated by the\nclock-arrow icon in the status bar. The icon will appear orange when it's\nrequesting the build status, green if the build was successful and red if the\nbuild failed.\n\nThe build status is updated when the project is first opened in Atom and from\nthen on whenever the \"status\" of the project repository changes. The handling of\nthese events was borrowed from the `git-view.coffee` part of the `status-bar`\npackage.\n\n### Travis Pro\n\nYou are able to use this with Travis Pro if you enable it in the settings view.\nYou will also need to generate and set a\n[GitHub API token](https://github.com/settings/tokens/new) to be able to\nauthenticate with the Travis Pro API.\n\n### Commands\n\nThe following commands are available for users to keymap.\n\n* `travis-ci-status:toggle` - Toggle the status bar entry\n* `travis-ci-status:toggle-build-matrix` - Toggle the build matrix panel\n* `travis-ci-status:open-on-travis` - Open the project on the Travis CI site\n\n## Coming Soon\n\n* Better icon for the status bar\n\nFeel free to open an issue to discuss potential features to add or improve.\n\n## Support\n\nIf you wish to support this package and help further its development, feel free\nto tip via Gittip.\n\n[![Gittip](http://img.shields.io/gittip/tombell.png)](https://www.gittip.com/tombell/)\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/tombell/travis-ci-status/issues"
   },
   "homepage": "https://github.com/tombell/travis-ci-status",
-  "_id": "travis-ci-status@0.11.0",
+  "_id": "travis-ci-status@0.11.1",
   "dist": {
-    "shasum": "f2f10f28f9da56e479166f51e18fd5f6b7df902c"
+    "shasum": "863af19e2667a5105512862dc8f522cd0afdbddb"
   },
-  "_resolved": "/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-11481-72631-77oh9d/package.tgz",
-  "_from": "/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-11481-72631-77oh9d/package.tgz"
+  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-115020-39562-brwdon/package.tgz",
+  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-115020-39562-brwdon/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "travis-ci",
+        "version": "2.0.3",
+        "path": "node_modules/travis-ci/lib/travis-ci.js"
+      },
+      {
+        "name": "github",
+        "version": "0.1.16",
+        "path": "node_modules/travis-ci/node_modules/github/index.js"
+      },
+      {
+        "name": "lodash",
+        "version": "1.3.1",
+        "path": "node_modules/travis-ci/node_modules/lodash/dist/lodash.js"
+      },
+      {
+        "name": "request",
+        "version": "2.22.0",
+        "path": "node_modules/travis-ci/node_modules/request/index.js"
+      },
+      {
+        "name": "aws-sign",
+        "version": "0.3.0",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/aws-sign/index.js"
+      },
+      {
+        "name": "cookie-jar",
+        "version": "0.3.0",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/cookie-jar/index.js"
+      },
+      {
+        "name": "forever-agent",
+        "version": "0.5.2",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/forever-agent/index.js"
+      },
+      {
+        "name": "form-data",
+        "version": "0.0.8",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/form-data/lib/form_data.js"
+      },
+      {
+        "name": "async",
+        "version": "0.2.10",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/form-data/node_modules/async/lib/async.js"
+      },
+      {
+        "name": "combined-stream",
+        "version": "0.0.7",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/form-data/node_modules/combined-stream/lib/combined_stream.js"
+      },
+      {
+        "name": "delayed-stream",
+        "version": "0.0.5",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/form-data/node_modules/combined-stream/node_modules/delayed-stream/lib/delayed_stream.js"
+      },
+      {
+        "name": "hawk",
+        "version": "0.13.1",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/hawk/index.js"
+      },
+      {
+        "name": "boom",
+        "version": "0.4.2",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/boom/index.js"
+      },
+      {
+        "name": "hoek",
+        "version": "0.9.1",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/boom/node_modules/hoek/index.js"
+      },
+      {
+        "name": "cryptiles",
+        "version": "0.2.2",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/cryptiles/index.js"
+      },
+      {
+        "name": "hoek",
+        "version": "0.8.5",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/hoek/index.js"
+      },
+      {
+        "name": "sntp",
+        "version": "0.2.4",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/sntp/index.js"
+      },
+      {
+        "name": "hoek",
+        "version": "0.9.1",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/sntp/node_modules/hoek/index.js"
+      },
+      {
+        "name": "http-signature",
+        "version": "0.10.1",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/http-signature/lib/index.js"
+      },
+      {
+        "name": "asn1",
+        "version": "0.1.11",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/asn1/lib/index.js"
+      },
+      {
+        "name": "assert-plus",
+        "version": "0.1.5",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/assert-plus/assert.js"
+      },
+      {
+        "name": "ctype",
+        "version": "0.5.3",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/ctype/ctype.js"
+      },
+      {
+        "name": "json-stringify-safe",
+        "version": "4.0.0",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/json-stringify-safe/stringify.js"
+      },
+      {
+        "name": "mime",
+        "version": "1.2.11",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/mime/mime.js"
+      },
+      {
+        "name": "node-uuid",
+        "version": "1.4.2",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/node-uuid/uuid.js"
+      },
+      {
+        "name": "oauth-sign",
+        "version": "0.3.0",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/oauth-sign/index.js"
+      },
+      {
+        "name": "qs",
+        "version": "0.6.6",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/qs/index.js"
+      },
+      {
+        "name": "tunnel-agent",
+        "version": "0.3.0",
+        "path": "node_modules/travis-ci/node_modules/request/node_modules/tunnel-agent/index.js"
+      },
+      {
+        "name": "underscore.string",
+        "version": "2.2.1",
+        "path": "node_modules/travis-ci/node_modules/underscore.string/lib/underscore.string.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "lib/build-matrix-view.coffee",
+        "lib/build-status-view.coffee",
+        "lib/extensions.coffee",
+        "lib/travis-ci-status.coffee"
+      ],
+      ".json": [
+        "node_modules/travis-ci/api/v2.0.0/routes.json",
+        "node_modules/travis-ci/node_modules/github/api/v2.0.0/routes.json",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/routes.json",
+        "node_modules/travis-ci/node_modules/github/package.json",
+        "node_modules/travis-ci/node_modules/lodash/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/aws-sign/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/cookie-jar/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/forever-agent/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/form-data/node_modules/async/component.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/form-data/node_modules/async/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/form-data/node_modules/combined-stream/node_modules/delayed-stream/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/form-data/node_modules/combined-stream/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/form-data/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/form-data/sftp-config.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/boom/node_modules/hoek/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/boom/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/cryptiles/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/hoek/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/sntp/node_modules/hoek/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/sntp/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/asn1/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/assert-plus/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/ctype/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/json-stringify-safe/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/mime/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/node-uuid/component.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/node-uuid/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/oauth-sign/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/qs/package.json",
+        "node_modules/travis-ci/node_modules/request/node_modules/tunnel-agent/package.json",
+        "node_modules/travis-ci/node_modules/request/package.json",
+        "node_modules/travis-ci/node_modules/underscore.string/package.json",
+        "node_modules/travis-ci/package.json",
+        "package.json"
+      ],
+      ".js": [
+        "node_modules/travis-ci/bin/travis-ci.js",
+        "node_modules/travis-ci/lib/travis-ci.js",
+        "node_modules/travis-ci/lib/travis-http.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/authorization.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/authorizationTest.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/events.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/eventsTest.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/gists.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/gistsTest.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/gitdata.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/gitdataTest.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/index.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/issues.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/issuesTest.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/markdown.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/markdownTest.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/orgs.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/orgsTest.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/pullRequests.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/pullRequestsTest.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/repos.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/reposTest.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/search.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/searchTest.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/statuses.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/statusesTest.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/user.js",
+        "node_modules/travis-ci/node_modules/github/api/v3.0.0/userTest.js",
+        "node_modules/travis-ci/node_modules/github/error.js",
+        "node_modules/travis-ci/node_modules/github/generate.js",
+        "node_modules/travis-ci/node_modules/github/index.js",
+        "node_modules/travis-ci/node_modules/github/util.js",
+        "node_modules/travis-ci/node_modules/lodash/dist/lodash.compat.js",
+        "node_modules/travis-ci/node_modules/lodash/dist/lodash.compat.min.js",
+        "node_modules/travis-ci/node_modules/lodash/dist/lodash.js",
+        "node_modules/travis-ci/node_modules/lodash/dist/lodash.legacy.js",
+        "node_modules/travis-ci/node_modules/lodash/dist/lodash.legacy.min.js",
+        "node_modules/travis-ci/node_modules/lodash/dist/lodash.min.js",
+        "node_modules/travis-ci/node_modules/lodash/dist/lodash.mobile.js",
+        "node_modules/travis-ci/node_modules/lodash/dist/lodash.mobile.min.js",
+        "node_modules/travis-ci/node_modules/lodash/dist/lodash.underscore.js",
+        "node_modules/travis-ci/node_modules/lodash/dist/lodash.underscore.min.js",
+        "node_modules/travis-ci/node_modules/lodash/lodash.js",
+        "node_modules/travis-ci/node_modules/request/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/aws-sign/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/cookie-jar/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/cookie-jar/jar.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/forever-agent/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/form-data/lib/form_data.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/form-data/node_modules/async/lib/async.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/form-data/node_modules/combined-stream/lib/combined_stream.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/form-data/node_modules/combined-stream/node_modules/delayed-stream/lib/delayed_stream.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/example/usage.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/lib/browser.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/lib/client.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/lib/crypto.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/lib/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/lib/server.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/lib/utils.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/boom/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/boom/lib/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/boom/node_modules/hoek/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/boom/node_modules/hoek/lib/escape.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/boom/node_modules/hoek/lib/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/cryptiles/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/cryptiles/lib/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/hoek/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/hoek/lib/escape.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/hoek/lib/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/sntp/examples/offset.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/sntp/examples/time.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/sntp/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/sntp/lib/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/sntp/node_modules/hoek/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/sntp/node_modules/hoek/lib/escape.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/sntp/node_modules/hoek/lib/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/lib/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/lib/parser.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/lib/signer.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/lib/util.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/lib/verify.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/asn1/lib/ber/errors.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/asn1/lib/ber/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/asn1/lib/ber/reader.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/asn1/lib/ber/types.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/asn1/lib/ber/writer.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/asn1/lib/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/asn1/tst/ber/reader.test.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/asn1/tst/ber/writer.test.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/assert-plus/assert.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/ctype/ctf.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/ctype/ctio.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/http-signature/node_modules/ctype/ctype.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/json-stringify-safe/stringify.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/json-stringify-safe/test.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/mime/mime.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/mime/test.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/node-uuid/benchmark/benchmark.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/node-uuid/uuid.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/oauth-sign/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/oauth-sign/test.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/qs/index.js",
+        "node_modules/travis-ci/node_modules/request/node_modules/tunnel-agent/index.js",
+        "node_modules/travis-ci/node_modules/underscore.string/dist/underscore.string.min.js",
+        "node_modules/travis-ci/node_modules/underscore.string/lib/underscore.string.js"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          "",
+          "spec"
+        ],
+        "dependencies": {
+          "travis-ci": "^2.0.3"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/travis-ci/api/v2.0.0",
+          "node_modules/travis-ci/bin",
+          "node_modules/travis-ci/lib",
+          "node_modules/travis-ci"
+        ],
+        "dependencies": {
+          "github": "~0.1.10",
+          "lodash": "~1.3.1",
+          "request": "~2.22.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/travis-ci/node_modules/request",
+          "node_modules/travis-ci/node_modules/request/tests",
+          "node_modules/travis-ci/node_modules/request/tests/ssl/ca"
+        ],
+        "dependencies": {
+          "qs": "~0.6.0",
+          "json-stringify-safe": "~4.0.0",
+          "forever-agent": "~0.5.0",
+          "tunnel-agent": "~0.3.0",
+          "http-signature": "~0.10.0",
+          "hawk": "~0.13.0",
+          "aws-sign": "~0.3.0",
+          "oauth-sign": "~0.3.0",
+          "cookie-jar": "~0.3.0",
+          "node-uuid": "~1.4.0",
+          "mime": "~1.2.9",
+          "form-data": "0.0.8"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/travis-ci/node_modules/request/node_modules/form-data/lib",
+          "node_modules/travis-ci/node_modules/request/node_modules/form-data",
+          "node_modules/travis-ci/node_modules/request/node_modules/form-data/test",
+          "node_modules/travis-ci/node_modules/request/node_modules/form-data/test/integration"
+        ],
+        "dependencies": {
+          "combined-stream": "~0.0.4",
+          "mime": "~1.2.2",
+          "async": "~0.2.7"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/travis-ci/node_modules/request/node_modules/form-data/node_modules/combined-stream/lib",
+          "node_modules/travis-ci/node_modules/request/node_modules/form-data/node_modules/combined-stream"
+        ],
+        "dependencies": {
+          "delayed-stream": "0.0.5"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/travis-ci/node_modules/request/node_modules/hawk/example",
+          "node_modules/travis-ci/node_modules/request/node_modules/hawk",
+          "node_modules/travis-ci/node_modules/request/node_modules/hawk/lib",
+          "node_modules/travis-ci/node_modules/request/node_modules/hawk/test"
+        ],
+        "dependencies": {
+          "hoek": "0.8.x",
+          "boom": "0.4.x",
+          "cryptiles": "0.2.x",
+          "sntp": "0.2.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/boom",
+          "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/boom/lib",
+          "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/boom/test"
+        ],
+        "dependencies": {
+          "hoek": "0.9.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/cryptiles",
+          "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/cryptiles/lib",
+          "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/cryptiles/test"
+        ],
+        "dependencies": {
+          "boom": "0.4.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/sntp/examples",
+          "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/sntp",
+          "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/sntp/lib",
+          "node_modules/travis-ci/node_modules/request/node_modules/hawk/node_modules/sntp/test"
+        ],
+        "dependencies": {
+          "hoek": "0.9.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/travis-ci/node_modules/request/node_modules/http-signature/lib",
+          "node_modules/travis-ci/node_modules/request/node_modules/http-signature"
+        ],
+        "dependencies": {
+          "assert-plus": "^0.1.5",
+          "asn1": "0.1.11",
+          "ctype": "0.5.3"
+        }
+      }
+    ]
+  }
 }

@@ -1,37 +1,37 @@
 path = require 'path'
 MinimapRenderView = require '../lib/minimap-render-view'
 MinimapView = require '../lib/minimap-view'
-Minimap = require '../lib/minimap'
-{WorkspaceView} = require 'atom'
-
+Minimap = require '../lib/main'
 
 describe "MinimapRenderView", ->
-  [minimapView, MinimapRenderView, editorView, updateCallback] = []
+  [minimapView, MinimapRenderView, editorView, updateCallback, workspaceElement, editor] = []
 
   afterEach -> minimapView?.detach()
 
   beforeEach ->
     atom.config.set 'minimap', Minimap.configDefaults
 
-    runs ->
-      atom.workspaceView = new WorkspaceView
+    waitsForPromise ->
+      atom.workspace.open('two-hundred.txt')
 
-      atom.workspaceView.simulateDomAttachment()
+    runs ->
+      workspaceElement = atom.views.getView(atom.workspace)
+      jasmine.attachToDOM(workspaceElement)
 
       atom.config.set 'minimap.interline', 3
       atom.config.set 'minimap.charHeight', 2
       atom.config.set 'minimap.charWidth', 1
 
-      atom.project.setPath(path.join(__dirname, 'fixtures'))
+      atom.project.setPaths([path.join(__dirname, 'fixtures')])
+
+    waitsFor ->
+      editor = atom.workspace.getActiveTextEditor()
+
+    runs ->
+      editorView = atom.views.getView(editor)
 
     waitsForPromise ->
       promise = atom.packages.activatePackage('minimap')
-
-    waitsForPromise ->
-      atom.workspaceView.open('two-hundred.txt')
-
-    runs ->
-      editorView = atom.workspaceView.getActiveView()
 
   describe 'once created and initialized with an editor view', ->
     beforeEach ->
@@ -48,7 +48,7 @@ describe "MinimapRenderView", ->
       it 'returns its content height based on its line-height', ->
         interline = atom.config.get 'minimap.interline'
         charHeight = atom.config.get 'minimap.charHeight'
-        linesCount = editorView.editor.buffer.getLines().length
+        linesCount = editor.getBuffer().getLines().length
 
         height = (interline + charHeight) * linesCount
 

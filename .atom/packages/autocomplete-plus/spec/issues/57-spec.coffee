@@ -1,11 +1,8 @@
 {triggerAutocompletion, buildIMECompositionEvent, buildTextInputEvent} = require "../spec-helper"
-{$, TextEditorView, WorkspaceView} = require 'atom'
-AutocompleteView = require '../../lib/autocomplete-view'
-Autocomplete = require '../../lib/autocomplete'
 TestProvider = require '../lib/test-provider'
 
 describe "Autocomplete", ->
-  [activationPromise, autocomplete, editorView, editor, completionDelay, autocompleteModule] = []
+  [editorView, editor, completionDelay, mainModule] = []
 
   describe "Issue 57 - Multiple selection completion", ->
     beforeEach ->
@@ -17,31 +14,33 @@ describe "Autocomplete", ->
         completionDelay = 100
         atom.config.set "autocomplete-plus.autoActivationDelay", completionDelay
         completionDelay += 100 # Rendering delay
-        atom.workspaceView = new WorkspaceView()
-        atom.workspace = atom.workspaceView.model
+
+        workspaceElement = atom.views.getView(atom.workspace)
+        jasmine.attachToDOM(workspaceElement)
 
       waitsForPromise -> atom.workspace.open("issues/57.js").then (e) ->
         editor = e
-        atom.workspaceView.attachToDom()
 
       # Activate the package
-      waitsForPromise -> atom.packages.activatePackage("autocomplete-plus").then (a) -> autocompleteModule = a.mainModule
+      waitsForPromise ->
+        atom.packages.activatePackage("autocomplete-plus")
+          .then (a) -> mainModule = a.mainModule
 
       runs ->
-        editorView = atom.workspaceView.getActiveView()
+        editorView = atom.views.getView(editor)
 
     describe 'where many cursors are defined', ->
       it 'autocompletes word when there is only a prefix', ->
         editor.getBuffer().insert([10,0] ,"s:extra:s")
         editor.setSelectedBufferRanges([[[10,1],[10,1]], [[10,9],[10,9]]])
-        editorView.attachToDom()
 
         triggerAutocompletion editor, false, 'h'
         advanceClock completionDelay
 
-        autocomplete = autocompleteModule.autocompleteViews[0]
+        autocompleteManager = mainModule.autocompleteManagers[0]
 
-        autocomplete.trigger "autocomplete-plus:confirm"
+        autocompleteView = atom.views.getView(autocompleteManager)
+        atom.commands.dispatch autocompleteView, "autocomplete-plus:confirm"
 
         expect(editor.lineTextForBufferRow(10)).toBe "shift:extra:shift"
         expect(editor.getCursorBufferPosition()).toEqual [10,12]
@@ -60,17 +59,18 @@ describe "Autocomplete", ->
         it 'cancels the autocomplete', ->
           editor.getBuffer().insert([10,0] ,"s:extra:a")
           editor.setSelectedBufferRanges([[[10,1],[10,1]], [[10,9],[10,9]]])
-          editorView.attachToDom()
 
           triggerAutocompletion editor, false, 'h'
           advanceClock completionDelay
 
-          autocomplete = autocompleteModule.autocompleteViews[0]
-          autocomplete.trigger "autocomplete-plus:confirm"
+          autocompleteManager = mainModule.autocompleteManagers[0]
+
+          autocompleteView = atom.views.getView(autocompleteManager)
+          atom.commands.dispatch autocompleteView, "autocomplete-plus:confirm"
 
           expect(editor.lineTextForBufferRow(10)).toBe "sh:extra:ah"
           expect(editor.getSelections().length).toEqual(2)
           expect(editor.getSelections()[0].getBufferRange()).toEqual [[10,2], [10,2]]
           expect(editor.getSelections()[1].getBufferRange()).toEqual [[10,11], [10,11]]
 
-          expect(editorView.find('.autocomplete-plus')).not.toExist()
+          expect(editorView.querySelector('.autocomplete-plus')).not.toExist()

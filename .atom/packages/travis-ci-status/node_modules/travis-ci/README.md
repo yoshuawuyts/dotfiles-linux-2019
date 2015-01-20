@@ -22,13 +22,23 @@ var travis = new Travis({
 
 # API
 
+### Upgrade Notice (Migrating to 2.x)
+Due to the expanding travis api, there were an increasing number of cases where a function could conceivably map to several http endpoints. To eliminate that complexity, and to ensure that the entire api could be exposed, the api has been rewritten to be a much more transparent layer on top of the http interface. Url path segments that are exposed as objects, unless they are followed by url parameters, in which case they are exposed as functions that consume those arguments. The function that makes the api call is now just http verbs (`get`/`post`/etc).
+
+For instance, to use this library to call `GET /repos/:owner_name/:name/builds/:id`, you now do something like the following:
+```js
+travis.repos(ownerName, repoName).builds(buildId).get(function (err, res) {
+   // same res as before
+});
+```
+
 ### Authentication
 
 Many functions, such as [`travis.accounts`](https://api.travis-ci.org/docs/#Accounts), require authenticating as a user. 
 Currently the only way to authenticate is to start with a github oauth token, request a travis access token, and authenticate with that.
 
 ```js
-travis.auth.github({
+travis.auth.github.post({
     github_token: GITHUB_OAUTH_TOKEN
 }, function (err, res) {
     // res => {
@@ -68,7 +78,7 @@ travis.authenticate({
 Accounts calls require [authentication](#Authentication).
 
 ```js
-travis.accounts(function (err, res) {
+travis.accounts.get(function (err, res) {
     // res => {
     //     "accounts": [
     //         {
@@ -107,7 +117,7 @@ travis.accounts(function (err, res) {
 ### [Authorization](https://api.travis-ci.org/docs/#Authorization)
 
 ```js
-travis.auth.github({
+travis.auth.github.post({
     github_token: GITHUB_OAUTH_TOKEN
 }, function (err, res) {
     // res => {
@@ -130,7 +140,7 @@ Endpoints that exist, but are intended for brower flows:
 ### [Branches](https://api.travis-ci.org/docs/#Branches)
 
 ```js
-travis.branches(function (err, res) {
+travis.branches.get(function (err, res) {
     // res => {
     //     branches: [],
     //     commits: []
@@ -141,7 +151,7 @@ travis.branches(function (err, res) {
 ### [Broadcasts](https://api.travis-ci.org/docs/#Broadcasts)
 
 ```js
-travis.broadcasts(function (err, res) {
+travis.broadcasts.get(function (err, res) {
     // res => {
     //     broadcasts: []
     // }
@@ -154,9 +164,7 @@ travis.broadcasts(function (err, res) {
 // to get the info for a specific build, specify the build id
 // this is data used for pages such as:
 // https://travis-ci.org/pwmckenna/node-travis-ci/builds/10380000
-travis.builds({
-    id: 10380000
-}, function (err, res) {
+travis.builds(10380000).get(function (err, res) {
     // res => {
     //     "build": {
     //         "id": 10380000,
@@ -237,16 +245,14 @@ travis.builds({
 ```
 ```js
 // to cancel a build
-travis.builds.cancel({
-    id: 10380000
-}, function (err) {
+travis.builds(10380000).cancel.post(function (err) {
 });
 ```
 
 ### [Documentation](https://api.travis-ci.org/docs/#Documentation)
 
 ```js
-travis.documentation(function (err, res) {
+travis.documentation.get(function (err, res) {
     // res => <html>
     //     ...
     // </html
@@ -256,7 +262,7 @@ travis.documentation(function (err, res) {
 ### [Endpoints](https://api.travis-ci.org/docs/#Endpoints)
 
 ```js
-travis.endpoints(function (err, res) {
+travis.endpoints.get(function (err, res) {
     // res => [
     //     {
     //         "name": "Home",
@@ -301,9 +307,7 @@ travis.endpoints(function (err, res) {
 });
 ```
 ```js
-travis.endpoints({
-    prefix: 'endpoints'
-}, function (err, res) {
+travis.endpoints('endpoints').get(function (err, res) {
     // res => {
     //     "name": "Endpoints",
     //     "doc": "Documents all available API endpoints...",
@@ -331,7 +335,7 @@ travis.endpoints({
 All hook calls require [authentication](#Authentication).
 
 ```js
-travis.hooks(function (err, res) {
+travis.hooks.get(function (err, res) {
     // res => [
     //     {
     //         id: 1095505,
@@ -347,8 +351,7 @@ travis.hooks(function (err, res) {
 });
 ```
 ```js
-travis.hooks({
-    id: 1095505,
+travis.hooks(1095505).put(
     hook: {
         active: false
     }
@@ -359,9 +362,7 @@ travis.hooks({
 ### [Jobs](https://api.travis-ci.org/docs/#Jobs)
 
 ```js
-travis.jobs({
-    id: JOB_ID
-}, function (err, res) {
+travis.jobs(JOB_ID).get(function (err, res) {
     // res => {
     //     "job": {
     //         "id": 9624444,
@@ -411,10 +412,7 @@ travis.logs({
 ### [Repos](https://api.travis-ci.org/docs/#Repos)
 
 ```js
-travis.repos({
-    owner_name: 'pwmckenna'
-//  member: 'pwmckenna
-}, function (err, res) {
+travis.repos('pwmckenna').get(function (err, res) {
     // res => {
     //     "repos": [
     //         {
@@ -434,10 +432,7 @@ travis.repos({
 });
 ```
 ```js
-travis.repos({
-    owner_name: 'pwmckenna',
-    name: 'node-travis-ci'
-}, function (err, res) {
+travis.repos('pwmckenna', 'node-travis-ci').get(function (err, res) {
     // res => {
     //     "repo": {
     //         "id": 1095505,
@@ -449,19 +444,14 @@ travis.repos({
 });
 ```
 ```js
-travis.repos.key({
-    id: 
-}, function (err, res) {
+travis.repos(repoId).key.get(function (err, res) {
     // res => {
     //   key: '-----BEGIN RSA PUBLIC KEY-----\nMIGfMA0GCSqGSIb...'    
     // }
 });
 ```
 ```js
-travis.repos.builds({
-    owner_name: 'pwmckenna',
-    name: 'node-travis-ci'
-}, function (err, res) {
+travis.repos('pwmckenna', 'node-travis-ci').builds.get(function (err, res) {
     // res => {
     //     builds: [],
     //     commits: []
@@ -488,35 +478,12 @@ travis.requests({
 });
 ```
 
-### [Stats](https://api.travis-ci.org/docs/#Stats)
-
-```js
-travis.stats.repos(function (err, res) {
-    // res => {
-    //     stats: {
-    //         params:
-    //         current_user:
-    //     }
-    // }
-});
-```
-```js
-travis.stats.tests(function (err, res) {
-    // res => {
-    //     stats: {
-    //         params:
-    //         current_user:
-    //     }
-    // }
-});
-```
-
 ### [Users](https://api.travis-ci.org/docs/#ss)
 
 All user calls require [authentication](#Authentication).
 
 ```js
-travis.users(function (err, res) {
+travis.users.get(function (err, res) {
     // res => {
     //     "user": {
     //         "id": 5186,
@@ -534,7 +501,7 @@ travis.users(function (err, res) {
 });
 ```
 ```js
-travis.users.permissions(function (err, res) {
+travis.users.permissions.get(function (err, res) {
     // res => {
     //     "permissions": [
     //         1446577,
@@ -548,19 +515,9 @@ travis.users.permissions(function (err, res) {
 });
 ```
 ```js
-travis.users.sync(function (err, res) {
+travis.users.sync.post(function (err, res) {
     // res => {
     //     "result": true
-    // }
-});
-```
-
-### [Workers](https://api.travis-ci.org/docs/#Workers)
-
-```js
-travis.workers(function (err, res) {
-    // res => {
-    //     workers: []
     // }
 });
 ```
@@ -593,7 +550,7 @@ travis-ci auth github --github_token=ef7c329fb63479eb5be9719bb8b23162072bb20d
 Use the `access_token` above in all subsequent commands that require authentication, such as requesting the builds for this project:
 
 ```bash
-travis-ci repos builds --owner_name=pwmckenna --name=node-travis-ci --access_token=F7DlolJkD15isf4KEDuh_A
+travis-ci repos pwmckenna node-travis-ci builds --access_token=F7DlolJkD15isf4KEDuh_A
 =>  {
         "builds": [
             {

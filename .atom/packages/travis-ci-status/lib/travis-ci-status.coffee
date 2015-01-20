@@ -2,10 +2,10 @@ fs = require 'fs'
 path = require 'path'
 shell = require 'shell'
 
-TravisCi = require 'travis-ci'
+TravisCi = null
 
-BuildMatrixView = require './build-matrix-view'
-BuildStatusView = require './build-status-view'
+BuildMatrixView = null
+BuildStatusView = null
 
 module.exports =
   # Internal: The default configuration properties for the package.
@@ -23,6 +23,9 @@ module.exports =
   #
   # Returns nothing.
   activate: ->
+    TravisCi ?= require 'travis-ci'
+    BuildStatusView ?= require './build-status-view'
+    BuildMatrixView ?= require './build-matrix-view'
     @isGitHubRepo() and @isTravisProject((e) => e and @init())
 
   # Internal: Deactive the package and destroys any views.

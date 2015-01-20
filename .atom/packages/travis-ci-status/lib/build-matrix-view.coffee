@@ -55,7 +55,8 @@ class BuildMatrixView extends View
   # Returns nothing.
   update: (buildId) =>
     @title.text('Fetching build matrix...')
-    atom.travis.builds(id: buildId, @buildMatrix)
+    details = @nwo.split '/'
+    atom.travis.repos(details[0], details[1]).builds(buildId).get(@buildMatrix)
 
   # Internal: Callback for the Travis CI build status, updates the build matrix.
   #
@@ -68,11 +69,12 @@ class BuildMatrixView extends View
     return console.log "Error:", err if err?
 
     number = data['build']['number']
-    duration = data['build']['duration'].toString()
+    if data['build']['duration']
+      duration = data['build']['duration'].toString()
 
-    @title.text("Build #{number} took #{duration.formattedDuration()}")
-    @builds.empty()
-    @addBuild(build) for build in data['jobs']
+      @title.text("Build #{number} took #{duration.formattedDuration()}")
+      @builds.empty()
+      @addBuild(build) for build in data['jobs']
 
   # Internal: Add the build details to the builds list.
   #
@@ -89,6 +91,6 @@ class BuildMatrixView extends View
 
     @builds.append("""
       <li class='#{status}'>
-        #{build['number']} - #{duration.formattedDuration()}
+        #{build['number']} - #{duration.formattedDuration()} >>> <a target="_new" href="https://travis-ci.org/#{@nwo}/builds/#{build['build_id']}">Full Report...</a>
       </li>
     """)

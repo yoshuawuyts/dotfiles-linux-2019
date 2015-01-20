@@ -1,4 +1,4 @@
-{View} = require 'atom'
+{View} = require 'atom-space-pen-views'
 MinimapQuickSettingsView = require './minimap-quick-settings-view'
 
 module.exports =
@@ -27,6 +27,6 @@ class MinimapOpenQuickSettingsView extends View
 
         @dropdown.css(css).attach()
 
-        @dropdown.on 'minimap:quick-settings-destroyed', =>
+        @dropdown.onDidDestroy =>
           @dropdown.off()
           @dropdown = null

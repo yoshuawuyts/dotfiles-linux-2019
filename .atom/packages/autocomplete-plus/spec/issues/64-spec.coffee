@@ -1,10 +1,7 @@
 require "../spec-helper"
-{$, TextEditorView, WorkspaceView} = require 'atom'
-AutocompleteView = require '../../lib/autocomplete-view'
-Autocomplete = require '../../lib/autocomplete'
 
 describe "Autocomplete", ->
-  [activationPromise, autocomplete, editorView, editor, completionDelay] = []
+  [mainModule, autocompleteManager, editorView, editor, completionDelay] = []
 
   describe "Issue 64", ->
     beforeEach ->
@@ -16,27 +13,28 @@ describe "Autocomplete", ->
         completionDelay = 100
         atom.config.set "autocomplete-plus.autoActivationDelay", completionDelay
         completionDelay += 100 # Rendering delay
-        atom.workspaceView = new WorkspaceView()
-        atom.workspace = atom.workspaceView.model
+
+        workspaceElement = atom.views.getView(atom.workspace)
+        jasmine.attachToDOM(workspaceElement)
 
       waitsForPromise -> atom.workspace.open("issues/64.css").then (e) ->
         editor = e
-        atom.workspaceView.attachToDom()
 
       # Activate the package
-      waitsForPromise -> atom.packages.activatePackage("autocomplete-plus").then (a) -> autocomplete = a
+      waitsForPromise -> atom.packages.activatePackage("autocomplete-plus").then (a) ->
+        mainModule = a.mainModule
+        autocompleteManager = mainModule.autocompleteManagers[0]
 
       runs ->
-        editorView = atom.workspaceView.getActiveView()
-        autocomplete = new AutocompleteView editorView
+        editorView = atom.views.getView(editor)
 
     it "it adds words hyphens to the wordlist", ->
       runs ->
-        editorView.attachToDom()
         editor.insertText c for c in "bla"
 
         advanceClock completionDelay
 
-        expect(editorView.find(".autocomplete-plus")).toExist()
+        expect(editorView.querySelector(".autocomplete-plus")).toExist()
 
-        expect(autocomplete.list.find("li:eq(0)")).toHaveText "bla-foo--bar"
+        autocompleteView = atom.views.getView(autocompleteManager)
+        expect(autocompleteView.querySelector("li")).toHaveText "bla-foo--bar"

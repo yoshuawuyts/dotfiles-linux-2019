@@ -1,4 +1,5 @@
 {CompositeDisposable} = require 'event-kit'
+{requirePackages} = require 'atom-utils'
 
 class MinimapColorHighlight
 
@@ -7,24 +8,17 @@ class MinimapColorHighlight
     @subscriptions = new CompositeDisposable
 
   activate: (state) ->
-    @colorHighlightPackage = atom.packages.getLoadedPackage('atom-color-highlight')
-    @minimapPackage = atom.packages.getLoadedPackage('minimap')
+    requirePackages('minimap', 'atom-color-highlight')
+    .then ([@minimap, @colorHighlight]) =>
+      return @deactivate() unless @minimap.versionMatch('>= 3.5.0')
 
-    return @deactivate() unless @colorHighlightPackage? and @minimapPackage?
+      @MinimapColorHighlightView = require('./minimap-color-highlight-view')(@minimap, @colorHighlight)
 
-    @MinimapColorHighlightView = require('./minimap-color-highlight-view')()
-
-    @minimap = require @minimapPackage.path
-    return @deactivate() unless @minimap.versionMatch('3.x')
-
-    @colorHighlight = require @colorHighlightPackage.path
-
-    @minimap.registerPlugin 'color-highlight', this
+      @minimap.registerPlugin 'color-highlight', this
 
   deactivate: ->
     @deactivatePlugin()
     @minimapPackage = null
-    @colorHighlightPackage = null
     @colorHighlight = null
     @minimap = null
 
@@ -34,7 +28,7 @@ class MinimapColorHighlight
 
     @active = true
 
-    @createViews() if @minimap.active
+    @createViews()
 
     @subscriptions.add @minimap.onDidActivate @createViews
     @subscriptions.add @minimap.onDidDeactivate @destroyViews
@@ -50,15 +44,13 @@ class MinimapColorHighlight
     return if @viewsCreated
 
     @viewsCreated = true
-    @paneSubscription = @colorHighlight.eachColorHighlightEditor (color) =>
-      editor = color.editorView.getEditor()
-      pane = color.editorView.getPaneView()
-      return unless pane?
-      view = new @MinimapColorHighlightView color.getActiveModel(), color.editorView
+    @paneSubscription = @colorHighlight.observeColorHighlightModels (model) =>
+      editor = model.editor
+      view = new @MinimapColorHighlightView model, editor
 
       @views[editor.id] = view
 
-      subscription = editor.getBuffer().onDidDestroy =>
+      subscription = editor.onDidDestroy =>
         @views[editor.id]?.destroy()
         delete @views[editor.id]
         subscription.dispose()
