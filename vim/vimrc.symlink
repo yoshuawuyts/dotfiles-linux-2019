@@ -188,6 +188,7 @@ function! ShowFileInNERDTree()
   endif
 endfunction
 map <leader>f :call ShowFileInNERDTree()<cr>
+map <C-n> :NERDTreeToggle<CR>
 
 " Plugin overrides
 source ~/.vim/autocmd.vim
