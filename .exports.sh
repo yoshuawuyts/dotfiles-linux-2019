@@ -4,3 +4,4 @@ export PATH=$PATH:~/Library/Terraform
 export PATH=$PATH:~/src/yw/binsauce
 export NVM_DIR=~/.nvm
 export EDITOR=/usr/bin/vim
+export TERM="xterm-256color"
