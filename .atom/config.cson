@@ -10,7 +10,6 @@
     'fontFamily': 'Source Code Pro'
     'autoIndentOnPaste': false
     'fontSize': 14
-    'invisibles': {}
   'core':
     'themes': [
       'spacegray-eighties-ui'
