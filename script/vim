@@ -1,0 +1,4 @@
+# install vundle
+# todo(yw): move this into `bootstrap`
+# or `vim.zsh`
+vim +PluginInstall +qall
