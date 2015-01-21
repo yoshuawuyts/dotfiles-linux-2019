@@ -15,6 +15,7 @@ Plugin 'gmarik/vundle'
 
 Plugin 'L9'
 Plugin 'chriskempson/base16-vim'
+Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'gh:vim-ruby/vim-ruby'
 Plugin 'tpope/vim-surround'
@@ -200,10 +201,10 @@ source ~/.vim/go.vim
 source ~/.vim/snippets.vim
 source ~/.vim/writing.vim
 
-highlight LineNr ctermfg=grey ctermbg=white
+set t_Co=256
 set background=dark
-let base16colorspace=256
-colorscheme base16-default
+silent! colorscheme Tomorrow-Night-Eighties
+" silent! let g:airline_theme='tomorrow'
 
 
 " Git Gutter

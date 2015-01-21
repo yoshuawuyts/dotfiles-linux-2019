@@ -23,4 +23,4 @@ alias pkg='pkg-name'
 alias vlc='~/Applications/VLC.app/Contents/MacOS/VLC'
 
 # Tmux
-alias tmux='tmux -u2'
+alias tmux="TERM=screen-256color-bce tmux -u2"
