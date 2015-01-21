@@ -96,3 +96,5 @@
 
 [web]
   browser = open
+[help]
+	autocorrect = 5
