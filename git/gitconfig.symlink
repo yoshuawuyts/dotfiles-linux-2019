@@ -87,7 +87,7 @@
 
 # vim: ft=gitconfig
 [credential]
-  helper = /opt/boxen/bin/boxen-git-credential
+  helper = /usr/local/bin/git-credential-osxkeychain
 
 [web]
   browser = open
