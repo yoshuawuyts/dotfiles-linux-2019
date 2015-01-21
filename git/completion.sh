@@ -1,0 +1,2 @@
+compdef g=git
+
