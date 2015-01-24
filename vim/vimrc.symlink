@@ -205,8 +205,6 @@ source ~/.vim/writing.vim
 set t_Co=256
 set background=dark
 silent! colorscheme Tomorrow-Night-Eighties
-" silent! let g:airline_theme='tomorrow'
-
 
 " Git Gutter
 " ==========
