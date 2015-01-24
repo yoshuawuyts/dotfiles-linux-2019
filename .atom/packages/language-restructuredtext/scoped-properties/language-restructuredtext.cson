@@ -1,4 +1,0 @@
-'.text.restructuredtext':
-  'editor':
-    'commentStart': '.. '
-    'increaseIndentPattern': '::\\s*$'

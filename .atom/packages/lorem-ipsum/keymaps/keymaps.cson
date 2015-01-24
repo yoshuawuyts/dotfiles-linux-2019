@@ -1,4 +1,0 @@
-'.editor':
-    'ctrl-alt-s':'lorem-ipsum:sentence'
-    'ctrl-alt-p':'lorem-ipsum:paragraph'
-    'ctrl-alt-shift-p':'lorem-ipsum:paragraphs'

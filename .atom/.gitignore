@@ -1,15 +1,6 @@
-#
-# Whitelist Atom config.
-#
-
-!*
-
-#
-# Blacklist temp files.
-#
-
-storage
+.node-gyp
+packages
 compile-cache
+storage
 dev
 .npm
-.node-gyp
