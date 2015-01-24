@@ -1,5 +1,6 @@
 export GHI_PAGER=less
 export EDITOR="vim"
+export TERM=screen-256color
 
 function colours() {
 for i in {0..255} ; do
