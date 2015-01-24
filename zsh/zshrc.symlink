@@ -9,9 +9,7 @@ export ZSH=$HOME/src/yw/dotfiles
 export DOTFILES=$HOME/src/yw/dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/github
-
-source /opt/github/env.sh
+export PROJECTS=~/src
 
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
@@ -45,10 +43,7 @@ for config_file ($ZSH/**/completion.sh) source $config_file
 source `brew --prefix grc`/etc/grc.bashrc
 
 # source subs
-eval "$($DOTFILES/bin/yoshuawuyts init -)"
-eval "$(/Users/yoshuawuyts/.coral/libexec/coral init -)"
-alias k='coral'
-compctl -K _coral k
+# eval "$($DOTFILES/bin/yoshuawuyts init -)"
 
 # added by travis gem
 [ -f /Users/yoshuawuyts/.travis/travis.sh ] && source /Users/yoshuawuyts/.travis/travis.sh
