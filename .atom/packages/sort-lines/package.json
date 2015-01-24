@@ -1,14 +1,16 @@
 {
   "name": "sort-lines",
   "main": "./lib/sort-lines",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Sorts your lines. Never gets tired.",
-  "activationEvents": [
-    "sort-lines:sort",
-    "sort-lines:reverse-sort",
-    "sort-lines:unique",
-    "sort-lines:case-insensitive-sort"
-  ],
+  "activationCommands": {
+    "atom-text-editor": [
+      "sort-lines:sort",
+      "sort-lines:reverse-sort",
+      "sort-lines:unique",
+      "sort-lines:case-insensitive-sort"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/atom/sort-lines"
@@ -24,10 +26,24 @@
     "url": "https://github.com/atom/sort-lines/issues"
   },
   "homepage": "https://github.com/atom/sort-lines",
-  "_id": "sort-lines@0.8.0",
+  "_id": "sort-lines@0.9.0",
   "dist": {
-    "shasum": "329dee938d18b9267c9f2f076069b1fa67fbf6da"
+    "shasum": "4233cec111aef9688ae8f5b44c1a6aa8774b4d09"
   },
-  "_resolved": "/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-11481-72629-1kv0fbz/package.tgz",
-  "_from": "/var/folders/bp/yz74s9pn0b92ylm6q102rxpm0000gn/T/d-11481-72629-1kv0fbz/package.tgz"
+  "_resolved": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-115023-44907-1w0ulqq/package.tgz",
+  "_from": "/private/var/folders/k6/mcf_l1210xv465b382k8crtm0000gn/T/d-115023-44907-1w0ulqq/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/range-finder.coffee",
+        "lib/sort-lines.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }

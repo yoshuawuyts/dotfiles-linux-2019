@@ -3,8 +3,6 @@
 # ----------------------------------------------------------------------------
 
     module.exports = (picker) ->
-        Convert = require './ColorPicker-convert'
-
         _el = picker.querySelector '#ColorPicker-alphaSelector'
         _selection = picker.querySelector '#ColorPicker-alphaSelection'
         _context = _el.getContext '2d'
@@ -31,9 +29,11 @@
 
                 _context.fillStyle = _gradient
                 _context.fillRect 0, 0, _width, _height
+                return
 
         #  Set the selector position
         # ---------------------------
             setPosition: ({top}) ->
                 _selection.style['top'] = (top / _height) * 100 + '%'
+                return
         }

@@ -9,7 +9,7 @@
     'showIndentGuide': true
     'fontFamily': 'Source Code Pro'
     'autoIndentOnPaste': false
-    'fontSize': 14
+    'fontSize': 13
   'core':
     'themes': [
       'spacegray-eighties-ui'
@@ -17,6 +17,9 @@
     ]
     'useReactEditor': true
     'audioBeep': false
+    'disabledPackages': [
+      'autocomplete'
+    ]
   'linter':
     'showHighlighting': false
     'statusBar': 'Show error if the cursor is in range'
@@ -25,4 +28,6 @@
   'minimap':
     'plugins':
       'highlight-selected': true
+  'vim-mode':
+    'useSmartcaseForSearch': true
   'autoclose-html': {}

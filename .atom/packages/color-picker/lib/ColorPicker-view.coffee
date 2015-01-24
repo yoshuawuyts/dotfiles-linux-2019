@@ -38,7 +38,7 @@
                         @canvas id: "#{ c }hueSelector", class: "#{ c }hueSelector", width: '20px', height: '180px'
 
         initialize: ->
-            atom.views.getView(atom.workspace)
+            atom.views.getView atom.workspace
                 .querySelector '.vertical'
                 .appendChild @element
 
@@ -71,8 +71,6 @@
     # -------------------------------------
     #  Show or hide color picker
     # -------------------------------------
-        isOpen: false
-
         reset: ->
             @addClass 'is--visible is--initial'
             @removeClass 'no--arrow is--pointer is--searching'
@@ -83,6 +81,9 @@
             (@find '#ColorPicker-value')
                 .attr 'data-variable', ''
                 .html ''
+            return
+
+        isOpen: false
 
         open: ->
             @isOpen = true
@@ -126,6 +127,7 @@
             this # Place the color picker
                 .css 'top', Math.max 20, _top
                 .css 'left', Math.max 20, _left
+            return
 
         close: ->
             @isOpen = false
@@ -137,6 +139,7 @@
             this
                 .removeClass 'is--searching'
                 .addClass 'is--error'
+            return
 
         scroll: -> if @isOpen then @close()
 
@@ -157,28 +160,53 @@
     #  Bind controls
     # -------------------------------------
         bind: ->
-            Emitter = new (require 'event-kit').Emitter
-            Emitter.onMouseDown = (callback) -> Emitter.on 'mousedown', callback
-            Emitter.onMouseMove = (callback) -> Emitter.on 'mousemove', callback
-            Emitter.onMouseUp = (callback) -> Emitter.on 'mouseup', callback
+            _workspace = atom.workspace
+
+        #  Set up an emitter that allows us to avoid adding a lot of listeners
+        # ---------------------------
+            Emitter = {
+                bindings: {}
+
+                emit: (event, args...) ->
+                    return unless _bindings = @bindings[event]
+                    _callback.apply null, args for _callback in _bindings
+                    return
+
+                on: (event, callback) ->
+                    @bindings[event] = [] unless @bindings[event]
+                    @bindings[event].push callback
+                    return
+
+                onMouseDown: (callback) -> @on 'mousedown', callback
+                onMouseMove: (callback) -> @on 'mousemove', callback
+                onMouseUp: (callback) -> @on 'mouseup', callback
+            }
 
             window.addEventListener 'mousedown', (e) -> Emitter.emit 'mousedown', e
             window.addEventListener 'mousemove', (e) -> Emitter.emit 'mousemove', e
             window.addEventListener 'mouseup', (e) -> Emitter.emit 'mouseup', e
 
+        #  Close the color picker on resize and pane change
+        # ---------------------------
             window.onresize = => @close()
-
-            _workspace = atom.workspace
             _workspace.getActivePane().onDidChangeActiveItem => @close()
 
-            do => # Bind the color output control
+        #  Close the color picker on scroll
+        # ---------------------------
+            bindScroll = (editor) => editor.onDidChangeScrollTop => @close()
+            bindScroll _editor for _editor in atom.workspace.getTextEditors()
+            _workspace.onDidAddTextEditor ({textEditor}) => bindScroll textEditor
+
+        #  Bind the color output control
+        # ---------------------------
+            do =>
                 Emitter.onMouseDown (e) =>
                     _target = e.target
                     _className = _target.className
 
                     # Close unless the click target is something related to
                     # the color picker
-                    return @close() unless /ColorPicker/.test _className
+                    return @close() unless (_className.split '-')[0] is 'ColorPicker'
 
                     _color = @storage.selectedColor
 
@@ -189,6 +217,7 @@
                                     _editor = atom.workspace.activePaneItem
                                     _editor.clearSelections()
                                     _editor.setSelectedBufferRange _pointer.range
+                                    _editor.scrollToCursorPosition()
                             else @replaceColor()
 
                             @close()
@@ -205,8 +234,11 @@
 
                     @replaceColor()
                     @close()
+                return
 
-            do => # Bind the saturation selector controls
+        #  Bind the saturation selector controls
+        # ---------------------------
+            do =>
                 _isGrabbingSaturationSelection = false
 
                 updateSaturationSelection = (e) =>
@@ -235,7 +267,11 @@
                 Emitter.onMouseMove updateSaturationSelection
                 Emitter.onMouseUp updateSaturationSelection
 
-            do => # Bind the alpha selector controls
+                return
+
+        #  Bind the alpha selector controls
+        # ---------------------------
+            do =>
                 _isGrabbingAlphaSelection = false
 
                 updateAlphaSelector = (e) =>
@@ -263,7 +299,11 @@
                 Emitter.onMouseMove updateAlphaSelector
                 Emitter.onMouseUp updateAlphaSelector
 
-            do => # Bind the hue selector controls
+                return
+
+        #  Bind the hue selector controls
+        # ---------------------------
+            do =>
                 _isGrabbingHueSelection = false
 
                 updateHueControls = (e) =>
@@ -291,6 +331,9 @@
                 Emitter.onMouseMove updateHueControls
                 Emitter.onMouseUp updateHueControls
 
+                return
+            return
+
     # -------------------------------------
     #  Saturation
     # -------------------------------------
@@ -298,10 +341,12 @@
             @storage.saturation.x = positionX
             @storage.saturation.y = positionY
             SaturationSelector.setPosition top: positionY, left: positionX
+            return
 
         refreshSaturationCanvas: ->
             _color = HueSelector.getColorAtPosition @storage.hue
             SaturationSelector.render _color.color
+            return
 
     # -------------------------------------
     #  Alpha
@@ -309,11 +354,13 @@
         setAlpha: (positionY) ->
             @storage.alpha = positionY
             AlphaSelector.setPosition top: positionY
+            return
 
         refreshAlphaCanvas: ->
             _saturation = @storage.saturation
             _color = SaturationSelector.getColorAtPosition _saturation.x, _saturation.y
             AlphaSelector.render Convert.hexToRgb _color.color
+            return
 
     # -------------------------------------
     #  Hue
@@ -321,6 +368,7 @@
         setHue: (positionY) ->
             @storage.hue = positionY
             HueSelector.setPosition top: positionY
+            return
 
     # -------------------------------------
     #  Color
@@ -383,6 +431,7 @@
                 @removeClass 'is--searching'
                     .find '#ColorPicker-value'
                     .attr 'data-variable', color.match
+            return
 
         refreshColor: (trigger) ->
             if trigger is 'hue' then @refreshSaturationCanvas()
@@ -390,10 +439,12 @@
 
             # Send the preferred color type as well
             @setColor undefined, @storage.selectedColor.type
+            return
 
         # User selects a new color, reflect the change
         inputColor: (color) ->
             return unless this
+
             _hasClass = this[0].className.match /(is\-\-color\_(\w+))\s/
 
             @removeClass _hasClass[1] if _hasClass
@@ -435,6 +486,7 @@
 
             @refreshAlphaCanvas()
             @setColor color
+            return
 
     # -------------------------------------
     #  Selection
@@ -456,6 +508,7 @@
                 end:
                     column: _color.end
                     row: _color.row
+            return
 
         replaceColor: ->
             _color = @storage.selectedColor
@@ -478,3 +531,4 @@
                 end:
                     column: _color.index + _newColor.length
                     row: _color.row
+            return

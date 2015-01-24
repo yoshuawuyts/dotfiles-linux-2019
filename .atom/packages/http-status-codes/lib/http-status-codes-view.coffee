@@ -1,6 +1,4 @@
-{$$, Point, SelectListView} = require 'atom'
-# CSON.parseFile 'data.cson', (err,obj) ->
-#   result = CSON.parseFileSync('data.cson')
+{SelectListView, $} = require 'atom-space-pen-views'
 
 statusCodes = require '../data/status-codes'
 
@@ -26,7 +24,12 @@ class HttpStatusCodesView extends SelectListView
 
   show: ->
     @populate()
-    atom.workspaceView.append(this)
+    workspaceElement = atom.views.getView(atom.workspace)
+    $(workspaceElement).append(@element)
     @focusFilterEditor()
+
+  cancel: ->
+    $(@element).remove();
+
 
 # class MySelectListView extends SelectListView
