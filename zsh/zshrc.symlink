@@ -1,0 +1,54 @@
+export PATH=/Users/yoshuawuyts/.dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/yoshuawuyts/.config/base16-shell
+
+# base-16
+BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+# shortcut to this dotfiles path is $ZSH
+export ZSH=$HOME/src/yw/dotfiles
+export DOTFILES=$HOME/src/yw/dotfiles
+
+# your project folder that we can `c [tab]` to
+export PROJECTS=~/github
+
+source /opt/github/env.sh
+
+# source every .zsh file in this rep
+for config_file ($ZSH/**/*.zsh) source $config_file
+
+# use .localrc for SUPER SECRET CRAP that you don't
+# want in your public, versioned repo.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
+
+# quote pasted URLs
+autoload -U url-quote-magic
+zle -N self-insert url-quote-magic
+
+# fun
+autoload -U tetris
+zle -N tetris
+bindkey ^T tetris
+
+# Fix history search in tmux
+bindkey '^R' history-incremental-search-backward
+
+# load every completion after autocomplete loads
+for config_file ($ZSH/**/completion.sh) source $config_file
+
+source `brew --prefix grc`/etc/grc.bashrc
+
+# source subs
+eval "$($DOTFILES/bin/yoshuawuyts init -)"
+eval "$(/Users/yoshuawuyts/.coral/libexec/coral init -)"
+alias k='coral'
+compctl -K _coral k
+
+# added by travis gem
+[ -f /Users/yoshuawuyts/.travis/travis.sh ] && source /Users/yoshuawuyts/.travis/travis.sh
