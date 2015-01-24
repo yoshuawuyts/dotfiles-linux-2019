@@ -1,0 +1,1 @@
+git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
