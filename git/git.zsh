@@ -2,6 +2,8 @@ export GHI_PAGER=less
 export GIT_SANDBOX=~/Projects/sandbox
 export GIT_MERGE_AUTOEDIT=no
 
+alias s="git status -s"
+
 # Wrap git with hub
 if [[ -f `command -v hub` ]] ; then alias git=hub ; fi
 
