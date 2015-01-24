@@ -1,9 +1,10 @@
 alias cls='clear'
-alias l='ls -la'
+alias la='gls -ohpgn --color=auto --group-directories-first -o'
 alias lastfm='shell-fm'
 alias reload!='. ~/.zshrc'
 alias count='wc -l'
 alias tft='curl "http://itsthisforthat.com/api.php?text"'
+alias s='git status -s'
 
 alias shout="tr '[[:lower:]]' '[[:upper:]]'"
 
@@ -53,18 +54,9 @@ alias map="xargs -n1"
 # free up `w` for my flavored sub
 alias whodat="w"
 
-# list all
-alias la="gls -ohpgn --color=auto --group-directories-first -o"
-
-# git status
-alias s="git status"
-
 # Recursively show all files in a folder
 # as a tree
 alias t='tree -a -L 3 -A -C -I "node_modules|.git"'
 
 # Launch vlc
 alias vlc='~/Applications/VLC.app/Contents/MacOS/VLC'
-
-# Improve `tmux` command
-alias tmux="TERM=screen-256color-bce tmux -u2"
