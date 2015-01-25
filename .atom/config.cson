@@ -1,32 +1,32 @@
-'global':
-  'exception-reporting':
-    'userId': '9d041072-abc0-ea2e-b7ca-ca3b4ce8744c'
-  'welcome':
-    'showOnStartup': false
-  'metrics':
-    'userId': '98d5d79a1a1943670b58ba8b21304b919cd84c0f'
-  'editor':
-    'showIndentGuide': true
-    'fontFamily': 'Source Code Pro'
-    'autoIndentOnPaste': false
-    'fontSize': 13
-  'core':
-    'themes': [
-      'spacegray-eighties-ui'
-      'tomorrow-night-eighties'
+"*":
+  "exception-reporting":
+    userId: "9d041072-abc0-ea2e-b7ca-ca3b4ce8744c"
+  welcome:
+    showOnStartup: false
+  metrics:
+    userId: "98d5d79a1a1943670b58ba8b21304b919cd84c0f"
+  editor:
+    fontFamily: "Source Code Pro"
+    fontSize: 13
+    showIndentGuide: true
+    autoIndentOnPaste: false
+    invisibles: {}
+  core:
+    disabledPackages: [
+      "autocomplete"
     ]
-    'useReactEditor': true
-    'audioBeep': false
-    'disabledPackages': [
-      'autocomplete'
+    themes: [
+      "spacegray-eighties-ui"
+      "tomorrow-night-eighties"
     ]
-  'linter':
-    'showHighlighting': false
-    'statusBar': 'Show error if the cursor is in range'
-  'atom-jsfmt':
-    'formatOnSave': false
-  'minimap':
-    'plugins':
-      'highlight-selected': true
-  'vim-mode':
-    'useSmartcaseForSearch': true
+    audioBeep: false
+  linter:
+    showHighlighting: false
+    statusBar: "Show error if the cursor is in range"
+  "atom-jsfmt":
+    formatOnSave: false
+  minimap:
+    plugins:
+      "highlight-selected": true
+  "vim-mode":
+    useSmartcaseForSearch: true
