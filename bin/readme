@@ -1,0 +1,18 @@
+#!/bin/sh
+# Usage: license
+# Prints an MIT license appropriate for totin' around.
+#
+#   $ license > COPYING
+#
+# Original version by Chris Wanstrath:
+# http://gist.github.com/287717
+exec sh -c "tail -n +$(($LINENO + 2)) < $0"
+
+# Repository
+
+
+
+## Why?
+
+## License
+[MIT](https://tldrlegal.com/license/mit-license)
