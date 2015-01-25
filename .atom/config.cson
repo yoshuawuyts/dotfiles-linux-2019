@@ -30,4 +30,3 @@
       'highlight-selected': true
   'vim-mode':
     'useSmartcaseForSearch': true
-  'autoclose-html': {}
