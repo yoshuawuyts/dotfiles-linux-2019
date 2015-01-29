@@ -79,8 +79,8 @@ set-option -g display-time 5000
 ## set status bar
 set-option -g status-utf8 on
 set-option -g status-interval 1
-set-option -g status-fg colour00
-set-option -g status-bg default
+set-option -g status-fg white
+set-option -g status-bg black
 set-option -g status-left-fg default
 set-option -g status-left-bg default
 set-option -g status-right-bg default
