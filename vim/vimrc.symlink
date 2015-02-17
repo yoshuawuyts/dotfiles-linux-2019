@@ -45,7 +45,8 @@ Plugin 'benmills/vim-golang-alternate'
 Plugin 'junegunn/vim-github-dashboard'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'tpope/vim-projectionist'
-Plugin 'jelera/vim-javascript-syntax'
+Plugin 'othree/yajs.vim'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()            " required
 filetype plugin indent on
@@ -173,23 +174,19 @@ set sidescroll=1
 set statusline=                                 " Override default
 set statusline+=%{fugitive#statusline()[4:-2]}  " Show fugitive git info
 set statusline+=\ %f\ %m\ %r                    " Show filename/path
+set statusline+=%#warningmsg#                   " Syntastic warning message
+set statusline+=%{SyntasticStatuslineFlag()}    " Syntastic status line flag
 set statusline+=%=                              " Set right-side status info after this line
 set statusline+=%l/%L:%v                        " Set <line number>/<total lines>:<column>
 set statusline+=\                               " Set ending space
 
-" NERDTree
-" ========
-function! ShowFileInNERDTree()
-  if exists("t:NERDTreeBufName")
-    NERDTreeFind
-  else
-    NERDTree
-    wincmd l
-    NERDTreeFind
-  endif
-endfunction
-map <leader>f :call ShowFileInNERDTree()<cr>
-map <C-n> :NERDTreeToggle<CR>
+" Syntastic
+" =========
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Plugin overrides
 source ~/.vim/autocmd.vim
@@ -211,7 +208,3 @@ silent! colorscheme Tomorrow-Night-Eighties
 " ==========
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_eager = 0
-
-" Syntax
-" ======
-au FileType javascript call JavaScriptFold()
