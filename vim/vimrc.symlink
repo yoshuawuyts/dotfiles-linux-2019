@@ -199,6 +199,7 @@ source ~/.vim/ctrlp.vim
 source ~/.vim/go.vim
 source ~/.vim/snippets.vim
 source ~/.vim/writing.vim
+source ~/.vim/syntastic.vim
 
 set t_Co=256
 set background=dark
