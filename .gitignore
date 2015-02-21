@@ -3,3 +3,4 @@
 .netrwhist
 nginx/vhosts/github*
 vim/vim.symlink/bundle/**
+.atom/.apm
