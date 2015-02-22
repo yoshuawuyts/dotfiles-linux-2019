@@ -49,7 +49,7 @@ nmap gV `[v`]
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-inoremap jj <esc>
+" inoremap jj <esc>
 
 " wrap current paragraph
 nnoremap <leader>w gqip
