@@ -32,3 +32,4 @@
     useSmartcaseForSearch: true
   sassbeautify:
     indent: 2
+  "autocomplete-plus": {}

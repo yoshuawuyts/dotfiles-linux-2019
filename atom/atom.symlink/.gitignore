@@ -1,6 +1,7 @@
+.apm
 .node-gyp
+.npm
 packages
 compile-cache
 storage
 dev
-.npm
