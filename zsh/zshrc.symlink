@@ -48,4 +48,5 @@ source `brew --prefix grc`/etc/grc.bashrc
 # added by travis gem
 [ -f /Users/yoshuawuyts/.travis/travis.sh ] && source /Users/yoshuawuyts/.travis/travis.sh
 
-alias s="git status -s"
+# show tmux on startup
+tmux list-sessions 2> /dev/null

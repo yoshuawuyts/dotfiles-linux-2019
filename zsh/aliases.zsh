@@ -60,3 +60,6 @@ alias t='tree -a -L 3 -A -C -I "node_modules|.git"'
 
 # Launch vlc
 alias vlc='~/Applications/VLC.app/Contents/MacOS/VLC'
+
+# Git status
+alias s="git status -s"
