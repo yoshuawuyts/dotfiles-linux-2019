@@ -49,4 +49,4 @@ source `brew --prefix grc`/etc/grc.bashrc
 [ -f /Users/yoshuawuyts/.travis/travis.sh ] && source /Users/yoshuawuyts/.travis/travis.sh
 
 # show tmux on startup
-tmux list-sessions 2> /dev/null
+[ "$TMUX" = "" ] && tmux list-sessions 2> /dev/null
