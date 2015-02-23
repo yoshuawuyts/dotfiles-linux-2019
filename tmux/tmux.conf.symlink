@@ -165,3 +165,12 @@ bind-key -t vi-copy Enter copy-pipe 'reattach-to-user-namespace pbcopy'
 set-option -g default-command "reattach-to-user-namespace -l zsh; tmux rename-window zsh"
 
 # vim: set ft=tmux:
+
+## TPM plugins
+set -g @tpm_plugins '              \
+  tmux-plugins/tpm                 \
+  tmux-plugins/tmux-sensible       \
+'
+
+## Start TPM
+run-shell '~/.tmux/plugins/tpm/tpm'
