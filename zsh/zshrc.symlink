@@ -1,5 +1,8 @@
 export PATH=$PATH:/Users/yoshuawuyts/src/yw/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/yoshuawuyts/.config/base16-shell
 
+# start zle
+zmodload zsh/zle
+
 # base-16
 BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
@@ -16,11 +19,14 @@ for config_file ($ZSH/**/*.zsh) source $config_file
 
 # plugins
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/fizsh
+antigen bundle zsh-users/zaw
 antigen bundle git
 antigen bundle gpg-agent
 antigen bundle docker
 antigen bundle web-search
-# antigen bundle history-substring-search
 antigen bundle pass
 antigen bundle mosh
 antigen bundle osx
