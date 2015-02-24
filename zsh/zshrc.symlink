@@ -14,6 +14,22 @@ export PROJECTS=~/src
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
 
+# plugins
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle git
+antigen bundle gpg-agent
+antigen bundle docker
+antigen bundle web-search
+# antigen bundle history-substring-search
+antigen bundle pass
+antigen bundle mosh
+antigen bundle osx
+antigen bundle nvm
+antigen bundle systemd
+antigen bundle vi-mode
+antigen bundle z
+antigen bundle vundle
+
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
 if [[ -a ~/.localrc ]]
