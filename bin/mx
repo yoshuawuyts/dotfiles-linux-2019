@@ -47,7 +47,7 @@ else
 fi
 
 # tmux 1.9a+ doesn't like .'s in session names
-SESSION="${SESSION//./_}"
+SESSION="$(echo "$SESSION" | sed -e 's/\.//g')"
 
 _safe_window() {
   if [ -x "$2" ]; then
