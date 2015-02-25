@@ -47,6 +47,8 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'tpope/vim-projectionist'
 Plugin 'othree/yajs.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'mileszs/ack.vim'
+Plugin 'Raimondi/delimitMate'
 
 call vundle#end()            " required
 filetype plugin indent on
