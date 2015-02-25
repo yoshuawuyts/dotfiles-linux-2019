@@ -26,7 +26,6 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
-Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/gist-vim'
 Plugin 'epmatsw/ag.vim'
 Plugin 'tpope/vim-commentary'
@@ -49,6 +48,7 @@ Plugin 'othree/yajs.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'mileszs/ack.vim'
 Plugin 'Raimondi/delimitMate'
+Plugin 'marijnh/tern_for_vim'
 
 call vundle#end()            " required
 filetype plugin indent on
