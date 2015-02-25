@@ -1,3 +1,5 @@
+#!/bin/sh
+
 alias cls='clear'
 alias la='gls -ohpgn --color=auto --group-directories-first -o'
 alias lastfm='shell-fm'
