@@ -49,7 +49,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'mileszs/ack.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'marijnh/tern_for_vim'
-
+Plugin 'Shougo/neocomplete.vim'
 call vundle#end()            " required
 filetype plugin indent on
 
