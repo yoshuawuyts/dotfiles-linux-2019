@@ -7,7 +7,7 @@
     userId: "98d5d79a1a1943670b58ba8b21304b919cd84c0f"
   editor:
     fontFamily: "Source Code Pro"
-    fontSize: 13
+    fontSize: 15
     showIndentGuide: true
     autoIndentOnPaste: false
     invisibles: {}
