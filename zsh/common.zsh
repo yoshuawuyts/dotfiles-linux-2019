@@ -1,6 +1,10 @@
 export GHI_PAGER=less
-export EDITOR="vim"
 export TERM=screen-256color
+if [ -x "$(command -v nvim)" ]; then
+  export EDITOR="nvim"
+else
+  export EDITOR="vim"
+fi
 
 function colours() {
 for i in {0..255} ; do
