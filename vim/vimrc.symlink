@@ -52,6 +52,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'Shougo/neocomplcache.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'jlanzarotta/bufexplorer'
+Plugin 'mustache/vim-mustache-handlebars'
 
 call vundle#end()            " required
 filetype plugin indent on
