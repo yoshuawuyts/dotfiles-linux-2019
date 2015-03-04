@@ -1,0 +1,8 @@
+#!/bin/bash
+# Open a module through ghub.io
+# Version: 1.0.0
+# Author: Yoshua Wuyts
+# License: MIT
+
+[ -x $1 ] && echo 'no package specified' && exit 1
+open "http://ghub.io/$1"
