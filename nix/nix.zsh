@@ -1,2 +1,2 @@
 #!/bin/sh
-export NIX_PATH=/src/nixos/nixpkgs/clone:nixpkgs=/src/nixos/nixpkgs/clone
+export NIX_PATH=$HOME/src/nixos/nixpkgs/clone:nixpkgs=$HOME/src/nixos/nixpkgs/clone
