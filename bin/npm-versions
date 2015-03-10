@@ -1,0 +1,5 @@
+#!/bin/sh
+# list the given versions for an npm module
+
+[ -x $@ ] && echo 'specify a module to check' && exit 1
+npm info $@ time
