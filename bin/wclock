@@ -1,0 +1,18 @@
+#!/bin/sh
+# Command-line world clock
+# Taken from  http://stackoverflow.com/questions/370075/command-line-world-clock
+ 
+# .worldclock.zones file looks like:
+# US/Pacific
+# Europe/Berlin
+# Chile/Continental
+ 
+: "${WORLDCLOCK_ZONES:=$HOME/.worldclock.zones}"
+: ${WORLDCLOCK_FORMAT:='+%Y-%m-%d %H:%M:%S %Z'}
+
+[ ! -f "$WORLDCLOCK_ZONES" ] && echo '.worldclock.zones file not found' && exit 1
+
+while read zone; do 
+  echo "$zone" '!' "$(TZ=$zone date "$WORLDCLOCK_FORMAT")"
+done < "$WORLDCLOCK_ZONES" \
+  | awk -F '!' '{ printf "%-20s  %s\n", $1, $2;}'
