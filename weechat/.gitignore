@@ -1,3 +1,4 @@
 weechat_crash_*
 weechat.symlink/logs/**
 weechat.symlink/*.log
+*urlserver_list.txt
