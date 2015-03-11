@@ -7,8 +7,8 @@
 # Europe/Berlin
 # Chile/Continental
  
-: "${WORLDCLOCK_ZONES:=$HOME/.worldclock.zones}"
-: ${WORLDCLOCK_FORMAT:='+%Y-%m-%d %H:%M:%S %Z'}
+WORLDCLOCK_ZONES="$HOME/.worldclock.zones"
+WORLDCLOCK_FORMAT='+%Y-%m-%d %H:%M:%S %Z'
 
 [ ! -f "$WORLDCLOCK_ZONES" ] && echo '.worldclock.zones file not found' && exit 1
 
