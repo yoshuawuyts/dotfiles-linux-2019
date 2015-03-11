@@ -8,7 +8,7 @@
 # Chile/Continental
  
 WORLDCLOCK_ZONES="$HOME/.worldclock.zones"
-WORLDCLOCK_FORMAT='+%Y-%m-%d %H:%M:%S %Z'
+WORLDCLOCK_FORMAT='+%H:%M:%S'
 
 [ ! -f "$WORLDCLOCK_ZONES" ] && echo '.worldclock.zones file not found' && exit 1
 
