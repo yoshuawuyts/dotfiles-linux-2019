@@ -1,0 +1,446 @@
+2015-01-08 17:46:11		Plugins loaded: alias, charset, exec, fifo, irc, logger, relay, script, tcl, trigger, xfer
+2015-01-08 17:46:45		Plugins loaded: alias, charset, exec, fifo, irc, logger, relay, script, tcl, trigger, xfer
+2015-01-08 17:46:49		Option changed: irc.server.freenode.autoconnect = on  (default: (undefined))
+2015-01-08 17:46:49		Option changed: irc.server.freenode.username = "yoshuawuyts"  (default: (undefined))
+2015-01-08 17:46:49		Option changed: irc.server.freenode.realname = "yoshua wuyts"  (default: (undefined))
+2015-01-08 17:46:55		Plugins loaded: alias, charset, exec, fifo, irc, logger, relay, script, tcl, trigger, xfer
+2015-01-13 10:04:35		script: downloading list of scripts...
+2015-01-13 10:04:35		script: 279 scripts for WeeChat 1.0.1
+2015-01-13 10:04:44		script: script "buffers.pl" can not be installed because plugin "perl" is not loaded
+2015-01-13 10:04:53		script: script "buffers.pl" can not be installed because plugin "perl" is not loaded
+2015-01-13 10:11:52		script: script "buffers.pl" can not be installed because plugin "perl" is not loaded
+2015-01-13 15:17:51		script: script "perl" not found
+2015-01-14 10:16:04		script: downloading list of scripts...
+2015-01-14 10:16:04		Plugins loaded: alias, charset, exec, fifo, irc, logger, relay, script, tcl, trigger, xfer
+2015-01-14 10:16:05		script: 279 scripts for WeeChat 1.0.1
+2015-01-14 10:18:36		script: 279 scripts for WeeChat 1.1
+2015-01-14 10:18:36		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-01-14 10:18:48	=!=	irc: command "join" must be executed on connected irc server
+2015-01-14 10:18:54	=!=	irc: command "join" must be executed on connected irc server
+2015-01-14 10:19:14		Option changed: irc.server.freenode.autoconnect = on  (default: (undefined))
+2015-01-14 10:19:14		Option changed: irc.server.freenode.username = "yoshuawuyts"  (default: (undefined))
+2015-01-14 10:19:14		Option changed: irc.server.freenode.realname = "yoshua wuyts"  (default: (undefined))
+2015-01-14 10:19:20		script: 279 scripts for WeeChat 1.1
+2015-01-14 10:19:20		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-01-14 10:19:25	=!=	irc: command "join" must be executed on connected irc server
+2015-01-14 10:19:44		Option changed: irc.server.freenode.autoconnect = on  (default: (undefined))
+2015-01-14 10:19:44		Option changed: irc.server.freenode.username = "yoshuawuyts"  (default: (undefined))
+2015-01-14 10:19:44		Option changed: irc.server.freenode.realname = "yoshua wuyts"  (default: (undefined))
+2015-01-14 10:19:52	=!=	irc: command "restart" must be executed on connected irc server
+2015-01-14 10:20:00	=!=	irc: command "join" must be executed on connected irc server
+2015-01-14 10:20:07	=!=	irc: currently connecting to server "freenode"!
+2015-01-14 10:24:00		script: script "beep" not found
+2015-01-14 10:24:00		script: script "beep" not found
+2015-01-14 10:25:29		script: 279 scripts for WeeChat 1.1
+2015-01-14 10:25:29		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-01-14 10:25:37		script: unknown language for script "beep"
+2015-01-14 10:25:42	=!=	perl: script "beep.pl" not found
+2015-01-14 10:25:49		script: script "buffer.pl" not found
+2015-01-19 10:13:47		script: downloading list of scripts...
+2015-01-19 10:13:47		script: downloading list of scripts...
+2015-01-19 10:13:47		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-01-19 14:34:16		script: downloading list of scripts...
+2015-01-19 14:34:16		script: downloading list of scripts...
+2015-01-19 14:34:16		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-01-20 15:33:56		script: downloading list of scripts...
+2015-01-20 15:33:56		script: downloading list of scripts...
+2015-01-20 15:33:56		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-01-21 01:09:49		script: downloading list of scripts...
+2015-01-21 01:09:49		script: downloading list of scripts...
+2015-01-21 01:09:49		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-01-22 10:22:27		script: downloading list of scripts...
+2015-01-22 10:22:27		script: downloading list of scripts...
+2015-01-22 10:22:27		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-01-22 11:41:09		script: downloading list of scripts...
+2015-01-22 11:42:00		script: downloading list of scripts...
+2015-01-22 11:42:10		script: downloading list of scripts...
+2015-01-22 11:41:09		script: downloading list of scripts...
+2015-01-22 11:41:09		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-01-22 11:42:00		script: downloading list of scripts...
+2015-01-22 11:42:00		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-01-22 11:42:10		script: downloading list of scripts...
+2015-01-22 11:42:10		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-01-28 15:21:33		Option changed: irc.look.smart_filter = on
+2015-01-28 15:21:33		Filter "irc_smart" added:
+2015-01-28 15:21:33		  [irc_smart] buffer: * / tags: irc_smart_filter / regex: * 
+2015-01-28 15:21:38		Option changed: irc.look.smart_filter = on
+2015-01-28 15:21:38		Filter "irc_smart" added:
+2015-01-28 15:21:38		  [irc_smart] buffer: * / tags: irc_smart_filter / regex: * 
+2015-01-28 15:20:48		Option changed: irc.look.smart_filter = on
+2015-01-28 15:20:48		Filter "irc_smart" added:
+2015-01-28 15:20:48		  [irc_smart] buffer: * / tags: irc_smart_filter / regex: * 
+2015-01-28 15:21:21		Option changed: irc.look.smart_filter = on
+2015-01-28 15:21:21		Filter "irc_smart" added:
+2015-01-28 15:21:21		  [irc_smart] buffer: * / tags: irc_smart_filter / regex: * 
+2015-01-28 20:05:50	=!=	Error: unknown command "/plugins" (type /help for help)
+2015-01-28 20:05:57	=!=	Error: unknown command "/install" (type /help for help)
+2015-01-28 20:06:59		script: downloading list of scripts...
+2015-01-28 20:05:50	=!=	Error: unknown command "/plugins" (type /help for help)
+2015-01-28 20:05:57	=!=	Error: unknown command "/install" (type /help for help)
+2015-01-28 20:06:59		script: downloading list of scripts...
+2015-01-28 20:08:37	=!=	Option "buffers*" not found (tip: you can use wildcard "*" in option to see a sublist)
+2015-01-28 20:08:41	=!=	Option "buffers" not found (tip: you can use wildcard "*" in option to see a sublist)
+2015-01-29 10:13:15		script: downloading list of scripts...
+2015-01-29 10:13:15		script: downloading list of scripts...
+2015-01-29 10:13:15		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-01-29 13:44:21		Option changed: irc.look.smart_filter = on
+2015-01-29 13:44:21		Filter "irc_smart" added:
+2015-01-29 13:44:21		  [irc_smart] buffer: * / tags: irc_smart_filter / regex: * 
+2015-01-30 11:52:14		script: downloading list of scripts...
+2015-01-30 11:52:14		script: downloading list of scripts...
+2015-01-30 11:52:14		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-01-30 11:52:19	=!=	irc: unable to create temporary server "#npm" because the creation of temporary servers with command /connect is currently disabled
+2015-01-30 11:52:19	=!=	irc: if you want to create a standard server, use the command "/server add" (see /help server); if you really want to create a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2015-01-30 12:14:13		Option changed: irc.look.smart_filter = on
+2015-01-30 12:14:13		Filter "irc_smart" added:
+2015-01-30 12:14:13		  [irc_smart] buffer: * / tags: irc_smart_filter / regex: * 
+2015-02-01 13:19:32		script: downloading list of scripts...
+2015-02-01 13:19:32		script: downloading list of scripts...
+2015-02-01 13:19:32		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-01 13:22:02		script: downloading list of scripts...
+2015-02-01 13:22:02		script: downloading list of scripts...
+2015-02-01 13:22:02		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-01 14:01:30	=!=	irc: already connected to server "freenode"!
+2015-02-03 09:34:55	=!=	Error: unknown command "/<<" (type /help for help)
+2015-02-03 10:56:06		script: downloading list of scripts...
+2015-02-03 10:56:06		script: downloading list of scripts...
+2015-02-03 10:58:00	=!=	Error: option "weechat.bar.buffers.position" not found
+2015-02-03 11:00:29		script: downloading list of scripts...
+2015-02-03 11:00:29		script: downloading list of scripts...
+2015-02-03 11:00:29		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-03 11:00:50	=!=	Error: unknown command "/install" (type /help for help)
+2015-02-03 11:01:03		script: downloading list of scripts...
+2015-02-03 11:00:29		script: downloading list of scripts...
+2015-02-03 11:00:29		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-03 11:00:50	=!=	Error: unknown command "/install" (type /help for help)
+2015-02-03 11:01:03		script: downloading list of scripts...
+2015-02-03 11:02:52		script: downloading list of scripts...
+2015-02-03 11:02:52		script: downloading list of scripts...
+2015-02-03 11:05:54		Plugins loaded:
+2015-02-03 11:05:54		  alias: Alias commands
+2015-02-03 11:05:54		  charset: Charset conversions
+2015-02-03 11:05:54		  exec: Execution of external commands in WeeChat
+2015-02-03 11:05:54		  fifo: FIFO pipe for remote control
+2015-02-03 11:05:54		  irc: IRC (Internet Relay Chat) protocol
+2015-02-03 11:05:54		  logger: Log buffers to files
+2015-02-03 11:05:54		  perl: Support of perl scripts
+2015-02-03 11:05:54		  python: Support of python scripts
+2015-02-03 11:05:54		  relay: Relay WeeChat data to remote application (irc/weechat protocols)
+2015-02-03 11:05:54		  ruby: Support of ruby scripts
+2015-02-03 11:05:54		  script: Scripts manager
+2015-02-03 11:05:54		  tcl: Support of tcl scripts
+2015-02-03 11:05:54		  trigger: Text replacement and command execution on events triggered by WeeChat/plugins
+2015-02-03 11:05:54		  xfer: DCC file transfer and direct chat
+2015-02-03 11:06:15	=!=	Error: unable to load plugin "/usr/local/Cellar/weechat/1.1/lib/weechat/plugins/alias.so": a plugin with same name already exists
+2015-02-03 11:06:15	=!=	Error: unable to load plugin "/usr/local/Cellar/weechat/1.1/lib/weechat/plugins/charset.so": a plugin with same name already exists
+2015-02-03 11:06:15	=!=	Error: unable to load plugin "/usr/local/Cellar/weechat/1.1/lib/weechat/plugins/exec.so": a plugin with same name already exists
+2015-02-03 11:06:15	=!=	Error: unable to load plugin "/usr/local/Cellar/weechat/1.1/lib/weechat/plugins/fifo.so": a plugin with same name already exists
+2015-02-03 11:06:15	=!=	Error: unable to load plugin "/usr/local/Cellar/weechat/1.1/lib/weechat/plugins/irc.so": a plugin with same name already exists
+2015-02-03 11:06:15	=!=	Error: unable to load plugin "/usr/local/Cellar/weechat/1.1/lib/weechat/plugins/logger.so": a plugin with same name already exists
+2015-02-03 11:06:15	=!=	Error: unable to load plugin "/usr/local/Cellar/weechat/1.1/lib/weechat/plugins/perl.so": a plugin with same name already exists
+2015-02-03 11:06:15	=!=	Error: unable to load plugin "/usr/local/Cellar/weechat/1.1/lib/weechat/plugins/python.so": a plugin with same name already exists
+2015-02-03 11:06:15	=!=	Error: unable to load plugin "/usr/local/Cellar/weechat/1.1/lib/weechat/plugins/relay.so": a plugin with same name already exists
+2015-02-03 11:06:15	=!=	Error: unable to load plugin "/usr/local/Cellar/weechat/1.1/lib/weechat/plugins/ruby.so": a plugin with same name already exists
+2015-02-03 11:06:15	=!=	Error: unable to load plugin "/usr/local/Cellar/weechat/1.1/lib/weechat/plugins/script.so": a plugin with same name already exists
+2015-02-03 11:06:15	=!=	Error: unable to load plugin "/usr/local/Cellar/weechat/1.1/lib/weechat/plugins/tcl.so": a plugin with same name already exists
+2015-02-03 11:06:15	=!=	Error: unable to load plugin "/usr/local/Cellar/weechat/1.1/lib/weechat/plugins/trigger.so": a plugin with same name already exists
+2015-02-03 11:06:15	=!=	Error: unable to load plugin "/usr/local/Cellar/weechat/1.1/lib/weechat/plugins/xfer.so": a plugin with same name already exists
+2015-02-03 11:06:29		script: downloading list of scripts...
+2015-02-03 11:06:29		script: downloading list of scripts...
+2015-02-03 11:06:29		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-03 11:06:46		Plugins loaded:
+2015-02-03 11:06:46		  alias: Alias commands
+2015-02-03 11:06:46		  charset: Charset conversions
+2015-02-03 11:06:46		  exec: Execution of external commands in WeeChat
+2015-02-03 11:06:46		  fifo: FIFO pipe for remote control
+2015-02-03 11:06:46		  irc: IRC (Internet Relay Chat) protocol
+2015-02-03 11:06:46		  logger: Log buffers to files
+2015-02-03 11:06:46		  perl: Support of perl scripts
+2015-02-03 11:06:46		  python: Support of python scripts
+2015-02-03 11:06:46		  relay: Relay WeeChat data to remote application (irc/weechat protocols)
+2015-02-03 11:06:46		  ruby: Support of ruby scripts
+2015-02-03 11:06:46		  script: Scripts manager
+2015-02-03 11:06:46		  tcl: Support of tcl scripts
+2015-02-03 11:06:46		  trigger: Text replacement and command execution on events triggered by WeeChat/plugins
+2015-02-03 11:06:46		  xfer: DCC file transfer and direct chat
+2015-02-03 11:06:59		script: downloading list of scripts...
+2015-02-03 11:06:29		script: downloading list of scripts...
+2015-02-03 11:06:29		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-03 11:06:46		Plugins loaded:
+2015-02-03 11:06:46		  alias: Alias commands
+2015-02-03 11:06:46		  charset: Charset conversions
+2015-02-03 11:06:46		  exec: Execution of external commands in WeeChat
+2015-02-03 11:06:46		  fifo: FIFO pipe for remote control
+2015-02-03 11:06:46		  irc: IRC (Internet Relay Chat) protocol
+2015-02-03 11:06:46		  logger: Log buffers to files
+2015-02-03 11:06:46		  perl: Support of perl scripts
+2015-02-03 11:06:46		  python: Support of python scripts
+2015-02-03 11:06:46		  relay: Relay WeeChat data to remote application (irc/weechat protocols)
+2015-02-03 11:06:46		  ruby: Support of ruby scripts
+2015-02-03 11:06:46		  script: Scripts manager
+2015-02-03 11:06:46		  tcl: Support of tcl scripts
+2015-02-03 11:06:46		  trigger: Text replacement and command execution on events triggered by WeeChat/plugins
+2015-02-03 11:06:46		  xfer: DCC file transfer and direct chat
+2015-02-03 11:06:59		script: downloading list of scripts...
+2015-02-03 11:07:25		Buffers list:
+2015-02-03 11:07:25		  [1] core.weechat (notify: all)
+2015-02-03 11:07:25		  [1] irc.server.freenode (notify: all)
+2015-02-03 11:07:25		  [2] irc.freenode.#io.js (notify: all)
+2015-02-03 11:07:31		Windows list:
+2015-02-03 11:07:31		[1] (0:0;181x45) 
+2015-02-03 11:08:05		[script]  /script  list [-o|-i]
+2015-02-03 11:08:05		                   search <text>
+2015-02-03 11:08:05		                   show <script>
+2015-02-03 11:08:05		                   load|unload|reload <script> [<script>...]
+2015-02-03 11:08:05		                   autoload|noautoload|toggleautoload <script> [<script>...]
+2015-02-03 11:08:05		                   install|remove|installremove|hold [-q] <script> [<script>...]
+2015-02-03 11:08:05		                   upgrade
+2015-02-03 11:08:05		                   update
+2015-02-03 11:08:05		WeeChat scripts manager
+2015-02-03 11:08:05		          list: list loaded scripts (all languages)
+2015-02-03 11:08:05		            -o: send list of loaded scripts to buffer
+2015-02-03 11:08:05		            -i: copy list of loaded scripts in command line (for sending to buffer)
+2015-02-03 11:08:05		        search: search scripts by tags or text and display result on scripts buffer
+2015-02-03 11:08:05		          show: show detailed info about a script
+2015-02-03 11:08:05		          load: load script(s)
+2015-02-03 11:08:05		        unload: unload script(s)
+2015-02-03 11:08:05		        reload: reload script(s)
+2015-02-03 11:08:05		      autoload: autoload the script
+2015-02-03 11:08:05		    noautoload: do not autoload the script
+2015-02-03 11:08:05		toggleautoload: toggle autoload
+2015-02-03 11:08:05		       install: install/upgrade script(s)
+2015-02-03 11:08:05		        remove: remove script(s)
+2015-02-03 11:08:05		 installremove: install or remove script(s), depending on current state
+2015-02-03 11:08:05		          hold: hold/unhold script(s) (a script held will not be upgraded any more and cannot be removed)
+2015-02-03 11:08:05		            -q: quiet mode: do not display messages
+2015-02-03 11:08:05		       upgrade: upgrade all installed scripts which are obsolete (new version available)
+2015-02-03 11:08:05		        update: update local scripts cache
+2015-02-03 11:08:05		Without argument, this command opens a buffer with list of scripts.
+2015-02-03 11:08:05		On script buffer, the possible status for each script are:
+2015-02-03 11:08:05		  * i a H r N
+2015-02-03 11:08:05		  | | | | | |
+2015-02-03 11:08:05		  | | | | | obsolete (new version available)
+2015-02-03 11:08:05		  | | | | running (loaded)
+2015-02-03 11:08:05		  | | | held
+2015-02-03 11:08:05		  | | autoloaded
+2015-02-03 11:08:05		  | installed
+2015-02-03 11:08:05		  popular script
+2015-02-03 11:08:05		Keys on script buffer:
+2015-02-03 11:08:05		  alt+i  install script
+2015-02-03 11:08:05		  alt+r  remove script
+2015-02-03 11:08:05		  alt+l  load script
+2015-02-03 11:08:05		  alt+L  reload script
+2015-02-03 11:08:05		  alt+u  unload script
+2015-02-03 11:08:05		  alt+A  autoload script
+2015-02-03 11:08:05		  alt+h  (un)hold script
+2015-02-03 11:08:05		  alt+v  view script
+2015-02-03 11:08:05		Input allowed on script buffer:
+2015-02-03 11:08:05		  i/r/l/L/u/h  action on script (same as keys above)
+2015-02-03 11:08:05		  q            close buffer
+2015-02-03 11:08:05		  $            refresh buffer
+2015-02-03 11:08:05		  s:x,y        sort buffer using keys x and y (see /help script.look.sort)
+2015-02-03 11:08:05		  s:           reset sort (use default sort)
+2015-02-03 11:08:05		  word(s)      filter scripts: search word(s) in scripts (description, tags, ...)
+2015-02-03 11:08:05		  *            remove filter
+2015-02-03 11:08:05		Mouse actions on script buffer:
+2015-02-03 11:08:05		  wheel         scroll list
+2015-02-03 11:08:05		  left button   select script
+2015-02-03 11:08:05		  right button  install/remove script
+2015-02-03 11:08:05		Examples:
+2015-02-03 11:08:05		  /script search url
+2015-02-03 11:08:05		  /script install iset.pl buffers.pl
+2015-02-03 11:08:05		  /script remove iset.pl
+2015-02-03 11:08:05		  /script hold urlserver.py
+2015-02-03 11:08:05		  /script reload urlserver
+2015-02-03 11:08:05		  /script upgrade
+2015-02-03 11:08:54		script: downloading list of scripts...
+2015-02-03 11:08:54		script: downloading list of scripts...
+2015-02-03 11:11:30	=!=	Error with command "/window exit" (help on command: /help window)
+2015-02-03 11:11:36	=!=	Error with command "/window exit/exit" (help on command: /help window)
+2015-02-03 11:11:46		script: downloading list of scripts...
+2015-02-03 11:11:46		script: downloading list of scripts...
+2015-02-03 11:11:46		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-03 16:10:54		Option changed: irc.look.smart_filter = on
+2015-02-03 16:10:54		Filter "irc_smart" added:
+2015-02-03 16:10:54		  [irc_smart] buffer: * / tags: irc_smart_filter / regex: * 
+2015-02-03 16:17:56		Option changed: irc.server.freenode.autojoin = "#io.js,#wercker,#npm,#stackvm,#stackgl"  (default: (undefined))
+2015-02-03 16:18:04		script: downloading list of scripts...
+2015-02-03 16:18:04		script: downloading list of scripts...
+2015-02-03 16:18:04		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-03 16:59:21		script: downloading list of scripts...
+2015-02-03 16:59:21		script: downloading list of scripts...
+2015-02-03 16:59:21		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-04 15:28:49	=!=	irc: already connected to server "freenode"!
+2015-02-06 16:16:00		script: downloading list of scripts...
+2015-02-06 16:16:00		script: downloading list of scripts...
+2015-02-06 16:16:00		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-11 10:25:49		script: downloading list of scripts...
+2015-02-11 10:25:49		script: downloading list of scripts...
+2015-02-11 10:25:49		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-16 11:05:29		script: downloading list of scripts...
+2015-02-16 11:05:29		script: downloading list of scripts...
+2015-02-16 11:05:29		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-19 12:39:53		script: downloading list of scripts...
+2015-02-19 12:39:53		script: downloading list of scripts...
+2015-02-19 12:39:53		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-19 16:37:09		script: downloading list of scripts...
+2015-02-19 16:37:09		script: downloading list of scripts...
+2015-02-19 16:37:09		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-20 10:53:35		script: downloading list of scripts...
+2015-02-20 10:53:35		script: downloading list of scripts...
+2015-02-20 10:53:35		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-22 00:36:24		script: downloading list of scripts...
+2015-02-22 00:36:24		script: downloading list of scripts...
+2015-02-22 00:36:24		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-22 00:36:32	=!=	Error with command "/plugin install iset.pl" (help on command: /help plugin)
+2015-02-22 00:36:40		[core]
+2015-02-22 00:36:40		  away     command  filter   key      plugin   reload   set      version
+2015-02-22 00:36:40		  bar      cursor   help     layout   print    repeat   unset    wait   
+2015-02-22 00:36:40		  buffer   debug    history  mouse    proxy    save     upgrade  window 
+2015-02-22 00:36:40		  color    eval     input    mute     quit     secure   uptime 
+2015-02-22 00:36:40		[alias]
+2015-02-22 00:36:40		  AAWAY    ANICK    CHAT     IG       LEAVE    N        SIGNOFF  unalias  WI     
+2015-02-22 00:36:40		  alias    BEEP     CL       J        M        Q        T        V        WII    
+2015-02-22 00:36:40		  AME      BYE      CLOSE    K        MSGBUF   REDRAW   UB       W        WW     
+2015-02-22 00:36:40		  AMSG     C        EXIT     KB       MUB      SAY      UMODE    WC     
+2015-02-22 00:36:40		[charset]
+2015-02-22 00:36:40		  charset
+2015-02-22 00:36:40		[exec]
+2015-02-22 00:36:40		  exec
+2015-02-22 00:36:40		[irc]
+2015-02-22 00:36:40		  admin       disconnect  map         pong        server      users     
+2015-02-22 00:36:40		  allchan     halfop      me          query       service     version   
+2015-02-22 00:36:40		  allpv       ignore      mode        quiet       servlist    voice     
+2015-02-22 00:36:40		  allserv     info        motd        quote       squery      wallchops 
+2015-02-22 00:36:40		  ban         invite      msg         reconnect   squit       wallops   
+2015-02-22 00:36:40		  connect     ison        names       rehash      stats       who       
+2015-02-22 00:36:40		  ctcp        join        nick        remove      summon      whois     
+2015-02-22 00:36:40		  cycle       kick        notice      restart     time        whowas    
+2015-02-22 00:36:40		  dcc         kickban     notify      sajoin      topic     
+2015-02-22 00:36:40		  dehalfop    kill        op          samode      trace     
+2015-02-22 00:36:40		  deop        links       oper        sanick      unban     
+2015-02-22 00:36:40		  devoice     list        part        sapart      unquiet   
+2015-02-22 00:36:40		  die         lusers      ping        saquit      userhost  
+2015-02-22 00:36:40		[logger]
+2015-02-22 00:36:40		  logger
+2015-02-22 00:36:40		[perl]
+2015-02-22 00:36:40		  perl
+2015-02-22 00:36:40		[python]
+2015-02-22 00:36:40		  python
+2015-02-22 00:36:40		[relay]
+2015-02-22 00:36:40		  relay
+2015-02-22 00:36:40		[ruby]
+2015-02-22 00:36:40		  ruby
+2015-02-22 00:36:40		[script]
+2015-02-22 00:36:40		  script
+2015-02-22 00:36:40		[tcl]
+2015-02-22 00:36:40		  tcl
+2015-02-22 00:36:40		[trigger]
+2015-02-22 00:36:40		  trigger
+2015-02-22 00:36:40		[xfer]
+2015-02-22 00:36:40		  me  xfer
+2015-02-22 00:37:20		script: downloading list of scripts...
+2015-02-22 00:36:24		script: downloading list of scripts...
+2015-02-22 00:36:24		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-22 00:36:32	=!=	Error with command "/plugin install iset.pl" (help on command: /help plugin)
+2015-02-22 00:36:40		[core]
+2015-02-22 00:36:40		  away     command  filter   key      plugin   reload   set      version
+2015-02-22 00:36:40		  bar      cursor   help     layout   print    repeat   unset    wait   
+2015-02-22 00:36:40		  buffer   debug    history  mouse    proxy    save     upgrade  window 
+2015-02-22 00:36:40		  color    eval     input    mute     quit     secure   uptime 
+2015-02-22 00:36:40		[alias]
+2015-02-22 00:36:40		  AAWAY    ANICK    CHAT     IG       LEAVE    N        SIGNOFF  unalias  WI     
+2015-02-22 00:36:40		  alias    BEEP     CL       J        M        Q        T        V        WII    
+2015-02-22 00:36:40		  AME      BYE      CLOSE    K        MSGBUF   REDRAW   UB       W        WW     
+2015-02-22 00:36:40		  AMSG     C        EXIT     KB       MUB      SAY      UMODE    WC     
+2015-02-22 00:36:40		[charset]
+2015-02-22 00:36:40		  charset
+2015-02-22 00:36:40		[exec]
+2015-02-22 00:36:40		  exec
+2015-02-22 00:36:40		[irc]
+2015-02-22 00:36:40		  admin       disconnect  map         pong        server      users     
+2015-02-22 00:36:40		  allchan     halfop      me          query       service     version   
+2015-02-22 00:36:40		  allpv       ignore      mode        quiet       servlist    voice     
+2015-02-22 00:36:40		  allserv     info        motd        quote       squery      wallchops 
+2015-02-22 00:36:40		  ban         invite      msg         reconnect   squit       wallops   
+2015-02-22 00:36:40		  connect     ison        names       rehash      stats       who       
+2015-02-22 00:36:40		  ctcp        join        nick        remove      summon      whois     
+2015-02-22 00:36:40		  cycle       kick        notice      restart     time        whowas    
+2015-02-22 00:36:40		  dcc         kickban     notify      sajoin      topic     
+2015-02-22 00:36:40		  dehalfop    kill        op          samode      trace     
+2015-02-22 00:36:40		  deop        links       oper        sanick      unban     
+2015-02-22 00:36:40		  devoice     list        part        sapart      unquiet   
+2015-02-22 00:36:40		  die         lusers      ping        saquit      userhost  
+2015-02-22 00:36:40		[logger]
+2015-02-22 00:36:40		  logger
+2015-02-22 00:36:40		[perl]
+2015-02-22 00:36:40		  perl
+2015-02-22 00:36:40		[python]
+2015-02-22 00:36:40		  python
+2015-02-22 00:36:40		[relay]
+2015-02-22 00:36:40		  relay
+2015-02-22 00:36:40		[ruby]
+2015-02-22 00:36:40		  ruby
+2015-02-22 00:36:40		[script]
+2015-02-22 00:36:40		  script
+2015-02-22 00:36:40		[tcl]
+2015-02-22 00:36:40		  tcl
+2015-02-22 00:36:40		[trigger]
+2015-02-22 00:36:40		  trigger
+2015-02-22 00:36:40		[xfer]
+2015-02-22 00:36:40		  me  xfer
+2015-02-22 00:37:20		script: downloading list of scripts...
+2015-02-22 14:49:51		script: downloading list of scripts...
+2015-02-22 14:49:51		script: downloading list of scripts...
+2015-02-22 14:49:51		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-22 18:02:47		script: downloading list of scripts...
+2015-02-22 18:02:47		script: downloading list of scripts...
+2015-02-22 18:02:47		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-23 10:29:14		script: downloading list of scripts...
+2015-02-23 10:29:14		script: downloading list of scripts...
+2015-02-23 10:29:14		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-23 14:08:08	=!=	Error: unknown command "/" (type /help for help)
+2015-02-23 18:33:35		script: downloading list of scripts...
+2015-02-23 18:33:35		script: downloading list of scripts...
+2015-02-23 18:33:35		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-23 18:34:13		script: downloading list of scripts...
+2015-02-23 18:34:13		script: downloading list of scripts...
+2015-02-23 18:34:13		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-24 18:09:59		script: downloading list of scripts...
+2015-02-24 18:09:59		script: downloading list of scripts...
+2015-02-24 18:09:59		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-25 10:01:39		script: downloading list of scripts...
+2015-02-25 10:01:39		script: downloading list of scripts...
+2015-02-25 10:01:39		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-26 14:50:30		script: downloading list of scripts...
+2015-02-26 14:50:30		script: downloading list of scripts...
+2015-02-26 14:50:30		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-27 10:26:19		script: downloading list of scripts...
+2015-02-27 10:26:19		script: downloading list of scripts...
+2015-02-27 10:26:19		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-02-27 18:35:25		script: downloading list of scripts...
+2015-02-27 18:35:25		script: downloading list of scripts...
+2015-02-27 18:35:25		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-03-02 10:19:41		script: downloading list of scripts...
+2015-03-02 10:19:41		script: downloading list of scripts...
+2015-03-02 10:19:41		Plugins loaded: alias, charset, exec, fifo, irc, logger, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-03-11 01:05:03		script: downloading list of scripts...
+2015-03-11 01:05:03		script: downloading list of scripts...
+2015-03-11 01:05:03		Plugins loaded: alias, charset, exec, fifo, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-03-11 01:05:28		script: downloading list of scripts...
+2015-03-11 01:05:28		script: downloading list of scripts...
+2015-03-11 01:05:28		Plugins loaded: alias, charset, exec, fifo, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-03-11 01:06:00		script: downloading list of scripts...
+2015-03-11 01:06:00		script: downloading list of scripts...
+2015-03-11 01:06:00		Plugins loaded: alias, charset, exec, fifo, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-03-11 01:06:47		script: downloading list of scripts...
+2015-03-11 01:06:00		script: downloading list of scripts...
+2015-03-11 01:06:00		Plugins loaded: alias, charset, exec, fifo, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-03-11 01:06:47		script: downloading list of scripts...
+2015-03-11 01:15:39		script: downloading list of scripts...
+2015-03-11 01:15:39		script: downloading list of scripts...
+2015-03-11 01:15:39		Plugins loaded: alias, charset, exec, fifo, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-03-11 01:15:44		script: downloading list of scripts...
+2015-03-11 01:15:39		script: downloading list of scripts...
+2015-03-11 01:15:39		Plugins loaded: alias, charset, exec, fifo, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-03-11 01:15:44		script: downloading list of scripts...

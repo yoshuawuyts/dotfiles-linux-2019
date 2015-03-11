@@ -1,0 +1,51 @@
+2015-03-10 14:11:17	-->	yoshuawuyts (~yoshuawuy@2001:981:a181:1:1513:cfe8:56c5:6cd5) has joined #libuv
+2015-03-10 14:11:17	--	Topic for #libuv is "Liberal utopian void ~ http://logs.libuv.org/libuv ~ http://groups.google.com/group/libuv"
+2015-03-10 14:11:17	--	Topic set by piscisaureus_ (~piscisaur@109.174.139.135) on Mon, 04 Nov 2013 19:02:20
+2015-03-10 14:11:17	--	Channel #libuv: 103 nicks (5 ops, 0 voices, 98 normals)
+2015-03-10 14:11:19	--	Channel created on Fri, 13 May 2011 15:43:45
+2015-03-10 14:12:41	<--	thlorenz_ (~thlorenz@cpe-72-227-186-206.nyc.res.rr.com) has quit (Ping timeout: 265 seconds)
+2015-03-10 14:15:26	<--	toothrot (~mux@unaffiliated/toothrot) has quit (Ping timeout: 272 seconds)
+2015-03-10 14:23:18	<--	tarruda (~tarruda@186.212.157.47) has quit (Remote host closed the connection)
+2015-03-10 14:24:42	-->	tarruda (~tarruda@186.212.157.47) has joined #libuv
+2015-03-10 14:33:35	<--	tarruda (~tarruda@186.212.157.47) has quit (Remote host closed the connection)
+2015-03-10 14:34:46	-->	avalanche123 (~avalanche@c-24-130-252-82.hsd1.ca.comcast.net) has joined #libuv
+2015-03-10 14:36:56	-->	olfox (uid35083@gateway/web/irccloud.com/x-ptrurlhqjxwhwlcl) has joined #libuv
+2015-03-10 14:39:00	<--	avalanche123 (~avalanche@c-24-130-252-82.hsd1.ca.comcast.net) has quit (Ping timeout: 245 seconds)
+2015-03-10 14:39:39	-->	AvianFlu (~avianflu@207-38-246-118.c3-0.43d-ubr2.qens-43d.ny.cable.rcn.com) has joined #libuv
+2015-03-10 14:50:05	-->	thlorenz_ (~thlorenz@cpe-72-227-186-206.nyc.res.rr.com) has joined #libuv
+2015-03-10 14:54:53	<--	thlorenz_ (~thlorenz@cpe-72-227-186-206.nyc.res.rr.com) has quit (Remote host closed the connection)
+2015-03-10 15:07:11	-->	thlorenz_ (~thlorenz@cpe-72-227-186-206.nyc.res.rr.com) has joined #libuv
+2015-03-10 15:11:35	<--	thlorenz_ (~thlorenz@cpe-72-227-186-206.nyc.res.rr.com) has quit (Ping timeout: 252 seconds)
+2015-03-10 15:21:11	-->	reqshark (~reqshark@66.155.167.218) has joined #libuv
+2015-03-10 15:34:05	-->	thlorenz_ (~thlorenz@cpe-72-227-186-206.nyc.res.rr.com) has joined #libuv
+2015-03-10 16:16:02	--	irc: disconnected from server
+2015-03-10 16:16:56	-->	yoshuawuyts (~yoshuawuy@csp8.waag.org) has joined #libuv
+2015-03-10 16:16:56	--	Topic for #libuv is "Liberal utopian void ~ http://logs.libuv.org/libuv ~ http://groups.google.com/group/libuv"
+2015-03-10 16:16:56	--	Topic set by piscisaureus_ (~piscisaur@109.174.139.135) on Mon, 04 Nov 2013 19:02:20
+2015-03-10 16:16:56	--	Channel #libuv: 103 nicks (5 ops, 0 voices, 98 normals)
+2015-03-10 16:17:18	--	Channel created on Fri, 13 May 2011 15:43:45
+2015-03-10 17:11:12	--	irc: disconnected from server
+2015-03-10 17:11:51	-->	yoshuawuyts (~yoshuawuy@csp8.waag.org) has joined #libuv
+2015-03-10 17:11:51	--	Topic for #libuv is "Liberal utopian void ~ http://logs.libuv.org/libuv ~ http://groups.google.com/group/libuv"
+2015-03-10 17:11:51	--	Topic set by piscisaureus_ (~piscisaur@109.174.139.135) on Mon, 04 Nov 2013 19:02:20
+2015-03-10 17:11:51	--	Channel #libuv: 105 nicks (5 ops, 0 voices, 100 normals)
+2015-03-10 17:12:13	--	Channel created on Fri, 13 May 2011 15:43:45
+2015-03-10 17:13:05	<--	reqshark_ (~reqshark@66.155.167.218) has quit (Remote host closed the connection)
+2015-03-10 17:13:32	-->	reqshark_ (~reqshark@66.155.167.218) has joined #libuv
+2015-03-10 17:22:41	--	irc: disconnected from server
+2015-03-10 17:23:20	-->	yoshuawuyts (~yoshuawuy@csp8.waag.org) has joined #libuv
+2015-03-10 17:23:20	--	Topic for #libuv is "Liberal utopian void ~ http://logs.libuv.org/libuv ~ http://groups.google.com/group/libuv"
+2015-03-10 17:23:20	--	Topic set by piscisaureus_ (~piscisaur@109.174.139.135) on Mon, 04 Nov 2013 19:02:20
+2015-03-10 17:23:20	--	Channel #libuv: 106 nicks (5 ops, 0 voices, 101 normals)
+2015-03-10 17:23:42	--	Channel created on Fri, 13 May 2011 15:43:45
+2015-03-10 17:39:08	--	irc: disconnected from server
+2015-03-10 17:39:50	-->	yoshuawuyts (~yoshuawuy@csp8.waag.org) has joined #libuv
+2015-03-10 17:39:50	--	Topic for #libuv is "Liberal utopian void ~ http://logs.libuv.org/libuv ~ http://groups.google.com/group/libuv"
+2015-03-10 17:39:50	--	Topic set by piscisaureus_ (~piscisaur@109.174.139.135) on Mon, 04 Nov 2013 19:02:20
+2015-03-10 17:39:50	--	Channel #libuv: 106 nicks (5 ops, 0 voices, 101 normals)
+2015-03-10 17:40:10	--	Channel created on Fri, 13 May 2011 15:43:45
+2015-03-10 17:48:42	-->	seishun (~Kakera@78.84.167.69) has joined #libuv
+2015-03-10 17:50:13	-->	avalanche123 (~avalanche@12.111.84.106) has joined #libuv
+2015-03-10 17:51:52	<--	avalanche123 (~avalanche@12.111.84.106) has quit (Remote host closed the connection)
+2015-03-10 17:52:13	-->	avalanche123 (~avalanche@12.111.84.106) has joined #libuv
+2015-03-10 17:54:41	<--	reqshark_ (~reqshark@66.155.167.218) has quit (Quit: Be back later ...)

@@ -1,0 +1,93 @@
+2015-03-09 15:45:00	-->	yoshuawuyts (~yoshuawuy@2001:981:a181:1:a92c:380e:754a:2790) has joined ##nix-darwin
+2015-03-09 15:45:00	--	Topic for ##nix-darwin is "Let?s make nix awesome on darwin! https://nixos.org/wiki/Nix_on_OS_X | http://www.chrisjr.org/posts/2014/12/22/nix-osx-haskell/ | https://hydra.joelt.io/jobset/nixpkgs/trunk/latest-eval | https://github.com/copumpkin/nixpkgs/issues"
+2015-03-09 15:45:00	--	Topic set by copumpkin (~copumpkin@unaffiliated/copumpkin) on Sat, 10 Jan 2015 22:49:53
+2015-03-09 15:45:00	--	Channel ##nix-darwin: 36 nicks (0 ops, 0 voices, 36 normals)
+2015-03-09 15:45:01	--	Channel created on Sun, 12 Oct 2014 04:46:47
+2015-03-09 15:48:31	-->	pmahoney (~user@50.56.229.7) has joined ##nix-darwin
+2015-03-09 16:25:18	-->	mcoffee (~mcoffee@d154-5-200-64.bchsia.telus.net) has joined ##nix-darwin
+2015-03-09 16:37:00	<--	mcoffee (~mcoffee@d154-5-200-64.bchsia.telus.net) has quit (Remote host closed the connection)
+2015-03-09 16:39:09	<--	pmahoney (~user@50.56.229.7) has quit (Remote host closed the connection)
+2015-03-09 16:39:39	-->	pmahoney (~user@50.56.229.7) has joined ##nix-darwin
+2015-03-09 16:39:49	gridaphobe	shlevy: how much do you know about making hydra build packages?
+2015-03-09 16:40:44	ikwildrpepper	gridaphobe: shlevy knows all
+2015-03-09 16:40:53	gridaphobe	well then :)
+2015-03-09 16:43:35	gridaphobe	i see that nixpkgs has some code to detect eligible packages based on the meta.platforms attr, but i can't figure out how it finds packages that arent' at the top level of all-packages.nix
+2015-03-09 16:43:41	gridaphobe	e.g. emacsPackages.autoComplete
+2015-03-09 16:43:56	gridaphobe	hydra finds that package, but not the newer emacsPackagesNg.auto-complete
+2015-03-09 16:44:41	gridaphobe	so there must be some difference between emacsPackages and emacsPackagesNg, because both auto-complete packages have meta.platforms set
+2015-03-09 16:45:33	ikwildrpepper	gridaphobe: if I remember correctly, hydra only looks at packages that use recurseIntoAttrs
+2015-03-09 16:45:43	ikwildrpepper	i mean, for packages that are not top-level
+2015-03-09 16:46:07	gridaphobe	what exactly does recurseIntoAttrs do?
+2015-03-09 16:46:24	ikwildrpepper	  recurseIntoAttrs = attrs: attrs // { recurseForDerivations = true; };
+2015-03-09 16:46:40	gridaphobe	ah i see, it just adds a flag
+2015-03-09 16:46:43	ikwildrpepper	yep
+2015-03-09 16:48:06	gridaphobe	that did it, thanks!
+2015-03-09 16:58:02	shlevy	gridaphobe: recurseIntoAttrs
+2015-03-09 16:58:04	shlevy	Ah :)
+2015-03-09 17:06:32	gridaphobe	argh, something is triggering another darwin-stdenv rebuild on master
+2015-03-09 17:13:44	-->	mcoffee (~mcoffee@d154-5-200-64.bchsia.telus.net) has joined ##nix-darwin
+2015-03-09 17:15:46	shlevy	gridaphobe: there was  a staging merge
+2015-03-09 17:20:15	gridaphobe	does staging not build darwin?
+2015-03-09 17:23:28	--	Notice(copumpkinbot): [nixpkgs] joelteon pushed 1 new commit to pure-darwin: http://git.io/pcYp
+2015-03-09 17:23:28	--	Notice(copumpkinbot): nixpkgs/pure-darwin 1fdaae2 Joel Taylor: overrides for newer GHCs
+2015-03-09 17:23:41	<--	mcoffee (~mcoffee@d154-5-200-64.bchsia.telus.net) has quit (Remote host closed the connection)
+2015-03-09 17:25:39	joelteon	gridaphobe: looks like a grep update
+2015-03-09 17:26:07	<--	medicalwei (~medicalwe@122-116-81-121.HINET-IP.hinet.net) has quit (Ping timeout: 245 seconds)
+2015-03-09 17:26:32	-->	medicalwei (~medicalwe@122-116-81-121.HINET-IP.hinet.net) has joined ##nix-darwin
+2015-03-09 17:27:26	joelteon	hey, do you guys know if gettext is part of the linux stdenv?
+2015-03-09 17:28:44	joelteon	also, i can't build perl Locale::Gettext because it doesn't have the right gettext
+2015-03-09 17:32:36	gridaphobe	argh, looks like something in this giant diff caused darwin to be removed wholesale from hydra/staging 
+2015-03-09 17:32:36	gridaphobe	http://hydra.nixos.org/api/scmdiff?uri=git://github.com/NixOS/nixpkgs.git&rev1=953466fcbaea0f7c4d48b5a6e3905d4e07b9a79d&rev2=d3dd218bc2d6bfea1c9365f49b0e78802a249b8a&type=git&branch=
+2015-03-09 17:35:55	gridaphobe	shlevy: also, the most recent evaluation of staging is showing 0 (!!) packages total
+2015-03-09 17:36:21	gridaphobe	looks like dragonegg is missing
+2015-03-09 17:38:11	gridaphobe	is there any way to see evaluation errors from past evaluations on hydra?
+2015-03-09 17:38:16	joelteon	ok, fixed it
+2015-03-09 17:43:54	gridaphobe	ugh, someone set the meta.platforms of help2man to gnu. problem fixed
+2015-03-09 17:45:47	joelteon	son of a
+2015-03-09 21:19:55	--	irc: disconnected from server
+2015-03-10 09:56:25	-->	yoshuawuyts (~yoshuawuy@2001:981:a181:1:1513:cfe8:56c5:6cd5) has joined ##nix-darwin
+2015-03-10 09:56:25	--	Topic for ##nix-darwin is "Let?s make nix awesome on darwin! https://nixos.org/wiki/Nix_on_OS_X | http://www.chrisjr.org/posts/2014/12/22/nix-osx-haskell/ | https://hydra.joelt.io/jobset/nixpkgs/trunk/latest-eval | https://github.com/copumpkin/nixpkgs/issues"
+2015-03-10 09:56:25	--	Topic set by copumpkin (~copumpkin@unaffiliated/copumpkin) on Sat, 10 Jan 2015 22:49:53
+2015-03-10 09:56:25	--	Channel ##nix-darwin: 37 nicks (0 ops, 0 voices, 37 normals)
+2015-03-10 09:56:43	--	Channel created on Sun, 12 Oct 2014 04:46:47
+2015-03-10 10:56:08	-->	wmertens_ (~wmertens@89-67-218-35.dynamic.chello.pl) has joined ##nix-darwin
+2015-03-10 11:00:22	<--	wmertens (~wmertens@89-67-218-35.dynamic.chello.pl) has quit (Ping timeout: 272 seconds)
+2015-03-10 12:17:05	<--	wmertens_ (~wmertens@89-67-218-35.dynamic.chello.pl) has quit (Read error: Connection reset by peer)
+2015-03-10 12:17:43	-->	wmertens (~wmertens@89-67-218-35.dynamic.chello.pl) has joined ##nix-darwin
+2015-03-10 12:31:26	shlevy	yeah, going to start looking into frameworks today or tomorrow
+2015-03-10 12:31:55	shlevy	copumpkin: Great idea! I'm sure that won't break anything at all :D
+2015-03-10 14:00:17	-->	mcoffee (~mcoffee@d154-5-200-64.bchsia.telus.net) has joined ##nix-darwin
+2015-03-10 14:01:02	-->	dino_joel (~dino_joel@cpe-72-226-64-94.nycap.res.rr.com) has joined ##nix-darwin
+2015-03-10 14:02:24	<--	dino_joel (~dino_joel@cpe-72-226-64-94.nycap.res.rr.com) has quit (Client Quit)
+2015-03-10 14:02:55	-->	dino_joel (~dino_joel@cpe-72-226-64-94.nycap.res.rr.com) has joined ##nix-darwin
+2015-03-10 14:07:19	<--	dino_joel (~dino_joel@cpe-72-226-64-94.nycap.res.rr.com) has quit (Client Quit)
+2015-03-10 14:35:12	<--	mcoffee (~mcoffee@d154-5-200-64.bchsia.telus.net) has quit (Remote host closed the connection)
+2015-03-10 14:59:17	-->	dino_joel (~dino_joel@207.251.103.46) has joined ##nix-darwin
+2015-03-10 15:07:51	<--	dino_joel (~dino_joel@207.251.103.46) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2015-03-10 15:13:49	<--	c74d (~c74d3a4eb@2002:4404:712c:0:76de:2bff:fed4:2766) has quit (Remote host closed the connection)
+2015-03-10 15:18:14	-->	c74d (~c74d3a4eb@2002:4404:712c:0:76de:2bff:fed4:2766) has joined ##nix-darwin
+2015-03-10 15:23:30	-->	mcoffee (~mcoffee@d154-5-200-64.bchsia.telus.net) has joined ##nix-darwin
+2015-03-10 16:16:02	--	irc: disconnected from server
+2015-03-10 16:16:52	-->	yoshuawuyts (~yoshuawuy@csp8.waag.org) has joined ##nix-darwin
+2015-03-10 16:16:52	--	Topic for ##nix-darwin is "Let?s make nix awesome on darwin! https://nixos.org/wiki/Nix_on_OS_X | http://www.chrisjr.org/posts/2014/12/22/nix-osx-haskell/ | https://hydra.joelt.io/jobset/nixpkgs/trunk/latest-eval | https://github.com/copumpkin/nixpkgs/issues"
+2015-03-10 16:16:52	--	Topic set by copumpkin (~copumpkin@unaffiliated/copumpkin) on Sat, 10 Jan 2015 22:49:53
+2015-03-10 16:16:52	--	Channel ##nix-darwin: 38 nicks (0 ops, 0 voices, 38 normals)
+2015-03-10 16:17:14	--	Channel created on Sun, 12 Oct 2014 04:46:47
+2015-03-10 17:11:12	--	irc: disconnected from server
+2015-03-10 17:11:47	-->	yoshuawuyts (~yoshuawuy@csp8.waag.org) has joined ##nix-darwin
+2015-03-10 17:11:47	--	Topic for ##nix-darwin is "Let?s make nix awesome on darwin! https://nixos.org/wiki/Nix_on_OS_X | http://www.chrisjr.org/posts/2014/12/22/nix-osx-haskell/ | https://hydra.joelt.io/jobset/nixpkgs/trunk/latest-eval | https://github.com/copumpkin/nixpkgs/issues"
+2015-03-10 17:11:47	--	Topic set by copumpkin (~copumpkin@unaffiliated/copumpkin) on Sat, 10 Jan 2015 22:49:53
+2015-03-10 17:11:47	--	Channel ##nix-darwin: 38 nicks (0 ops, 0 voices, 38 normals)
+2015-03-10 17:12:09	--	Channel created on Sun, 12 Oct 2014 04:46:47
+2015-03-10 17:22:41	--	irc: disconnected from server
+2015-03-10 17:23:16	-->	yoshuawuyts (~yoshuawuy@csp8.waag.org) has joined ##nix-darwin
+2015-03-10 17:23:16	--	Topic for ##nix-darwin is "Let?s make nix awesome on darwin! https://nixos.org/wiki/Nix_on_OS_X | http://www.chrisjr.org/posts/2014/12/22/nix-osx-haskell/ | https://hydra.joelt.io/jobset/nixpkgs/trunk/latest-eval | https://github.com/copumpkin/nixpkgs/issues"
+2015-03-10 17:23:16	--	Topic set by copumpkin (~copumpkin@unaffiliated/copumpkin) on Sat, 10 Jan 2015 22:49:53
+2015-03-10 17:23:16	--	Channel ##nix-darwin: 38 nicks (0 ops, 0 voices, 38 normals)
+2015-03-10 17:23:38	--	Channel created on Sun, 12 Oct 2014 04:46:47
+2015-03-10 17:39:08	--	irc: disconnected from server
+2015-03-10 17:39:46	-->	yoshuawuyts (~yoshuawuy@csp8.waag.org) has joined ##nix-darwin
+2015-03-10 17:39:46	--	Topic for ##nix-darwin is "Let?s make nix awesome on darwin! https://nixos.org/wiki/Nix_on_OS_X | http://www.chrisjr.org/posts/2014/12/22/nix-osx-haskell/ | https://hydra.joelt.io/jobset/nixpkgs/trunk/latest-eval | https://github.com/copumpkin/nixpkgs/issues"
+2015-03-10 17:39:46	--	Topic set by copumpkin (~copumpkin@unaffiliated/copumpkin) on Sat, 10 Jan 2015 22:49:53
+2015-03-10 17:39:46	--	Channel ##nix-darwin: 39 nicks (0 ops, 0 voices, 39 normals)
+2015-03-10 17:40:06	--	Channel created on Sun, 12 Oct 2014 04:46:47

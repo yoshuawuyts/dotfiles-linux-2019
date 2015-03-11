@@ -1,0 +1,184 @@
+2015-02-03 16:26:41	-->	yoshuawuyts1 (~yoshuawuy@2001:981:a181:1:f5fe:c6f5:5e47:a409) has joined ##javascript
+2015-02-03 16:26:41	--	Topic for ##javascript is "Can't talk? Get registered on freenode (HOWTO: http://freenode.net/faq.shtml#nicksetup ). | ECMAScript, JavaScript. JS *not* Java. | Say "!help" (or ask and wait). | Say "!mdn abc" for docs on "abc". | Don't paste code in the channel."
+2015-02-03 16:26:41	--	Topic set by gkatsev (~gkatsev@oftn/board/gkatsev) on Sun, 12 Oct 2014 06:56:56
+2015-02-03 16:26:41	--	Channel ##javascript: 1223 nicks (0 ops, 0 voices, 1223 normals)
+2015-02-03 16:26:43	--	Channel created on Sun, 26 Nov 2006 07:42:45
+2015-02-03 16:26:49	-->	msg (~msg@unaffiliated/john) has joined ##javascript
+2015-02-03 16:27:01	-->	serapath_ (579540df@gateway/web/freenode/ip.87.149.64.223) has joined ##javascript
+2015-02-03 16:27:21	serapath_	so whats possible would be:  (use jquery if you want)  document.querySelectorAll('.exampleimage')[0].addEventListener(function(e){ document.querySelector('.#submit').click(); });
+2015-02-03 16:27:24	serapath_	visof:
+2015-02-03 16:27:28	-->	themojowill1 (~WilsoW10@109.71.168.132) has joined ##javascript
+2015-02-03 16:27:38	-->	boredz (~boredz@93-36-213-67.ip62.fastwebnet.it) has joined ##javascript
+2015-02-03 16:27:58	visof	serapath_: so this is the actual code: document.querySelectorAll('.exampleimage')[0].addEventListener(function(e){  document.querySelector('.#submit').click(); });
+2015-02-03 16:28:01	visof	?
+2015-02-03 16:28:05	-->	junmin (~junmin@189.205.92.3) has joined ##javascript
+2015-02-03 16:28:07	<--	serapath (579540df@gateway/web/freenode/ip.87.149.64.223) has quit (Ping timeout: 246 seconds)
+2015-02-03 16:28:16	<--	UpUpAway (~UpUpAway@71-87-83-187.dhcp.krny.ne.charter.com) has quit (Quit: Leaving)
+2015-02-03 16:28:21	visof	$(document).querySelectorAll('.exampleimage')[0].addEventListener(function(e){   document.querySelector('.#submit').click(); });
+2015-02-03 16:28:24	visof	?
+2015-02-03 16:28:25	<--	themojowill (~WilsoW10@109.71.168.132) has quit (Ping timeout: 252 seconds)
+2015-02-03 16:28:30	-->	UpUpAway (~UpUpAway@71-87-83-187.dhcp.krny.ne.charter.com) has joined ##javascript
+2015-02-03 16:28:51	<--	kaiZen- (~kaiZen@88-104-29-242.dynamic.dsl.as9105.com) has quit (Ping timeout: 264 seconds)
+2015-02-03 16:28:59	-->	jarcosmonaut (~johnkerry@210.54.34.10) has joined ##javascript
+2015-02-03 16:29:08	serapath_	$ is a repacement for "document.querySelector..."
+2015-02-03 16:29:17	--	denete_ is now known as denete
+2015-02-03 16:29:35	serapath_	$('.exampleimage')[0].addEventListener(function(e){  $('.#submit').click(); });
+2015-02-03 16:29:35	-->	LiENUS (~LiENUS@108-242-135-1.lightspeed.btrgla.sbcglobal.net) has joined ##javascript
+2015-02-03 16:29:36	<--	Click66 (~Click66@94.143.188.0) has quit (Quit: (null))
+2015-02-03 16:29:46	<--	junmin (~junmin@189.205.92.3) has quit (Remote host closed the connection)
+2015-02-03 16:29:48	serapath_	ah whoopsi
+2015-02-03 16:29:52	bewl	$('.exampleimage').click(function(){...})
+2015-02-03 16:29:57	serapath_	$('.exampleimage')[0].addEventListener('click', function(e){  $('.#submit').click(); });
+2015-02-03 16:30:04	bewl	or
+2015-02-03 16:30:10	serapath_	ah true... jquery
+2015-02-03 16:30:13	bewl	$('.exampleimage').on('click', function(){...})
+2015-02-03 16:30:14	serapath_	i'm not so good with jquery
+2015-02-03 16:30:16	serapath_	sry
+2015-02-03 16:30:23	<--	gdainti (~gdainti@37.61.183.77) has quit (Remote host closed the connection)
+2015-02-03 16:30:52	visof	okay you write $('.#submit').click(); i need to add the text field with url before submit
+2015-02-03 16:30:52	-->	pimlu (~pimlu@128.172.35.23) has joined ##javascript
+2015-02-03 16:30:56	visof	?
+2015-02-03 16:31:51	<--	sinkensabe (~sinkensab@213.115.244.180) has quit (Read error: Connection reset by peer)
+2015-02-03 16:32:06	-->	kaiZen- (~kaiZen@88-104-29-242.dynamic.dsl.as9105.com) has joined ##javascript
+2015-02-03 16:32:20	-->	sinkensabe (~sinkensab@213.115.244.180) has joined ##javascript
+2015-02-03 16:32:22	<--	yoshokatana (~yoshokata@adfb12c6.cst.lightpath.net) has quit (Ping timeout: 240 seconds)
+2015-02-03 16:32:33	-->	junmin (~junmin@189.205.92.3) has joined ##javascript
+2015-02-03 16:32:33	spikeheadon	serapath submit is an Id or class?
+2015-02-03 16:33:53	<--	rampr (~rampr@122.172.16.143) has quit (Ping timeout: 246 seconds)
+2015-02-03 16:33:59	<--	revolve (~username@199.19.119.133) has quit (Ping timeout: 250 seconds)
+2015-02-03 16:34:06	spikeheadon	if its an id do this $('.exampleimage').on('click',function(){ $("#submit").click() });
+2015-02-03 16:34:07	<--	leolrrj (~leolrrj@191.181.81.203) has quit (Ping timeout: 250 seconds)
+2015-02-03 16:34:14	-->	bkuberek_ (~bkuberek@74.201.131.165) has joined ##javascript
+2015-02-03 16:34:19	<--	bkuberek_ (~bkuberek@74.201.131.165) has quit (Remote host closed the connection)
+2015-02-03 16:34:25	<--	serapath_ (579540df@gateway/web/freenode/ip.87.149.64.223) has quit (Ping timeout: 246 seconds)
+2015-02-03 16:34:37	-->	bkuberek_ (~bkuberek@2600:c0e:3002:118:d9da:2d65:ca35:eb52) has joined ##javascript
+2015-02-03 16:34:38	-->	Fusl (~Fusl@gateway/tor-sasl/fusl) has joined ##javascript
+2015-02-03 16:35:26	-->	john2496 (~john2496@static-96-246-47-142.nycmny.fios.verizon.net) has joined ##javascript
+2015-02-03 16:35:37	-->	nomic (~nomic@host86-139-41-31.range86-139.btcentralplus.com) has joined ##javascript
+2015-02-03 16:35:53	zap0	it's possibly to do  console.dir( some_object );     is there a way to capture this same text in a string var ?
+2015-02-03 16:36:08	spikeheadon	visof try this var textField = '<input type="text">'; $('.exampleimage').on('click',function(){ $("#submit").before(textField) });
+2015-02-03 16:36:09	-->	richardbkr (~richardbk@2601:9:281:8854:4d5e:e66:acab:c81d) has joined ##javascript
+2015-02-03 16:36:13	-->	sazzer_ (~sazzer@217.32.210.21) has joined ##javascript
+2015-02-03 16:36:21	<--	kaiZen- (~kaiZen@88-104-29-242.dynamic.dsl.as9105.com) has quit (Ping timeout: 246 seconds)
+2015-02-03 16:36:23	<--	smccully (~smccully@c-66-176-130-2.hsd1.fl.comcast.net) has quit (Ping timeout: 256 seconds)
+2015-02-03 16:36:42	<--	Patte (~textual@cable-86-56-93-192.cust.telecolumbus.net) has quit (Quit: My Mac has gone to sleep. ZZZzzz?)
+2015-02-03 16:36:45	-->	Guest36 (~textual@209.131.123.129) has joined ##javascript
+2015-02-03 16:36:53	spikeheadon	zap0 try JSON.stringify
+2015-02-03 16:36:55	-->	_yinzer (~textual@c-24-3-207-38.hsd1.pa.comcast.net) has joined ##javascript
+2015-02-03 16:36:55	<--	jarcosmonaut (~johnkerry@210.54.34.10) has quit (Read error: Connection reset by peer)
+2015-02-03 16:36:59	zap0	ok
+2015-02-03 16:37:00	spikeheadon	if its json
+2015-02-03 16:37:07	spikeheadon	google it
+2015-02-03 16:37:18	-->	kaiZen- (~kaiZen@88-104-30-148.dynamic.dsl.as9105.com) has joined ##javascript
+2015-02-03 16:37:28	<--	bkuberek (~bkuberek@2600:c0e:3002:120:509f:dd43:83de:a685) has quit (Ping timeout: 245 seconds)
+2015-02-03 16:37:35	-->	brockfredin (~brockfred@outbound-tw.fingerhut.com) has joined ##javascript
+2015-02-03 16:38:11	-->	mAxX-- (~adavia@189.221.118.128.cable.dyn.cableonline.com.mx) has joined ##javascript
+2015-02-03 16:38:14	-->	jillesme_ (~jillesme@81.145.46.146) has joined ##javascript
+2015-02-03 16:38:15	-->	Hixon10 (~Hixon10@83.149.48.76) has joined ##javascript
+2015-02-03 16:38:27	<--	SumDude (~Prasang@159.140.254.101) has quit (Ping timeout: 250 seconds)
+2015-02-03 16:38:29	-->	Megtastique (~Megtastiq@184.175.6.138) has joined ##javascript
+2015-02-03 16:38:32	mAxX--	im trying to find out how to access name in progress and success callbacks for each uploaded file. Do i need to loop? http://pastie.org/9883573
+2015-02-03 16:38:47	<--	swatti- (~swatti@business-89-132-60-56.business.broadband.hu) has quit (Remote host closed the connection)
+2015-02-03 16:39:21	-->	yinkum (~Adium@mail.quiviralake.com) has joined ##javascript
+2015-02-03 16:39:22	-->	bbankes (~bbankes@50-200-100-242-static.hfc.comcastbusiness.net) has joined ##javascript
+2015-02-03 16:39:27	-->	conlinism (~Adium@128.211.169.1) has joined ##javascript
+2015-02-03 16:39:31	<--	timbabwe_ (~timbabwe@76.74.201.178) has quit (Quit: leaving)
+2015-02-03 16:39:33	<--	jillesme (~jillesme@unaffiliated/jillesme) has quit (Ping timeout: 265 seconds)
+2015-02-03 16:39:43	<--	pimlu (~pimlu@128.172.35.23) has quit (Ping timeout: 255 seconds)
+2015-02-03 16:39:56	<--	toter (~textual@187.113.23.229) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2015-02-03 16:40:04	-->	smccully (~smccully@c-66-176-130-2.hsd1.fl.comcast.net) has joined ##javascript
+2015-02-03 16:40:15	-->	SumDude (~Prasang@159.140.254.101) has joined ##javascript
+2015-02-03 16:40:23	<--	richardbkr (~richardbk@2601:9:281:8854:4d5e:e66:acab:c81d) has quit (Ping timeout: 245 seconds)
+2015-02-03 16:40:32	-->	fl0w (~fl0w@90-227-238-44-no15.business.telia.com) has joined ##javascript
+2015-02-03 16:40:48	<--	kfenn (sid64131@gateway/web/irccloud.com/x-pgdjieuvbrgpfozb) has quit
+2015-02-03 16:40:53	-->	timbabwe (~timbabwe@76.74.201.178) has joined ##javascript
+2015-02-03 16:40:57	-->	kfenn (sid64131@gateway/web/irccloud.com/x-vfvwilfbxbnbjpej) has joined ##javascript
+2015-02-03 16:41:22	<--	Guest87035 (~norm@unaffiliated/normz) has quit (Read error: Connection reset by peer)
+2015-02-03 16:41:53	visof	spikeheadon: when i do this i redirected to the image, not get ajax call form do
+2015-02-03 16:41:56	<--	teear_ (teear_@84-230-54-34.elisa-mobile.fi) has quit (Ping timeout: 246 seconds)
+2015-02-03 16:43:11	-->	serapath (579540df@gateway/web/freenode/ip.87.149.64.223) has joined ##javascript
+2015-02-03 16:43:37	serapath	is anyone here using components in any form?
+2015-02-03 16:43:53	<--	Merkss (~Merkss@dhcp-089-098-150-090.chello.nl) has quit
+2015-02-03 16:43:56	<--	silv3rwind (uid14256@gateway/web/irccloud.com/x-mcsnmshugeddxfal) has quit
+2015-02-03 16:44:02	<--	zoso (~arvind@unaffiliated/arvind-khadri/x-2237230) has quit (Ping timeout: 245 seconds)
+2015-02-03 16:44:14	-->	revolve (~username@199.19.119.133) has joined ##javascript
+2015-02-03 16:44:33	<--	lordB8r (~lordB8r@173-161-80-254-Illinois.hfc.comcastbusiness.net) has quit (Remote host closed the connection)
+2015-02-03 16:44:37	spikeheadon	visof can you link the code in pastebin or jsfiddle
+2015-02-03 16:44:38	<--	CrystalMind (~yaaic@101.212.66.115) has quit (Quit: Yaaic - Yet another Android IRC client - http://www.yaaic.org)
+2015-02-03 16:44:59	spikeheadon	serapath what components
+2015-02-03 16:45:13	-->	phrozensilver (~phrozensi@174-126-2-175.cpe.cableone.net) has joined ##javascript
+2015-02-03 16:45:22	-->	yoshokatana (~yoshokata@adfb12c6.cst.lightpath.net) has joined ##javascript
+2015-02-03 16:45:22	<--	phrozensilver (~phrozensi@174-126-2-175.cpe.cableone.net) has quit (Remote host closed the connection)
+2015-02-03 16:45:38	<--	Aamir (~aamir@212.240.83.20) has quit (Remote host closed the connection)
+2015-02-03 16:45:41	<--	jxie (~jxie@115.197.81.33) has quit (Quit: leaving)
+2015-02-03 16:45:43	-->	rampr (~rampr@122.172.16.143) has joined ##javascript
+2015-02-03 16:45:43	serapath	cool components
+2015-02-03 16:46:11	serapath	i prepared a presentation about "npm installable" components and search for people who would give me feedback
+2015-02-03 16:46:12	-->	hds (~hds@unaffiliated/sinfocol) has joined ##javascript
+2015-02-03 16:47:29	-->	psy (~psy@103.6.159.170) has joined ##javascript
+2015-02-03 16:47:43	-->	Dorf (~dorf@unaffiliated/dorf) has joined ##javascript
+2015-02-03 16:47:44	-->	MLM (uid38638@gateway/web/irccloud.com/x-cpjgaagabltnyqyv) has joined ##javascript
+2015-02-03 16:47:48	Dorf	okay, i'm doing a redirect using JS and if the user has js turned off it loads another page.  the problem i'm having is that when the redirect works, there's a split second of plain text html on the screen.  is there a way to avoid that?
+2015-02-03 16:47:52	-->	serapath_ (579540df@gateway/web/freenode/ip.87.149.64.223) has joined ##javascript
+2015-02-03 16:48:06	-->	ciwolsey (ciwolsey@cpc6-donc11-2-0-cust230.17-1.cable.virginm.net) has joined ##javascript
+2015-02-03 16:48:14	serapath_	serapath.github.io/atomify/#/
+2015-02-03 16:48:14	-->	hrusti (hrust@cpe-31-15-205-12.cable.telemach.net) has joined ##javascript
+2015-02-03 16:48:16	-->	Timgauthier (~timgauthi@p549BC967.dip0.t-ipconnect.de) has joined ##javascript
+2015-02-03 16:48:22	<--	stiven (~stiven@ip184-189-250-136.sb.sd.cox.net) has quit (Ping timeout: 252 seconds)
+2015-02-03 16:48:27	-->	akarl818 (~andreas@81.216.59.154) has joined ##javascript
+2015-02-03 16:48:58	<--	vassagus (~vassagus@186.4.2.162) has quit (Remote host closed the connection)
+2015-02-03 16:49:03	<--	akarl818 (~andreas@81.216.59.154) has left ##javascript
+2015-02-03 16:49:25	-->	vassagus (~vassagus@186.4.2.162) has joined ##javascript
+2015-02-03 16:49:27	<--	nodweber (~nodweber@5.178.135.214) has quit (Remote host closed the connection)
+2015-02-03 16:49:31	-->	maxli (~maxli@bb115-66-106-52.singnet.com.sg) has joined ##javascript
+2015-02-03 16:49:37	-->	EvanCarroll (~ecarroll@75.108.194.127) has joined ##javascript
+2015-02-03 16:49:39	<--	Sna4x8 (~avejidah@c-98-208-43-235.hsd1.ca.comcast.net) has quit (Remote host closed the connection)
+2015-02-03 16:49:59	-->	hecatonicosachor (~hecatonic@176-12-62-113.pon.spectrumnet.bg) has joined ##javascript
+2015-02-03 16:50:05	-->	Sna4x8 (~avejidah@c-98-208-43-235.hsd1.ca.comcast.net) has joined ##javascript
+2015-02-03 16:50:07	-->	nisargjhaveri (~nisargjha@14.139.82.6) has joined ##javascript
+2015-02-03 16:50:13	--	oddskill_afk is now known as oddskill_odd
+2015-02-03 16:50:14	-->	adamellsworth (~adamellsw@216.186.0.90) has joined ##javascript
+2015-02-03 16:50:31	<--	serapath (579540df@gateway/web/freenode/ip.87.149.64.223) has quit (Ping timeout: 246 seconds)
+2015-02-03 16:50:42	<--	wam (~wam@unaffiliated/wam) has quit (Quit: Ex-Chat)
+2015-02-03 16:51:03	-->	athan (~quassel@63.225.19.34) has joined ##javascript
+2015-02-03 16:51:37	-->	Meeloow (~Meeloow@5ED46A0D.cm-7-5b.dynamic.ziggo.nl) has joined ##javascript
+2015-02-03 16:51:37	<--	smokeink (~smoke@221.7.213.16) has quit (Remote host closed the connection)
+2015-02-03 16:51:46	<--	hds (~hds@unaffiliated/sinfocol) has quit (Ping timeout: 245 seconds)
+2015-02-03 16:51:48	-->	sboudri__ (~sboudrias@2601:9:3480:11b9:fd7e:18b2:a7ed:2dd6) has joined ##javascript
+2015-02-03 16:52:07	<--	gabrielstuff_ (~gabrielst@AMontsouris-653-1-175-104.w92-128.abo.wanadoo.fr) has quit (Quit: Be back later ...)
+2015-02-03 16:52:16	<--	sunaeda (18908872@gateway/web/freenode/ip.24.144.136.114) has quit (Ping timeout: 246 seconds)
+2015-02-03 16:52:33	-->	Tritonio (~tr@2a04:1980:3100:1aac:92e2:baff:fe42:f24c) has joined ##javascript
+2015-02-03 16:52:45	<--	_yinzer (~textual@c-24-3-207-38.hsd1.pa.comcast.net) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2015-02-03 16:53:05	-->	silv3rwind (uid14256@gateway/web/irccloud.com/x-xoilnmhgxwfxfhwp) has joined ##javascript
+2015-02-03 16:53:10	<--	vassagus (~vassagus@186.4.2.162) has quit (Remote host closed the connection)
+2015-02-03 16:53:19	-->	vassagus (~vassagus@186.4.2.162) has joined ##javascript
+2015-02-03 16:53:36	-->	norm (~norm@unaffiliated/normz) has joined ##javascript
+2015-02-03 16:53:43	<--	smccully (~smccully@c-66-176-130-2.hsd1.fl.comcast.net) has quit (Ping timeout: 245 seconds)
+2015-02-03 16:54:01	<--	serapath_ (579540df@gateway/web/freenode/ip.87.149.64.223) has quit (Ping timeout: 246 seconds)
+2015-02-03 16:54:03	<--	sacho_ (~hecatonic@176-12-62-113.pon.spectrumnet.bg) has quit (Ping timeout: 264 seconds)
+2015-02-03 16:54:06	--	norm is now known as Guest45122
+2015-02-03 16:54:20	--	hecatonicosachor is now known as sacho
+2015-02-03 16:54:27	-->	vnagpal (~vnagpal@203.187.255.242) has joined ##javascript
+2015-02-03 16:54:27	-->	gabrielstuff_ (~gabrielst@AMontsouris-653-1-175-104.w92-128.abo.wanadoo.fr) has joined ##javascript
+2015-02-03 16:55:22	-->	_DB_ (~DB@173-162-107-117-miami.hfc.comcastbusiness.net) has joined ##javascript
+2015-02-03 16:55:31	<--	vnagpal (~vnagpal@203.187.255.242) has quit (Max SendQ exceeded)
+2015-02-03 16:55:48	-->	rrr_ (~chatzilla@123.155.153.52) has joined ##javascript
+2015-02-03 16:55:53	<--	yoshokatana (~yoshokata@adfb12c6.cst.lightpath.net) has quit (Ping timeout: 240 seconds)
+2015-02-03 16:56:01	-->	vnagpal (~vnagpal@203.187.255.242) has joined ##javascript
+2015-02-03 16:56:20	-->	deconfigured (~quassel@63.225.19.34) has joined ##javascript
+2015-02-03 16:56:28	<--	athan (~quassel@63.225.19.34) has quit (Ping timeout: 265 seconds)
+2015-02-03 16:56:36	-->	vnagpal_ (~vnagpal@203.187.255.242) has joined ##javascript
+2015-02-03 16:56:44	<--	vnagpal (~vnagpal@203.187.255.242) has quit (Client Quit)
+2015-02-03 16:56:49	<--	vnagpal_ (~vnagpal@203.187.255.242) has quit (Read error: Connection reset by peer)
+2015-02-03 16:56:53	-->	jonhester (~jonhester@108.210.103.20) has joined ##javascript
+2015-02-03 16:57:11	<--	revolve (~username@199.19.119.133) has quit (Ping timeout: 245 seconds)
+2015-02-03 16:57:12	-->	vnagpal (~vnagpal@203.187.255.242) has joined ##javascript
+2015-02-03 16:57:18	-->	Aamir (~aamir@212.240.83.20) has joined ##javascript
+2015-02-03 16:57:38	<--	Stalkr_ (~Stalkr@dhcp-185-209.gjk.dk) has quit (Quit: Leaving...)
+2015-02-03 16:57:45	<--	nisargjhaveri (~nisargjha@14.139.82.6) has quit (Remote host closed the connection)
+2015-02-03 16:58:07	<--	Macaveli (~Macaveli@68.252-240-81.adsl-static.isp.belgacom.be) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2015-02-03 16:58:10	<--	agrinb (~agrinb@cpe-142-255-118-83.nyc.res.rr.com) has quit (Remote host closed the connection)
+2015-02-03 16:58:13	<--	SgtMurder (SgtMurder@82-181-176-64.bb.dnainternet.fi) has quit
+2015-02-03 16:58:50	<--	Una (~Una@32.97.110.57) has quit (Quit: My Mac has gone to sleep. ZZZzzz?)
+2015-02-03 16:59:08	<--	samfisher (~unaffilia@unaffiliated/samfisher) has quit (Ping timeout: 245 seconds)
+2015-02-03 16:59:09	<--	BillCriswell (~billcrisw@2601:b:a880:9500:8d7c:2c31:ce59:c0e5) has quit

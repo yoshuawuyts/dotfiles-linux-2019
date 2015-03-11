@@ -1,0 +1,5 @@
+======= WeeChat backtrace =======
+(written by WeeChat 1.1.1, compiled on Mar 11 2015 01:02:53)
+004  3   ???                                 0x000000010c7ba000 0x0 + 4504395776
+052  51  ???                                 0x0000000000000001 0x0 + 1
+======= End of  backtrace =======

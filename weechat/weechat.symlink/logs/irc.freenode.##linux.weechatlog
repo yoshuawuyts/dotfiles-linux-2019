@@ -1,0 +1,203 @@
+2015-02-03 16:24:58	-->	yoshuawuyts1 (~yoshuawuy@2001:981:a181:1:f5fe:c6f5:5e47:a409) has joined ##linux
+2015-02-03 16:24:58	--	Topic for ##linux is "Forums is back in testing http://forums.linuxassist.net | Channel website: http://www.linuxassist.net | Pastebin: http://paste.linuxassist.net | Spammers or trolls? use !ops <troll's nick> <reason>". | For op assistance, join ##linux-ops | Feel at home and enjoy your stay"
+2015-02-03 16:24:58	--	Topic set by WildPikachu on Sat, 28 Dec 2013 16:22:52
+2015-02-03 16:24:59	--	Channel ##linux: 1720 nicks (0 ops, 0 voices, 1720 normals)
+2015-02-03 16:24:59	--	PvNotice(ChanServ): Welcome to ##Linux! Can't speak? Please see http://www.linuxassist.net/how-to-connect/ on how to register or identify your nick. By joining this channel you agree to abide by the channel rules and guidelines stated on the official ##Linux website http://www.linuxassist.net/channel-rules/
+2015-02-03 16:24:59	--	URL for ##linux: http://www.linuxassist.net
+2015-02-03 16:25:00	--	Channel created on Sat, 10 Feb 2001 00:16:24
+2015-02-03 16:25:20	CHVNX	I generally block most of China, Hong Kong, India, Russia, Ukraine, Iraq, Syria, Iran, Israel, etc.
+2015-02-03 16:25:21	ohcanada	my gut feeling is that the latency will increase with lots of rules, but the throughput won't suffer until the entire machine is saturated with rules that consume every single byte and clock cycle. but i could be wrong
+2015-02-03 16:26:12	<--	AntiSpamMeta (~MetaBot@AntiSpamMeta/.) has quit (Read error: Connection reset by peer)
+2015-02-03 16:26:25	-->	AntiSpamMeta (~MetaBot@AntiSpamMeta/.) has joined ##linux
+2015-02-03 16:26:27	-->	arinov (~arinov@217.76.70.31) has joined ##linux
+2015-02-03 16:26:37	<--	leviathancn (~quassel@113.76.251.55) has quit (Client Quit)
+2015-02-03 16:27:01	-->	serapath_ (579540df@gateway/web/freenode/ip.87.149.64.223) has joined ##linux
+2015-02-03 16:27:37	<--	boushi (~boushi@cadware69500-53-82.fib.nerim.net) has quit (Quit: Leaving)
+2015-02-03 16:27:58	<--	paddatrapper (~paddatrap@105-237-241-246.access.mtnbusiness.co.za) has quit (Quit: Cheers)
+2015-02-03 16:28:07	<--	serapath (579540df@gateway/web/freenode/ip.87.149.64.223) has quit (Ping timeout: 246 seconds)
+2015-02-03 16:28:31	<--	AntiSpamMeta (~MetaBot@AntiSpamMeta/.) has quit (Read error: Connection reset by peer)
+2015-02-03 16:28:59	-->	AntiSpamMeta (~MetaBot@AntiSpamMeta/.) has joined ##linux
+2015-02-03 16:29:04	CHVNX	https://www.tumblr.com/everybodyontheinternet
+2015-02-03 16:29:12	-->	jordila (~jordi@host15.186-124-201.telecom.net.ar) has joined ##linux
+2015-02-03 16:29:13	<--	quattr8 (~quattr8@092-111-188-098.static.chello.nl) has quit (Quit: quattr8)
+2015-02-03 16:29:35	<--	eng500 (~eduard@natvip59.york.ac.uk) has quit (Ping timeout: 256 seconds)
+2015-02-03 16:29:44	-->	quake_guy (~brett@gos-bketter-d3.ad.uwm.edu) has joined ##linux
+2015-02-03 16:29:53	<--	AntiSpamMeta (~MetaBot@AntiSpamMeta/.) has quit (Killed (mquin (<No reason given>)))
+2015-02-03 16:29:55	-->	torontoyes (~torontoye@surf3.net.rss.rogers.com) has joined ##linux
+2015-02-03 16:30:39	<--	bullgard4 (~chatzilla@dslb-094-223-001-123.094.223.pools.vodafone-ip.de) has quit (Ping timeout: 250 seconds)
+2015-02-03 16:30:41	-->	oldtopman (~oldtopman@unaffiliated/oldtopman) has joined ##linux
+2015-02-03 16:30:41	-->	ChunkzZ (~ChunkzZ@cpc10-perr14-2-0-cust17.19-1.cable.virginm.net) has joined ##linux
+2015-02-03 16:30:48	<--	kexmex (~kexmex@178.136.234.6) has quit (Quit: Computer has gone to sleep.)
+2015-02-03 16:31:09	-->	souuell (~souuell@rrcs-24-213-169-2.nyc.biz.rr.com) has joined ##linux
+2015-02-03 16:31:20	-->	AntiSpamMeta (~MetaBot@AntiSpamMeta/.) has joined ##linux
+2015-02-03 16:32:12	<--	branant (~bran@82.117.203.222) has quit (Quit: Leaving)
+2015-02-03 16:32:23	-->	eng500 (~eduard@natvip59.york.ac.uk) has joined ##linux
+2015-02-03 16:32:35	-->	GhostIRC (~ghostirc@24-217-40-138.dhcp.stls.mo.charter.com) has joined ##linux
+2015-02-03 16:32:55	-->	iveevue (na@gateway/vpn/mullvad/x-zqeeaihkcmbqfmqw) has joined ##linux
+2015-02-03 16:33:22	<--	Haudegen (~quassel@85.124.51.57) has quit (Ping timeout: 240 seconds)
+2015-02-03 16:33:29	<--	LordVan (~LordVan@gentoo/developer/LordVan) has quit (Quit: Verlassend)
+2015-02-03 16:33:37	-->	leothrix (~leothrix@107-188-149-41.slc.googlefiber.net) has joined ##linux
+2015-02-03 16:33:58	<--	leothrix (~leothrix@107-188-149-41.slc.googlefiber.net) has quit (Changing host)
+2015-02-03 16:33:58	-->	leothrix (~leothrix@elasticsearch/staff/leothrix) has joined ##linux
+2015-02-03 16:34:03	<--	Joost` (~Joost@unaffiliated/joost) has quit (Read error: Connection reset by peer)
+2015-02-03 16:34:07	<--	dhaval2712 (~dhaval@103.229.247.117) has quit (Ping timeout: 250 seconds)
+2015-02-03 16:34:12	-->	leviathancn (~quassel@113.76.251.55) has joined ##linux
+2015-02-03 16:34:14	<--	AntiSpamMeta (~MetaBot@AntiSpamMeta/.) has quit (Read error: Connection reset by peer)
+2015-02-03 16:34:25	<--	serapath_ (579540df@gateway/web/freenode/ip.87.149.64.223) has quit (Ping timeout: 246 seconds)
+2015-02-03 16:34:28	-->	AntiSpamMeta (~MetaBot@AntiSpamMeta/.) has joined ##linux
+2015-02-03 16:34:33	<--	sharkasdf (~xyz@41.72.102.20) has quit (Ping timeout: 245 seconds)
+2015-02-03 16:34:38	-->	Fusl (~Fusl@gateway/tor-sasl/fusl) has joined ##linux
+2015-02-03 16:34:51	<--	arooni-mobile (~arooni-mo@201-8-101-1.user.veloxzone.com.br) has quit (Ping timeout: 264 seconds)
+2015-02-03 16:35:44	-->	FAMAS (~FAMAS@103.250.71.249) has joined ##linux
+2015-02-03 16:35:52	<--	tier_ (~tier@68.170.18.125) has quit (Remote host closed the connection)
+2015-02-03 16:36:19	-->	sazzer_ (~sazzer@217.32.210.21) has joined ##linux
+2015-02-03 16:36:23	<--	smccully (~smccully@c-66-176-130-2.hsd1.fl.comcast.net) has quit (Ping timeout: 256 seconds)
+2015-02-03 16:36:47	<--	ChunkzZ (~ChunkzZ@cpc10-perr14-2-0-cust17.19-1.cable.virginm.net) has quit (Quit: Leaving)
+2015-02-03 16:37:01	<--	howlymowly (~quassel@euler.ilr.tu-berlin.de) has quit (Ping timeout: 264 seconds)
+2015-02-03 16:37:07	<--	ZxoR (~ZxoR@bzq-79-178-37-108.red.bezeqint.net) has quit (Remote host closed the connection)
+2015-02-03 16:37:21	<--	AntiSpamMeta (~MetaBot@AntiSpamMeta/.) has quit (Read error: Connection reset by peer)
+2015-02-03 16:37:22	-->	Haudegen (~quassel@85.124.51.57) has joined ##linux
+2015-02-03 16:37:22	-->	rco (~randallov@97.75.189.62) has joined ##linux
+2015-02-03 16:37:34	-->	AntiSpamMeta (~MetaBot@AntiSpamMeta/.) has joined ##linux
+2015-02-03 16:37:34	<--	fergus (~sergei@mail.55h.by) has quit (Read error: Connection reset by peer)
+2015-02-03 16:37:52	-->	semeion (~semeion@unaffiliated/semeion) has joined ##linux
+2015-02-03 16:38:06	-->	fergus (~sergei@mail.55h.by) has joined ##linux
+2015-02-03 16:38:29	-->	ZxoR (~ZxoR@bzq-79-178-37-108.red.bezeqint.net) has joined ##linux
+2015-02-03 16:38:29	<--	fergus (~sergei@mail.55h.by) has quit (Read error: Connection reset by peer)
+2015-02-03 16:38:34	<--	Bjorke (~bjorke@213.136.34.98) has quit
+2015-02-03 16:38:47	<--	swatti- (~swatti@business-89-132-60-56.business.broadband.hu) has quit (Remote host closed the connection)
+2015-02-03 16:38:56	-->	fergus (~sergei@mail.55h.by) has joined ##linux
+2015-02-03 16:39:22	-->	bbankes (~bbankes@50-200-100-242-static.hfc.comcastbusiness.net) has joined ##linux
+2015-02-03 16:39:39	<--	AntiSpamMeta (~MetaBot@AntiSpamMeta/.) has quit (Read error: Connection reset by peer)
+2015-02-03 16:39:50	<--	eng500 (~eduard@natvip59.york.ac.uk) has quit (Ping timeout: 246 seconds)
+2015-02-03 16:39:51	-->	AntiSpamMeta (~MetaBot@AntiSpamMeta/.) has joined ##linux
+2015-02-03 16:40:04	-->	smccully (~smccully@c-66-176-130-2.hsd1.fl.comcast.net) has joined ##linux
+2015-02-03 16:40:11	<--	leviathancn (~quassel@113.76.251.55) has quit (Ping timeout: 246 seconds)
+2015-02-03 16:40:17	-->	kermit (unknown@pdpc/supporter/bronze/kermit) has joined ##linux
+2015-02-03 16:40:25	-->	pdo_fn14 (~pdo_fn14@202.67.43.40) has joined ##linux
+2015-02-03 16:41:14	<--	elementalest (~elemental@unaffiliated/elementalest) has quit (Quit: Quit: Quit: Quit: OK)
+2015-02-03 16:41:24	-->	ice9 (~ice9@unaffiliated/ice9) has joined ##linux
+2015-02-03 16:41:29	-->	ivali (valentin@nat/intel/x-qzzpwvnxfnkfrdke) has joined ##linux
+2015-02-03 16:41:29	<--	ivali (valentin@nat/intel/x-qzzpwvnxfnkfrdke) has quit (Changing host)
+2015-02-03 16:41:29	-->	ivali (valentin@unaffiliated/ivali) has joined ##linux
+2015-02-03 16:41:32	ice9	how to let 32bit app use the full 3GB ram?
+2015-02-03 16:41:51	-->	duck_cpd (~duck_cpd@172.56.12.42) has joined ##linux
+2015-02-03 16:41:55	<--	idunham (~idunham@host-216-153-133-106.buf.choiceone.net) has quit (Ping timeout: 250 seconds)
+2015-02-03 16:41:57	<--	AntiSpamMeta (~MetaBot@AntiSpamMeta/.) has quit (Read error: Connection reset by peer)
+2015-02-03 16:42:10	-->	AntiSpamMeta (~MetaBot@AntiSpamMeta/.) has joined ##linux
+2015-02-03 16:42:12	-->	idunham (~idunham@host-216-153-133-106.buf.choiceone.net) has joined ##linux
+2015-02-03 16:42:14	-->	localuser- (~none@gateway/tor-sasl/localuser-) has joined ##linux
+2015-02-03 16:42:22	-->	Snake2k (~Snake2k@unaffiliated/snake2k) has joined ##linux
+2015-02-03 16:42:26	-->	tier (~tier@68.170.18.121) has joined ##linux
+2015-02-03 16:42:30	<--	valentin- (valentin@unaffiliated/ivali) has quit (Ping timeout: 252 seconds)
+2015-02-03 16:42:45	-->	raspberrypifan (~raspberry@186.42.207.117) has joined ##linux
+2015-02-03 16:42:55	<--	raspberrypifan (~raspberry@186.42.207.117) has quit (Remote host closed the connection)
+2015-02-03 16:43:07	ananke	ice9: you can't.
+2015-02-03 16:43:11	-->	serapath (579540df@gateway/web/freenode/ip.87.149.64.223) has joined ##linux
+2015-02-03 16:43:19	<--	ifohancroft (~ifo@fedora/ifo) has left ##linux
+2015-02-03 16:43:20	<--	Stryyker (stryyker16@about/windows/staff/stryyker) has quit (Ping timeout: 246 seconds)
+2015-02-03 16:43:38	<--	AntiSpamMeta (~MetaBot@AntiSpamMeta/.) has quit (K-Lined)
+2015-02-03 16:43:51	-->	Stryyker (stryyker16@ppp118-208-204-194.lns20.hba1.internode.on.net) has joined ##linux
+2015-02-03 16:43:57	<--	GhostIRC (~ghostirc@24-217-40-138.dhcp.stls.mo.charter.com) has quit
+2015-02-03 16:43:59	<--	Stryyker (stryyker16@ppp118-208-204-194.lns20.hba1.internode.on.net) has quit (Changing host)
+2015-02-03 16:43:59	-->	Stryyker (stryyker16@about/windows/staff/stryyker) has joined ##linux
+2015-02-03 16:44:02	<--	zoso (~arvind@unaffiliated/arvind-khadri/x-2237230) has quit (Ping timeout: 245 seconds)
+2015-02-03 16:44:05	<--	duck_cpd (~duck_cpd@172.56.12.42) has quit (Remote host closed the connection)
+2015-02-03 16:44:22	<--	serapath (579540df@gateway/web/freenode/ip.87.149.64.223) has left ##linux
+2015-02-03 16:44:25	<--	gmitre (~gmitre@200.142.126.94) has quit (Remote host closed the connection)
+2015-02-03 16:44:31	-->	Blakney (~Blakney@gateway/tor-sasl/blakney) has joined ##linux
+2015-02-03 16:44:35	ananke	ice9: sorry, i just realized we're in #linux :) windows has another limit. your apps should be able to use 3GB max
+2015-02-03 16:44:48	-->	du5tball (~du5tball@ppp-93-104-153-152.dynamic.mnet-online.de) has joined ##linux
+2015-02-03 16:45:02	-->	hexagoxel (~hexagoxel@kiel-5f76846c.pool.mediaWays.net) has joined ##linux
+2015-02-03 16:45:06	<--	BigShip (~mael@unaffiliated/bigship) has quit (Quit: leaving)
+2015-02-03 16:45:07	-->	bipul (bipul@123.201.36.93) has joined ##linux
+2015-02-03 16:45:13	-->	phrozensilver (~phrozensi@174-126-2-175.cpe.cableone.net) has joined ##linux
+2015-02-03 16:45:22	<--	phrozensilver (~phrozensi@174-126-2-175.cpe.cableone.net) has quit (Remote host closed the connection)
+2015-02-03 16:45:45	ice9	ananke: you mean Linux's default is to allow 32bit apps to use the 3gb ?
+2015-02-03 16:45:50	-->	leviathancn (~quassel@113.76.251.55) has joined ##linux
+2015-02-03 16:45:54	-->	KayAteChef (~0xFF@106-68-137-23.dyn.iinet.net.au) has joined ##linux
+2015-02-03 16:46:03	-->	Mohi (~devil@ubuntu/member/mohan-chml) has joined ##linux
+2015-02-03 16:46:29	-->	Joost` (~Joost@unaffiliated/joost) has joined ##linux
+2015-02-03 16:46:55	Taoki	Anyone know how to enable the audio panel in winecfg? If I run winecfg and go to the audio tab, I only get a list of devices to select... whereas other people have a tab with more settings, like this: http://i.stack.imgur.com/lv1mt.png
+2015-02-03 16:47:10	-->	sins- (~sins-@gateway/tor-sasl/sins-) has joined ##linux
+2015-02-03 16:47:13	Taoki	Apparently #wine has a bot to automatically kick anyone who joins... weird IRC channel
+2015-02-03 16:47:18	CHVNX	https://en.wikipedia.org/wiki/3_GB_barrier
+2015-02-03 16:47:20	bazhang	#winehq Taoki
+2015-02-03 16:47:20	Taoki	So asking here instead, oif anyone knows
+2015-02-03 16:47:23	Taoki	Oh, thanks
+2015-02-03 16:47:35	-->	MLM (uid38638@gateway/web/irccloud.com/x-cpjgaagabltnyqyv) has joined ##linux
+2015-02-03 16:47:52	-->	serapath_ (579540df@gateway/web/freenode/ip.87.149.64.223) has joined ##linux
+2015-02-03 16:48:22	<--	Snake2k (~Snake2k@unaffiliated/snake2k) has quit (Quit: Reconnecting)
+2015-02-03 16:48:34	-->	Snake2k (~Snake2k@unaffiliated/snake2k) has joined ##linux
+2015-02-03 16:48:55	-->	eyvindandersen (~eyvind@80-71-135-9.u.parknet.dk) has joined ##linux
+2015-02-03 16:48:58	<--	vassagus (~vassagus@186.4.2.162) has quit (Remote host closed the connection)
+2015-02-03 16:49:25	-->	vassagus (~vassagus@186.4.2.162) has joined ##linux
+2015-02-03 16:49:35	<--	semeion (~semeion@unaffiliated/semeion) has quit (Quit: WeeChat 1.1.1)
+2015-02-03 16:50:02	-->	EEEDDD (~E3@42.115.63.166) has joined ##linux
+2015-02-03 16:50:04	<--	pdo_fn14 (~pdo_fn14@202.67.43.40) has quit (Read error: Connection reset by peer)
+2015-02-03 16:50:12	<--	banita (~banita@2a02:c10:2e00:5:d6be:d9ff:fe0b:a0ac) has quit (Ping timeout: 252 seconds)
+2015-02-03 16:50:15	-->	AkivaAvraham (~AkivaAvra@38.108.79.102) has joined ##linux
+2015-02-03 16:50:16	-->	max87 (~max87@ims1.ims-mail.in) has joined ##linux
+2015-02-03 16:50:27	-->	asciiwolf (~asciiwolf@194.228.20.74) has joined ##linux
+2015-02-03 16:50:31	<--	grobda24 (~grobda24-@silentflame/member/grobda24) has quit (Remote host closed the connection)
+2015-02-03 16:51:10	-->	nickenchuggets (~nickenchu@2601:7:6a00:463:4189:8acd:abb5:db61) has joined ##linux
+2015-02-03 16:51:10	<--	nickenchuggets (~nickenchu@2601:7:6a00:463:4189:8acd:abb5:db61) has quit (Changing host)
+2015-02-03 16:51:10	-->	nickenchuggets (~nickenchu@unaffiliated/zeromodulus) has joined ##linux
+2015-02-03 16:51:18	-->	semeion (~semeion@unaffiliated/semeion) has joined ##linux
+2015-02-03 16:51:31	AkivaAvraham	Hey all: Live Ask Ubuntu Anything live in 10 minutes: http://ubuntuonair.com | #ubuntu-on-air
+2015-02-03 16:51:47	<--	KayAteChef (~0xFF@106-68-137-23.dyn.iinet.net.au) has quit (Quit: Bye)
+2015-02-03 16:51:47	Dominian	uh huh
+2015-02-03 16:51:51	Dominian	Please don't spam here.
+2015-02-03 16:51:52	Dominian	Thanks.
+2015-02-03 16:52:09	<--	ice9 (~ice9@unaffiliated/ice9) has quit (Quit: Leaving.)
+2015-02-03 16:52:23	<--	EEEDDD (~E3@42.115.63.166) has left ##linux ("Leaving")
+2015-02-03 16:52:42	-->	kukukuku (~kukukuku@pool-74-101-222-68.nycmny.fios.verizon.net) has joined ##linux
+2015-02-03 16:52:42	-->	plut0 (~cory@pool-100-4-174-115.albyny.fios.verizon.net) has joined ##linux
+2015-02-03 16:52:48	-->	grobda24 (~grobda24-@host81-153-244-167.range81-153.btcentralplus.com) has joined ##linux
+2015-02-03 16:52:49	<--	grobda24 (~grobda24-@host81-153-244-167.range81-153.btcentralplus.com) has quit (Changing host)
+2015-02-03 16:52:49	-->	grobda24 (~grobda24-@silentflame/member/grobda24) has joined ##linux
+2015-02-03 16:52:59	<--	Kirito (~Kirito@pdpc/supporter/student/kirito) has quit (Ping timeout: 252 seconds)
+2015-02-03 16:53:10	<--	vassagus (~vassagus@186.4.2.162) has quit (Remote host closed the connection)
+2015-02-03 16:53:17	plut0	where can i check stats to see how much memory is ballooning on a xen VM?
+2015-02-03 16:53:18	<--	pclover (~pclover@unaffiliated/pclov3r) has quit (Ping timeout: 245 seconds)
+2015-02-03 16:53:19	-->	vassagus (~vassagus@186.4.2.162) has joined ##linux
+2015-02-03 16:53:42	AkivaAvraham	Dominian, sorry! Thought some people would be interested!
+2015-02-03 16:53:43	<--	smccully (~smccully@c-66-176-130-2.hsd1.fl.comcast.net) has quit (Ping timeout: 245 seconds)
+2015-02-03 16:53:48	<--	kokut (~ayy@81.202.203.91.dyn.user.ono.com) has left ##linux
+2015-02-03 16:53:49	<--	byte (~byte@ns353622.ip-91-121-72.eu) has quit (Read error: Connection reset by peer)
+2015-02-03 16:53:58	Dominian	AkivaAvraham: Understandable, but spam is spam.
+2015-02-03 16:54:01	<--	serapath_ (579540df@gateway/web/freenode/ip.87.149.64.223) has quit (Ping timeout: 246 seconds)
+2015-02-03 16:54:07	-->	brucelee (~bjpenn@c-98-207-99-84.hsd1.ca.comcast.net) has joined ##linux
+2015-02-03 16:54:15	-->	joshuasm32 (~joshuasm3@2605:e000:1116:12c:21e8:1d7b:b3cf:a4bb) has joined ##linux
+2015-02-03 16:54:19	AkivaAvraham	Dominian, True :D
+2015-02-03 16:54:20	Dominian	more of a 'hey careful' warning than anything.. nothing was going on in the channel really.. so for now you're fine.
+2015-02-03 16:54:23	<--	gimiki (~gimiki@ppp-144-137.24-151.libero.it) has quit (Remote host closed the connection)
+2015-02-03 16:54:35	<--	joshuasm32 (~joshuasm3@2605:e000:1116:12c:21e8:1d7b:b3cf:a4bb) has left ##linux
+2015-02-03 16:54:43	bazhang	for now
+2015-02-03 16:55:06	Dominian	If there were true support questions being asked and answered.. I might be a little more... tearse.
+2015-02-03 16:55:22	Dominian	terse*
+2015-02-03 16:55:32	Dominian	ALWAYS add an a in there for some reason
+2015-02-03 16:55:35	loomsen	TrueSupport?
+2015-02-03 16:55:37	<--	Batze (~sad@dslb-094-217-035-100.094.217.pools.vodafone-ip.de) has quit (Ping timeout: 264 seconds)
+2015-02-03 16:56:01	<--	bnw (~bnw@183.17.162.40) has quit (Quit: ??)
+2015-02-03 16:56:13	<--	Saubatzen (~sad@dslb-094-217-035-100.094.217.pools.vodafone-ip.de) has quit (Ping timeout: 264 seconds)
+2015-02-03 16:56:31	<--	ajc_ (ajc@nat/hp/x-ufxwgxixuviywhvl) has quit (Ping timeout: 264 seconds)
+2015-02-03 16:56:49	<--	jatt (~user@unaffiliated/jatt) has left ##linux ("ERC (IRC client for Emacs 25.0.50.1)")
+2015-02-03 16:57:08	-->	pclover (~pclover@unaffiliated/pclov3r) has joined ##linux
+2015-02-03 16:57:10	<--	eby__ (~eby@94.142.156.32) has quit (Read error: Connection reset by peer)
+2015-02-03 16:57:12	-->	jatt (~user@93.189.156.14) has joined ##linux
+2015-02-03 16:57:15	<--	jatt (~user@93.189.156.14) has quit (Changing host)
+2015-02-03 16:57:15	-->	jatt (~user@unaffiliated/jatt) has joined ##linux
+2015-02-03 16:57:22	<--	jatt (~user@unaffiliated/jatt) has quit (Remote host closed the connection)
+2015-02-03 16:57:24	<--	evangeline__ (~evangelin@BSN-95-233-106.static.siol.net) has quit (Read error: Connection reset by peer)
+2015-02-03 16:57:31	-->	jonaias (~jonaias@177.180.217.8) has joined ##linux
+2015-02-03 16:57:58	-->	jatt (~user@93.189.156.14) has joined ##linux
+2015-02-03 16:58:01	<--	jatt (~user@93.189.156.14) has quit (Changing host)
+2015-02-03 16:58:01	-->	jatt (~user@unaffiliated/jatt) has joined ##linux
+2015-02-03 16:58:01	<--	cosmin (~hit@dhcp42.dcs.bbk.ac.uk) has quit (Ping timeout: 264 seconds)
+2015-02-03 16:58:07	<--	Macaveli (~Macaveli@68.252-240-81.adsl-static.isp.belgacom.be) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2015-02-03 16:58:13	<--	SgtMurder (SgtMurder@82-181-176-64.bb.dnainternet.fi) has quit
+2015-02-03 16:58:23	<--	justanotheruser (~Justan@unaffiliated/justanotheruser) has quit (Ping timeout: 265 seconds)
+2015-02-03 16:58:44	-->	kexmex (~kexmex@195.42.130.233) has joined ##linux
+2015-02-03 16:58:52	<--	brucelee (~bjpenn@c-98-207-99-84.hsd1.ca.comcast.net) has quit (Ping timeout: 240 seconds)
+2015-02-03 16:59:02	ayecee	sounds like hearse
