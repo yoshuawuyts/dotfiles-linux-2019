@@ -1,1 +1,1 @@
-/Users/yoshuawuyts/src/yw/dotfiles/weechat/weechat.symlink/perl/buffer
+/Users/yoshuawuyts/src/yw/dotfiles/weechat/weechat.symlink/perl/buffers.pl

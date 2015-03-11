@@ -174,3 +174,4 @@ def find_channels():
         w.infolist_free(infolist)
 
     return items
+
