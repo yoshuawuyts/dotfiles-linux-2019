@@ -1,5 +1,7 @@
-# Dotsauce
+# Dotfiles
 Configuration for `*nix` systems. There's no place like `~/`.
+
+![tmux split](./tmux/screenshot.png)
 
 ## Installation
 ```sh
