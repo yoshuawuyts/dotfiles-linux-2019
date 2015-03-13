@@ -8,10 +8,14 @@ node_modules/
 bower_components/
 npm-debug*
 
+# vendor
+*vendor/
+*extern/
+*libs/
+
 # releases folders
 dist
 build
-extern
 release
 releases
 fixtures
