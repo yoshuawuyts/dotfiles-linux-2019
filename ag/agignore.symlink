@@ -1,0 +1,17 @@
+# temporary files
+*log/*
+*logs/*
+*tmp/
+
+# node
+node_modules/
+bower_components/
+npm-debug*
+
+# releases folders
+dist
+build
+extern
+release
+releases
+fixtures
