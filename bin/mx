@@ -1,183 +1,83 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # mx
+# version 0.3
 
-if [[ "${BASH_VERSINFO[0]}" -ge 4 ]]; then
-  shopt -s compat32
-fi
+# Contributors:
+#   Wynn Netherland - http://github.com/pengwynn
+#   Adam Jahnke - http://github.com/adamyonk
 
-set -o errexit
-set -o nounset
+# Usage:
+#   mx [session]
 
-readonly VERSION=1.1.0
+# To 'auto-launch' projects, you'll need a $PROJECTS dir where you keep code
+# sorted like so: $PROJECTS/<org or user>/<repo>.
+# So, a typical workflow would look like:
+#   $ hub clone pengwynn/octonaut $PROJECTS/pengwynn/octonaut
+#   $ mx octonaut
 
-readonly REGEX_SETTING="^(session|cmd)=(.*)$"
-readonly REGEX_SECTION="^\[([a-zA-Z_]+)\]"
+# If `mx` is called with a <session> name, and there is no valid repo inside
+# $PROJECTS, a new tmux session will be initialized in the current working
+# directory with a name of <session>
 
-function get_abs_filename() {
-  # $1 : relative filename
-  echo "$(cd "$(dirname "$1")" && pwd)/"$(basename "$1")""
-}
+# If the target directory has a .tmux file, that file will be executed
+# (and sent the <session> name as the first argument) instead of the default
+# window setup (explained below). An example .tmux file may look like
+# so:
+#   #!/usr/bin/env sh
+#   SESSION="$1"
+#   cd ~/.dotfiles
+#   tmux new-session -s "$SESSION" -n editor -d
+#   tmux send-keys 'e' C-m ':CtrlP' C-m
+#   tmux new-window -n shell -t "$SESSION"
+#   tmux select-window -t "$SESSION":1
 
-function send_keys {
-  local full_cmd="$1"
-  local session="$2"
-  local in_quotes=0
-  local escaped=0
-  local args=()
-  local current_arg=''
-  local i
+# If there is no .tmux file, the default window setup is as follows:
+# editor  - runs $EDITOR right away
+# shell   - empty shell
+# console - if script/console is available
+# server  - if script/server is available
 
-  for (( i = 0; i < ${#full_cmd}; i++ )); do
-    local char=${full_cmd:$i:1}
+set -e
 
-    if   [[ "$escaped" -eq 1 ]]; then
-      escaped=0
-
-    elif [[ "$in_quotes" -eq 0 ]]; then
-      if [[ "$char" =~ " " ]] && [[ ${#current_arg} -gt 0 ]]; then
-        args[${#args[@]}]="$current_arg"
-        current_arg=''
-        continue
-      elif [[ "$char" == "'" ]]; then
-        in_quotes=1
-        continue
-      elif [[ "$char" == "\\" ]]; then
-        escaped=1
-        continue
-      fi
-
-    elif [[ "$in_quotes" -eq 1 ]] && [[ "$char" == "'" ]]; then
-      in_quotes=0
-      continue
-    fi
-
-    current_arg+="$char"
-  done
-
-  args[${#args[@]}]="$current_arg"
-
-  $tmux_cmd send-keys -t "$session" "${args[@]}"
-}
-
-# Do we want the version?
-if [[ ${1:-''} == '--version' ]] || [[ ${1:-''} == '-v' ]]; then
-  echo "mx version $VERSION"
-  exit 0
-fi
-
-# Are we in a tmux session?
-if [[ -n ${TMUX:-} ]]; then
-  inside_tmux_session=1
-  TMUX= # clear out the TMUX variable locally so we can create (non-nested) sessions
+if [ -z "$1" ]; then
+  SESSION="${PWD##*/}"
 else
-  inside_tmux_session=0
-fi
-readonly inside_tmux_session
-
-# How should we use the tmux command?
-if which tmux 1>/dev/null; then
-  readonly tmux_cmd="tmux -2"
-elif [[ -x /usr/bin/tmux ]]; then
-  readonly tmux_cmd="/usr/bin/tmux -2"
-elif [[ -x /usr/local/bin/tmux ]]; then
-  readonly tmux_cmd="/usr/local/bin/tmux -2"
-else
-  echo "Could not find tmux on your system. Try adding it to your \$PATH?" 1>&2
-  exit -1
+  SESSION="$1"
 fi
 
-# What is our projects directory?
-if [[ -n ${PROJECTS:-} ]]; then
-  readonly projects_directory=$PROJECTS
-elif [[ -d ~/Projects ]]; then
-  readonly projects_directory=~/Projects
-elif [[ -d ~/projects ]]; then
-  readonly projects_directory=~/projects
-else
-  readonly projects_directory=~
-fi
+# tmux 1.9a+ doesn't like .'s in session names
+SESSION="$(echo "$SESSION" | sed -e 's/\.//g')"
 
-# What is the path for the session we want to connect to?
-if [[ $# = 0 ]]; then
-  session_path=$PWD
-elif [[ -d $1 ]]; then
-  session_path=$(get_abs_filename $1)
-elif [[ -d "$projects_directory/$1" ]]; then
-  session_path="$projects_directory/$1"
-else
-  session_name=$1 # session gets provided name, by default
-  session_path=$PWD
-fi
-readonly session_path
-
-# Is there a config file in the session directory?
-config_file="$session_path/.tmux"
-windows=()
-commands=()
-if [[ -f "$config_file" ]]; then
-  while read line; do
-    window_count="${#windows[@]}"
-    if [[ "$line" =~ $REGEX_SECTION ]]; then
-      windows["$window_count"]="${BASH_REMATCH[1]}"
-    elif [[ "$line" =~ $REGEX_SETTING ]]; then
-      cmd="${BASH_REMATCH[1]}"
-      val="${BASH_REMATCH[2]}"
-      if [[ "$cmd" == 'session' ]] && [[ "$window_count" -eq 0 ]]; then
-        session_name="$val"
-      elif [[ "$cmd" == 'cmd' ]] && [[ "$window_count" -ge 1 ]]; then
-        commands["$(( $window_count - 1 ))"]=$val
-      fi
-    fi
-  done < "$config_file"
-
-  if [[ ${#windows[@]} -eq 0 ]]; then
-    windows[0]=shell
+_safe_window() {
+  if [ -x "$2" ]; then
+    tmux new-window -n "$1" -t "$SESSION"
+    tmux send-keys "$2" C-m
   fi
-else
-  # What is our default editor?
-  if [[ -n ${EDITOR:-} ]]; then
-    readonly editor=$EDITOR
+}
+
+if ! (tmux list-sessions | cut -d':' -f1 | grep -q ^"$SESSION"\$); then
+  if [ -d "$PROJECTS"/"$SESSION" ]; then
+    cd "$PROJECTS"/"$SESSION"
+  fi
+
+  if [ -x "$PWD"/.tmux ]; then
+    "$PWD"/.tmux "$SESSION"
   else
-    readonly editor=$(which vim)
+    tmux new-session -s "$SESSION" -n editor -d
+    tmux send-keys "$EDITOR" C-m #':CtrlP' C-m
+    tmux split-window -h
+    tmux split-window -v
+    tmux new-window -n shell -t "$SESSION"
+    _safe_window console script/console
+    _safe_window server script/server
+
+    tmux select-window -t "$SESSION":1
   fi
-
-  windows[0]=editor
-  windows[1]=shell
-  commands[0]=$editor' C-m'
 fi
 
-# decide on session_name
-session_name=${session_name:=$(basename $session_path)} # by default, use the directory
-readonly session_name="${session_name//./_}" # replace dots with underscores
-
-# Create the session, if it doesn't already exist
-if ! ($tmux_cmd list-sessions | cut -d':' -f1 | grep -q ^"$session_name"\$); then
-
-  window_count=${#windows[@]}
-
-  for (( i = 0; i < $window_count; i++ )); do
-    window_name=${windows[i]}
-    window_address="$session_name:$(( $i + 1 ))"
-    window_command="${commands[$i]:-}"
-
-    if [[ $i -eq 0 ]]; then
-      $tmux_cmd new-session -c "$session_path" -s "$session_name" -n "$window_name" -d
-    else
-      $tmux_cmd new-window -c "$session_path" -n "$window_name" -t "$session_name"
-    fi
-
-    if [[ -n "$window_command" ]]; then
-      send_keys "$window_command" "$window_address"
-    fi
-  done
-
-  $tmux_cmd select-window -t "$session_name":1
-fi
-
-# Connect to the session
-if [[ $inside_tmux_session = 1 ]]; then
-  $tmux_cmd switch-client -t "$session_name"
+if [ -z "$TMUX" ]; then
+  tmux attach -t "$SESSION"
 else
-  $tmux_cmd attach-session -t "$session_name" -c "$session_path"
+  tmux switch-client -t "$SESSION"
 fi
