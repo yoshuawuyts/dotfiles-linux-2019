@@ -1,13 +1,14 @@
 #!/bin/sh
 
 # gh
-# version 1.0.0
+# version 1.1.0
 
 # Opens the github page for a repo/branch in your browser.
 #   gh [remote] [branch]
 
 # Contributors
 #   Jason McReary - https://github.com/jasonmccreary
+#   Yoshua Wuyts - https://github.com/yoshuawuyts
 
 git rev-parse 2>/dev/null
 
@@ -16,9 +17,10 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
-remote="origin"
 if [ ! -z "$1" ]; then
   remote="$1"
+else
+  remote="$(git branch -vv | awk '/\*/ {print $4}' | sed -E 's/\[//;s/\/[a-z]+\]//g')"
 fi
 
 remote_url="remote.${remote}.url"
