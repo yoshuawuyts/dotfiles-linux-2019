@@ -301,7 +301,7 @@ end
 ## finally, index all branches
 remote_branches = {}
 `git show-ref`.split(/[\r\n]+/).each do |l|
-  sha1, ref = l.chomp.split " refs/"
+  _, ref = l.chomp.split " refs/"
 
   if ref =~ /^heads\/(.+)$/ # local branch
     name = $1
