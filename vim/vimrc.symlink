@@ -56,6 +56,9 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-repeat'
 
 call vundle#end()            " required
 filetype plugin indent on
