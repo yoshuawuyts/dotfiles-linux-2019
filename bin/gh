@@ -10,6 +10,19 @@
 #   Jason McReary - https://github.com/jasonmccreary
 #   Yoshua Wuyts - https://github.com/yoshuawuyts
 
+fn_findRemote() {
+  git branch -vv \
+     | awk '/\*/ {print $4}' \
+     | sed -E 's/\/[A-Za-z0-9_]+\]//g' \
+     | sed 's/\[//'
+}
+
+fn_ghUrl() {
+  git config --get "$1" \
+    | sed 's/git\@github\.com\:/https\:\/\/github.com/' \
+    | sed 's/\.git$//'
+}
+
 git rev-parse 2>/dev/null
 
 if [ $? != 0 ]; then
@@ -20,19 +33,16 @@ fi
 if [ ! -z "$1" ]; then
   remote="$1"
 else
-  remote="$(git branch -vv | awk '/\*/ {print $4}' | sed -E 's/\[//;s/\/[a-z]+\]//g')"
+  remote="$(fn_findRemote)"
 fi
 
 remote_url="remote.${remote}.url"
+giturl="$(fn_ghUrl "$remote_url")"
 
-giturl=$(git config --get "$remote_url")
 if [ -z "$giturl" ]; then
   echo "$remote_url not set."
   exit 1
 fi
-
-giturl="$(echo "$giturl" | sed 's/git\@github\.com\:/https\:\/\/github.com/')"
-giturl="$(echo "$giturl" | sed 's/\.git$//')"
 
 if [ -z "$2" ]; then
   branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
