@@ -19,7 +19,7 @@ fn_findRemote() {
 
 fn_ghUrl() {
   git config --get "$1" \
-    | sed 's/git\@github\.com\:/https\:\/\/github.com/' \
+    | sed 's/git\@github\.com\:/https\:\/\/github.com\//' \
     | sed 's/\.git$//'
 }
 
