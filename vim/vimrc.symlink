@@ -95,7 +95,6 @@ set splitbelow                  " Opens horizontal split below current window
 "set shortmess=filnxtToOI       " see :help shortmess
                                 " http://items.sjbach.com/319/configuring-vim-right
 
-
 " Mouse
 " ======
 
