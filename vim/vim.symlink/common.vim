@@ -76,3 +76,5 @@ cmap w!! %!sudo tee > /dev/null %
 
 " :Dispatch
 map <Leader>d :Dispatch<CR>
+
+map <C-/> :Explore<CR>
