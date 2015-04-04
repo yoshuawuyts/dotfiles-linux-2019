@@ -1,0 +1,11 @@
+#!/bin/sh
+# define a new context for task based on a regex
+#   version: 1.0.0
+#   author: @yoshuawuyts
+
+if [ ! "$1" ]; then
+  echo 'usage: tctx /regex/' 
+  exit 1
+fi
+
+task context define myProject "project ~ '$1'"
