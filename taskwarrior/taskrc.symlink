@@ -1,0 +1,11 @@
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=~/.task
+
+# Color scheme
+include /usr/local/Cellar/task/2.4.2/share/doc/task/rc/dark-gray-256.theme
+
+# Contexts
+context.wercker=project ~ 'wercker.*'
+
