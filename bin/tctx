@@ -3,9 +3,9 @@
 #   version: 1.0.0
 #   author: @yoshuawuyts
 
-if [ ! "$1" ]; then
-  echo 'usage: tctx /regex/' 
+if [ ! "$1" ] || [ ! "$2" ]; then
+  echo 'usage: tctx <name> <regex>' 
   exit 1
 fi
 
-task context define myProject "project ~ '$1'"
+task context define "$1" "project ~ '$2'"
