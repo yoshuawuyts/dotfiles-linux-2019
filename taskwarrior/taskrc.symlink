@@ -10,4 +10,4 @@ include /usr/local/Cellar/task/2.4.2/share/doc/task/rc/dark-gray-256.theme
 context.wercker=project ~ 'wercker.*'
 
 context.yw=project ~ 'yw.*'
-context=yw
+context.oss=project ~ 'oss.*'
