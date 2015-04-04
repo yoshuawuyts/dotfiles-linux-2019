@@ -9,3 +9,5 @@ include /usr/local/Cellar/task/2.4.2/share/doc/task/rc/dark-gray-256.theme
 # Contexts
 context.wercker=project ~ 'wercker.*'
 
+context.yw=project ~ 'yw.*'
+context=yw
