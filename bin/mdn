@@ -1,0 +1,12 @@
+#!/bin/sh
+# search for a query on MDN
+#   author: @yoshuawuyts
+#   version: 1.0.0
+
+if [ ! "$1" ]; then
+  echo 'usage: mdn <query>' && exit 1
+fi
+
+uri='https://developer.mozilla.org/en-US/search'
+qs='?topic=api&topic=css&topic=canvas&topic=html&topic=js&topic=svg&q='
+open "$uri""$qs""$1"
