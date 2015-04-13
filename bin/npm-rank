@@ -7,4 +7,4 @@ function npmtop2() {
   underscore print --outfmt text
 }
 
-npmtop2 | grep $1 -A 9999 | wc -l
+npmtop2
