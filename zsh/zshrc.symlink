@@ -35,6 +35,7 @@ antigen bundle systemd
 antigen bundle vi-mode
 antigen bundle z
 antigen bundle vundle
+antigen bundle marzocchi/zsh-notify
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
