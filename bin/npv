@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# bump the module version by <newversion>,
+# push to git and publish to npm
+# version: 1.0.0
+# author: Yoshua Wuyts <i@yoshuawuyts.com>
+# license: MIT
+
+usage () {
+  echo 'usage: npv <newversion>'
+}
+
+[ ! $1 ] && usage && exit 1
+[ $1 = '-h' ] && usage && exit 0
+
+npm version $1 && npm publish && git push
