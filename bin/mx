@@ -66,7 +66,7 @@ if ! (tmux list-sessions | cut -d':' -f1 | grep -q ^"$SESSION"\$); then
   else
     tmux new-session -s "$SESSION" -n editor -d
     tmux send-keys "$EDITOR" C-m #':CtrlP' C-m
-    tmux new-window -n shell -t "$SESSION"
+    tmux split-window -h
     _safe_window console script/console
     _safe_window server script/server
 
