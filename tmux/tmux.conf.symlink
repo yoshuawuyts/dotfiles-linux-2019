@@ -3,6 +3,8 @@ set -ga update-environment ' ITERM_PROFILE TMUX_STATUS_LEFT'
 set-window-option -g mode-keys vi
 
 set -g default-terminal "screen-256color"
+set -g utf8
+set-window-option -g utf8 on
 
 ## keybindings
 unbind C-b
@@ -157,7 +159,6 @@ set-option -g pane-active-border-bg default
 ## chooser colors
 set-window-option -g    mode-bg   colour5  # selector background
 set-window-option -g    mode-fg   black    # selector foreground
-
 
 ## Copy/paste
 unbind -t vi-copy Enter
