@@ -7,6 +7,9 @@ zmodload zsh/zle
 BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
+# utf-8
+export LANG=en_US.UTF-8 LC_CTYPE="en_US.UTF-8"
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/src/yw/dotfiles
 export DOTFILES=$HOME/src/yw/dotfiles
