@@ -55,6 +55,7 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-repeat'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'jeetsukumaran/vim-buffergator'
 
 call vundle#end()            " required
 filetype plugin indent on
@@ -73,7 +74,7 @@ set t_Co=256
 " General Config
 " ==============
 
-let mapleader='\'
+let mapleader=' '
 set gfn=Menlo:h14
 set encoding=utf-8
 set number                      " Line numbers are good
