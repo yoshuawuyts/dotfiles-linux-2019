@@ -10,7 +10,7 @@ usage () {
   echo 'usage: npv <newversion>'
 }
 
-[ ! $1 ] && usage && exit 1
-[ $1 = '-h' ] && usage && exit 0
+[ ! "$1" ] && usage && exit 1
+[ "$1" = '-h' ] && usage && exit 0
 
-npm version $1 && npm publish && git push
+npm version "$1" && npm publish && git push
