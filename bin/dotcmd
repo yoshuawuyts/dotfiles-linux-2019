@@ -9,4 +9,4 @@
 # $ZSH/osx/set-defaults.sh
 
 # Upgrade homebrew and Install homebrew packages
-brew bundle $ZSH/homebrew/Brewfile
+cat "$ZSH"/homebrew/Brewfile | xargs -n1 brew install
