@@ -13,7 +13,6 @@ bsdmake
 cloog
 cmake
 cmatrix
-consul
 coreutils
 cowsay
 ctags
@@ -44,7 +43,6 @@ gnutls
 go
 gpg-agent
 grc
-grep
 htop-osx
 httpry
 hub
@@ -81,7 +79,6 @@ moreutils
 mpfr
 mpg123
 mutt
-neovim
 nettle
 newt
 nvm
@@ -103,7 +100,6 @@ reattach-to-user-namespace
 redis
 rename
 s-lang
-screen
 shellcheck
 source-highlight
 ssh-copy-id
