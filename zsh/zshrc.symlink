@@ -1,4 +1,4 @@
-export PATH=$PATH:/Users/yoshuawuyts/src/yw/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/yoshuawuyts/.config/base16-shell
+export PATH=$PATH:/Users/yw/src/yw/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/yw/.config/base16-shell
 
 # start zle
 zmodload zsh/zle
@@ -69,10 +69,7 @@ for config_file ($ZSH/**/completion.sh) source $config_file
 source `brew --prefix grc`/etc/grc.bashrc
 
 # source subs
-# eval "$($DOTFILES/bin/yoshuawuyts init -)"
-
-# added by travis gem
-[ -f /Users/yoshuawuyts/.travis/travis.sh ] && source /Users/yoshuawuyts/.travis/travis.sh
+# eval "$($DOTFILES/bin/yw init -)"
 
 # show tmux on startup
 # [ "$TMUX" = "" ] && tmux list-sessions 2> /dev/null
