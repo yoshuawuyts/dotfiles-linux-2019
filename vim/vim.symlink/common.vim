@@ -77,4 +77,5 @@ cmap w!! %!sudo tee > /dev/null %
 " :Dispatch
 map <Leader>d :Dispatch<CR>
 
-map <C-/> :Explore<CR>
+" Open buffers
+map <Leader>b :CtrlPBuffer<CR>
