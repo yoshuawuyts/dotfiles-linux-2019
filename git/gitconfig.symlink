@@ -99,3 +99,5 @@
   browser = open
 [help]
 	autocorrect = 5
+[url "https://"]
+	insteadOf = git://
