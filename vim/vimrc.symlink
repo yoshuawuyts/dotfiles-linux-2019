@@ -55,6 +55,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-repeat'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'tikhomirov/vim-glsl'
+Plugin 'vim-scripts/BufOnly.vim'
 
 call vundle#end()            " required
 filetype plugin indent on

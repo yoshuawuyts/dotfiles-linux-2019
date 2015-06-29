@@ -78,4 +78,7 @@ cmap w!! %!sudo tee > /dev/null %
 map <Leader>d :Dispatch<CR>
 
 " Open buffers
-map <Leader>b :CtrlPBuffer<CR>
+map <Leader>e :CtrlPBuffer<CR>
+
+" Close buffers
+command Ew execute "BufOnly"
