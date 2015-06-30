@@ -80,7 +80,7 @@ set-option -g display-time 5000
 
 ## set status bar
 set-option -g status-utf8 on
-set-option -g status-interval 1
+set-option -g status-interval 4
 set-option -g status-fg white
 set-option -g status-bg black
 set-option -g status-left-fg default
@@ -99,7 +99,7 @@ bind-key / set-option status
 # Where appropriate, special character sequences may be prefixed with a
 # number to specify the maximum length, in this line "#10W'.
 set -g status-left ""
-set-option -g status-right '#[fg=colour3]#S#[fg=default] [#I:#P] /// #(battery -o tmux -m default -g default)#[fg=default]%a %d %b %H:%M'
+set-option -g status-right '#[fg=colour3]#S#[fg=default] [#I:#P] | #(battery -o tmux -m default -g default)#[fg=default]%a %d %b %H:%M | #(next-appointment)'
 
 set-option -g status-right-length 100
 set-option -g status-left-length 120
