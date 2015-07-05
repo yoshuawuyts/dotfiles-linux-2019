@@ -1,0 +1,7 @@
+#!/bin/shell
+readonly url=$1
+readonly nr=${url##*/}
+
+hub am -3 --signof "$url" && git commit --amend --message="$(git log -1 --pretty=%B)
+
+Closes #$nr"
