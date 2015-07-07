@@ -69,7 +69,7 @@ for config_file ($ZSH/**/completion.sh) source $config_file
 source `brew --prefix grc`/etc/grc.bashrc
 
 # Link `man-n` to `man n`
-which man-n > /dev/null && eval $(man-n --link)
+alias "man=man-n --link"
 
 # source subs
 # eval "$($DOTFILES/bin/yw init -)"
