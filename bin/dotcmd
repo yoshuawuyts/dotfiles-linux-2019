@@ -11,3 +11,5 @@
 # Upgrade homebrew and Install homebrew packages
 cat "$ZSH"/homebrew/Brewfile | xargs -n1 brew install
 cat "$ZSH"/homebrew/Caskfile | xargs -n1 brew cask install
+cat "$ZSH"/npm/Packagefile | xargs -n1 npm install -g
+cat "$ZSH"/pip/Packagefile | xargs -n1 pip install
