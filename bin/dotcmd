@@ -5,8 +5,25 @@
 # `dot` handles installation, updates, things like that. Run it periodically
 # to make sure you're on the latest and greatest.
 
-# Set OS X defaults
-# $ZSH/osx/set-defaults.sh
+install_homebrew() {
+  readonly url=https://raw.githubusercontent.com/Homebrew/install/master/install
+  ruby -e "$(curl -fsSL $url)"
+}
+
+install_cask() {
+  brew install caskroom/cask/brew-cask
+}
+
+install_nvim() {
+  brew tap neovim/neovim
+  brew install --HEAD neovim
+}
+
+# update deps
+which brew > /dev/null || install_homebrew
+brew cask > /dev/null || install_cask
+brew update && brew upgrade
+brew cask update && brew cask upgrade
 
 # Upgrade homebrew and Install homebrew packages
 cat "$ZSH"/homebrew/Brewfile | xargs -n1 brew install
