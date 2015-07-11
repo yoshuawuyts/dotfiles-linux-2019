@@ -22,6 +22,7 @@ install_nvim() {
 # update deps
 which brew > /dev/null || install_homebrew
 brew cask > /dev/null || install_cask
+which nvim > /dev/null || install_nvim
 brew update && brew upgrade
 brew cask update && brew cask upgrade
 
