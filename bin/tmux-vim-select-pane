@@ -11,7 +11,7 @@ active_tty="$(tmux list-panes -F '#{pane_active}#{pane_tty}' | grep '^1')"
 if ps c -o 'state=,command=' -t "${active_tty#1}" | grep '+' | grep -iE '\bvim?\b' >/dev/null ; then
   direction="$(echo "${1#-}" | tr 'lLDUR' '\\hjkl')"
   # forward the keystroke to Vim
-  tmux send-keys C-$direction
+  tmux send-keys C-"$direction"
 else
   tmux select-pane "$@"
 fi
