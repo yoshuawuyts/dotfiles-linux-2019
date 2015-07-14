@@ -21,8 +21,7 @@ EOF
 }
 
 # assert arguments
-[ ! "$1" ] && usage && exit 1
-[ ! "$2" ] && usage && exit 1
+[ $# -ne 2 ] && usage && exit 1
 
 # switch arguments
 case $1 in 
