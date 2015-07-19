@@ -81,4 +81,4 @@ map <Leader>d :Dispatch<CR>
 map <Leader>e :CtrlPBuffer<CR>
 
 " Close buffers
-command Ew execute "BufOnly"
+" command Ew execute "BufOnly"
