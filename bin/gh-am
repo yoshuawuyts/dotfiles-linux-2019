@@ -1,4 +1,4 @@
-#!/bin/shell
+#!/bin/sh
 readonly url=$1
 readonly nr=${url##*/}
 
