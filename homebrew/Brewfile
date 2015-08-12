@@ -10,6 +10,7 @@ boot2docker
 brew-cask
 bro
 bsdmake
+clib
 cloog
 cmake
 cmatrix
