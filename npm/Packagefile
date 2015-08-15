@@ -1,7 +1,10 @@
-budo
-wzrd
-httpster
-pkg-name
 browserify
-watchify
+budo
+ghrepo
+httpster
+npm-3
+pkg-name
+tuner
 vmd
+watchify
+wzrd
