@@ -13,6 +13,6 @@ usage () {
 [ ! "$1" ] && usage && exit 1
 [ "$1" = '-h' ] && usage && exit 0
 
-[ "$1" = 'publish' ] npm publish && git push --tags && git push && exit 0
+[ "$1" = 'publish' ] && npm publish && git push --tags && git push && exit 0
 
 npm version "$1" && npm publish && git push --tags && git push
