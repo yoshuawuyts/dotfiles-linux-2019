@@ -44,7 +44,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'mileszs/ack.vim'
 Plugin 'Raimondi/delimitMate'
 " Plugin 'marijnh/tern_for_vim'
-Plugin 'Shougo/neocomplcache.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'terryma/vim-multiple-cursors'
@@ -57,6 +56,8 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'moll/vim-node'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
 
 call vundle#end()            " required
 filetype plugin indent on
@@ -205,8 +206,6 @@ source ~/.vim/go.vim
 source ~/.vim/snippets.vim
 source ~/.vim/writing.vim
 source ~/.vim/syntastic.vim
-"source ~/.vim/neocomplete.vim
-source ~/.vim/neocomplcache.vim
 
 set t_Co=256
 set background=dark

@@ -17,6 +17,7 @@ install_cask() {
 install_nvim() {
   brew tap neovim/neovim
   brew install --HEAD neovim
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 }
 
 # update deps
