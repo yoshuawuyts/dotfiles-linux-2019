@@ -1,4 +1,3 @@
-backbone-cli
 browserify
 budo
 cssnext
@@ -15,6 +14,7 @@ standard
 tap
 travisjs
 tuner
+underscore-cli
 vmd
 watchify
 wzrd
