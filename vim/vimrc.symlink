@@ -16,13 +16,13 @@ call plug#begin()
 " Plug 'marijnh/tern_for_vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'Raimondi/delimitMate'
+Plug 'Shougo/neocomplcache.vim'
+Plug 'Shougo/neosnippet.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'chriskempson/base16-vim'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'epmatsw/ag.vim'
 Plug 'ervandew/supertab'
-Plug 'flazz/vim-colorschemes'
 Plug 'gcmt/wildfire.vim'
 Plug 'godlygeek/tabular'
 Plug 'jayflo/vim-skip'
@@ -32,8 +32,6 @@ Plug 'mileszs/ack.vim'
 Plug 'moll/vim-node'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'Shougo/neocomplcache.vim'
-Plug 'Shougo/neosnippet.vim'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'sjl/gundo.vim'
@@ -199,9 +197,27 @@ source ~/.vim/snippets.vim
 source ~/.vim/writing.vim
 source ~/.vim/syntastic.vim
 
-set t_Co=256
-set background=dark
+" set background=dark
+
+" Colorscheme
+" ===========
+let g:hybrid_use_Xresources = 1
+set background=light
 silent! colorscheme Tomorrow-Night-Eighties
+
+" Airline
+" =======
+let g:airline_powerline_fonts = 0
+let g:airline_theme = 'tomorrow'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.whitespace = 'Ξ'
 
 " Git Gutter
 " ==========
