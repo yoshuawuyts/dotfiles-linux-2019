@@ -4,5 +4,6 @@
 nginx/vhosts/github*
 vim/vim.symlink/bundle/**
 vim/vim.symlink/spell/**
+vim/vim.symlink/plugged/**
 vim/vim.symlink/autoload/**
 npm-debug.log
