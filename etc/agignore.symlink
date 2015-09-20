@@ -19,3 +19,6 @@ build
 release
 releases
 fixtures
+
+# dotfiles
+vim/vim.symlink/bundle/*
