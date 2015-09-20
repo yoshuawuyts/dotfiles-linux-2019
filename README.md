@@ -1,6 +1,7 @@
 # Dotfiles
 OS X configuration files. There's no place like `~/`.
 
+## Preview
 ![tmux split](./tmux/screenshot.png)
 
 ## Installation
