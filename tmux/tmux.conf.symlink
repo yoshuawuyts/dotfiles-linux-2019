@@ -1,8 +1,39 @@
 # Don't lose ENV
 set -ga update-environment ' ITERM_PROFILE TMUX_STATUS_LEFT'
-set-window-option -g mode-keys vi
 
-set -g utf8
+###########################
+#  Configuration
+###########################
+
+# use 256 term for pretty colors
+set -g default-terminal "screen-256color"
+set-option -gw utf8 on
+
+# increase scroll-back history
+set -g history-limit 5000
+
+# use vim key bindings
+setw -g mode-keys vi
+
+# enable mouse
+set -g mode-mouse on
+set -g mouse-resize-pane on
+set -g mouse-select-pane on
+set -g mouse-select-window on
+
+# decrease command delay (increases vim responsiveness)
+set -sg escape-time 1
+
+# increase repeat time for repeatable commands
+set -g repeat-time 1000
+
+# re-number windows when one is closed
+set -g renumber-windows on
+
+## Copy/paste
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe 'reattach-to-user-namespace pbcopy'
+set-option -g default-command "reattach-to-user-namespace -l zsh; tmux rename-window zsh"
 
 ###########################
 #  Key Bindings
@@ -10,7 +41,7 @@ set -g utf8
 
 # tmux prefix
 unbind C-b
-set -g prefix C-f
+set -g prefix C-a
 
 # moving among panes
 bind h select-pane -L
@@ -54,38 +85,6 @@ set -g status-justify left
 set-option -g status-right '#(spotify artist) - #(spotify track) | #[fg=colour]#S#[fg=default] | #[fg=default]%a %d %b %H:%M'
 set-option -g status-right-length 80
 
-###########################
-#  Configuration
-###########################
-
-# use 256 term for pretty colors
-set -g default-terminal "screen-256color"
-
-# increase scroll-back history
-set -g history-limit 5000
-
-# use vim key bindings
-setw -g mode-keys vi
-
-# enable mouse
-set -g mode-mouse on
-set -g mouse-resize-pane on
-set -g mouse-select-pane on
-set -g mouse-select-window on
-
-# decrease command delay (increases vim responsiveness)
-set -sg escape-time 1
-
-# increase repeat time for repeatable commands
-set -g repeat-time 1000
-
-# re-number windows when one is closed
-set -g renumber-windows on
-
-## Copy/paste
-unbind -t vi-copy Enter
-bind-key -t vi-copy Enter copy-pipe 'reattach-to-user-namespace pbcopy'
-set-option -g default-command "reattach-to-user-namespace -l zsh; tmux rename-window zsh"
 
 ###########################
 # Colors

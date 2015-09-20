@@ -1,19 +1,15 @@
 " Vim Basics
 " ==========
-
 set nocompatible
 filetype off
 set encoding=utf-8
 
 " Enable vim-plug
 " ===============
-
 call plug#begin()
 
 " Plugins
 " =======
-
-" Plug 'marijnh/tern_for_vim'
 Plug 'bling/vim-airline'
 Plug 'Chiel92/vim-autoformat'
 Plug 'Raimondi/delimitMate'
@@ -24,7 +20,6 @@ Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'epmatsw/ag.vim'
 Plug 'ervandew/supertab'
-Plug 'gcmt/wildfire.vim'
 Plug 'godlygeek/tabular'
 Plug 'jayflo/vim-skip'
 Plug 'mattn/emmet-vim'
@@ -51,40 +46,28 @@ Plug 'vim-scripts/BufOnly.vim'
 
 " End vim-plug
 " ============
-
 call plug#end()
-
-" Indendation Settings
-" ====================
-
-filetype indent on
-filetype plugin on
 
 " Configuration Files
 " ===================
-
 set exrc   " Enable use of directory-specific .vimrc
 set secure " Only run autocommands owned by me
 
 " Display Settings
 " ================
-
 syntax on
 syntax enable
 set t_Co=256
 
 " Disable Background Color Erase (tmux)
 " ====================================
-
 if &term =~ '256color'
   set t_ut=
 endif
 
 " General Config
 " ==============
-
 let mapleader=' '
-set gfn=Menlo:h14
 set number                      " Line numbers are good
 set backspace=indent,eol,start  " Allow backspace in insert mode
 set history=1000                " Store lots of :cmdline history
@@ -97,28 +80,20 @@ set clipboard=unnamed           " Use system clipboard
 set hidden                      " Buffers can exist in the background
 set splitright                  " Opens vertical split right of current window
 set splitbelow                  " Opens horizontal split below current window
-"set shortmess=filnxtToOI       " see :help shortmess
-                                " http://items.sjbach.com/319/configuring-vim-right
 
 " Mouse
 " ======
-
-" Send more characters for redraws
-set ttyfast
-
-" Enable mouse use in all modes
-set mouse=a
+set ttyfast " Send more characters for redraws
+set mouse=a " Enable mouse use in all modes
 
 " Search Settings
 " ===============
-
 set incsearch        " Find the next match as we type the search
 set hlsearch         " Hilight searches by default
 set viminfo='100,f1  " Save up to 100 marks, enable capital marks
 
 " Turn Off Swap Files
 " ===================
-
 set noswapfile
 set nobackup
 set nowritebackup
@@ -127,7 +102,8 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " Indentation and Display
 " =======================
-
+filetype plugin on
+filetype indent on
 set autoindent
 set smartindent
 set smarttab
@@ -135,10 +111,6 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
-
-filetype plugin on
-filetype indent on
-
 set list listchars=tab:\ \ ,trail:·   " Display tabs and trailing spaces visually
 set colorcolumn=80                    " Show are marker at 80 chars
 set nowrap                            " Don't wrap lines
@@ -146,15 +118,12 @@ set linebreak                         " Wrap lines at convenient points
 
 " Folds
 " =====
-
 set foldmethod=indent   " Fold based on indent
 set foldnestmax=3       " Deepest fold is 3 levels
 set nofoldenable        " Don't fold by default
 
 " Completion
 " ==========
-
-"set wildmode=list:longest
 set wildmode=longest,list,full
 set wildmenu                    " Enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~     " Stuff to ignore when tab completing
@@ -162,7 +131,6 @@ set wildignore+=*vim/backups*
 
 " Scrolling
 " =========
-
 " Start scrolling when we're getting close to margins
 set scrolloff=10
 set sidescrolloff=15
@@ -170,7 +138,6 @@ set sidescroll=1
 
 " Disable Arrow Keys
 " ==================
-
 imap <down>  <nop>
 imap <left>  <nop>
 imap <right> <nop>
@@ -182,7 +149,7 @@ map  <up>    <nop>
 
 " Syntastic
 " =========
-
+"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -215,10 +182,6 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.whitespace = 'Ξ'
 
 " Git Gutter
 " ==========
