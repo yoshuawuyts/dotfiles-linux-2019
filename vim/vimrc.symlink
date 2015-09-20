@@ -58,16 +58,25 @@ Plugin 'SirVer/ultisnips'
 call vundle#end()            " required
 filetype plugin indent on
 
-" Per-directory .vimrc files
-set exrc
-set secure
+" Configuration Files
+" ===================
 
-" Syntax
-" ======
+set exrc   " Enable use of directory-specific .vimrc
+set secure " Only run autocommands owned by me
+
+" Display Settings
+" ================
 
 syntax on
 syntax enable
 set t_Co=256
+
+" Disable Background Color Erase (tmux)
+" ====================================
+
+if &term =~ '256color'
+  set t_ut=
+endif
 
 " General Config
 " ==============
@@ -113,18 +122,6 @@ set nobackup
 set nowritebackup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-" Persistent Undo
-" ===============
-
-" Keep undo history across sessions, by storing in file
-" Only works in MacVim (gui) mode
-if has('gui_running')
-  set undodir=~/.vim/backups
-  set undofile
-  " Hide the toolbar
-  set guioptions-=T
-endif
 
 " Indentation and Display
 " =======================
