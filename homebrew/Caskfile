@@ -13,6 +13,7 @@ iterm2
 karabiner
 obs
 osxfuse
+python3
 rcdefaultapp
 screenflow
 seil
@@ -26,4 +27,3 @@ vagrant
 vault
 virtualbox
 vlc
-wercker
