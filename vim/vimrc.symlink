@@ -16,8 +16,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'Shougo/neocomplcache.vim'
 Plug 'Shougo/neosnippet.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'chriskempson/base16-vim'
 Plug 'epmatsw/ag.vim'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
@@ -170,8 +170,9 @@ source ~/.vim/syntastic.vim
 " Colorscheme
 " ===========
 let g:hybrid_use_Xresources = 1
-set background=light
-silent! colorscheme Tomorrow-Night-Eighties
+set background=dark
+let base16colorspace=256
+colorscheme base16-eighties
 
 " Airline
 " =======
