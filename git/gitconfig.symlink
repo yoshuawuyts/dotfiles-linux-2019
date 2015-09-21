@@ -30,7 +30,7 @@
   co = checkout
   ctags = !.git/hooks/ctags
   # Show the diff between the latest commit and the current state
-  d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
+  d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat --color-words"
   # `git di $number` shows the diff between the state `$number` revisions ago and the current state
   di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
   # Diff
@@ -97,10 +97,13 @@
 
 [web]
   browser = open
+
 [help]
 	autocorrect = 5
+
 [url "https://"]
 	insteadOf = git://
+
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
