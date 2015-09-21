@@ -68,5 +68,6 @@ bindkey '^R' history-incremental-search-backward
 # Enable autosuggestions automatically.
 zle-line-init() { zle autosuggest-start }
 zle -N zle-line-init
+AUTOSUGGESTION_HIGHLIGHT_COLOR='fg=8'
 AUTOSUGGESTION_HIGHLIGHT_CURSOR=0
 bindkey '^I' vi-forward-word
