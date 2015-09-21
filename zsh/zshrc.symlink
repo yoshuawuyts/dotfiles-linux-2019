@@ -1,11 +1,10 @@
+###########################
+#  Configuration
+###########################
 export PATH=$PATH:/Users/yw/src/yw/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/yw/.config/base16-shell
 
 # start zle
-zmodload zsh/zle
-
-# base-16
-BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+# zmodload zsh/zle
 
 # utf-8
 export LC_ALL="en_US.UTF-8"
@@ -20,60 +19,52 @@ export PROJECTS=~/src
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
 
-# plugins
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle zsh-users/fizsh
-antigen bundle zsh-users/zaw
+# use .localrc for super secret things
+if [[ -a ~/.localrc ]]; then source ~/.localrc; fi
+
+###########################
+# Colors
+###########################
+# base-16
+BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+# colorize unix tools
+source `brew --prefix grc`/etc/grc.bashrc
+
+###########################
+#  Plugins
+###########################
 antigen bundle git
 antigen bundle gpg-agent
-antigen bundle docker
-antigen bundle web-search
-antigen bundle pass
-antigen bundle mosh
-antigen bundle osx
-antigen bundle nvm
-antigen bundle systemd
-antigen bundle vi-mode
-antigen bundle z
-antigen bundle vundle
 antigen bundle marzocchi/zsh-notify
-antigen bundle tarruda/zsh-autosuggestions
+antigen bundle mosh
+antigen bundle nvm
+antigen bundle osx
+antigen bundle pass
+antigen bundle vi-mode
+antigen bundle vundle
+antigen bundle z
+antigen bundle zsh-users/fizsh
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-syntax-highlighting
 
-# use .localrc for SUPER SECRET CRAP that you don't
-# want in your public, versioned repo.
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
-fi
+# load autosuggest as last
+antigen bundle tarruda/zsh-autosuggestions
 
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
+for config_file ($ZSH/**/completion.sh) source $config_file
 
 # quote pasted URLs
 autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
 
-# fun
-autoload -U tetris
-zle -N tetris
-bindkey ^T tetris
-
 # Fix history search in tmux
 bindkey '^R' history-incremental-search-backward
 
-# load every completion after autocomplete loads
-for config_file ($ZSH/**/completion.sh) source $config_file
-
-source `brew --prefix grc`/etc/grc.bashrc
-
-# Link `man-n` to `man n`
-alias "man=man-n --link"
-
-# source subs
-# eval "$($DOTFILES/bin/yw init -)"
-
-# show tmux on startup
-# [ "$TMUX" = "" ] && tmux list-sessions 2> /dev/null
+# Enable autosuggestions automatically.
+zle-line-init() { zle autosuggest-start }
+zle -N zle-line-init
