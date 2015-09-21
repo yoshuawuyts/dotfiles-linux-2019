@@ -65,3 +65,4 @@ bindkey '^R' history-incremental-search-backward
 # Enable autosuggestions automatically.
 zle-line-init() { zle autosuggest-start }
 zle -N zle-line-init
+AUTOSUGGESTION_HIGHLIGHT_CURSOR=0
