@@ -24,7 +24,7 @@ EOF
 [ $# -ne 2 ] && usage && exit 1
 
 # switch arguments
-case $1 in 
+case $1 in
   -h|--help) usage; exit;;
 esac
 
