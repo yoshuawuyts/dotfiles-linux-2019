@@ -85,7 +85,6 @@ set -g status-justify left
 set-option -g status-right '#(spotify artist) - #(spotify track) | #[fg=colour]#S#[fg=default] | #[fg=default]%a %d %b %H:%M'
 set-option -g status-right-length 80
 
-
 ###########################
 # Colors
 ###########################
