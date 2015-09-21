@@ -2,7 +2,7 @@
 OS X configuration files. There's no place like `~/`.
 
 ## Preview
-![tmux split](./tmux/screenshot.png)
+![tmux split](./src/screenshot.png)
 
 ## Installation
 ```sh
