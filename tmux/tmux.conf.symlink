@@ -95,7 +95,7 @@ set -g status-fg colour239
 
 # highlight current window
 set-window-option -g window-status-current-bg default
-set-window-option -g window-status-current-fg colour69
+set-window-option -g window-status-current-fg colour8
 
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
