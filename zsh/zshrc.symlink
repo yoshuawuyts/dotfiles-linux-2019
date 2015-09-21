@@ -3,6 +3,9 @@
 ###########################
 export PATH=$PATH:/Users/yw/src/yw/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/yw/.config/base16-shell
 
+# start zle
+zmodload zsh/zle
+
 # utf-8
 export LC_ALL="en_US.UTF-8"
 
@@ -66,3 +69,4 @@ bindkey '^R' history-incremental-search-backward
 zle-line-init() { zle autosuggest-start }
 zle -N zle-line-init
 AUTOSUGGESTION_HIGHLIGHT_CURSOR=0
+bindkey '^I' vi-forward-word
