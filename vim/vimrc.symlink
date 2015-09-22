@@ -177,7 +177,7 @@ colorscheme base16-eighties
 " Airline
 " =======
 let g:airline_powerline_fonts = 0
-let g:airline_theme = 'tomorrow'
+let g:airline_theme = 'eighties'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
