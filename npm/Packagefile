@@ -1,6 +1,7 @@
 browserify
 budo
 cssnext
+eslint_d
 ghrepo
 grunt
 gulp
