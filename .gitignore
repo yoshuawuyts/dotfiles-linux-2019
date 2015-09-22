@@ -1,4 +1,5 @@
 *_private.zsh
+.DS_Store
 *_creds.zsh
 .netrwhist
 nginx/vhosts/github*
