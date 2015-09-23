@@ -98,6 +98,7 @@ set-window-option -g window-status-current-bg default
 set-window-option -g window-status-current-fg colour8
 
 # List of plugins
+# Install using prefix + I
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-copycat'
 set -g @plugin 'tmux-plugins/tmux-open'
