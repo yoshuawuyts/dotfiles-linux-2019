@@ -10,14 +10,15 @@ call plug#begin()
 
 " Plugins
 " =======
-Plug 'bling/vim-airline'
 Plug 'Chiel92/vim-autoformat'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/neocomplcache.vim'
 Plug 'Shougo/neosnippet.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'bling/vim-airline'
+Plug 'bruno-/vim-husk'
 Plug 'chriskempson/base16-vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'epmatsw/ag.vim'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
