@@ -8,7 +8,10 @@ set -e
 active_tty="$(tmux list-panes -F '#{pane_active}#{pane_tty}' | grep '^1')"
 
 # checks if there's a foreground Vim process in attached to that tty
-if ps c -o 'state=,command=' -t "${active_tty#1}" | grep '+' | grep -iE '\bvim?\b' >/dev/null ; then
+if ps c -o 'state=,command=' -t "${active_tty#1}"\
+  | grep "+"\
+  | grep -iE '\nvim?\b' >/dev/null ;
+then \
   direction="$(echo "${1#-}" | tr 'lLDUR' '\\hjkl')"
   # forward the keystroke to Vim
   tmux send-keys C-"$direction"
