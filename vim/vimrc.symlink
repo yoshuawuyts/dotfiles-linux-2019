@@ -148,6 +148,16 @@ map  <left>  <nop>
 map  <right> <nop>
 map  <up>    <nop>
 
+" Fix fmux escape characters
+" =========================
+set timeout
+set timeoutlen=750
+set ttimeoutlen=250
+if has ('nvim')
+  set ttimeout
+  set ttimeoutlen=0
+endif
+
 " Syntastic
 " =========
 "
