@@ -44,6 +44,8 @@ unbind C-b
 set -g prefix C-a
 
 # moving among panes
+bind q confirm-before kill-session
+bind Q confirm-before kill-server
 bind -n C-k run-shell 'tmux-vim-select-pane -U; exit 0'
 bind -n C-j run-shell 'tmux-vim-select-pane -D; exit 0'
 bind -n C-h run-shell 'tmux-vim-select-pane -L; exit 0'
