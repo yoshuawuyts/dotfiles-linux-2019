@@ -43,6 +43,10 @@ set-option -g default-command "reattach-to-user-namespace -l zsh; tmux rename-wi
 unbind C-b
 set -g prefix C-a
 
+# restore clear commands
+bind C-l send-keys 'C-l'   # restore 'clear screen'
+bind C-k send-keys 'C-k'   # restore 'kill line'
+
 # moving among panes
 bind q confirm-before kill-session
 bind Q confirm-before kill-server
