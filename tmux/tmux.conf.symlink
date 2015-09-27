@@ -73,14 +73,21 @@ bind-key N command-prompt 'rename-session "%%"'
 bind C-l send-keys 'C-l'   # restore 'clear screen'
 bind C-k send-keys 'C-k'   # restore 'kill line'
 
-# pane controls
-bind-key + resize-pane -Z
-bind-key = resize-pane -Z
+# window controls
+bind-key C-a last-window
 bind-key | split-window -h
 bind-key \ split-window -h
 bind-key - split-window -v
 bind-key < swap-window -t :-
 bind-key > swap-window -t :+
+
+# pane controls
+bind-key + resize-pane -Z
+bind-key = resize-pane -Z
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 6
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
 
 # kill commands
 bind-key x kill-pane
@@ -93,13 +100,6 @@ bind -n C-k run-shell 'tmux-vim-select-pane -U; exit 0'
 bind -n C-j run-shell 'tmux-vim-select-pane -D; exit 0'
 bind -n C-h run-shell 'tmux-vim-select-pane -L; exit 0'
 bind -n C-l run-shell 'tmux-vim-select-pane -R; exit 0'
-
-# resize panes
-bind + resize-pane -Z
-bind -r H resize-pane -L 5
-bind -r J resize-pane -D 5
-bind -r K resize-pane -U 5
-bind -r L resize-pane -R 5
 
 # force a reload of the config file
 unbind r
