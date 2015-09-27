@@ -24,6 +24,7 @@ ffmpeg
 findutils
 fleetctl
 fontconfig
+fortune
 fpp
 freetype
 gawk
