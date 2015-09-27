@@ -75,6 +75,7 @@ bind C-k send-keys 'C-k'   # restore 'kill line'
 
 # window controls
 bind-key C-a last-window
+bind-key C-C last-window
 bind-key | split-window -h
 bind-key \ split-window -h
 bind-key - split-window -v
