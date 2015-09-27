@@ -1,0 +1,31 @@
+" Set editor command to vim
+" ========================
+set vicmd=nvim
+
+" Set trash directory
+" ===================
+set trash
+
+" Search
+" ======
+set grepprg=ag\ --line-numbers\ %i\ %a\ %s
+
+" Video
+" =====
+filetype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.vob,*.flv
+        \ {View using ffplay}
+        \ ffplay -fs %c,
+        \ {View using mplayer}
+        \ mplayer %f,
+        \ {View using VLC}
+        \ vlc %f,
+fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.vob
+         \ ffprobe -show_files -pretty %f 2> /dev/null
+
+" Turn tmux integration on
+" =======================
+:screen
+
+" Key mappings
+" ============
+nmap - h

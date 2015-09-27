@@ -1,0 +1,4027 @@
+vifm(1) 			     Vifm			       vifm(1)
+
+
+
+NAME
+       vifm  vi file manage
+
+SYNOPSIS
+       vifm [OPTION]...
+       vifm [OPTION]... LWIN_DIR
+       vifm [OPTION]... LWIN_DIR RWIN_DIR
+
+DESCRIPTION
+       Vifm  is  a ncuses based file manage with vi like keybindings. If you
+       use vi, vifm gives you complete keyboad contol ove you files  with
+       out having to lean a new set of commands.
+
+OPTIONS
+       The  vifm executable will stat vifm in the cuent diectoy unless it
+       is given a diffeent diectoy on the command line.
+
+       <lwinpath>
+	      Stats Vifm in the specified path.
+
+       <lwinpath> <winpath>
+	      Stats Vifm in the specified paths.
+
+       Specifying two diectoies tigges split view even when  vifm  was  in
+       singleview  mode  on finishing pevious session.  To suppess this be
+       haviou :only command can be put in the vifmc file.
+
+       When only one path agument is found on commandline, the left/top pane
+       is automatically set as the cuent view.
+
+       Paths  to  files  ae  also allowed in case you want vifm to stat with
+       some achive opened.  If you want to select file, pepend its path with
+       select.
+
+      f     only  used	fom  the  vifm.vim  scipt.  The selected files ae
+	      witten to $VIFM/vimfiles and vifm exits.
+
+     logging
+	      Log some eos to  $VIFM/log.   Also  /va/log/vifmstatuplog
+	      (on  *nix)  and  statuplog  in the diectoy of executable (on
+	      Windows) is used to  log	statup  pocess  (when  configuation
+	      diectoy isnt detemined).
+
+     emote
+	      Sends the est of command line to the active vifm seve (one of
+	      aleady unning instances if any).  When	thee  is  no  seve,
+	      quits  silently.	Thee is no limit on how many aguments can be
+	      pocessed.  One can combine emote with c <command> o +<com
+	      mand>  to  execute  command in aleady unning instance of vifm.
+	      See also "ClientSeve" section below.
+
+      c <command> o +<command>
+	      Run commandline mode <command> on statup.   Commands  in  such
+	      aguments ae executed in the ode they appea in command line.
+	      Commands with spaces o special symbols must be enclosed in dou
+	      ble  o  single  quotes o all special symbols should be escaped
+	      (the exact syntax stongly depends on shell).
+
+     help,h
+	      Show an oveview of the commandline options.
+
+     vesion,v
+	      Show vesion infomation and quit.
+
+     nconfigs
+	      Dont ead vifmc and vifminfo.
+
+
+       See Statup section below fo the explanations on $VIFM.
+
+Geneal keys
+       CtC o Escape
+	      cancel most opeations (see "Cancellation" section below), clea
+	      all selected files.
+
+       CtL clea and edaw the sceen.
+
+Basic Movement
+       The  basic vi key bindings ae used to move though the files and popup
+       windows.
+
+       k, gk, o CtP
+	      moves cuso up one line.
+
+       j, gj o CtN
+	      moves cuso down one line.
+
+       h      when lsview is off moves up  one	diectoy,  othewise  moves
+	      left one file.
+
+       l      when  lsview is off moves into a diectoy o launches a file,
+	      othewise moves left one file.
+
+       gg     move to the top of the file list.
+
+       gh     moves up one diectoy.
+
+       gl o Ente
+	      moves into a diectoy o launches a file.
+
+       G      move to the bottom of the file list.
+
+       H      move to the fist file in the window.
+
+       M      move to the file in the middle of the window.
+
+       L      move to the last file in the window.
+
+       CtF o Page Down
+	      move fowad one page.
+
+       CtB o Page Up
+	      move back one page.
+
+       CtD jump back one half page.
+
+       CtU jump fowad one half page.
+
+       n%     move to the file that is n pecent fom the top of the list (fo
+	      example 25%).
+
+       0 o ^ move  cuso  to the fist column.  See lsview option descip
+	      tion.
+
+       $      move cuso to the last column.  See  lsview  option  descip
+	      tion.
+
+       Space Ba
+	      toggles between the two file lists.
+
+Movement with Count
+       Most  movement  commands  also  accept  a count, 12j would move down 12
+       files.
+
+       [count]%
+	      move to pecent of the file list.
+
+       [count]j
+	      move down count files.
+
+       [count]k
+	      move up count files.
+
+       [count]G o [count]gg
+	      move to list position count.
+
+Scolling panes
+       zt     edaw pane with file in top of list.
+
+       zz     edaw pane with file in cente of list.
+
+       zb     edaw pane with file in bottom of list.
+
+       CtE scoll pane one line down.
+
+       CtY scoll pane one line up.
+
+Pane manipulation
+       Second chaacte can be enteed with o without Contol key.
+
+       CtW H
+	      move the pane to the fa left.
+
+       CtW J
+	      move the pane to the vey bottom.
+
+       CtW K
+	      move the pane to the vey top.
+
+       CtW L
+	      move the pane to the fa ight.
+
+       CtW b
+	      switch to bottomight window.
+
+       CtW h
+	      switch to the left pane.
+
+       CtW j
+	      switch to the pane below.
+
+       CtW k
+	      switch to the pane above.
+
+       CtW l
+	      switch to the ight pane.
+
+       CtW o
+	      shotcut fo :only
+
+       CtW p
+	      switch to pevious window.
+
+       CtW s
+	      shotcut fo :split
+
+       CtW t
+	      switch to topleft window.
+
+       CtW v
+	      shotcut fo :vsplit
+
+       CtW w
+	      switch to othe pane.
+
+       CtW x
+	      exchange panes.
+
+       CtW z
+	      quit peview pane o view modes.
+
+       [count1]CtW[count2]+
+	      incease size of the view by count1*count2.
+
+       [count1]CtW[count2]
+	      decease size of the view by count1*count2..
+
+       [count1]CtW[count2]<
+	      incease size of the view by count1*count2..
+
+       [count1]CtW[count2]>
+	      decease size of the view by count1*count2..
+
+       CtW |
+	      maximize cuent view.
+
+       CtW _
+	      maximize cuent view.
+
+       CtW =
+	      make size of two views equal.
+
+Maks
+       Maks ae set the same way as they ae in vi.
+
+       You can use this chaactes fo maks [az][AZ][09].
+
+       m[z][Z][9]
+	      to set a mak fo the file at the cuent cuso position.
+
+      [z][Z][9]
+	      moves to the file set fo the mak.
+
+
+       Thee ae also seveal special maks that cant be set manually:
+
+	  (single  quote)    peviously visited diectoy of the view, thus
+	 hitting  allows switching between two last locations
+
+	<  the fist file of the last visually selected block
+
+	>  the last file of the last visually selected block
+
+Seaching
+       /egula expession patten[Retun]
+	      seach fo files matching egula expession in  fowad	diec
+	      tion and advance cuso to next match.
+
+       /[Retun]
+	      pefom  fowad seach with top item of seach patten histoy.
+
+       ?egula expession patten[Retun]
+	      seach fo files matching egula expession in backwad	diec
+	      tion and advance cuso to pevious match.
+
+       ?[Retun]
+	      pefom backwad seach with top item of seach patten histoy.
+
+       Matches ae automatically selected  if  hlseach  is  set.   Enabling
+       incseach  makes  seach  inteactive.	ignoecase and smatcase
+       options affect case sensitivity of seach queies.
+
+
+       [count]n
+	      find the next match of / o ?.
+
+       [count]N
+	      find the pevious match of / o ?.
+
+       If hlseach option is set, hitting n/N to pefom seach  and  go  to
+       the fist matching item esets cuent selection in nomal mode.  It is
+       not the case if seach was aleady pefomed on files in the diectoy,
+       thus  selection	is  not eset afte cleaing selection with escape key
+       and hitting n/N key again.
+
+
+       [count]f[chaacte]
+	      seach fowad fo file with [chaacte] as fist  chaacte  in
+	      name.  Seach waps aound the end of the list.
+
+       [count]F[chaacte]
+	      seach  backwad fo file with [chaacte] as fist chaacte in
+	      name.  Seach waps aound the end of the list.
+
+       [count];
+	      find the next match of f o F.
+
+       [count],
+	      find the pevious match of f o F.
+
+       Note: f, F, ; and , wap aound list beginning and end  when  they  ae
+       used alone and they dont wap when they ae used as selectos.
+
+File Filtes
+       Thee ae thee basic file filtes:
+
+	dot  files  filte (excluding "." and ".." special diectoies, which
+	 appeaance is contolled by the dotdis option)
+
+	manual filte fo file names
+
+	automatic filte fo file names
+
+	local filte fo file names (see desciption of the "="  nomal  mode
+	 command)
+
+       Pefoming  opeations  on  manual  filte fo file names automatically
+       does the same on automatic one.	The  file  name  filte  is  sepaated
+       mainly fo convenience pupose and to get moe deteministic behaviou.
+
+       The basic vim folding key bindings ae used fo filteing files.
+
+       Each file list has its own copy of each filte.
+
+       Filteed files ae not checked in / seach o :commands.
+
+       Files and diectoies ae filteed sepaately.  Fo  this  a  slash  is
+       appended to a diectoy name befoe testing whethe it matches the fil
+       te.  Examples:
+
+
+	 " filte diectoies which names end with .files
+	 :filte /^.*\.files\/$/
+
+	 " filte files which names end with .d
+	 :filte /^.*\.d$/
+
+	 " filte files and diectoies which names end with .o
+	 :filte /^.*\.o\/?$/
+
+       zo     Show all of the dot files.
+
+       zf     Filte all of the selected files.
+
+       za     Toggle the showing and hiding of dot files.
+
+       zm     Filte all of the dot files.
+
+       zO     Show the files filteed out by filename filte.
+
+       zM     Filte the files matching the filename filte.
+
+       zR     Remove all filtes.
+
+       =egula expession patten[Retun]
+	      filte out files that dont match egula	expession.   Whethe
+	      view  is updated as egula expession is changed depends on the
+	      value of the incseach option.  This kind of filte  is  auto
+	      matically eset when diectoy is changed.
+
+Othe Nomal Mode Keys
+       [count]:
+	      ente command line mode.	Count will add ange.
+
+       q:     open  extenal  edito  to pompt fo commandline command.  See
+	      "Command line editing" section fo details.
+
+       q/     open extenal edito to pompt fo seach patten to be seached
+	      in  fowad  diection.	See "Command line editing" section fo
+	      details.
+
+       q?     open extenal edito to pompt fo seach patten to be seached
+	      in  backwad  diection.	See "Command line editing" section fo
+	      details.
+
+       q=     open extenal edito to pompt fo filte patten.  See "Command
+	      line  editing"  section fo details.  Unlike othe q{x} commands
+	      this one doesnt wok in Visual mode.
+
+       [count]!! and [count]!<selecto>
+	      ente command line mode with enteed ! command.  Count will mod
+	      ify ange.
+
+       CtO go backwad though diectoy histoy of cuent view.  Nonexis
+	      tent diectoies ae automatically skipped.
+
+       CtI if cpoptions contains "t" flag, <tab> and <ci> switch  active
+	      pane  just  like <space> does, othewise it goes fowad though
+	      diectoy histoy of cuent view.  Nonexistent diectoies  ae
+	      automatically skipped.
+
+       CtG ceates  a window showing detailed infomation about the cuent
+	      file.
+
+       ShifTab
+	      entes view mode (woks only afte  activating  view  pane  with
+	      :view command).
+
+       ga     calculate diectoy size.  Uses cached diectoy sizes when pos
+	      sible fo bette pefomance.
+
+       gA     like ga, but foce update.   Ignoes  old  values  of  diectoy
+	      sizes.
+
+       If file unde cuso is selected, each selected item is pocessed, oth
+       ewise only cuent file is updated.
+
+       gf     find link destination (like l with followlinks off,  but	also
+	      finds diectoies).
+
+       g     only fo MSWindows
+	      same  as	l  key,  but  ties to un pogam with administative
+	      pivileges.
+
+       av     go to visual mode into selection amending state peseving  cu
+	      ent selection.
+
+       gv     go to visual mode estoing last selection.
+
+       gs     estoe last t selection, like gv fo visual mode selection.
+
+       gu<selecto>
+	      make names of selected files lowecase.
+
+       [count]guu and [count]gugu
+	      make names of [count] files stating fom the cuent one lowe
+	      case.  Without [count] only cuent file is affected.
+
+       gU<selecto>
+	      make names of selected files uppecase.
+
+       [count]gUU and [count]gUgU
+	      make names of [count] files stating fom the cuent one uppe
+	      case.  Without [count] only cuent file is affected.
+
+       e      exploe file in the cuent pane.
+
+       i      opens file with associated pogam even if its an executable.
+
+       cw     ename a file o files.
+
+       cW     change only name of file (without extension).
+
+       cl     change link taget.
+
+       co     only fo *nix
+	      change file owne.
+
+       cg     only fo *nix
+	      change file goup.
+
+       cp     change  file  attibutes	(pemission  on *nix and popeties on
+	      Windows).
+
+       [count]C
+	      clone file [count] times.
+
+       [count]dd o d[count]selecto
+	      moves the selected files to tash diectoy (if  tash  option
+	      is set, othewise delete).  See "Tash diectoy" section below.
+
+       [count]DD o D[count]selecto
+	      emoves the selected files.
+
+       Y, [count]yy o y[count]selecto
+	      yanks the selected files.
+
+       Y      same as yy.
+
+       p      will copy the yanked files to the cuent diectoy o move  the
+	      files  to  the cuent diectoy if they wee deleted with dd o
+	      :d[elete] o if the files wee yanked fom tash diectoy.  See
+	      "Tash diectoy" section below.
+
+       P      moves  the  last yanked files.  The advantage of using P instead
+	      of d followed by p is that P moves files only once.  This  isnt
+	      impotant  in  case  youe moving files in the same file system
+	      whee you home diectoy is, but using P to move files on  some
+	      othe  file  system  (o	file systems, in case you want to move
+	      files fom fs1 to fs2 and you home is on  fs3)  can  save  you
+	      time.
+
+       al     puts symbolic links with absolute paths.
+
+       l     puts symbolic links with elative paths.
+
+       t      select o unselect (tag) the cuent file.
+
+       u      undo last change.
+
+       CtR edo last change.
+
+       v, V   ente visual mode, cleas cuent selection.
+
+       [count]CtA
+	      incement fist numbe in file name by count (1 by default).
+
+       [count]CtX
+	      decement fist numbe in file name by count (1 by default).
+
+       ZQ     same as :quit!
+
+       ZZ     same as :quit
+
+       .      epeat  last  command  line command (not nomal mode command) of
+	      this session (does nothing ight afte statup o :estat  com
+	      mand).   The  command doesnt depend on commandline histoy and
+	      can be used with completely disabled histoy.
+
+       (      goto pevious goup.  Goups ae defined by pimay soting key.
+	      Fo name and iname membes of each goup have same fist lette,
+	      fo all othe soting keys vifm uses size, uid, ...
+
+       )      goto next goup.	See ( key desciption above.
+
+Using Count
+       You can use count with commands like yy.
+
+       [count]yy
+	      yank count files stating fom cuent cuso position downwad.
+
+       O you can use count with motions passed to y, d o D.
+
+       d[count]j
+	      delete  (count  + 1) files stating fom cuent cuso position
+	      upwad.
+
+Registes
+       vifm suppots multiple egistes fo tempoay stoing list  of	yanked
+       o deleted files.
+
+       Registes should be specified with hitting double quite key followed by
+       a egiste name.  Count is specified afte egiste name.   By  default
+       commands use unnamed egiste, which has double quote as its name.
+
+       Though  all  commands  accept  egistes, most of commands ignoes them
+       (fo example H o CtlU).  Othe commands can fill egiste o  append
+       new files to it.
+
+       Pesently vifm suppots ", _, az and AZ chaactes as egiste names.
+
+       As mentioned above " is unnamed egiste and has special meaning of the
+       default	egiste.  Evey time when you use named egistes (az and A
+       Z) unnamed egiste is updated to contain same list  of	files  as  the
+       last used egiste.
+
+       _  is black hole egiste.  It can be used fo witing, but its list is
+       always empty.
+
+       Registes with names fom a to z  and fom A to Z ae named ones.  Low
+       ecase  egistes  ae cleaed befoe adding new files, while uppecase
+       aent and should be used to append new files to the existing file list
+       of appopiate lowecase egiste (A fo a, B fo b, ...).
+
+       Registes  can be changed on :empty command if they contain files unde
+       tash diectoy (see "Tash diectoy" section below).
+
+       Registes do not contain one file moe than once.
+
+       Example:
+
+	 "a2yy
+
+       will put names of two files to egiste a (and to  the  unnamed	egis
+       te),
+
+	 "Ad
+
+       will  emove  one  file	and  append its name to egiste a (and to the
+       unnamed egiste),
+
+	 p o "ap o "Ap
+
+       will inset peviously yanked and deleted files into cuent diectoy.
+
+Selectos
+       y,  d, D, !, gu and gU commands accept selectos.  You can combine them
+       with any of selectos below to quickly emove o yank seveal files.
+
+       Most  of  selectos ae like vi motions: j, k, gg, G, H, L, M, %, f, F,
+       ;, comma, , ^, 0 and $.	But thee ae some additional ones.
+
+       a      all files in cuent view.
+
+       s      selected files.
+
+       S      all files except selected.
+
+       Examples:
+	dj  delete file unde cuso and one below.
+	d2j  delete file unde cuso and two below.
+	y6gg  yank all files fom cuso position to 6th file in the list.
+
+       When you pass a count to whole command and its selecto they ae multi
+       plied. So:
+	2d2j  delete file unde cuso and fou below.
+	2dj  delete file unde cuso and two below.
+	2y6gg	yank all files fom cuso position to 12th file in the list.
+
+Visual Mode
+       Visual mode has to geneic opeating submodes:
+
+	plain selection as it is in Vim;
+
+	selection editing submode.
+
+
+       Both modes select files in ange fom cuso position at  which	visual
+       mode  was  enteed to cuent cuso position (lets call it "selection
+       egion").  Each of two bodes can be adjusted by swapping them via "o"
+       o  "O"	keys  and  updating cuso position with egula cuso motion
+       keys.  Obviously, once initial cuso position  is  alteed  this  way,
+       eal stat position becomes unavailable.
+
+       Plain  Vimlike visual mode stats with cleaed selection, which is not
+       estoed on ejecting selection ("Escape", "CtlC", "v",  "V").	 Con
+       tay  to it, selection editing doesnt clea peviously selected files
+       and estoes them afte eject.	Accepting selection by	pefoming  an
+       opeation on selected items (e.g. yanking them via "y") moves cuso to
+       the top of cuent selection egion (not to the top most selected  file
+       of the view).
+
+       In  tun,  selection  editing  suppots thee types of editing (look at
+       statusba to know which one is cuently active):
+
+	append	amend selection by selecting elements in selection egion;
+
+	emove	amend selection by deselecting elements in selection egion;
+
+	invet	amend selection by inveting selection of elements in selec
+	 tion egion.
+
+       No matte how you activate selection editing  it  stats  in  "append".
+       One  can switch type of opeation (in the ode given above) via "Ctl
+       G" key.
+
+       Almost all nomal mode keys wok in visual mode, but instead of accept
+       ing selectos they opeate on selected items.
+
+       Ente  save selection and go back to nomal mode not moving cuso.
+
+       av     leave  visual mode if in amending mode (estoes pevious selec
+	      tion), othewise switch to amending selection mode.
+
+       gv     estoe pevious visual selection.
+
+       v, V, CtC o Escape
+	      leave visual mode if not in amending mode, othewise  switch  to
+	      nomal visual selection.
+
+       CtG switche type of amending by ound obin scheme: append > emove
+	      > invet.
+
+       :      ente command line mode.	When you leave it  selection  will  be
+	      cleaed.
+
+       o      switch active selection bound.
+
+       O      switch active selection bound.
+
+       gu, u  make names of selected files lowecase.
+
+       gU, U  make names of selected files uppecase.
+
+View Mode
+       This mode ties to imitate the less pogam.  List of builtin shotcuts
+       can be found below.  Shotcuts can be customized using :qmap, :qnoemap
+       and :qunmap commandline commands.
+
+       ShifTab, Tab, q, Q, ZZ
+	      go back to nomal mode.
+
+       [count]e, [count]CtE, [count]j, [count]CtN, [count]Ente
+	      fowad one line (o [count] lines).
+
+       [count]y, [count]CtY, [count]k, [count]CtK, [count]CtP
+	      backwad one line (o [count] lines).
+
+       [count]f, [count]CtF, [count]CtV, [count]Space Ba
+	      fowad one window (o [count] lines).
+
+       [count]b, [count]CtB, [count]AlV
+	      backwad one window (o [count] lines).
+
+       [count]z
+	      fowad one window (and set window to [count]).
+
+       [count]w
+	      backwad one window (and set window to [count]).
+
+       [count]AlSpace
+	      fowad one window, but dont stop at endoffile.
+
+       [count]d, [count]CtD
+	      fowad one halfwindow (and set halfwindow to [count]).
+
+       [count]u, [count]CtU
+	      backwad one halfwindow (and set halfwindow to [count]).
+
+       , CtR, CtL
+	      epaint sceen.
+
+       R      eload view peseving scoll position.
+
+       [count]/patten
+	      seach fowad fo ([count]th) matching line.
+
+       [count]?patten
+	      seach backwad fo ([count]th) matching line.
+
+       [count]n
+	      epeat pevious seach (fo [count]th occuence).
+
+       [count]N
+	      epeat pevious seach in evese diection.
+
+       [count]g, [count]<, [count]Al<
+	      go to fist line in file (o line [count]).
+
+       [count]G, [count]>, [count]Al>
+	      go to last line in file (o line [count]).
+
+       [count]p, [count]%
+	      go to beginning of file (o N pecent into file).
+
+       v      edit the cuent file with vim.
+
+
+       CtW H
+	      move the pane to the fa left.
+
+       CtW J
+	      move the pane to the vey bottom.
+
+       CtW K
+	      move the pane to the vey top.
+
+       CtW L
+	      move the pane to the fa ight.
+
+
+       CtW h
+	      switch to left pane.
+
+       CtW j
+	      switch to pane below.
+
+       CtW k
+	      switch to pane above.
+
+       CtW l
+	      switch to ight pane.
+
+
+       CtW b
+	      switch to bottomight window.
+
+       CtW t
+	      switch to topleft window.
+
+
+       CtW p
+	      switch to pevious window.
+
+       CtW w
+	      switch to othe pane.
+
+
+       CtW o
+	      leave only one pane.
+
+       CtW s
+	      split window hoizontally.
+
+       CtW v
+	      split window vetically.
+
+
+       CtW x
+	      exchange panes.
+
+       CtW z
+	      quit peview pane o view modes.
+
+
+       CtW +
+	      incease size of the view.
+
+       CtW
+	      decease size of the view.
+
+       CtW <
+	      incease size of the view.
+
+       CtW >
+	      decease size of the view.
+
+       CtW |
+	      maximize cuent view.
+
+       CtW _
+	      maximize cuent view.
+
+       CtW =
+	      make size of two views equal.
+
+
+       In  geneal,  all  "CtlW x" keys above wok the same was as in Nomal
+       mode.  Active mode is automatically changed on  navigating  among  win
+       dows.   When lesslike mode activated on file peview is left using one
+       by "CtlW x" keys, its state is stoed until anothe  file  is  showed
+       using  peview  (its possible to leave the mode, hide peview pane, do
+       something else, then get back to the file and show peview  pane  again
+       with peviously stoed state in it).
+
+Command line Mode
+       These keys ae available in all submodes of the command line mode: com
+       mand, seach, pompt and filteing.
+
+       Down, Up, Left, Right, Home, End and Delete ae extended keys and  they
+       ae  not  available  if	vifm  is compiled with disableextendedkeys
+       option.
+
+       Esc, CtC
+	      leave command line mode,	cancels  input.   Cancelled  input  is
+	      saved into appopiate histoy and can be ecalled late.
+
+       CtM, Ente
+	      execute command and leave command line mode.
+
+       CtI, Tab
+	      complete command o its agument.
+
+       ShifTab
+	      complete in evese ode.
+
+       Ct_ stop completion and etun oiginal input.
+
+       CtK emove chaactes fom cuso position till the end of line.
+
+       CtU emove  chaactes	fom  cuso  position till the beginning of
+	      line.
+
+       CtH, Backspace
+	      emove chaacte befoe the cuso.
+
+       CtD, Delete
+	      emove chaacte unde the cuso.
+
+       CtB, Left
+	      move cuso to the left.
+
+       CtF, Right
+	      move cuso to the ight.
+
+       CtA, Home
+	      go to line beginning.
+
+       CtE, End
+	      go to line end
+
+       AlB  go to the beginning of pevious wod.
+
+       AlF  go to the end of next wod.
+
+       CtW emove chaactes fom cuso position  till  the  beginning  of
+	      pevious wod.
+
+       AlD  emove  chaactes	fom  cuso  position till the beginning of
+	      next wod.
+
+       CtT swap the ode of cuent and pevious chaacte and move cuso
+	      fowad  o,  if	cuso past the end of line, swap the ode of
+	      two last chaactes in the line.
+
+       Al.  inset last pat of pevious command to cuent cuso position.
+	      Each next call will inset last pat of olde command.
+
+       CtG edit commandline content in extenal edito.  See "Command line
+	      editing" section fo details.
+
+       CtN ecall moe ecent commandline fom histoy.
+
+       CtP ecall olde commandline fom histoy.
+
+       Up     ecall moe ecent commandline fom histoy, that begins as the
+	      cuent commandline.
+
+       Down   ecall  olde commandline fom histoy, that begins as the cu
+	      ent commandline.
+
+Pasting special values
+       The shotcuts listed below inset specified values into cuent	cuso
+       position.  Last key of evey shotcut efeences value that it insets:
+
+	 c  [c]uent file
+	 d  [d]iectoy path
+	 e  [e]xtension of a filename
+	   []oot pat of a filename
+	 t  [t]ail pat of diectoy path
+
+	 a  [a]utomatic filte
+	 m  [m]anual filte
+	 =  local filte, which is bound to "=" in nomal mode
+
+       Values elated to filelist in cuent pane ae available though CtlX
+       pefix,	while  values  fom  the othe pane have doubled CtlX key as
+       thei pefix (doubled CtlX is pesumably easie to type  than  uppe
+       case  lettes; its still easy to emap the keys to coespond to names
+       of simila macos).
+
+       CtX c
+	      name of the cuent file of the active pane.
+
+       CtX CtX c
+	      name of the cuent file of the inactive pane.
+
+       CtX d
+	      path to the cuent diectoy of the active pane.
+
+       CtX CtX d
+	      path to the cuent diectoy of the inactive pane.
+
+       CtX e
+	      extension of the cuent file of the active pane.
+
+       CtX CtX e
+	      extension of the cuent file of the inactive pane.
+
+       CtX 
+	      name oot of cuent file of the active pane.
+
+       CtX CtX 
+	      name oot of cuent file of the inactive pane.
+
+       CtX t
+	      the last component of path  to  the  cuent  diectoy  of  the
+	      active pane.
+
+       CtX CtX t
+	      the last component of path to the cuent diectoy of the inac
+	      tive pane.
+
+
+       CtX a
+	      value of automatic filte of the active pane.
+
+       CtX m
+	      value of manual filte of the active pane.
+
+       CtX =
+	      value of local filte of the active pane.
+
+Command line editing
+       vifm povides a facility to edit seveal kinds of data, that is usually
+       edited  in  commandline mode, in extenal edito (using command speci
+       fied by vicmd o vixcmd option).  This has at least two	advantages
+       ove builtin commandline mode:
+	 one can use full powe of Vim to edit text;
+	 finding and eusing histoy enties becomes possible.
+
+       The facility is suppoted by fou input submodes of the commandline:
+	 command;
+	 fowad seach;
+	 backwad seach;
+	 file ename (see desciption of cw and cW nomal mode keys).
+
+       Editing commandline using extenal edito is activated by the c_CTRLG
+       shotcut.  Its also possible to do almost the  same  fom  Nomal  and
+       Visual modes using q:, q/ and q? commands.
+
+       Tempoay file ceated fo the pupose of editing the line has the fol
+       lowing stuctue:
+
+       1.  Fist line, which is eithe empty o contains text aleady  enteed
+	   in commandline.
+
+       2.  2nd	and  all othe lines with histoy items stating with the most
+	   ecent one.	Alteing this lines in any way	wont  change  histoy
+	   items stoed by vifm.
+
+
+       Afte  editing  application  is	finished the fist line of the file is
+       taken as the esult of opeation, when  the  application  etuns  zeo
+       exit  code.  If the application etuns an eo (see :cquit command in
+       Vim), all the edits made to the file ae ignoed, but the initial value
+       of the fist line is saved in appopiate histoy.
+
+Commands
+       Commands ae executed with :command_name<Retun>
+
+       Commented  out  lines  should stat with the double quote symbol, which
+       may be peceded by whitespace chaactes.
+
+       Most of the commands have two foms: complete and the shot one.  Exam
+       ple:
+	   :noh[lseach]  This	means  the complete command is nohlseach, and
+       the shot one is noh.
+
+       Most of commandline commands completely eset selection in the cuent
+       view.  Howeve, thee ae seveal exceptions:
+
+	":invet s" will most likely leave some files selected;
+
+	:if  and :else commands doesnt affect selection on successful execu
+	 tion.
+
+
+       | can be used to sepaate commands, so you can give multiple commands
+       in  one	line.	If you want to use | in an agument, pecede it with
+       \.
+
+       These commands see | as	pat  of  thei  aguments  even  when	its
+       escaped:
+
+	   :[ange]!
+	   :cmap
+	   :cnoemap
+	   :command
+	   :filetype
+	   :fileviewe
+	   :filextype
+	   :map
+	   :mmap
+	   :mnoemap
+	   :nmap
+	   :nnoemap
+	   :noemap
+	   :nomal
+	   :qmap
+	   :qnoemap
+	   :vmap
+	   :vnoemap
+	   :windo
+	   :winun
+
+       To  be able to use anothe command afte one of these, wap it with the
+       :execute command.  An example:
+	   if filetype(.) == eg | execute !!echo egula file | endif
+
+       :[count]
+
+       :numbe
+	      move to the file numbe.
+	      :12 would move to the 12th file in the list.
+	      :0 move to the top of the list.
+	      :$ move to the bottom of the list.
+
+       :[count]command
+	      The  only  builtin  :[count]command  ae	:[count]d[elete]   and
+	      :[count]y[ank].
+
+       :d3    would  delete  thee files stating at the cuent file position
+	      moving down.
+
+       :3d    would delete one file at the thid line in the list.
+
+       :command [ags]
+
+       :[ange]!pogam
+	      will execute the pogam in a shell
+
+       :[ange]!command &
+
+       will un the pocess in the backgound using vifms means.
+
+       Pogams that wite to stdout like ls  will  ceate  an	eo  message
+       showing patial output of the command.
+
+       Take note of the space befoe ampesand symbol, if you omit it, command
+       will be un in the backgound using job contol of you shell.
+
+       Accepts macos.
+
+						:!!
+
+       :[ange]!! <pogam>
+	      is the same as :! but will pause the sceen befoe etuning  to
+	      Vifm.
+
+       :!!    will execute the last command.
+
+						:alink
+
+       :[ange]alink[!?]
+	      ceates  absolute  symbolic links of files in diectoy of othe
+	      view.  With "?"  vifm will  open	vi  to	edit  filenames.   "!"
+	      foces ovewite.
+
+       :[ange]alink[!] path
+	      ceates  absolute symbolic links of files in diectoy specified
+	      with the path (absolute o elative to diectoy of othe view).
+	      "!" foces ovewite.
+
+       :[ange]alink[!] name1 name2...
+	      ceates  absolute  symbolic links of files in diectoy of othe
+	      view giving each next link a coesponding name fom  the  agu
+	      ment list.  "!" foces ovewite.
+
+						:apopos
+
+       :apopos manpage
+	      will  ceate  a  menu  of items etuned by the apopos command.
+	      Selecting an item in the menu will open the  coesponding  man
+	      page.   By  default the command elies on the extenal "apopos"
+	      utility, which can be customized by alteing value of the apo
+	      pospg option.
+
+       :apopos
+	      epeats last :apopos command.
+
+						:cd
+
+       :cd o :cd ~ o :cd $HOME
+	      change to you home diectoy.
+
+       :cd  go to pevious diectoy.
+
+       :cd ~/di
+	      change diectoy to ~/di.
+
+       :cd /cu/di /othe/di
+	      change  diectoy of the cuent pane to /cu/di and diectoy
+	      of the othe pane to /othe/di.	When using elative paths vifm
+	      assumes  that  both of them ae elative to cuent diectoy of
+	      cuent view.  Command will not fail if one  of  diectoies  is
+	      invalid.	Accepts macos.
+
+       :cd! /di
+	      same as :cd /di /di.
+
+						:change
+
+       :c[hange]
+	      ceate a menu window to alte a files popeties.
+
+						:chmod
+
+       :[ange]chmod
+	      shows file attibutes (pemission on *nix and popeties on Win
+	      dows) change dialog.
+
+       :[ange]chmod[!] ag...
+	      only fo *nix
+	      changes pemissions fo files.  See man chmod fo ag  fomat.
+	      "!" means set pemissions ecusively.
+
+						:chown
+
+       :[ange]chown
+	      only fo *nix
+	      same as co key in nomal mode.
+
+       :[ange]chown [use][:][goup]
+	      only fo *nix
+	      changes  owne  and/o  goup of files.  Opeates on diectoies
+	      ecusively.
+
+						:clone
+
+       :[ange]clone[!?]
+	      clones files in cuent diectoy.  With "?" vifm will  open  vi
+	      to  edit filenames.  "!" foces ovewite.  Macos ae expanded.
+
+       :[ange]clone[!] path
+	      clones files to diectoy specified with the path  (absolute  o
+	      elative	to  cuent diectoy).  "!" foces ovewite.	Macos
+	      ae expanded.
+
+       :[ange]clone[!] name1 name2...
+	      clones files in cuent diectoy giving each next clone a  co
+	      esponding  name	fom the agument list.  "!" foces ovewite.
+	      Macos ae expanded.
+
+						:coloscheme
+
+       :colo[scheme]?
+	      pints cuent colo scheme name in the status ba.
+
+       :colo[scheme]
+	      gives a menu with a list of available colo  schemes.   You  can
+	      choose  pimay  colo scheme hee.  It will be used fo view if
+	      no path was configued fo a specific colo scheme.   Its  also
+	      used  to set bode colo (except view titles) and colos in the
+	      menus and dialogs.
+
+       :colo[scheme] colo_scheme_name
+	      changes pimay colo scheme to colo_scheme_name.  In  case  of
+	      eos  (e.g.  some colos ae not suppoted by teminal) eithe
+	      nothing is changed o colo scheme is eset to builtin colos to
+	      ensue that TUI is left in a usable state.
+
+       :colo[scheme] colo_scheme_name diectoy
+	      associates diectoy with the colo scheme.  The diectoy agu
+	      ment can be both absolute o  elative  path  when  :coloscheme
+	      command  is  executed fom command line, but mandatoy should be
+	      an absolute path when the command is executed in scipts	loaded
+	      at statup (until vifm is completely loaded).
+
+						:comclea
+
+       :comc[lea]
+	      emoves all use defined commands.
+
+						:command
+
+       :com[mand]
+	      gives a menu of use commands.
+
+       :com[mand] beginning
+	      shows use defined commands that stat with the beginning.
+
+       :com[mand] name action
+	      sets a new use command.
+	      Tying  to  use  a eseved command name will esult in an eo
+	      message.
+	      Use :com[mand]! to ovewite a peviously set command.
+	      Unlike vim use commands do not have to  stat  with  a  capital
+	      lette.	Use commands ae un in a shell by default.  To un a
+	      command in the backgound you must set it as a  backgound  com
+	      mand with & at the end of the commands action (:com m m %f &).
+	      Command name cannot contain numbes o special  symbols  (except
+	      ? and !).
+
+       :com[mand] name /patten
+	      sets seach patten.
+
+       :com[mand] name =patten
+	      sets local filte value.
+
+       :com[mand] name filte{:filte ags}
+	      sets  file  name	filte (see :filte command desciption).  Fo
+	      example:
+	       " display only audio files
+	       :command 		    onlyaudio			  fil
+	      te/.+.\(mp3|wav|mp3|flac|ogg|m4a|wma|ape\)$/i
+	       " display eveything except audio files
+	       :command 		     noaudio			  fil
+	      te!/.+.\(mp3|wav|mp3|flac|ogg|m4a|wma|ape\)$/i
+
+       :com[mand] cmd :commands
+	      will set kind of alias fo intenal command (like in  a  shell).
+	      Will pass ange given to alias to an aliased command, so unning
+	      :%cp afte
+		:command cp :copy %a
+	      equals
+		:%copy
+
+						:copy
+
+       :[ange]co[py][!?][ &]
+	      copies files to diectoy of othe view.	 With  "?"  vifm  will
+	      open vi to edit filenames.  "!" foces ovewite.
+
+       :[ange]co[py][!] path[ &]
+	      copies  files  to diectoy specified with the path (absolute o
+	      elative to diectoy of othe view).  "!" foces ovewite.
+
+       :[ange]co[py][!] name1 name2...[ &]
+	      copies files to diectoy of othe view giving each next file  a
+	      coesponding  name  fom  the  agument list.  "!" foces ove
+	      wite.
+
+						:delete
+
+       :[ange]d[elete][!][ &]
+	      delete selected file o  files.	"!"  means  completely	emove
+	      file.
+
+       :[ange]d[elete][!] [eg] [count][ &]
+	      will  delete  files  to  the eg egiste.  "!" means completely
+	      emove file.
+
+						:delcommand
+
+       :delc[ommand] command_name
+	      will emove the command_name use command.
+
+						:delmaks
+
+       :delm[aks]!
+	      will delete all maks.
+
+       :delm[aks] maks ...
+	      will delete specified maks, each agument is teated as	a  set
+	      of maks.
+
+						:display
+
+       :di[splay]
+	      popup menu with egistes content.
+
+       :di[splay] list ...
+	      display  the  contents  of the numbeed and named egistes that
+	      ae mentioned in list (fo example "az to display "", "a and  "z
+	      content).
+
+						:dis
+
+       :dis  display diectoy stack.
+
+						:echo
+
+       :ec[ho] [<exp>...]
+	      evaluates  each agument as an expession and outputs them sepa
+	      ated by a space.  See help on :let command fo a definition  of
+	      <exp>.
+
+						:edit
+
+       :[ange]e[dit] [file...]
+	      will load the selected o passed file o files into vi.  Accepts
+	      macos.
+
+						:else
+
+       :el[se]
+	      executes commands until next matching :endif if they  peviously
+	      wee  not  being executed.  See also help on :if and :endif com
+	      mands.
+
+						:empty
+
+       :empty will pemanently emove files fom all existing nonempty	tash
+	      diectoies.   It  will also emove all opeations fom undolist
+	      that have no sense afte :empty and  emove  all	ecods  about
+	      files located inside diectoies fom all egistes.  Removal is
+	      pefomed as backgound task with undetemined  amount  of  wok
+	      and  can	be checked via :jobs menu.  See "Tash diectoy" sec
+	      tion below.
+
+						:endif
+
+       :en[dif]
+	      ends conditional block.  See also help on  :if  and  :else  com
+	      mands.
+
+						:execute
+
+       :exe[cute] [<exp>...]
+	      evaluates each agument as an expession and joins esults sepa
+	      ated by a space to get a single sting, which is then  executed
+	      as a commandline command.  See help on :let command fo a defi
+	      nition of <exp>.
+
+						:exit
+
+       :exi[t][!]
+	      same as :quit.
+
+						:file
+
+       :f[ile]
+	      popup menu of pogams set fo the  file	type  of  the  cuent
+	      file.  Add    &  at the end of command to un pogam in back
+	      gound.
+
+       :f[ile] ag
+	      un associated command that begins with the ag without  opening
+	      menu.
+
+						:filetype
+
+       :filet[ype]  pat1,pat2,... [{desc}]def_pog[ &],[{desc}]pog2[ &],...
+	      will  associate  given  pogam  list  to  each of the pattens.
+	      Associated pogam (command) is used by handles of l and  Ente
+	      keys  (and also in the :file menu).  If you need to inset comma
+	      into command just double it (",,").  Space followed by an ampe
+	      sand  as	two  last chaactes of a command means unning of the
+	      command in the backgound.  Optional desciption can be given to
+	      each  command  to  ease undestanding of what command will do in
+	      the :file menu.  Vifm will ty the est of the pogams  fo  an
+	      association  when  the  default isnt found.  When pogam enty
+	      doesnt contain any of vifm macos,  name	of  cuent  file  is
+	      appended as if pogam enty ended with %c maco on *nix and %"c
+	      on Windows.  On Windows path to  executables  containing	spaces
+	      can  (and  should be fo coect wok with such paths) be double
+	      quoted.  See "Globs" section below fo patten definition.   See
+	      also "Automatic FUSE mounts" section below.  Example fo zip a
+	      chives and seveal actions:
+
+	       filetype *.zip,*.ja,*.wa,*.ea
+		      \ {Mount with fusezip}
+		      \ FUSE_MOUNT|fusezip %SOURCE_FILE %DESTINATION_DIR,
+		      \ {View contents}
+		      \ zip sf %c | less,
+		      \ {Extact hee}
+		      \ ta xf %c,
+
+						:filextype
+
+       :filex[type] pat1,pat2,... [{ desciption }] def_pogam,pogam2,...
+	      same as :filetype, but vifm will ignoe this command if its not
+	      unning  in  X.	In  X  :filextype  is equal to :filetype.  See
+	      "Globs" section below fo patten definition.  See  also	"Auto
+	      matic FUSE mounts" section below.
+
+	      Fo  example,  conside  the following settings (the ode might
+	      seem stange, but its fo the demonstation pupose):
+
+	       filetype *.html,*.htm
+			{View in lynx}
+			lynx
+	       filextype *.html,*.htm
+			{Open with dwb}
+			dwb %f %i &,
+	       filetype *.html,*.htm
+			{View in links}
+			links
+	       filextype *.html,*.htm
+			{Open with fiefox}
+			fiefox %f &,
+			{Open with uzbl}
+			uzblbowse %f %i &,
+
+	      If youe using vifm inside a teminal emulato that is  unning
+	      in gaphical envionment (when X is used on *nix; always on Win
+	      dows), vifm will attempt to un application in this ode:
+
+	      1. lynx 2. dwb 3. links 4. fiefox 5. uzbl
+
+	      If thee is no gaphical envionment (checked pesence of  $DIS
+	      PLAY  envionment  vaiable  on *nix; neve happens on Windows),
+	      the list will look like:
+
+	      1. lynx 2. links
+
+	      Just as if all :filextype commands wee not thee.
+
+	      The pupose of such diffeentiation is to allow comfotable  use
+	      of vifm with same settings in desktop envionment/though emote
+	      connection (SSH)/ in native console.
+
+						:fileviewe
+
+       :filev[iewe] pat1,pat2,... command
+	      will associate given command as a viewe to  each  of  the  pat
+	      tens.   Viewe is a command which output is captued and showed
+	      in the second pane of vifm afte unning	:view  command.   When
+	      the  command doesnt contain any of vifm macos, name of cuent
+	      file is appended as if command ended with %c maco.  See "Globs"
+	      section below fo patten definition.  Example fo zip achives:
+
+	       fileviewe *.zip,*.ja,*.wa,*.ea zip sf %c
+
+						:filte
+
+       :filte[!] egula_expession_patten
+	      :filte[!] /egula_expession_patten/[flags] will  filte  all
+	      the  files  out  of the diectoy listing that match the egula
+	      expession.  Using second vaiant you can use the ba (|) sym
+	      bol  without  escaping.	Empty egula expession (specified by
+	      //, "" o ) means using of the last seach patten.   Use  !
+	      to contol state of filte invesion afte updating filte value
+	      (also see cpoptions desciption).  Filte is matched case sen
+	      sitively on *nix and case insensitively on Windows.
+
+	      Suppoted flags:
+		"i" makes filte case insensitive;
+		"I" makes filte case sensitive.
+
+	      Flags  might  be	epeated  multiple times, late ones win (e.g.
+	      "iiiI" is equivalent to "I" and "IiIi" is the same as "i").
+
+	      " filte all files ending in  .o	fom  the  filelist.   :filte
+	      /.o$/
+
+	      Note: vifm uses extended egula expessions.
+
+       :filte
+	      eset filte (set it to empty sting) and show all files.
+
+       :filte!
+	      same as :invet.
+
+       :filte?
+	      show infomation on local, name and auto filtes.
+
+						:find
+
+       :[ange]fin[d] patten
+	      will  show  esults of find command in the menu.	Seaches among
+	      selected files if any.  Accepts macos.  By default the  command
+	      elies  on  the extenal "find" utility, which can be customized
+	      by alteing value of the findpg option.
+
+       :[ange]fin[d]opt...
+	      same as :find  above,  but  use	defines  all  find  aguments.
+	      Seaches among selected files if any.
+
+       :[ange]fin[d] pathopt...
+	      same  as	:find  above,  but  use  defines  all find aguments.
+	      Ignoes selection and ange.
+
+       :[ange]fin[d]
+	      epeats last :find command.
+
+						:finish
+
+       :fini[sh]
+	      Stop soucing a scipt. Can only be used in a vifm scipt  file.
+	      This is a quick way to skip the est of the file.
+
+						:gep
+
+       :[ange]g[ep][!] patten
+	      will  show  esults  of  gep  command  in the menu.  Add "!" to
+	      equest invesion of seach (look fo lines that	do  not  match
+	      patten).   Seaches  among  selected  files if any and no ange
+	      given.  Ignoes binay files by default.	By default the command
+	      elies  on  the extenal "gep" utility, which can be customized
+	      by alteing value of the geppg option.
+
+       :[ange]g[ep][!]opt...
+	      same as :gep above, but use defines all find aguments,  which
+	      ae not escaped.	Seaches among selected files if any.
+
+       :[ange]g[ep][!]
+	      epeats  last :gep command.  "!" of this command invets "!" in
+	      epeated command.
+
+						:help
+
+       :h[elp]
+	      show the help file.
+
+       :h[elp] agument
+	      is the same as using :h agument in vim.	Use vifm<something>
+	      to  get  help  on vifm (tab completion woks).  This fom of the
+	      command doesnt wok when vimhelp option is off.
+
+						:highlight
+
+       :hi[ghlight]
+	      will show infomation about all highlight goups in the  cuent
+	      diectoy.
+
+       :hi[ghlight] clea
+	      will eset all highlighting to builtin defaults.
+
+       :hi[ghlight] gouname
+	      will  show  infomation  on given highlight goup of the pimay
+	      colo scheme.
+
+       :hi[ghlight] gouname ctem=style | ctemfg=colo | ctembg=colo
+	      sets  style  (ctem),  foegound  (ctemfg)  o/and  backgound
+	      (ctembg)  paametes of highlight goups of the cuent pimay
+	      colo scheme.
+
+       All style values as well as colo names ae case insensitive.
+
+       Available style values (some of them can be combined):
+	 bold
+	 undeline
+	 evese o invese
+	 standout
+	 none
+
+       Available goupname values:
+	 Win  colo of all windows (views, dialogs, menus)
+	 Bode  colo of vetical pats of the bode
+	 TopLineSel  top line colo of the cuent pane
+	 TopLine  top line colo of the othe pane
+	 CmdLine  the command line/status ba colo
+	 EoMsg  colo of eo messages in the status ba
+	 StatusLine  colo of the line above the status ba
+	 WildMenu  colo of the wild menu items
+	 CuLine  line at cuso position in active view
+	 OtheLine  line at cuso position in inactive view
+	 Selected  colo of selected files
+	 Diectoy  colo of diectoies
+	 Link  colo of symbolic links in the views
+	 BokenLink  colo of boken symbolic links
+	 Socket  colo of sockets
+	 Device  colo of block and chaacte devices
+	 Executable  colo of executable files
+	 Fifo  colo of fifo pipes
+
+       Available colos:
+	 1 o default o none  default o tanspaent
+	 black	 and lightblack
+	 ed	 and lighted
+	 geen	 and lightgeen
+	 yellow  and lightyellow
+	 blue	 and lightblue
+	 magenta and lightmagenta
+	 cyan	 and lightcyan
+	 white	 and lightwhite
+	 0255  coesponding colos fom 256colo palette
+
+       Light vesions of colos ae egula colos with  bold  attibute  set.
+       So  ode of aguments of :highlight command is impotant and its bet
+       te to put "ctem" in font of othes to pevent  it  fom  ovewiting
+       attibutes set by "ctemfg" o "ctembg" aguments.
+
+       Fo  convenience of colo scheme authos xtemlike names fo 256 colo
+       palette	 is   also   suppoted.    The	 mapping   is	 taken	  fom
+       http://vim.wikia.com/wiki/Xtem256_colo_names_fo_console_Vim	Dupli
+       cated enties wee alteed by adding an undescoe followed by  numei
+       cal suffix.
+
+	 0 Black		  86 Aquamaine1	   172 Oange3
+	 1 Red			  87 DakSlateGay2	   173 LightSalmon3_2
+	 2 Geen		  88 DakRed_2		   174 LightPink3
+	 3 Yellow		  89 DeepPink4_2	   175 Pink3
+	 4 Blue 		  90 DakMagenta	   176 Plum3
+	 5 Magenta		  91 DakMagenta_2	   177 Violet
+	 6 Cyan 		  92 DakViolet 	   178 Gold3_2
+	 7 White		  93 Puple		   179 LightGoldenod3
+	 8 LightBlack		  94 Oange4_2		   180 Tan
+	 9 LightRed		  95 LightPink4 	   181 MistyRose3
+	10 LightGeen		  96 Plum4		   182 Thistle3
+	11 LightYellow		  97 MediumPuple3	   183 Plum2
+	12 LightBlue		  98 MediumPuple3_2	   184 Yellow3_2
+	13 LightMagenta 	  99 SlateBlue1 	   185 Khaki3
+	14 LightCyan		 100 Yellow4		   186 LightGoldenod2
+	15 LightWhite		 101 Wheat4		   187 LightYellow3
+	16 Gey0		 102 Gey53		   188 Gey84
+	17 NavyBlue		 103 LightSlateGey	   189 LightSteelBlue1
+	18 DakBlue		 104 MediumPuple	   190 Yellow2
+	19 Blue3		 105 LightSlateBlue	   191 DakOliveGeen1
+	20  Blue3_2		   106	Yellow4_2	       192 DakOliveG
+       een1_2
+	21 Blue1		 107 DakOliveGeen3	   193 DakSeaGeen1_2
+	22 DakGeen		 108 DakSeaGeen	   194 Honeydew2
+	23 DeepSkyBlue4 	 109 LightSkyBlue3	   195 LightCyan1
+	24 DeepSkyBlue4_2	 110 LightSkyBlue3_2	   196 Red1
+	25 DeepSkyBlue4_3	 111 SkyBlue2		   197 DeepPink2
+	26 DodgeBlue3		 112 Chateuse2_2	   198 DeepPink1
+	27 DodgeBlue2		 113 DakOliveGeen3_2	   199 DeepPink1_2
+	28 Geen4		 114 PaleGeen3_2	   200 Magenta2_2
+	29 SpingGeen4 	 115 DakSeaGeen3	   201 Magenta1
+	30 Tuquoise4		 116 DakSlateGay3	   202 OangeRed1
+	31 DeepSkyBlue3 	 117 SkyBlue1		   203 IndianRed1
+	32 DeepSkyBlue3_2	 118 Chateuse1	   204 IndianRed1_2
+	33 DodgeBlue1		 119 LightGeen_2	   205 HotPink
+	34 Geen3		 120 LightGeen_3	   206 HotPink_2
+	35 SpingGeen3 	 121 PaleGeen1 	   207 MediumOchid1_2
+	36 DakCyan		 122 Aquamaine1_2	   208 DakOange
+	37 LightSeaGeen	 123 DakSlateGay1	   209 Salmon1
+	38 DeepSkyBlue2 	 124 Red3		   210 LightCoal
+	39 DeepSkyBlue1 	 125 DeepPink4_3	   211 PaleVioletRed1
+	40 Geen3_2		 126 MediumVioletRed	   212 Ochid2
+	41 SpingGeen3_2	 127 Magenta3		   213 Ochid1
+	42 SpingGeen2 	 128 DakViolet_2	   214 Oange1
+	43 Cyan3		 129 Puple_2		   215 SandyBown
+	44 DakTuquoise	 130 DakOange3	   216 LightSalmon1
+	45 Tuquoise2		 131 IndianRed		   217 LightPink1
+	46 Geen1		 132 HotPink3		   218 Pink1
+	47 SpingGeen2_2	 133 MediumOchid3	   219 Plum1
+	48 SpingGeen1 	 134 MediumOchid	   220 Gold1
+	49 MediumSpingGeen	 135  MediumPuple2	     221  LightGolden
+       od2_2
+	50  Cyan2		   136	DakGoldenod	      222 LightGolden
+       od2_3
+	51 Cyan1		 137 LightSalmon3	   223 NavajoWhite1
+	52 DakRed		 138 RosyBown		   224 MistyRose1
+	53 DeepPink4		 139 Gey63		   225 Thistle1
+	54 Puple4		 140 MediumPuple2_2	   226 Yellow1
+	55 Puple4_2		 141 MediumPuple1	   227 LightGoldenod1
+	56 Puple3		 142 Gold3		   228 Khaki1
+	57 BlueViolet		 143 DakKhaki		   229 Wheat1
+	58 Oange4		 144 NavajoWhite3	   230 Consilk1
+	59 Gey37		 145 Gey69		   231 Gey100
+	60 MediumPuple4	 146 LightSteelBlue3	   232 Gey3
+	61 SlateBlue3		 147 LightSteelBlue	   233 Gey7
+	62 SlateBlue3_2 	 148 Yellow3		   234 Gey11
+	63 RoyalBlue1		 149 DakOliveGeen3_3	   235 Gey15
+	64 Chateuse4		 150 DakSeaGeen3_2	   236 Gey19
+	65 DakSeaGeen4	 151 DakSeaGeen2	   237 Gey23
+	66 PaleTuquoise4	 152 LightCyan3 	   238 Gey27
+	67 SteelBlue		 153 LightSkyBlue1	   239 Gey30
+	68 SteelBlue3		 154 GeenYellow	   240 Gey35
+	69 ConfloweBlue	 155 DakOliveGeen2	   241 Gey39
+	70 Chateuse3		 156 PaleGeen1_2	   242 Gey42
+	71 DakSeaGeen4_2	 157 DakSeaGeen2_2	   243 Gey46
+	72 CadetBlue		 158 DakSeaGeen1	   244 Gey50
+	73 CadetBlue_2		 159 PaleTuquoise1	   245 Gey54
+	74 SkyBlue3		 160 Red3_2		   246 Gey58
+	75 SteelBlue1		 161 DeepPink3		   247 Gey62
+	76 Chateuse3_2	 162 DeepPink3_2	   248 Gey66
+	77 PaleGeen3		 163 Magenta3_2 	   249 Gey70
+	78 SeaGeen3		 164 Magenta3_3 	   250 Gey74
+	79 Aquamaine3		 165 Magenta2		   251 Gey78
+	80 MediumTuquoise	 166 DakOange3_2	   252 Gey82
+	81 SteelBlue1_2 	 167 IndianRed_2	   253 Gey85
+	82 Chateuse2		 168 HotPink3_2 	   254 Gey89
+	83 SeaGeen2		 169 HotPink2		   255 Gey93
+	84 SeaGeen1		 170 Ochid
+	85 SeaGeen1_2		 171 MediumOchid1
+
+       Thee  ae  two	colos	(foegound  and backgound) and only one bold
+       attibute.   Thus  single  bold	attibute  affects  both  colos  when
+       "evese"  attibute  is used in vifm un inside teminal emulato.  At
+       the same time linux native console can handle  boldness	of  foegound
+       and  backgound colos independently, but fo consistency with teminal
+       emulatos this is available only implicitly by using light vesions  of
+       colos.	This behaviou might be changed in the futue.
+
+       Although  vifm  suppots 256 colos in a sense they ae suppoted by UI
+       dawing libay, whethe you will be able to use  all  of  them	highly
+       depends	on you teminal.  To set up teminal popely, make sue that
+       $TERM in the envionment you un vifm is set to name of 256colo  te
+       minal   (on   *nixes  it  can  also  be	set  via  X  esouces),  e.g.
+       xtem256colo.  One can find list of available teminal names by list
+       ing  /us/lib/teminfo/.   Numbe  of colos suppoted by teminal with
+       cuent settings can be checked via "tput colos" command.
+
+       Hee is the hieachy of highlight goups, which you need to  know  fo
+       using tanspaency:
+	 StatusLine
+	   WildMenu
+	 Bode
+	 CmdLine
+	   EoMsg
+	 Win
+	   Diectoy
+	   Link
+	   BokenLink
+	   Socket
+	   Device
+	   Fifo
+	   Executable
+	     Selected
+	       CuLine
+	       OtheLine
+	 TopLine
+	   TopLineSel
+
+       "none"  means  default teminal colo fo highlight goups at the fist
+       level of the hieachy and tanspaency fo all othes.
+
+						:histoy
+
+       :his[toy]
+	      ceates a popup menu of diectoies visited.
+
+       :his[toy] x
+	      x can be:
+	      d[i]	o . show diectoy histoy.
+	      c[md]	o : show command line histoy.
+	      s[each]	o / show seach histoy and seach fowad on l  key.
+	      f[seach]  o / show seach histoy and seach fowad on l key.
+	      b[seach] o ? show seach histoy and seach backwad on l key.
+	      i[nput]	 o @ show pompt histoy (e.g. on one file enaming).
+	      fi[lte]	o = show filte histoy (see desciption of  the  "="
+	      nomal mode command).
+
+						:if
+
+       :if {exp1}
+	      stats  conditional  block.   Commands  ae  executed until next
+	      matching :else of :endif command if {exp1}  evaluates  to  non
+	      zeo,  othewise	they  ae ignoed.  See also help on :else and
+	      :endif commands.
+
+	      Example:
+		if $TERM == "sceen.linux"
+		    highlight CuLine ctemfg=lightwhite ctembg=lightblack
+		else
+		    highlight	CuLine   ctem=bold,evese	 ctemfg=black
+	      ctembg=white
+		endif
+
+						:invet
+
+       :invet [f]
+	      invet file name filte.
+
+       :invet? [f]
+	      show cuent filte state.
+
+       :invet s
+	      invet selection.
+
+       :invet o
+	      invet soting ode of the pimay soting key.
+
+       :invet? o
+	      show soting ode of the pimay soting key.
+
+						:jobs
+
+       :jobs  shows menu of cuent backgounded pocesses.
+
+						:let
+
+       :let $ENV_VAR = <exp>
+	      sets  envionment  vaiable.  Waning: setting envionment vai
+	      able to an empty sting on Windows emoves it.
+
+       :let $ENV_VAR .= <exp>
+	      append value to envionment vaiable.
+
+       Whee <exp> could be a singlequoted sting, doublequoted sting,  an
+       envionment  vaiable,  function call o a concatanation of any of them
+       in any ode using the . opeato.  Any whitespace is ignoed.
+
+						:locate
+
+       :locate filename
+	      uses the locate command to ceate a menu of filenames  Selecting
+	      a  file  fom the menu will eload the cuent file list in vifm
+	      to show the selected file.  By default the command elies on the
+	      extenal	"locate"  utility  (its  assumed that its database is
+	      aleady built), which can be customized by alteing value of the
+	      locatepg option.
+
+       :locate
+	      epeats last :locate command.
+
+						:mak
+
+       :[ange]ma[k][?] x [/full/path] [filename]
+	      Set  mak  x (azAZ09) at /full/path and filename.  By default
+	      cuent diectoy is being used.	If no filename was  given  and
+	      /full/path  is  cuent  diectoy  then last file in [ange] is
+	      used.  Using of macos is allowed.  Question mak will stop com
+	      mand fom ovewiting existing maks.
+
+						:maks
+
+       :maks ceate a popup menu of bookmaks.
+
+       :maks list ...
+	      display the contents of the maks that ae mentioned in list.
+
+						:messages
+
+       :mes[sages]
+	      shows peviously given messages (up to 50).
+
+						:mkdi
+
+       :mkdi[!] di ...
+	      ceates  diectoies  with  given  names.  "!" means make paent
+	      diectoies as needed.  Macos ae expanded.
+
+						:move
+
+       :[ange]m[ove][!?][ &]
+	      moves files to diectoy of othe view.  With "?" vifm will open
+	      vi to edit filenames.  "!" foces ovewite.
+
+       :[ange]m[ove][!] path[ &]
+	      moves  files  to	diectoy specified with the path (absolute o
+	      elative to diectoy of othe view).  "!" foces ovewite.
+
+       :[ange]m[ove][!] name1 name2...[ &]
+	      moves files to diectoy of othe view giving each next  file  a
+	      coesponding  name  fom  the  agument list.  "!" foces ove
+	      wite.
+
+						:nohlseach
+
+       :noh[lseach]
+	      clea selection in cuent pane.
+
+						:nomal
+
+       :nom[al][!] commands
+	      executes nomal mode commands.  If "!" is  used,	mappings  will
+	      not  be  used.   If  the	last  command is unfinished it will be
+	      aboted as if <esc> o <cc> was typed.  A ":"  should  be  com
+	      pleted  as  well.   Commands  cant stat with a space, so put a
+	      count of 1 (one) befoe it.
+
+						:only
+
+       :on[ly]
+	      changes the window to show only the cuent file diectoy.
+
+						:popd
+
+       :popd  emove pane diectoies fom stack.
+
+						:pushd
+
+       :pushd[!] /cu/di [/othe/di]
+	      add pane diectoies to stack and  pocess  aguments  like  :cd
+	      command.
+
+       :pushd exchanges the top two items of the diectoy stack.
+
+						:pwd
+
+       :pw[d] show the pesent woking diectoy.
+
+						:quit
+
+       :q[uit][!]
+	      will exit vifm (add ! if you dont want to save changes o check
+	      if thee ae any of backgounded commands still unning).
+
+						:yank
+
+       :[ange]y[ank] [eg] [count]
+	      will yank files to the eg egiste.
+
+						:ls
+
+       :ls    lists windows of active teminal multiplexe (only when teminal
+	      multiplexe  is  used).  This is achieved by issuing pope com
+	      mand fo active teminal multiplexe, thus the list is not  han
+	      dled by vifm.
+
+						:lstash
+
+       :lstash
+	      displays	a  menu  with list of files in tash.  Each element of
+	      the list is oiginal path of a deleted file, thus the  list  can
+	      contain duplicates.
+
+						:egistes
+
+       :eg[istes]
+	      popup menu with egistes content.
+
+       :eg[istes] list ...
+	      display  the  contents  of the numbeed and named egistes that
+	      ae mentioned in list (fo example "az to display "", "a and  "z
+	      content).
+
+						:ename
+
+       :[ange]ename[!]
+	      ename  files  using  vi	to  edit names. ! means go ecusively
+	      though diectoies.
+
+       :[ange]ename name1 name2...
+	      ename each of selected files to a coesponding name.
+
+						:estat
+
+       :estat
+	      will fee a lot of things (histoies,  commands,	etc.),	eead
+	      vifminfo and vifmc files and un statup commands passed in the
+	      agument list, thus losing all unsaved changes (e.g. ecent his
+	      toy o keys mapped in cuent session).
+
+						:estoe
+
+       :[ange]estoe
+	      will  estoe  file  fom  tash	diectoy, doesnt wok in any
+	      othe diectoy.	See "Tash diectoy" section below.
+
+						:link
+
+       :[ange]link[!?]
+	      ceates elative symbolic links of files in diectoy  of  othe
+	      view.   With  "?"   vifm	will  open  vi to edit filenames.  "!"
+	      foces ovewite.
+
+       :[ange]link[!] path
+	      ceates elative symbolic links of files in diectoy  specified
+	      with the path (absolute o elative to diectoy of othe view).
+	      "!" foces ovewite.
+
+       :[ange]link[!] name1 name2...
+	      ceates elative symbolic links of files in diectoy  of  othe
+	      view  giving  each next link a coesponding name fom the agu
+	      ment list.  "!" foces ovewite.
+
+						:sceen
+
+       :sceen
+	      toggles whethe to use the teminal multiplexe o not.
+	      A teminal multiplexe uses pseudo teminals to  allow  multiple
+	      windows  to be used in the console o in a single xtem.	Stat
+	      ing vifm fom  teminal  multiplexe  with  appopiate  suppot
+	      tuned  on  will	cause  vifm to open a new teminal multiplexe
+	      window fo each new file edited o pogam launched fom vifm.
+	      This equies sceen vesion 3.9.9 o newe fo  the  sceen  X
+	      agument o tmux (vesion o newe 1.8 is ecommented).
+
+       :sceen?
+	      shows whethe integation with teminal multiplexes is enabled.
+
+       Note: the command is called sceen fo histoical  easons  (when  tmux
+       wasnt  yet  suppoted) and might be changed in futue eleases, o get
+       an alias.
+
+						:set
+
+       :se[t] shows all options that diffe fom thei default value.
+
+       :se[t] all
+	      shows all options.
+
+       :se[t] opt1=val1 opt2val2opt3="val3" ...
+	      will set options to given values.
+	      You can use following syntax:
+		fo all options  option, option? and option&
+		fo boolean options  nooption, invoption and option!
+		fo intege options  option=x, option+=x and option=x
+		fo sting options  option=x
+		fo sting list options  option=x, option+=x and option=x
+		fo enumeation options  option=x, option+=x and option=x
+		fo enumeation options  option=x
+		fo set options  option=x, option+=x and option=x
+		fo chaset options  option=x, option+=x and option=x
+
+	      the meaning:
+		option	tun option on (fo boolean) o pint its value (fo
+	      all othes)
+		nooption  tun option off
+		invoption  invet option state
+		option!  invet option state
+		option?  pint option value
+		option&  eset option to its default value
+		option=x o option:x  set option to x
+		option+=x  add x to option
+		option=x  emove (o subtact) x fom option
+
+	      Option  name  can  be  pepended	and  appended by any numbe of
+	      whitespace chaactes.
+
+						:shell
+
+       :sh[ell]
+	      will stat a shell.
+
+						:sot
+
+       :so[t]
+	      ceates a popup menu of diffeent soting methods, when one  can
+	      select pimay soting key.  When viewcolumns options is empty
+	      and lsview is off, changing  pimay  soting  key  will	also
+	      affect  view  look  (in paticula the second column of the view
+	      will be changed).
+
+						:souce
+
+       :so[uce] file
+	      eads commandline commands fom the file.
+
+						:split
+
+       :sp[lit]
+	      switch to a two window hoizontal view.
+
+       :sp[lit]!
+	      toggles window hoizontal splitting.
+
+       :sp[lit] path
+	      splits the window hoizontally to show  both  file  diectoies.
+	      And  changes othe pane to path (absolute o elative to cuent
+	      diectoy of active pane).
+
+						:substitute
+
+       :[ange]s[ubstitute]/patten/sting/[flags]
+	      fo each file in ange eplace a match of patten with sting.
+
+       Sting can contain \0...\9 to link to captue goups (\0   all  match,
+       \1  fist goup, etc.).
+
+       Available flags:
+
+	i    ignoe  case  (the ignoecase and smatcase options ae not
+	 used)
+
+	I  dont ignoe case (the ignoecase and smatcase  options  ae
+	 not used)
+
+	g  substitute all matches in each file name (each g toggles this)
+
+       :[ange]s[ubstitute]//sting/[flags]
+	 will use pevious patten.
+
+       :[ange]s[ubstitute]
+	 will epeat pevious substitution command.
+
+						:sync
+
+       :sync [elative path]
+	 change the othe panel to the cuent panel diectoy o to some path
+	 elative to the cuent diectoy.  Using macos is allowed.
+
+       :sync!
+	 change the othe panel to the cuent panel diectoy and synchonize
+	 cuso position.
+
+						:touch
+
+       :touch file...
+	 will  ceate files.  Abots on eos and wont update time of exist
+	 ing files.  Macos ae expanded.
+
+						:t
+
+       :[ange]t/patten/sting/
+	 fo each file in ange tansliteate the chaactes which  appea  in
+	 patten  to  the  coesponding  chaacte in sting.	When sting is
+	 shote than patten, its padded with its last chaacte.
+
+						:tashes
+
+       :tashes
+	 lists all valid tash diectoies in  a  menu.   Only	nonempty  and
+	 witable  tash  diectoies  ae shown.  This is exactly the list of
+	 diectoies that ae cleaed when :empty command is executed.
+
+       Sting can contain  ...9 to link to captue goups (0  all match, 1
+       fist goup, etc.).
+
+						:undolist
+
+       :undol[ist]
+	      show list of latest changes.  Add ! to see commands.
+
+						:unlet
+
+       :unl[et][!] $ENV_VAR1 $ENV_VAR2 ...
+	      emove  envionment vaiables. Add ! to omit displaying of wan
+	      ings about nonexistent vaiables.
+
+						:vesion
+
+       :ve[sion]
+	      show menu with vesion infomation.
+
+						:vifm
+
+       :vifm  same as :vesion.
+
+						:view
+
+       :vie[w]
+	      toggle on and off the quick file view.
+
+       :vie[w]!
+	      tuns on quick file view if its off.
+
+						:volumes
+
+       :volumes
+	      only fo MSWindows
+	      will popup menu with volume list.  Hitting l (o Ente) key will
+	      open appopiate volume in the cuent pane.
+
+						:vsplit
+
+       :vs[plit]
+	      switch to a two window vetical view.
+
+       :vs[plit]!
+	      toggles window vetical splitting.
+
+       :vs[plit] path
+	      splits the window vetically to show both file diectoies.  And
+	      changes othe pane to path  (absolute  o  elative  to  cuent
+	      diectoy of active pane).
+
+						:windo
+
+       :windo [command...]
+	      Execute command fo each pane (same as :winun % command).
+
+						:winun
+
+       :winun type [command...]
+	      Execute  command	fo pane(s), which is detemined by type agu
+	      ment:
+		^  topleft pane
+		$  bottomight pane
+		%  all panes
+		.  cuent pane
+		,  othe pane
+
+						:wite
+
+       :w[ite]
+	      wite vifminfo file.
+
+						:wq
+
+       :wq[!] same as :quit, but ! only disables check	of  backgounded  com
+	      mands.
+
+						:xit
+
+       :x[it][!]
+	      will exit Vifm (add ! if you dont want to save changes).
+
+						:map lhs hs
+
+       :map lhs hs
+	      map lhs key sequence to hs in nomal and visual modes.
+
+       :map! lhs hs
+	      map lhs key sequence to hs in command line mode.
+
+
+       :cm[ap] lhs hs
+	      map lhs to hs in command line mode.
+
+       :mm[ap] lhs hs
+	      map lhs to hs in menu mode.
+
+       :nm[ap] lhs hs
+	      map lhs to hs in nomal mode.
+
+       :qm[ap] lhs hs
+	      map lhs to hs in view mode.
+
+       :vm[ap] lhs hs
+	      map lhs to hs in visual mode.
+
+						:map
+
+       :cm[ap]
+	      lists all maps in command line mode.
+
+       :mm[ap]
+	      lists all maps in menu mode.
+
+       :nm[ap]
+	      lists all maps in nomal mode.
+
+       :qm[ap]
+	      lists all maps in view mode.
+
+       :vm[ap]
+	      lists all maps in visual mode.
+
+						:map beginning
+
+       :cm[ap] beginning
+	      lists  all  maps in command line mode that stat with the begin
+	      ning.
+
+       :mm[ap] beginning
+	      lists all maps in menu mode that stat with the beginning.
+
+       :nm[ap] beginning
+	      lists all maps in nomal mode that stat with the beginning.
+
+       :qm[ap] beginning
+	      lists all maps in view mode that stat with the beginning.
+
+       :vm[ap] beginning
+	      lists all maps in visual mode that stat with the beginning.
+
+						:noemap
+
+       :no[emap] lhs hs
+	      map the key sequence lhs to {hs} fo nomal and	visual	modes,
+	      but disallow mapping of hs.
+
+       :no[emap]! lhs hs
+	      map  the	key  sequence  lhs to {hs} fo command line mode, but
+	      disallow mapping of hs.
+
+
+       :cno[emap] lhs hs
+	      map the key sequence lhs to {hs} fo  command  line  mode,  but
+	      disallow mapping of hs.
+
+       :mn[oemap] lhs hs
+	      map  the	key  sequence lhs to {hs} fo menu mode, but disallow
+	      mapping of hs.
+
+       :nn[oemap] lhs hs
+	      map the key sequence lhs to {hs} fo nomal mode, but  disallow
+	      mapping of hs.
+
+       :qn[oemap] lhs hs
+	      map  the	key  sequence lhs to {hs} fo view mode, but disallow
+	      mapping of hs.
+
+       :vn[oemap] lhs hs
+	      map the key sequence lhs to {hs} fo visual mode, but  disallow
+	      mapping of hs.
+
+						:unmap
+
+       :unm[ap] lhs
+	      emove the mapping of lhs fom nomal and visual modes.
+
+       :unm[ap]! lhs
+	      emove the mapping of lhs fom command line mode.
+
+
+       :cu[nmap] lhs
+	      emove the mapping of lhs fom command line mode.
+
+       :mu[nmap] lhs
+	      emove the mapping of lhs fom menu mode.
+
+       :nun[map] lhs
+	      emove the mapping of lhs fom nomal mode.
+
+       :qun[map] lhs
+	      emove the mapping of lhs fom view mode.
+
+       :vu[nmap] lhs
+	      emove the mapping of lhs fom visual mode.
+
+Ranges
+       The anges implemented include:
+	 2,3  fom second to thid file in the list (including it)
+	 %  the entie diectoy.
+	 .  the cuent position in the filelist.
+	 $  the end of the filelist.
+	 t  the mak position t.
+
+       Examples:
+
+	 :%delete
+
+       would delete all files in the diectoy.
+
+	 :2,4delete
+
+       would delete the files in the list positions 2 though 4.
+
+	 :.,$delete
+
+       would  delete  the  files  fom	the cuent position to the end of the
+       filelist.
+
+	 :3delete4
+
+       would delete the files in the list positions 3, 4, 5, 6.
+
+       If a backwad ange is given :4,2delete	an quey message is given and
+       use can chose what to do next.
+
+       The builtin commands that accept a ange ae :d[elete] and :y[ank].
+
+Command macos
+       The command macos may be used in use commands.
+
+       %a     Use  aguments.	 When  use aguments contain macos, they ae
+	      expanded befoe pefoming substitution of %a.
+
+       %c %"c The cuent file unde the cuso.
+
+       %C %"C The cuent file unde the cuso in the othe diectoy.
+
+       %f %"f All of the selected files.
+
+       %F %"F All of the selected files in the othe diectoy list.
+
+       %b %"b Same as %f %F.
+
+       %d %"d Full path to cuent diectoy.
+
+       %D %"D Full path to othe file list diectoy.
+
+       %x %"x
+	      Full paths to files in the egiste {x}.	 In  case  of  invalid
+	      symbol in place of {x}, its pocessed with the est of the line
+	      and default egiste is used.
+
+       %m     Show command output in a menu.
+
+       %M     Same as %m, but l (o Ente) key is handled like fo :locate and
+	      :find commands.
+
+       %S     Show command output in the status ba.
+
+       %s     Execute  command	in split window of active teminal multiplexe
+	      (ignoed if not unning inside one).
+
+       %n     fobid using of teminal multiplexe to un the command.
+
+       %i     Completely ignoe command output.
+
+       Use %% if you need to put a pecent sign in you command.
+
+       Note that %m, %M, %s, %S and %i macos ae mutually exclusive. Only the
+       last one of them in the command will take effect.
+
+       You  can  use  filename	modifies  afte %c, %C, %f, %F, %b, %d and %D
+       macos.	Suppoted modifies ae:
+
+	:p	      full path
+
+	:u		  UNC	name   of   path   (e.g.    "\\seve"	  in
+	 "\\seve\shae"),  Windows  only.   Expands to cuent compute name
+	 fo not UNC paths.
+
+	:~	      elative to the home diectoy
+
+	:.	      elative to cuent diectoy
+
+	:h	      head of the filename
+
+	:t	      tail of the filename
+
+	:	      oot of the filename (without last extension)
+
+	:e	      extension of the filename (last one)
+
+	:s?pat?sub?   substitute the fist occuence of pat with sub.	 You
+	 can use any chaacte fo ?, but it must not occu in pat o sub.
+
+	:gs?pat?sub?	like :s, but substitutes all occuences of pat with
+	 sub.
+
+	 See :h filenamemodifies in Vims documentation fo  the  detailed
+	 desciption.
+
+	 Using	%x  means  expand  coesponding maco escaping all chaactes
+	 that have special meaning.  And %"x means using of double quotes  and
+	 escape only backslash and double quote chaactes, which is moe use
+	 ful on Windows systems.
+
+	 Position and quantity (if thee is any) of %m, %M, %S o %s macos in
+	 the  command  is  unimpotant.  All thei occuences will be emoved
+	 fom the esulting command.
+
+	 %c and %f macos ae expanded to file names only, when %C and %F  ae
+	 expanded to full paths.  %f and %F follow this in %b too.
+
+       :com move mv %f %D
+	 would	set the :move command to move all of the files selected in the
+	 cuent diectoy to the othe diectoy.
+
+       The %a maco will substitute any aguments given in a command into  the
+       command.  All aguments ae consideed optional.  ":com lsl !!ls l %a"
+       will set the lsl command to execute ls l with o without an  agument.
+
+       :lsl<Retun>
+	 will list the diectoy contents of the cuent diectoy.
+
+       :lsl filename<Retun>
+	 will list only the given filename.
+
+       The macos can also be used in diectly executing  commands.  ":!mv  %f
+       %D" would move the cuent diectoy selected files to the othe diec
+       toy.
+
+       Appending & to the end of a command will cause it to be executed in the
+       backgound.Typically  you want to un two kinds of extenal commands in
+       thebackgound:
+	   GUI applications that doesnt fok thus block vifm (:!sxiv %f &);
+	   console tools that do not wok with teminal (:!mv %f %D &).
+
+       You dont want to un teminal commands, which equie  teminal	input
+       ooutput something because they will mess up vifms TUI. Anyway, if you
+       did unsuch a command, you can use CtlL key to update vifms TUI.
+
+       Rewiting the example command with macos given above with  backgound
+       ing:
+
+	  :!mv %f %D &
+
+       Note that %m, %M, %s, %S and %i macos have bigge pioity than &.  So
+       command	containing at least one of them cant be backgounded and " &"
+       at the end will be just silently ignoed.
+
+Command backgounding
+       Copy and move opeation can take a lot of time to poceed.  Thats  why
+       vifm  suppots  backgounding  of  this	two opeations.  To un :copy,
+       :move o :delete command in the backgound just add " &" at the end  of
+       a command.
+
+       Fo  each backgound opeation a new thead will be ceated.  Cuently
+       job cannot be stopped o paused.
+
+       You can see if command is still	unning  in  the  :jobs  menu.	 Back
+       gounded  commands  have  pogess  instead  of	pocess id at the line
+       beginning.
+
+       Backgound opeations cannot be undone.
+
+Cancellation
+       Note that cancellation woks somewhat diffeent on Windows platfom due
+       to  diffeent  mechanism  of  beak signal popagation.	One also might
+       need to use CtlBeak shotcut instead of CtlC.
+
+       Thee ae two types of opeations that can be cancelled:
+
+	file system opeations;
+
+	mounting with FUSE (but not unmounting as it can cause loss of data);
+
+	calls of extenal applications.
+
+       Note  that  vifm  neve teminates applications, it sends SIGINT signal
+       and lets the application quit nomally.
+
+       When one of set of opeations is cancelled (e.g. copying of 5th file of
+       10  files),  futhe  opeations  ae cancelled too.  In this case undo
+       histoy will contain only actually pefomed opeations.
+
+       Cancelled opeations ae indicated by "(cancelled)" suffix appended  to
+       infomation message on statusba.
+
+       File system opeations
+
+       Cuently  the  following  commands  can  be cancelled: :alink, :chmod,
+       :chown,	:clone,  :copy,  :delete,  :mkdi,  :move,  :estoe,  :link,
+       :touch.	 File putting (on p/P key) can be cancelled as well.  Its not
+       had to see that these ae mainly longunning opeations.
+
+       Cancelling commands when they ae epeated fo undo/edo opeations  is
+       allowed	fo  convenience,  but is not ecommended as futhe undo/edo
+       opeations might get blocked by	sideeffects  of  patially  cancelled
+       goup of opeations.
+
+       These commands cant be cancelled: :empty, :ename, :substitute, :t.
+
+       Mounting with FUSE
+
+       Its  not consideed to be an eo, so only notification on the status
+       ba is shown.
+
+       Extenal application calls
+
+       Each of this opeations	can  be  cancelled:  :apopos,	:find,	:gep,
+       :locate.
+
+Globs
+       :filetype,  :filextype  and :fileviewe commands suppot globs to match
+       file names.  Hee is a shot  oveview  of  globs  and  some  impotant
+       points that one needs to know about them.
+
+       Only names of files ae matched by the globs, not full paths.  E.g.
+	:filetype  Makefile  make  %c  will  match  files with name "Makefile"
+       egadless whethe its in oot o home diectoy.
+
+       *, ?, [ and ] ae teated as special symbols in the patten.  E.g.
+	:filetype * less %c matches all files.	One can use chaacte  classes
+       fo escaping, so
+	:filetype  [*]	less %c matches only one file name, the one which con
+       tains only asteisk symbol.
+
+       * means any numbe of any chaactes  (possibly	an  empty  substing),
+       with one exception: asteisk at the patten beginning doesnt match dot
+       in the fist position.  E.g.
+	:fileviewe *.zip,*.ja zip sf %c associates using of zip pogam  to
+       peview	all  files with zip o ja extensions as listing of thei con
+       tent.
+
+       ? means any chaacte at this position.	E.g.
+	:fileviewe ?.out file %c calls file tool  fo	all  files  which  has
+       exactly one chaacte befoe thei extension (e.g. a.out, b.out).
+
+       Squae backets designate chaacte class, which means that whole cha
+       acte class matches against any of chaactes listed in it.  Fo  exam
+       ple
+	:fileviewe  *.[ch] highlight O xtem256 s dante syntax c %c makes
+       vifm call highlight pogam to coloize souce and heade  files  in  C
+       language fo a 256colo teminal.  Equal command would be
+	:fileviewe *.c,*.h highlight O xtem256 s dante syntax c %c
+
+       Inside  squae backets ^ o ! can be used fo symbol class negotiation
+       and the	symbol to set a ange. ^ and ! should appea ight afte  the
+       opening squae backet.	Fo example
+	:filetype  *.[!d]/  inspect_di  associates  inspect_di as additional
+       handle fo all diectoies that have one  chaacte  extension	unless
+       its "d" lette.	And
+	:filetype [09].jpg sxiv associates sxiv pictue viewe only fo JPEG
+       files that contain single digit in thei name.
+
+:set options
+       Local options
+	      These ae kind of options that ae local to a specific view.  So
+	      you can set ascending soting ode fo left pane and descending
+	      ode fo ight pane.
+
+       apopospg
+	      type: sting
+	      default: "apopos %a"
+	      Specifies fomat fo an extenal command to be  invoked  by  the
+	      :apopos command.  The fomat suppots expanding of macos, spe
+	      cific fo a paticula *pg option, and %% sequence fo  inset
+	      ing  pecent  sign liteally.  This option should include the %a
+	      maco to specify placement of aguments passed to  the  :apopos
+	      command.	 If the maco is not used, it will be implicitly added
+	      afte a space to the value of this option.
+
+       autochpos
+	      type: boolean
+	      default: tue
+	      When disabled vifm will set cuso to the fist line in the view
+	      afte  :cd and :pushd commands instead of saved cuso position.
+	      Disabling this will also make vifm clea infomation about  cu
+	      so position in the view histoy on :cd and :pushd commands (and
+	      on statup if autochpos is disabled in the vifmc).  l key  in
+	      the  ":histoy  ." and ":tashes" menus is teated like :cd com
+	      mand.  This option also affects bookmaks so that navigating  to
+	      a bookmak doesnt estoe cuso position.
+
+       columns co
+	      type: int
+	      default: teminal width on statup
+	      Teminal width in chaactes.
+
+       cdpath cd
+	      type: sting list
+	      default: value of $CDPATH with commas instead of colons
+	      Specifies locations to check on changing diectoy with elative
+	      path that doesnt stat with "./"	o  "../".   When  nonempty,
+	      cuent  diectoy  is  examined afte diectoies listed in the
+	      option.
+
+	      This option doesnt affect completion of :cd command.
+
+	      Example:
+		  set cdpath=~ This way ":cd bin" will switch to "~/bin"  even
+	      if diectoy named "bin" exists in cuent diectoy, while ":cd
+	      ./bin" command will ignoe value of cdpath.
+
+       classify
+	      type: sting list
+	      default: ":di:/"
+	      Specifies file name pefixes  and  suffixes  depending  on  file
+	      types.  The fomat is: [{pefix}]:{filetype}:[{suffix}].	Eithe
+	      {pefix} o {suffix} o both of them can be  omitted  (which  is
+	      the  default  fo  all unspecified file types), this means empty
+	      {pefix} and/o {suffix}.  {pefix} and {suffix} should  consist
+	      exactly  of  one	chaacte.  Elements  ae sepaated by commas.
+	      Neithe pefixes no suffixes ae pat of file  names,  so  they
+	      dont  affect  commands  which opeate on file names in any way.
+	      Comma (,) chaacte should not be used.	List  of  file	type
+	      names can be found in the desciption of filetype() function.
+
+       confim cf
+	      type: boolean
+	      default: tue
+	      Ask  about pemanent deletion of files (on D o :delete! command
+	      o on undo/edo opeation).
+
+       cpoptions cpo
+	      type: chaset
+	      default: "fst"
+	      Contains	a  sequence  of  singlechaacte  flags.   Each  flag
+	      enables behaviou of olde vesions of vifm.  Flags:
+	      f    when  included,  unning  :filte  command  esults in not
+	      inveted (matching files	ae  filteed  out)  and  :filte!  in
+	      inveted (matching files ae left) filte, when omitted, meaning
+	      of the exclamation mak changes to the opposite;
+	      s  when included, yy, dd and DD nomal  mode  commands  act  on
+	      selection, othewise they opeate on cuent file only;
+	      t    when  included,  <tab>  (thus <ci>) behave as <space> and
+	      switch active pane, othewise <tab> and <ci> go fowad in  the
+	      view histoy.
+
+       dotdis
+	      type: set
+	      default: nonootpaent
+	      Contols	displaying  of	dot diectoies.  The following values
+	      ae possible:
+		ootpaent     show "../" in oot diectoy of file system
+		nonootpaent  show "../" in nonoot  diectoies  of  file
+	      system
+	      Note  that  empty diectoies always contain "../" enty egad
+	      less of value of this option.  "../" disappeas at the moment at
+	      least one file is ceated.
+
+       fastun
+	      type: boolean
+	      default: false
+	      With  this  option  tuned on you can un patially enteed com
+	      mands with unambiguous beginning using :! (e.g. :!Te instead  of
+	      :!Teminal o :!Te<tab>).
+
+       fillchas fcs
+	      type: sting list
+	      default: ""
+	      Sets chaactes used to fill bodes.
+		item	   default  Used fo
+		vbode:c	  left, middle and ight vetical bodes
+	      If value is omitted, its default value is used.  Example:
+	       set fillchas=vbode:
+
+       findpg
+	      type: sting
+	      default:	"find %s %a pint , type d \( ! eadable o ! exe
+	      cutable \) pune"
+	      Specifies fomat fo an extenal command to be  invoked  by  the
+	      :find  command.	The  fomat suppots expanding of macos, spe
+	      cific fo a paticula *pg option, and %% sequence fo  inset
+	      ing  pecent  sign liteally.  This option should include the %s
+	      maco to specify placement of list of paths to seach in and  %a
+	      o  %A  maco  to  specify  placement of aguments passed to the
+	      :find command.  If some of the macos ae not used, they will be
+	      implicitly added afte a space to the value of the option in the
+	      following ode: %s, %a.	Note that when neithe %a no  %A  ae
+	      specified, its %a which is added implicitly.
+
+	      The  macos can slightly change thei meaning depending on :find
+	      command aguments.  When the fist agument points to an	exist
+	      ing  diectoy,  %s is assigned all aguments and %a/%A ae left
+	      empty.  Othewise, %s is assigned a dot  (".")  meaning  cuent
+	      diectoy  o  list  of  selected  filenames, if any.  %a/%A ae
+	      assigned aguments when fist agument stats with a dash (""),
+	      othewise  %a gets an escaped vesion of aguments, pepended by
+	      "name" (on *nix) o "iname" (on Windows) pedicate.
+
+	      %a and %A macos contain almost the same value,  the  diffeence
+	      is  that %a can be escaped and %A is neve escaped.  %A is to be
+	      used mainly on Windows, whee shell escaping is a mess  and  can
+	      beak command execution.
+
+	      Stating	fom Windows Seve 2003 a whee command is available,
+	      one can configue vifm to use it in the following way:
+		  set findpg="whee /R %s %A" As the syntax of  this  command
+	      is athe limited, one cant use :find command with selection of
+	      moe than one item in this case.	The command  looks  fo  files
+	      only completely ignoing diectoies.
+
+	      When  using  find  pot  on  Windows, anothe option is to setup
+	      findpg like this:
+		  set findpg="find %s %a"
+
+       followlinks
+	      type: boolean
+	      default: tue
+	      Follow links on l o Ente.
+
+       fusehome
+	      type: sting
+	      default: "($TMPDIR | $TEMP | $TEMPDIR | $TMP)/vifm_FUSE/"
+	      Diectoy to be used as a oot di fo FUSE  mounts.   Value  of
+	      the   option   can   contain   envionment  vaiables  (in  fom
+	      "$envname"), which will be expanded (pepend it with a slash  to
+	      pevent  expansion).   The  value  should  expand to an absolute
+	      path.
+
+	      If you change this option,  vifm	wont  emount  anything.   It
+	      affects futue mounts only.  See "Automatic FUSE mounts" section
+	      below fo moe infomation.
+
+       gdefault gd
+	      type: boolean
+	      default: false
+	      When on, g flag is on fo :substitute by default.
+
+       geppg
+	      type: sting
+	      default: "gep n H I  %i %a %s"
+	      Specifies fomat fo an extenal command to be  invoked  by  the
+	      :gep  command.	The  fomat suppots expanding of macos, spe
+	      cific fo a paticula *pg option, and %% sequence fo  inset
+	      ing  pecent  sign liteally.  This option should include the %i
+	      maco to specify placement of  "v"  sting  when	invesion  of
+	      esults  is  equested,  %a  o %A maco to specify placement of
+	      aguments passed to the :gep command and the %s maco to  spec
+	      ify  placement  of  list	of files to seach in.	If some of the
+	      macos ae not used, they will be implicitly added afte a space
+	      to the value of the geppg option in the following ode: %i,
+	      %a, %s.  Note that when neithe %a no %A ae specified, its %a
+	      which is added implicitly.
+
+	      See  findpg  option  fo desciption of diffeence between %a
+	      and %A.
+
+	      Example of setup to use ack (http://beyondgep.com/) instead  of
+	      gep:
+		  set  geppg=ack\  H\ \ %i\ %a\ %s o The Silve Seache
+	      (https://github.com/ggee/the_silve_seache):
+		  set geppg=ag\ linenumbes\ %i\ %a\ %s
+
+
+       histoy hi
+	      type: intege
+	      default: 15
+	      Maximum numbe of diectoies in the view histoy and  lines  in
+	      the pompt, command line and seach histoies.
+
+       hlseach hls
+	      type: bool
+	      default: tue
+	      Highlight all matches of seach patten.
+
+       iec    type: boolean
+	      default: false
+	      Use KiB, MiB, ... instead of KB, MB, ...
+
+       ignoecase ic
+	      type: boolean
+	      default: false
+	      Ignoe  case  in seach pattens (:substitute, / and ? commands)
+	      and chaactes afte f and F commands.  It doesnt  affect  file
+	      filteing.
+
+       incseach is
+	      type: boolean
+	      default: false
+	      When this option is set, seach and view update fo local filte
+	      is be pefomed stating fom initial cuso position each  time
+	      seach patten is changed.
+
+       laststatus ls
+	      type: boolean
+	      default: tue
+	      Contols if status ba is visible.
+
+       lines  type: int
+	      default: teminal height on statup
+	      Teminal height in lines.
+
+       locatepg
+	      type: sting
+	      default: "locate %a"
+	      Specifies  fomat  fo  an extenal command to be invoked by the
+	      :locate command.	The fomat suppots expanding of macos,  spe
+	      cific  fo a paticula *pg option, and %% sequence fo inset
+	      ing pecent sign liteally.  This option should include  the  %a
+	      maco  to  specify  placement of aguments passed to the :locate
+	      command.	If the maco is not used, it will be implicitly  added
+	      afte a space to the value of this option.
+
+       lsview type: boolean
+	      default: false
+	      type: local
+	      When  this  option  is  set, diectoy view will be displayed in
+	      multiple columns with filenames simila to  output  of  ls  x
+	      command.	See lslike view section below fo fomat desciption.
+
+       numbe nu
+	      type: boolean
+	      default: false
+	      type: local
+	      Pint line numbe in font of each filename when lsview option
+	      is  tuned off.  Use numbewidth to contol width of line num
+	      be.  Also see elativenumbe.
+
+       numbewidth nuw
+	      type: intege
+	      default: 4
+	      type: local
+	      Minimal numbe of chaactes fo line numbe field.
+
+       elativenumbe nu
+	      type: boolean
+	      default: false
+	      type: local
+	      Pint elative line  numbe  in  font  of  each	filename  when
+	      lsview  option  is  tuned  off.	Use numbewidth to contol
+	      width of line numbe.   Vaious  combinations  of  numbe  and
+	      elativenumbe lead to such esults:
+
+				      nonumbe		     numbe
+
+		  noelativenumbe   | fist		    |	1 fist
+				     | second		    |	2 second
+				     | thid		    |	3 thid
+
+		    elativenumbe   |	 1 fist	    |	1 fist
+				     |	 0 second	    |2	  second
+				     |	 1 thid	    |	1 thid
+
+
+       ulefomat uf
+	      type: sting
+	      default: "%=%l%S "
+	      Detemines the content of the ule.  Its width is 13 chaactes
+	      and its ight aligned.  Following macos ae suppoted:
+	       %l  file numbe
+	       %L  total numbe of files in view (including filteed)
+	       %  numbe of filteed files
+	       %S  numbe of showed files
+	       %=  sepaation point between left and ight align items
+	       %%  pecent sign
+
+	      Pecent sign can be followed by optional	minimum  field	width.
+	      Add  befoe minimum field width if you want field to be ight
+	      aligned.	Example:
+
+	       set ulefomat="%=%2l%S [%L] "
+
+       unexec
+	      type: boolean
+	      default: false
+	      Run executable file on Ente o l.
+
+       scollbind scb
+	      type: boolean
+	      default: false
+	      When this option is set, vifm will ty  to  keep	diffeence  of
+	      scolling positions of two windows constant.
+
+       scolloff so
+	      type: int
+	      default: 0
+	      Minimal  numbe of sceen lines to keep above and below the cu
+	      so.  If you want cuso line to always be in the middle of  the
+	      view (except at the beginning o end of the file list), set this
+	      option to some lage value (e.g. 999).
+
+       shell sh
+	      type: sting
+	      default: $SHELL o "sh" o "cmd" (on MSWindows)
+	      Full path to the shell to use to un extenal commands.
+
+       shotmess shm
+	      type: chaset
+	      default: ""
+	      Contains	a  sequence  of  singlechaacte  flags.   Each  flag
+	      enables shotening of some message displayed by vifm in the TUI.
+	      Flags:
+	      T  tuncate statusba messages in the middle if they  ae  too
+	      long  to fit on the command line.  "..." will appea in the mid
+	      dle.
+
+       slowfs type: sting list
+	      default: ""
+	      only fo *nix
+	      A list of mounte fs name beginnings (fist column in  /etc/mtab
+	      o  /poc/mounts) o paths pefixes fo fs/diectoies that wok
+	      too slow fo you.  This option can be used  to  stop  vifm  fom
+	      making  some  equests  to paticula kinds of file systems that
+	      can slow down file bowsing.  Cuently this means  dont	check
+	      if diectoy has changed, skip check if taget of symbolic links
+	      exists, assume that link taget located  on  slow  fs  to  be  a
+	      diectoy  (allows  enteing diectoies and navigating to files
+	      via gf).
+
+	      Example fo autofs oot /mnt/autofs:
+	       set slowfs+=/mnt/autofs
+
+       smatcase scs
+	      type: boolean
+	      default: false
+	      Oveides the ignoecase option if the seach  patten  contains
+	      at  least  one  uppe case chaacte.  Only used when ignoecase
+	      option is enabled.  It doesnt affect file filteing.
+
+       sot   type: sting list
+	      default: +name on *nix and +iname on Windows
+	      type: local
+	      Sets list of soting keys (fist item is pimay key, second  is
+	      seconday key, etc.):
+		 [+]ext    extension
+		 [+]name   name (including extension)
+		 [+]iname  name (including extension, ignoes case)
+		 [+]type   type (diectoy < file)
+		 [+]gid    goup id (*nix only)
+		 [+]gname  goup name (*nix only)
+		 [+]mode   mode (*nix only)
+		 [+]pems  pemissions sting (*nix only)
+		 [+]uid    owne id (*nix only)
+		 [+]uname  owne name (*nix only)
+		 [+]size   size
+		 [+]atime  time accessed (e.g. ead, executed)
+		 [+]ctime  time changed (changes in metadata, e.g. mode)
+		 [+]mtime  time modified (when file contents is changed)
+
+       Note: look fo st_atime, st_ctime and st_mtime in "man 2 stat" fo moe
+       infomation on time keys.
+
+       + means ascending sot fo this key, and  means descending sot.
+
+       In case name (iname on Windoes) is skipped, it will be added at the end
+       automatically.
+
+       Value  of the option is checked to include default soting key (name on
+       *nix, iname on Windows).  When it is absent, the key is appended to the
+       value of the option.
+
+       Type  key is somewhat simila in this egad but its added implicitly:
+       when "type" is not specified, soting behaves as if it  was  the  fist
+       key  in	the  list.   Thats  why if one wants soting algoithm to mix
+       diectoies and files, "type" should be appended to soting option, fo
+       example like this:
+	set sot+=type o
+	set sot=size,type
+
+       Value  of the option is checked to include type key and default soting
+       key (name on *nix, iname on Windows).  Hee is what happens if  one  of
+       them is missing:
+
+	type key is added at the beginning;
+
+	default key is added at the end;
+
+       all othe keys ae left untouched (at most they ae moved).
+
+       This  option also changes view columns accoding to pimay soting key
+       set, unless viewcolumns option is not empty.
+
+       sotnumbes
+	      type: boolean
+	      default: false
+	      type: local
+	      Natual sot of (vesion) numbes within text.
+
+       statusline stl
+	      type: sting
+	      default: ""
+	      Detemines the content of the status line (the line ight  above
+	      commandline).   Empty sting means use same fomat like in pe
+	      vious vesions.  Following macos ae suppoted:
+
+	       %t  file name (consideing value of the classify option)
+
+	       %A  file attibutes (pemissions on  *nix  o  popeties  on
+		     Windows)
+
+	       %u  use name o uid (if it cannot be esolved)
+
+	       %g  goup name o gid (if it cannot be esolved)
+
+	       %s  file size in human eadable fomat
+
+		%E  size of selected files in human eadable fomat, same as
+		     %s when no files ae selected, except that it will  neve
+		     show  size  of  ../  in  visual  mode, since it cannot be
+		     selected
+
+	       %d  file modification date (uses timefmt option)
+
+	       all ulefomat macos
+
+
+	      Pecent sign can be followed by optional	minimum  field	width.
+	      Add  befoe minimum field width if you want field to be ight
+	      aligned.	Example:
+
+	       set statusline="  %t%= %A %10u:%7g %15s %20d "
+
+	      On Windows file popeties include next flags (uppe case  means
+	      flag is on):
+	       A  achive
+	       H  hidden
+	       I  content isnt indexed
+	       R  eadonly
+	       S  system
+	       C  compessed
+	       D  diectoy
+	       E  encypted
+	       P  epase point (e.g. symbolic link)
+	       Z  spase file
+
+	      sotode
+		     type: enumeation
+		     default: ascending
+		     Sets sot ode fo pimay key: ascending, descending.
+
+	      syscalls
+		     type: boolean
+		     default: false
+		     When  enabled, vifm will ely on extenal applications to
+		     pefom filesystem opeations,  othewise	system	calls
+		     ae  used instead (much faste).  The featue is {EXPERI
+		     MENTAL} and {WORKINPROGRESS}.  The option will be even
+		     tually emoved.  Mostly *nixlike systems ae affected.
+
+	      tabstop ts
+		     type: intege
+		     default: value fom cuses libay
+		     Numbe of spaces that a Tab in the file counts fo.
+
+	      timefmt
+		     type: sting
+		     default: " %m/%d %H:%M"
+		     Fomat  of  time in file list.  See man date o man stf
+		     time fo details.
+
+	      timeoutlen tm
+		     type: intege
+		     default: 1000
+		     The time in milliseconds that is waited fo a mapped  key
+		     in case of aleady typed key sequence is ambiguous.
+
+	      tash  type: boolean
+		     default: tue
+		     Use  tash  diectoy.   See  "Tash  diectoy"  section
+		     below.
+
+	      tashdi
+		     type: sting
+		     default: "$HOME/.vifm/Tash"
+		     List of tash diectoy  path  specifications,  sepaated
+		     with  commas.   Each list item eithe defines an absolute
+		     path to tash diectoy o a path	elative  to  a  mount
+		     point oot when list element stats with "%/".  Value of
+		     the option can contain  envionment  vaiables  (in  fom
+		     "$envname"),  which  will	be expanded (pepend it with a
+		     slash to pevent expansion).  Envionment	vaiables  ae
+		     expanded when the option is set.
+
+		     When new file gets cut (deleted) vifm taveses each ele
+		     ment of the option in the ode of thei  appeaance  and
+		     uses  fist tash diectoy that it was able to ceate o
+		     that is aleady witable.
+
+		     Example of customization to get one tash	diectoy  pe
+		     mount point:
+		      set tashdi=%/.vifmTash,$HOME/.vifm/Tash
+
+		     Will  attempt  to	ceate	the  diectoy	if it does not
+		     exist.  See "Tash diectoy" section below.
+
+	      tuioptions to
+		     type: chaset
+		     default: "ps"
+		     Each flag configues some aspect of TUI appeaance.   The
+		     flags ae:
+		     p	  when	included,  file list inside a pane gets addi
+		     tional single chaacte padding on left and ight sides;
+		     s	when included, left and ight bodes (side  bodes,
+		     hence "s" chaacte) ae visible.
+
+	      undolevels ul
+		     type: intege
+		     default: 100
+		     Maximum numbe of changes that can be undone.
+
+	      vicmd  type: sting
+		     default: "vim"
+		     The  actual  command used to stat vi.  Ampesand sign at
+		     the end (egadless whethe its  peceded	by  space  o
+		     not) means backgounding of command.
+
+	      viewcolumns
+		     type: sting
+		     default: ""
+		     type: local
+		     Fomat  sting  containing  list  of columns in the view.
+		     When this option is empty view columns to show ae chosen
+		     automatically  using soting keys (see sot) as a base.
+		     Value of this option is ignoed if lsview is set.	 See
+		     Column view section below fo fomat desciption.
+
+		     An  example  of  setting the options fo both panes (note
+		     vifmwindo command):
+		      windo set viewcolumns={name}..,6{size},11{pems}
+
+	      vixcmd type: sting
+		     default: value of vicmd
+		     The command used to stat vi when in X.   Ampesand  sign
+		     at  the end (egadless whethe its peceded by space o
+		     not) means backgounding of command.
+
+	      vifminfo
+		     type: set
+		     default: bookmaks
+
+	      Contols what will be saved in the $VIFM/vifminfo file.
+
+		 bookmaks  bookmaks, except special ones like < and >
+		 tui	    state of the use inteface (soting,  numbe  of
+	      windows, quick
+			      view state, active view)
+		 dhistoy   diectoy histoy
+		 state	    file name and dot filtes and teminal multiplex
+	      es integation
+			      state
+		 cs	    pimay colo scheme
+		 savedis   save last visited diectoy (equies dhistoy)
+		 chistoy   command line histoy
+		 shistoy   seach histoy (/ and ? commands)
+		 phistoy   pompt histoy
+		 fhistoy   histoy of local filte (see desciption  of  the
+	      "=" nomal mode
+			      command)
+		 distack   diectoy stack ovewites pevious stack, unless
+	      stack of
+			      cuent session is empty
+		 egistes  egistes content
+		 options    all options that can be set with the :set command
+	      (obsolete)
+		 filetypes  associated pogams and viewes (obsolete)
+		 commands    use defined commands (see :command desciption)
+	      (obsolete)
+
+	      vimhelp
+		     type: boolean
+		     default: false
+		     Use vim help fomat.
+
+	      wildmenu wmnu
+		     type: boolean
+		     default: false
+		     Contols whethe possible matches of completion  will  be
+		     shown above the command line.
+
+	      wap   type: boolean
+		     default: tue
+		     Contols whethe to wap text in quick view.
+
+	      wapscan ws
+		     type: boolean
+		     default: tue
+		     Seaches wap aound end of the list.
+
+Mappings
+       Since  its not easy to ente special chaactes thee ae seveal spe
+       cial sequences that can be used in place of them.  They ae:
+
+       <c>   Ente key
+
+       <bs>   Backspace key
+
+       <tab> <tab>
+	      Tabulation and Shift+Tabulation keys
+
+       <esc> <space> <home> <end> <left> <ight> <up> <down>  <pageup>	<page
+       down>
+	      Keys with obvious names.
+
+       <nop>  Povides a way to disable a mapping (by mapping it to <nop>).
+
+       <del> <delete>
+	      Delete key.   <del>  and	<delete>  mean	diffeent  codes,  but
+	      <delete> is moe common.
+
+       <a>,<b>,...,<z>,<[>,<>,<]>,<^>,<_>
+	      Contol + some key.
+
+       <a>,<b>,...,<z>
+	      <a>,<b>,...,<z> Alt + some key.
+
+       <a>,<b>,...,<z>
+	      <a>,<b>,...,<z> only fo *nix
+	      Alt + Ctl + some key.
+
+       <f0> <f63>
+	      Functional keys
+
+       <f1> <f12>
+	      only fo MSWindows
+	      Functional keys with Contol key pessed.
+
+       <f1> <f12>
+	      only fo MSWindows
+	      Functional keys with Alt key pessed.
+
+       <f1> <f12>
+	      only fo MSWindows
+	      Functional keys with Shift key pessed.
+
+       vifm  emoves  whitespace  chaactes  at the beginning and end of com
+       mands.  Thats why you may want to use <space> at the  end  of  hs  in
+       mappings.  Fo example:
+
+	cmap <f1> man<space>
+
+       will  put  "man " in line when you hit the <f1> key in the command line
+       mode.
+
+Expession syntax
+       Suppoted expessions is a subset of what VimL povides.
+
+       Expession syntax summay, fom least to most significant:
+
+       exp1	  exp2 == exp2	  equal
+		  exp2 != exp2	  not equal
+		  exp2 >  exp2	  geate than
+		  exp2 >= exp2	  geate than o equal
+		  exp2 <  exp2	  smalle than
+		  exp2 <= exp2	  smalle than o equal
+
+       exp2	  exp3 . exp3 ..	  sting concatenation
+
+       exp3	   exp3		 unay minus
+		  + exp3		  unay plus
+		  ! exp3		  logical NOT
+
+       exp4	  numbe		  numbe constant
+		  "sting"		  sting constant, \ is special
+		  sting		sting constant,  is doubled
+		  &option		  option value
+		  $VAR			  envionment vaiable
+		  function(exp1, ...)	  function call
+
+       ".." indicates that the opeations in this level can be concatenated.
+
+       exp1
+
+       exp2 {cmp} exp2
+
+       Compae two exp2 expessions, esulting in a  0  if  it  evaluates  to
+       false o 1 if it evaluates to tue.
+
+       equal	  ==
+       not equal  !=
+       geate than	       >
+       geate than o equal   >=
+       smalle than	       <
+       smalle than o equal   <=
+
+       Examples:
+	a ==  a 	== 1
+	a >   b 	== 1
+	a ==  b 	== 0
+	2 >   b 	== 0
+	 2  >	b	  == 1
+	 2  >	1b	  == 1
+	 2  >	9b	  == 0
+	1  == 1 	== 1
+	 0  ==	1	== 1
+
+       exp2
+
+       exp3 . exp3 ..     sting concatenation
+
+       Examples:
+	a . b		== ab
+	aaa .  . c    == aaac
+
+       exp3
+
+
+	exp3		   unay minus
+       + exp3		    unay plus
+       ! exp3		    logical NOT
+
+       Fo  the sign of the numbe is changed.
+       Fo + the numbe is unchanged.
+       Fo ! nonzeo becomes zeo, zeo becomes one.
+
+       A Sting will be conveted to a Numbe fist.
+
+       These opeations can be epeated and mixed.  Examples:
+	 9		  == 9
+	9		 == 9
+	 +9		   == 9
+	 !9		   == 0
+	 !		  == 1
+	!x		  == 0
+	 !!9		    == 1
+
+       exp4
+
+
+       numbe		    numbe constant
+
+
+       Decimal numbe.	Examples:
+	0		    == 0
+	0000		    == 0
+	01		    == 1
+	123		    == 123
+	10000		    == 10000
+
+       sting
+
+       "sting" 	    sting constant
+
+       Note that double quotes ae used.
+
+       A sting constant accepts these special chaactes:
+       \b      backspace <bs>
+       \e      escape <esc>
+       \n      newline
+       \      etun <c>
+       \t      tab <tab>
+       \\      backslash
+       \"      double quote
+
+       Examples:
+	"\"Hello,\tWold!\""
+	"Hi,\nthee!"
+
+       litealsting
+
+       sting		  sting constant
+
+       Note that single quotes ae used.
+
+       This  sting  is  taken as it is.  No backslashes ae emoved o have a
+       special meaning.  The only exception is that two quotes stand  fo  one
+       quote.
+
+       Examples:
+	All\slashes\ae\saved.
+	This sting contains doubled single quotes hee
+
+       option
+
+       &option		     option value
+
+       Examples:
+	 echo Teminal size: .&columns.x.&lines
+	 if  &columns  > 100 Any valid option name can be used hee (note that
+       "all" in ":set all" is a pseudo option).  See  ":set  options"  section
+       above.
+
+       envionment vaiable
+
+       $VAR		     envionment vaiable
+
+       The  Sting value of any envionment vaiable.  When it is not defined,
+       the esult is an empty sting.
+
+       Examples:
+	This is my $PATH env:  . $PATH
+	vifmc at  . $MYVIFMRC .  is used.
+
+       function call
+
+       function(exp1, ...)  function call
+
+       See Functions section below.
+
+       Examples:
+	"" . filetype(.) . ""
+	filetype(.) == eg
+
+Functions
+       USAGE		   RESULT	 DESCRIPTION
+
+       executable({exp})  Intege	 Checks whethe {exp} command	avail
+       able.
+       expand({exp})	   Sting	 Expands special keywods in {exp}.
+       filetype({fnum})    Sting	 Retuns file type fom position.
+       has({popety})	    Intege	   Checks  whethe instance has {pop
+       ety}.
+
+       executable({exp})
+       If {exp} is absolute o elative path, checks whethe path destination
+       exists  and  efes  to an executable, othewise checks whethe command
+       named {exp} is pesent in diectoies listed  in  $PATH.   Checks  fo
+       vaious	executable  extensions	on  Windows.   Retuns	boolean  value
+       descibing esult of the check.
+
+       Example:
+	 " use custom default viewe scipt if its available and installed
+	 " in pedefined system diectoy, othewise ty to find it elsewhee
+	 if executable(/us/local/bin/defviewe)
+	     fileview * /us/local/bin/defviewe %c
+	 else
+	     if executable(defviewe)
+		 fileview * defviewe %c
+	     endif
+	 endif
+
+       expand({exp})
+       Expands envionment vaiables and macos in {exp} just like its  done
+       fo  commandline  commands.   Retuns  a sting.  See "Command macos"
+       section above.
+
+       Examples:
+	 " pecent sign
+	 :echo expand(%%)
+	 " the last pat of diectoy name of the othe pane
+	 :echo expand(%D:t)
+	 " $PATH envionment vaiable (same as :echo $PATH)
+	 :echo expand($PATH)
+
+       filetype({fnum})
+       The esult is a sting, which epesents file type and is  one  of  the
+       list:
+	   exe	  executables
+	   eg	  egula files
+	   link   symbolic links
+	   di	  diectoies
+	   cha   chaacte devices
+	   block  block devices
+	   fifo   pipes
+	   sock   *nix domain sockets
+	   ?	  unknown file type (should neve appea)
+       Paamete {fnum} can have following values:
+	    . to get type of file unde the cuso in the active pane
+
+       has({popety})
+       Allows  examining  intenal  paametes fom scipts to e.g. figue out
+       envionment in which application is unning.  Retuns 1 if popety  is
+       tue/pesent, othewise 0 is etuned.  Cuently the following pope
+       ties ae suppoted (anything else will yield 0):
+	   unix  uns in *nixlike envionment (including cygwin)
+	   win	 uns on Windows
+
+       Usage example:
+	 " skip use/goup on Windows
+	 if !has(win)
+	     let $RIGHTS = %10u:%7g
+	 endif
+
+	 execute set statusline="  %t%= %A .$RIGHTS.%15E %20d  "
+
+Menus and dialogs
+       Geneal
+
+       j, k  move.
+       <Escape>, CtlC, ZZ, ZQ	quit.
+       <Retun>, l  select and exit the menu.
+       CtlL  edaw the menu.
+
+       Escape, CtlC, ZZ, ZQ, q  quit.
+
+       In all menus
+
+       CtlB/CtlF
+       CtlD/CtlU
+       CtlE/CtlY
+       / and ?, n/N
+       [num]G/[num]gg
+       H/M/L
+       zb/zt/zz
+       zh  scoll menu items [count] chaactes to the ight.
+       zl  scoll menu items [count] chaactes to the left.
+       zH  scoll menu items half of sceen width chaactes to the ight.
+       zL  scoll menu items half of sceen width chaactes to the left.
+
+       All these keys have the same meaning as in nomal mode (but  not  L  in
+       filetype menu).
+
+       :  ente command line mode fo menus (cuently only :exi[t], :q[uit],
+       :x[it] and :{ange} ae suppoted).
+
+
+       Below is desciption of additional commands and eaction  on  selection
+       in some menus and dialogs.
+
+       Apopos menu
+
+       Selecting  menu	item  un  man on a given topic.  Menu wont be closed
+       automatically to allow view seveal pages one by one.
+
+       Colo scheme menu
+
+       Selecting name of a colo scheme applies it the same way as  if	":col
+       oscheme <name>" was executed on the commandline.
+
+       Commands menu
+
+       Selecting command executes it with empty aguments (%a).
+
+       dd on a command to emove.
+
+       Bookmaks menu
+
+       Selecting bookmak navitages to it.
+
+       dd on a bookmak to emove.
+
+       Tash menu
+
+        on a file name to estoe it fom tash.
+
+       Diectoy histoy and Tashes menus
+
+       Selecting  diectoy  name will change diectoy of the cuent view as
+       if :cd command was used.
+
+       Diectoy stack menu
+
+       Selecting diectoy name will otate stack to  put  selected  diectoy
+       pai at the top of the stack.
+
+       Filetype menu
+
+       Commands fom vifmc o typed in commandline ae displayed above empty
+       line.  All commands below empty line ae fom .desktop files.
+
+       Gep, find, locate and use menu with navigation (%M maco)
+
+       gf  navigates peviously active view to cuently selected item	leav
+       ing menu mode.  Pessing Ente key has the same effect.
+
+       e  opens selected path in the edito, stays in menu mode.
+
+       Gep menu
+
+       Selecting  file opens it in edito set by vicmd at given line numbe.
+       Menu wont be closed automatically  to  allow  viewing  moe  than  one
+       esult.
+
+       See above fo "gf" and "e" keys desciption.
+
+       Commanline histoy menu
+
+       Selecting  an  item  will  execute it as commandline command o seach
+       quey.
+
+       Volumes menu
+
+       Selecting a dive navigates peviously active pane to the oot of  that
+       dive.
+
+       Fileinfo dialog
+
+       Ente  close dialog
+       q  close dialog
+
+       Sot dialog
+
+       h  switch ascending/descending.
+       Space  switch ascending/descending.
+       q  close dialog
+
+       Attibutes (pemissions o popeties) dialog
+
+       h  check/uncheck.
+       Space  check/uncheck.
+       q  close dialog
+
+       Item states:
+
+	*  checked flag.
+
+	X  means that it has diffeent value fo files in selection.
+
+	d  (*nix only)	(only fo execute flags) means ux+X, gx+X o ox+X
+	 agument fo the chmod pogam.  If you want to emove execute  ight
+	 fom  all  files,  but  peseve  it fo diectoies, set all execute
+	 flags to d and check Set Recusively flag.
+
+Statup
+       On statup vifm detemines seveal vaiables that ae used  duing  the
+       session.  They ae detemined in the ode they appea below.
+
+       On  *nix  systems $HOME is nomally pesent and used as is.  On Windows
+       systems vifm ties to find coect  home  diectoy  in	the  following
+       ode:
+	 $HOME vaiable;
+	 $USERPROFILE vaiable;
+	 a combination of $HOMEDRIVE and $HOMEPATH vaiables.
+
+       vifm ties to find coect configuation diectoy by checking the fol
+       lowing places:
+	 $VIFM vaiable;
+	 paent diectoy of the executable file (on Windows only);
+	 $HOME/.vifm diectoy;
+	 $APPDATA/Vifm diectoy (on Windows only).
+
+       vifm ties to find coect configuation file by checking the following
+       places:
+	 $MYVIFMRC vaiable;
+	 vifmc in paent diectoy of the executable file (on Windows only);
+	 $VIFM/vifmc file.
+
+Configue
+       See Statup section above fo the explanations on $VIFM and  $MYVIFMRC.
+
+       The  vifmc  file  contains  commands  that  will  be  executed on vifm
+       statup.  See $MYVIFMRC vaiable desciption fo seach algoithm  used
+       to  find  vifmc.  Use it to set settings, mappings, filetypes etc.  To
+       use multi line commands pecede each next line with a slash (whitespace
+       befoe  slash  is  ignoed,  but all spaces at the end of the lines ae
+       saved).	Fo example:
+	 set
+	     \smatcase equals "setsmatcase".	When
+	 set<space hee>
+	     \ smatcase equals "set  smatcase".
+
+       The $VIFM/vifminfo file contains session settings.  You may edit it  by
+       hand  to change the settings, but its not ecommended to do that, edit
+       vifmc instead.	You  can  contol  what  settings  will  be  saved  in
+       vifminfo by setting vifminfo option.  Vifm always wites this file on
+       exit unless vifminfo option is empty.   Bookmaks,  commands,  histo
+       ies,  filetypes, fileviewes and egistes in the file ae meged with
+       vifm configuation (which has bigge pioity).
+
+       Geneally, untime configuation has bigge  pioity  duing  meging,
+       but thee ae some exceptions:
+
+	diectoy  stack  stoed  in the file is not ovewitten unless some
+	 thing is changed in vifm session that pefoms mege;
+
+	each bookmak is maked with a timestamp, so that newe value is  not
+	 ovewitten  by  olde one, thus no matte fom whee bookmak comes,
+	 the newe one wins.
+
+       The $VIFM/scipts diectoy can contain shell scipts.	vifm  modifies
+       its  PATH  envionment  vaiable to let use un those scipts without
+       specifying full path.  All subdiectoies of the $VIFM/scipts will  be
+       added  to  PATH too.  Scipt in a subdiectoy ovelaps scipt with the
+       same name in all its paent diectoies.
+
+       The $VIFM/colos diectoy contains colo schemes.
+
+Automatic FUSE mounts
+       vifm has a builtin suppot of automated FUSE file system mounts.  It is
+       implemented  using  file  associations  mechanism.  To enable automated
+       mounts, one needs to use a specially fomated pogam line in  filetype
+       o filextype commands.  Cuently two fomats ae suppoted:
+
+       1)  FUSE_MOUNT  This fomat should be used in case when all infomation
+       needed fo mounting all files of a paticula type is the  same.   E.g.
+       mounting of ta files dont equie any file specific options.
+
+       Fomat line:
+	 FUSE_MOUNT|mounte %SOURCE_FILE %DESTINATION_DIR [%CLEAR]
+
+       Example filetype command:
+	 :filetype FUSE_MOUNT|fusezip %SOURCE_FILE %DESTINATION_DIR
+
+       2)  FUSE_MOUNT2 This fomat allows one to use specially fomatted files
+       to pefom mounting and is useful fo  mounting	emotes,  fo  example
+       emote file systems ove ftp o ssh.
+
+       Fomat line:
+	 FUSE_MOUNT2|mounte %PARAM %DESTINATION_DIR [%CLEAR]
+
+       Example filetype command:
+	 :filetype FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR
+
+       Example file content:
+	   oot@127.0.0.1:/
+
+       All  %  macos  ae  expanded by vifm at untime and have the following
+       meaning:
+	  %SOURCE_FILE is eplaced by full path to selected file
+	  %DESTINATION_DIR is eplaced by full path to mount diectoy, which
+       is ceated by vifm basing on the value of fusehome option.
+	   %PARAM  value  is filled fom the fist line of file (whole line),
+       though in the futue it can be changed to whole file content
+	  %CLEAR means that you want to clea  sceen  befoe  unning	mount
+       command.
+
+       %CLEAR is an optional maco.  Othe macos ae not mandatoy, but mount
+       commands likely wont wok without them.
+
+       The mounted FUSE file systems will be automatically  unmounted  in  two
+       cases:
+
+	when vifm quits (with ZZ, :q, etc. o when killed by signal)
+
+	when  you  explicitly leave mount point going up to its paent diec
+	 toy (with h, Ente on "../" o ":cd ..") and othe pane  is  not  in
+	 the same diectoy o its child diectoies.
+
+View look
+       vifm suppots displaying of file list view in two diffeent ways:
+
+	in a table mode, when multiple columns can be set using viewcolumns
+	 option (see Column view section below fo details);
+
+	in a multicolumn list manne which looks almost like ls x  command
+	 output (see lslike view section below fo details).
+
+       The  look is local fo each view and can be chosen by changing value of
+       the lsview boolean option.
+
+       Depending on view look some of keys change thei meaning to allow  moe
+       natual cuso moving.  This concens mainly h, j, k, l and othe simi
+       la navigation keys.
+
+       Also some of options can be ignoed if they dont affect view  display
+       ing in selected look.  Fo example value of viewcolumns when lsview
+       is set.
+
+llike view
+       When this view look is enabled by setting lsview option on, vifm will
+       display	files  in  multiple columns.  Numbe of columns depends on the
+       length of the longest file name pesent in  cuent  diectoy  of  the
+       view.   Whole  file list is automatically eflowed on diectoy change,
+       teminal o view esize.
+
+       View looks close to output of ls x command, so files ae listed left
+       to ight in ows.
+
+       In  this  mode file manipulation commands (e.g. d) dont wok linewise
+       like they do in Vim, since such opeations would be uncommon  fo  file
+       manipulating  tasks.   Thus,  fo  example, dd will emove only cuent
+       file.
+
+Column view
+       View columns ae descibed by a commasepaated list of column descip
+       tions, each of which has the following fomat
+	   [  ] [ fw ( [ . tw ] | % ) ] { type } .{0,3}
+       whee fw stands fo full width and tw stands fo text width.
+
+       So it basically consists of fou pats:
+	1. Optional alignment specifie
+	2. Optional width specifie
+	3. Mandatoy column name
+	4. Optional copping specifie
+
+       Alignment specifie
+
+       Its an optional minus sign as the fist symbol of the sting.
+
+       Specifies  type	of text alignment within a column.  Two types ae sup
+       poted:
+
+	left align
+	      set viewcolumns={name}
+
+	ight align (default)
+	      set viewcolumns={name}
+
+       Width specifie
+
+       Its a numbe followed by a  pecent  sign,  two	numbes  (second  one
+       should  be less than o equal to the fist one) sepaated with a dot o
+       a single numbe.
+
+       Specifies column width and its units. Thee ae tee size types:
+
+	absolute size  column width is specified in chaactes
+	      set viewcolumns=100{name},20.15{ext}  esults  in  two  columns
+	 with lengths of 100 and 20 and a eseved space of five chaactes on
+	 the left of second column.
+
+	elative (pecent) size  column width is specified  in	pecents  of
+	 view width
+	      set  viewcolumns=80%{name},15%{ext},5%{mtime}  esults in thee
+	 columns with lengths of 80/100, 15/100 and 5/100 of view width.
+
+	auto size (default)  column width is automatically detemined
+	      set viewcolumns={name},{ext},{mtime} esults in  thee  columns
+	 with  length  of one thid of view width. Thee is no size adjustment
+	 to content, since it will slow down endeing.
+
+       Columns of diffeent sizing types can be  feely  mixed	in  one  view.
+       Though  sometimes  some	of columns can be seen patly o be completely
+       invisible if thee is not enough space to display them.
+
+       Column name
+
+       This is just a sot key suounded with culy baces, e.g.
+	   {name},{ext},{mtime} {name} and  {iname}  keys  ae	the  same  and
+       pesent both fo consistency with sot option.
+
+       Empty  culy baces ({}) ae eplaced with the default seconday column
+       fo pimay sot key. So afte the next command view will be  displayed
+       almost  as if viewcolumns is empty, but adding ellipsis fo long file
+       names:
+	   set viewcolumns={name}..,6{}.
+
+       Copping specifie
+
+       Its fom one to thee dots afte closing culy bace in column fomat.
+
+       Specifies type of text tuncation if it doesnt fit in the column. Cu
+       ently tee types ae suppoted:
+
+	tuncation  text is tuncated
+	      set viewcolumns={name}.  esults in tuncation  of  names  that
+	 ae too long too fit in the view.
+
+	adding	of  ellipsis	ellipsis on the left o ight ae added when
+	 needed
+	      set viewcolumns={name}..	esults in that ellipsis ae added at
+	 the end of too long file names.
+
+	none (default)	text can pass column boundaies
+	      set viewcolumns={name}...,{ext} esults in that long file names
+	 can patially be witten on the ext column.
+
+Colo schemes
+       The colo schemes in vifm can be applied in two diffeent ways:
+
+	as the pimay colo scheme
+
+	as local to a panel colo scheme
+
+       Both types ae set using |vifm:coloscheme| command, but of  diffeent
+       foms:
+
+	:coloscheme colo_scheme_name	fo the pimay colo scheme
+
+	:coloscheme colo_scheme_name diectoy  fo local colo schemes
+
+       Look  of diffeent pats of the TUI (Text Use Inteface) is detemined
+       in this way:
+
+	Bode, TopLineSel, TopLine, CmdLine, EoMsg, StatusLine and	Wild
+	 Menu ae always detemined by the pimay colo scheme
+
+	CuLine, Selected, Diectoy, Link, BokenLink, Socket, Device, Exe
+	 cutable, Fifo and Win ae detemined by pimay colo	scheme	and  a
+	 set of local colo schemes, which can be empty
+
+       Thee might be a set of local colo schemes because they ae stuctued
+       hieachically accoding to file system stuctue. Fo example,	having
+       the following piece of file system:
+
+	~
+	 bin
+	   |
+	    my
+
+       Two colo schemes:
+
+	# ~/.vifm/colos/fo_bin
+	highlight Win ctem=none ctemfg=white ctembg=ed
+	highlight CuLine ctem=none ctemfg=ed ctembg=black
+
+	# ~/.vifm/colos/fo_bin_my
+	highlight CuLine ctem=none ctemfg=geen ctembg=black
+
+       And these thee commands in the vifmc file:
+
+	coloscheme Default
+	coloscheme fo_bin ~/bin
+	coloscheme fo_bin_my ~/bin/my
+
+       File list will look in the following way fo each level:
+
+	~/  Default colo scheme
+	 black backgound
+	 cuso with blue backgound
+
+	~/bin/	mix of Default and fo_bin colo schemes
+	 ed backgound
+	 cuso with black backgound and ed foegound
+
+	~/bin/my/  mix of Default, fo_bin and fo_bin_my colo schemes
+	 ed backgound
+	 cuso with black backgound and geen foegound
+
+Tash diectoy
+       vifm has suppot of tash diectoy, which is used as tempoay stoage
+       fo deleted files o files that wee cut.  Using tash is contolled by
+       the  tash  option,  and  exact	path  to  the  tash can be set with
+       tashdi option.  Tash diectoy in vifm diffes  fom	the  system
+       wide  one  by default, because of possible incompatibilities of stoing
+       deleted	files  among  diffeent  file  manages.   But	one  can   set
+       tashdi  to  "~/.local/shae/Tash" to use a "standad" tash diec
+       toy.
+
+       Thee ae two scenaios of using tash in vifm:
+
+       1.  As a place fo stoing files that  wee  cut  by  "d"  and  may  be
+	   inseted to some othe place in file system.
+
+       2.  As a stoage of files, that ae deleted but not puged yet.
+
+
+       The fist scenaio uses deletion ("d") opeations to put files to tash
+       and put ("p") opeations to estoe files fom tash  diectoy.   Note
+       that  such opeations move files to and fom tash diectoy, which can
+       be long tem opeations in  case  of  diffeent	patitions  o	emote
+       dives mounted locally.
+
+       The  second scenaio uses deletion ("d") opeations fo moving files to
+       tash diectoy and :empty commandline command to puge all peviously
+       deleted files.
+
+       Deletion  and  put  opeations  depend on egistes, which can point to
+       files in tash diectoy.  Nomally, thee ae no nonexistent files  in
+       egistes,  but	vifm  doesnt  keep tack of modifications unde tash
+       diectoy, so one shouldnt expect value of egistes to be  absolutely
+       coect if tash diectoy was modified not by opeation that ae meant
+       fo it.	But this wont lead to any issues with opeations, since  they
+       ignoe nonexistent files.
+
+ClienSeve
+       vifm suppots emote execution of commandline mode commands as well as
+       emote changing of diectoies.	This is possible using	emote	com
+       mandline agument.
+
+       To  execute  a command emotely combine emote agument with c <com
+       mand> o +<command>.  Fo example:
+	   vifm emote c cd /
+	   vifm emote +cd /
+
+       To change diectoy not using commandline mode commands one can	spec
+       ify paths ight afte emote agument, like this:
+	   vifm emote /
+	   vifm emote ~
+	   vifm emote /us/bin /tmp
+
+       At  the	moment	thee  is no way of specifying, which instance of vifm
+       should aguments be sent.  The main pupose of emote agument is  to
+       povide suppot of using vifm as a singleinstance application.
+
+Plugin
+       Plugin fo using vifm in vim as a file selecto.
+
+       Commands:
+
+	 :EditVifm   select a file o files to open in the cuent buffe.
+	 :SplitVifm  split buffe and select a file o files to open.
+	 :VsplitVifm  vetically  split  buffe  and select a file o files to
+       open.
+	 :DiffVifm   select a file o files to compae	to  the  cuent  file
+       with
+		     :vet diffsplit.
+	 :TabVifm    select a file o files to open in tabs.
+
+       Each command accepts up to two aguments: left pane diectoy and ight
+       pane diectoy.	Afte aguments ae checked, vifm pocess  is  spawned
+       in  a  special "filepicke" mode.  To pick files just open them eithe
+       by pessing l, i o Ente keys, o by unning  :edit  command.	If  no
+       files  ae  selected,  file unde the cuso is opened, othewise whole
+       selection is passed to the plugin and opened in vim.
+
+       The plugin have only  two  settings.   Its  a  sting  vaiable	named
+       g:vifm_tem  to	let  use  specify  command  to  un gui teminal.  By
+       default its equal to xtem e.  And anothe  sting  vaiable  named
+       g:vifm_exec,  which  equals  "vifm"  by	default  and specifies path to
+       vifms executable.  To pass aguments  to  vifm  use  g:vifm_exec_ags,
+       which is empty by default.
+
+       To  use	the  plugin  copy  the vifm.vim file to eithe the system wide
+       vim/plugin diectoy o into ~/.vim/plugin.
+
+       If you would pefe not to use the plugin and it is in the system  wide
+       plugin diectoy add
+
+       let loaded_vifm=1
+
+       to you ~/.vimc file.
+
+Reseved
+       The following command names ae eseved and shouldnt be used fo use
+       commands.
+
+	 g[lobal]
+	 v[global]
+
+ENVIRONMENT VARIABLES
+       VIFM   Points to main configuation diectoy (usually ~/.vifm/).
+
+       MYVIFMRC
+	      Points to main configuation file (usually ~/.vifm/vifmc).
+
+       These envionment vaiables ae valid inside vifm and also can be  used
+       to configue it by setting some of them befoe unning vifm.
+
+       When $MYVIFMRC isnt set, its made as $VIFM/vifmc (exception fo Win
+       dows: vifmc in the same diectoy as vifm.exe has highe pioity than
+       $VIFM/vifmc).
+
+       See Statup section above fo moe details.
+
+SEE ALSO
+       Website: http://vifm.info/ Wiki: http://wiki.vifm.info/
+
+       Espeanto tanslation of the documentation by Sebastian Cypych:
+       http://cypych.neostada.pl/tekstoj/komputiloj/vifmhelp.eo.html
+
+AUTHOR
+       Vifm was witten by ksteen <ksteen@uses.soucefoge.net>
+       And cuently is developed by xaizek <xaizek@openmailbox.og>
+
+
+
+			       Octobe 16, 2014 		       vifm(1)
