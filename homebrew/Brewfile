@@ -45,6 +45,9 @@ gnutls
 go
 gpg-agent
 grc
+homebrew/x11/feh
+homebrew/fuse/sshfs
+homebrew/fuse/gitfs
 htop-osx
 httpry
 hub
@@ -79,6 +82,7 @@ mdp
 mercurial
 mongodb
 moreutils
+mosh
 mpfr
 mpg123
 mplayer
