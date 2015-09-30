@@ -110,6 +110,7 @@ rename
 s-lang
 shellcheck
 source-highlight
+sox
 ssh-copy-id
 stow
 task
