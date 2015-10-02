@@ -237,3 +237,7 @@ endif
 let g:startify_custom_footer =
  \ map(split(system('fortune | cowsay -t'), '\n'), '"   ". v:val') + ['','']
 let g:startify_list_order = [ [ '  Recent files:' ], 'dir' ]
+
+" Rust
+" ====
+let g:rust_recommended_style = 0
