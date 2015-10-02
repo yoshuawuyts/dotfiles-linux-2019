@@ -14,6 +14,7 @@ clib
 cloog
 cmake
 cmatrix
+cmus
 coreutils
 cowsay
 ctags
