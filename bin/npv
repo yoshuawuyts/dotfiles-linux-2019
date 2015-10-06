@@ -15,4 +15,4 @@ usage () {
 
 [ "$1" = 'publish' ] && npm publish && git push --tags && git push && exit 0
 
-npm version "$1" && npm publish && git push --tags && git push
+git push && npm version "$1" && npm publish && git push --tags && git push
