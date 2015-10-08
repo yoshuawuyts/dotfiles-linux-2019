@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Link daemon files
+#   Author: Yoshua Wuyts
+#   License: MIT
+
+ln -sfw ../daemons/* ~/Library/Launchagents
