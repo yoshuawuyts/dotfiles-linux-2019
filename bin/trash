@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Move an item to trash
+#   Version: 1.0.0
+#   Author: Yoshua Wuyts <yoshuawuyts@gmail.com>
+#   License: MIT
+
+# print usage information
+usage() {
+cat << EOF
+  Usage: trash <dir|item>
+
+  Options:
+    -h, --help  output usage information
+
+  Examples:
+    $ trash ./foo/bar
+EOF
+}
+
+# assert arguments
+[ $# -ne 1 ] && usage && exit 1
+
+# switch arguments
+case $1 in
+  -h|--help) usage; exit;;
+esac
+
+# logic
+mv "$1" ~/.Trash

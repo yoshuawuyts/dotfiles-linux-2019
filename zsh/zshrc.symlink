@@ -6,8 +6,9 @@ export PATH=$PATH:/Users/yw/src/yw/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/
 # start zle
 zmodload zsh/zle
 
-# utf-8
+# utf-8 & screen
 export LC_ALL="en_US.UTF-8"
+export TERM=screen-256color
 
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/src/yw/dotfiles
@@ -64,3 +65,15 @@ zle -N self-insert url-quote-magic
 
 # Fix history search in tmux
 bindkey '^R' history-incremental-search-backward
+
+###############################################################################
+# Default programs
+###############################################################################
+if [ -x "$(command -v nvim)" ]; then
+  export EDITOR="nvim"
+else
+  export EDITOR="vim"
+fi
+
+# default programs
+export GHI_PAGER=less
