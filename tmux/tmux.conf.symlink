@@ -16,7 +16,7 @@ set -g history-limit 5000
 setw -g mode-keys vi
 
 # renumber windows
-set-option -g renumber-windows on
+set-option -g renumber-windows off
 
 # starts windows at 1 not 0
 set-option -g base-index 1
@@ -24,7 +24,7 @@ set-option -g base-index 1
 set-option -g visual-activity off
 set-option -g visual-content off
 set-option -g set-titles on
-set-option -gw automatic-rename on
+set-option -gw automatic-rename off
 set-option -gw monitor-activity off
 set-option -gw monitor-content off
 
