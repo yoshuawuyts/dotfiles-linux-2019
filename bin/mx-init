@@ -13,6 +13,11 @@ create_session () {
   tmux new-window -n 'log' -c "$logpath"
   tmux send-keys "$EDITOR" C-m
   tmux split-window -h -c "$logpath"
+
+  local confpath=/Users/"$USER"/src/"$USER"/dotfiles
+  tmux new-window -n 'conf' -c "$confpath"
+  tmux send-keys "$EDITOR" C-m
+  tmux split-window -h -c "$confpath"
 }
 
 if ! (tmux list-sessions | cut -d ':' -f 1 | grep -q ^"$SESSION"\$); then
