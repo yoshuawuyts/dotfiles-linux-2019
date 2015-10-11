@@ -23,6 +23,10 @@
 
 set -e
 
+if ! (tmux list-sessions | cut -d ':' -f 1 | grep -q ^"$SESSION"\$); then
+  mx-init
+fi
+
 if [ -z "$1" ]; then SESSION="${PWD##*/}";
 else SESSION="$1"; fi
 
@@ -35,6 +39,10 @@ if ! (tmux list-sessions | cut -d':' -f1 | grep -q ^"$SESSION"\$); then
   tmux send-keys "$EDITOR" C-m #':CtrlP' C-m
   tmux split-window -h
   tmux select-window -t "$SESSION"
+  tmux link-window -s shared:irc -t 0
+  tmux link-window -s shared:audio -t 9
+  tmux link-window -s shared:email -t 8
+  tmux select-window -t 1
 fi
 
 if [ -z "$TMUX" ]; then tmux attach -t "$SESSION";

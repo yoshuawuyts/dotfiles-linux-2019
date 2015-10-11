@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+SESSION=shared
+
+create_session () {
+  tmux new-session -d -s "$SESSION" -n irc irssi
+  tmux new-window -n audio cmus
+  tmux new-window -n email mutt
+}
+
+if ! (tmux list-sessions | cut -d ':' -f 1 | grep -q ^"$SESSION"\$); then
+  create_session
+fi
