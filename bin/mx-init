@@ -4,10 +4,15 @@ set -e
 SESSION='_shared'
 
 create_session () {
-  tmux new-session -d -s "$SESSION" -n msg irssi
+  tmux new-session -d -s "$SESSION" -n 'msg' irssi
   tmux split-window -h && tmux send-keys mutt C-m
 
-  tmux new-window -n media cmus
+  tmux new-window -n 'media' cmus
+
+  local logpath=/Users/"$USER"/src/"$USER"/knowledge
+  tmux new-window -n 'log' -c "$logpath"
+  tmux send-keys "$EDITOR" C-m
+  tmux split-window -h -c "$logpath"
 }
 
 if ! (tmux list-sessions | cut -d ':' -f 1 | grep -q ^"$SESSION"\$); then

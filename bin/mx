@@ -41,6 +41,7 @@ if ! (tmux list-sessions | cut -d':' -f1 | grep -q ^"$SESSION"\$); then
   tmux select-window -t "$SESSION"
   tmux link-window -s _shared:msg -t 9
   tmux link-window -s _shared:media -t 8
+  tmux link-window -s _shared:log -t 7
   tmux select-window -t 1
 fi
 
