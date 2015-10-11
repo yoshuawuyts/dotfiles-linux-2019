@@ -111,6 +111,7 @@ readline
 reattach-to-user-namespace
 redis
 rename
+rtorrent
 s-lang
 shellcheck
 source-highlight
