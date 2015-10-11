@@ -30,7 +30,7 @@ set-option -gw monitor-content off
 
 set-window-option -g window-status-current-attr bold
 set-window-option -g window-status-current-format '[ #I ]'
-set-window-option -g window-status-format ' #I #W '
+set-window-option -g window-status-format ' #I '
 set-window-option -g window-status-attr dim
 
 # enable mouse
