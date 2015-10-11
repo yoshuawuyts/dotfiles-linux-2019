@@ -8,4 +8,5 @@ vim/vim.symlink/spell/**
 vim/vim.symlink/plugged/**
 vim/vim.symlink/autoload/plug.vim
 npm-debug.log
-*rtorrent.lock
+rtorrent/rtorrent.symlink/session*
+!rtorrent/rtorrent.symlink/session/.gitkeep

@@ -2,7 +2,7 @@
 session = ~/.rtorrent/session
 
 # Where to save output
-directory = ~/downloaded
+directory = ~/Downloads
 
 # !important: increase swarm security
 encryption = allow_incoming,try_outgoing,enable_retry
