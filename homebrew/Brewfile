@@ -47,9 +47,9 @@ gnutls
 go
 gpg-agent
 grc
-homebrew/x11/feh
-homebrew/fuse/sshfs
 homebrew/fuse/gitfs
+homebrew/fuse/sshfs
+homebrew/x11/feh
 htop-osx
 httpry
 hub
@@ -91,6 +91,7 @@ mpg123
 mplayer
 mutt
 nettle
+newsbeuter
 newt
 nvm
 openssl
