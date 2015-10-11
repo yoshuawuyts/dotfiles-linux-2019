@@ -11,3 +11,4 @@ npm-debug.log
 rtorrent/rtorrent.symlink/session*
 !rtorrent/rtorrent.symlink/session/.gitkeep
 newsbeuter/*/cache*
+newsbeuter/*/history*
