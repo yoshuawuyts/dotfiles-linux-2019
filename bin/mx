@@ -39,9 +39,8 @@ if ! (tmux list-sessions | cut -d':' -f1 | grep -q ^"$SESSION"\$); then
   tmux send-keys "$EDITOR" C-m #':CtrlP' C-m
   tmux split-window -h
   tmux select-window -t "$SESSION"
-  tmux link-window -s _shared:irc -t 9
-  tmux link-window -s _shared:audio -t 8
-  tmux link-window -s _shared:email -t 7
+  tmux link-window -s _shared:msg -t 9
+  tmux link-window -s _shared:media -t 8
   tmux select-window -t 1
 fi
 

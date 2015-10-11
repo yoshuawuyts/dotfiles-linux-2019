@@ -4,9 +4,10 @@ set -e
 SESSION='_shared'
 
 create_session () {
-  tmux new-session -d -s "$SESSION" -n irc irssi
-  tmux new-window -n audio cmus
-  tmux new-window -n email mutt
+  tmux new-session -d -s "$SESSION" -n msg irssi
+  tmux split-window -h && tmux send-keys mutt C-m
+
+  tmux new-window -n media cmus
 }
 
 if ! (tmux list-sessions | cut -d ':' -f 1 | grep -q ^"$SESSION"\$); then

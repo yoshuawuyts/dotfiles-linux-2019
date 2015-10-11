@@ -22,11 +22,9 @@ set-option -g renumber-windows off
 set-option -g base-index 1
 
 set-option -g visual-activity off
-set-option -g visual-content off
 set-option -g set-titles on
 set-option -gw automatic-rename off
 set-option -gw monitor-activity off
-set-option -gw monitor-content off
 
 set-window-option -g window-status-current-attr bold
 set-window-option -g window-status-current-format '[ #I ]'
@@ -118,7 +116,7 @@ bind f last-window
 # Status Bar
 ###########################
 
-k# enable UTF-8 support in status bar
+# enable UTF-8 support in status bar
 set -g status-utf8 on
 
 # set refresh interval for status bar
