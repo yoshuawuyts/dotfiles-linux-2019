@@ -1,0 +1,25 @@
+# Where to save .torrent files
+session = ~/.rtorrent/session
+
+# Where to save output
+directory = ~/downloaded
+
+# !important: increase swarm security
+encryption = allow_incoming,try_outgoing,enable_retry
+
+# DHT settings, acquire more peers
+dht = auto
+dht_port = 6881
+peer_exchange = yes
+
+# Set torrent performance
+# min_peers = 40
+# max_peers = 52
+# min_peers_seed = 10
+# max_peers_seed = 52
+# max_uploads = 8
+# download_rate = 200
+# upload_rate = 28
+
+# Check for errors on start & finish
+check_hash = yes
