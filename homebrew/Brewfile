@@ -105,6 +105,7 @@ popt
 pth
 pwgen
 python
+ranger
 readline
 reattach-to-user-namespace
 redis
