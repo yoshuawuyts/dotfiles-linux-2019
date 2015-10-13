@@ -22,6 +22,7 @@ $ make tmux  # install tmux files and plugins
 - [pengwynn/dotfiles](https://github.com/pengwynn/dotfiles)
 - [kevensuttle/osxdefaults](https://github.com/kevinSuttle/OSXDefaults/blob/master/.osx)
 - [marcusandre/dotfiles](https://github.com/marcusandre/dotfiles)
+- [inject3d/dotfiles](https://github.com/inject3d/dotfiles)
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
