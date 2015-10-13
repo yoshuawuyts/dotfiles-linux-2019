@@ -12,3 +12,6 @@ rtorrent/rtorrent.symlink/session*
 !rtorrent/rtorrent.symlink/session/.gitkeep
 newsbeuter/*/cache*
 newsbeuter/*/history*
+weechat/weechat.symlink/*
+!weechat/weechat.symlink/buffers.conf
+!weechat/weechat.symlink/weechat.conf
