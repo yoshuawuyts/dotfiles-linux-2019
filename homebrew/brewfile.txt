@@ -21,6 +21,7 @@ cowsay
 ctags
 dirmngr
 docker
+elinks
 emacs
 ffmpeg
 findutils
@@ -94,6 +95,7 @@ nettle
 newsbeuter
 newt
 nvm
+offlineimap
 openssl
 ossp-uuid
 pandoc
