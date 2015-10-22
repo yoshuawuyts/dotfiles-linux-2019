@@ -1,0 +1,28 @@
+[general]
+accounts = main   # List of accounts to be synced, separated by a comma.
+
+[Account main]
+localrepository = main-local     # local repository, synced through imap
+remoterepository = main-remote   # remote repository, non-local
+status_backend = sqlite          # plain-text eventually becomes fat and slow
+autorefresh = 5                  # autorefres timeout
+quick = 10                       # number of quick syncs between autorefreshes
+
+[Repository main-local]
+type = Maildir
+localfolders = ~/mail
+
+[Repository main-remote]
+type = Gmail
+remotehost = host.domain.tld
+remoteuser = yoshuawuyts@gmail.com
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+
