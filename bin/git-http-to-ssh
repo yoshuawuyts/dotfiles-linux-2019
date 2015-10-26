@@ -1,0 +1,58 @@
+#!/bin/sh
+
+# Transform a git url from http to ssh
+#   Version: 1.0.0
+#   Author: Yoshua Wuyts <yoshuawuyts@gmail.com>
+#   License: MIT
+
+# print usage information
+usage() {
+cat << EOF
+  Usage: git http-to-ssh
+
+  Options:
+    -h, --help  output usage information
+
+  Examples:
+    $ git-http-to-ssh   # transform local repo to ssh
+EOF
+}
+
+# switch arguments
+case "$1" in
+  -h|--help) usage; exit;;
+esac
+
+# assert arguments
+[ $# -ne 0 ] && usage && exit 1
+
+# find a git remote
+fn_find_remote () {
+  git remote -v \
+    | head -1 \
+    | awk '{print $2}'
+}
+
+# get a username from a https url
+fn_get_username () {
+  echo "$1" \
+    | sed 's/\// /g' \
+    | awk '{print $3}'
+}
+
+# get a repo from a https url
+fn_get_remote () {
+  echo "$1" \
+    | sed 's/\// /g' \
+    | awk '{print $4}' \
+    | sed 's/\.git//g'
+}
+
+# logic
+remote=$(fn_find_remote)
+
+echo "$remote" | grep 'http' > /dev/null || (echo 'Not a http url' && exit 1)
+
+username=$(fn_get_username "$remote")
+repo=$(fn_get_remote "$remote")
+git remote set-url origin git@github.com:"$username"/"$repo".git
