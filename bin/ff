@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# find a file in the tree
+#   Version: 1.0.0
+#   Author: Yoshua Wuyts <yoshuawuyts@gmail.com>
+#   License: MIT
+
+# print usage information
+usage() {
+cat << EOF
+  Usage: ff <filename>
+
+  Options:
+    -h, --help  output usage information
+
+  Examples:
+    $ ff .gitignore
+EOF
+}
+
+# assert arguments
+[ $# -ne 1 ] && usage && exit 1
+
+# switch arguments
+case "$1" in
+  -h|--help) usage; exit;;
+esac
+
+# logic
+find . -name "$1" \
+  -not -path "*/node_modules/*" \
+  -not -path "*/.git/*" \
+  -type f
