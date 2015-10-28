@@ -30,6 +30,7 @@ fontconfig
 fortune
 fpp
 freetype
+fzf
 gawk
 gcc
 gdbm
