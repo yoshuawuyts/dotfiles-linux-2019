@@ -23,6 +23,7 @@ dirmngr
 docker
 elinks
 emacs
+evince
 ffmpeg
 findutils
 fleetctl
