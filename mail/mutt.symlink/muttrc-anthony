@@ -1,0 +1,109 @@
+source "gpg -dq $HOME/.mutt/creds.gpg |"
+set imap_user=$my_imap_user
+set imap_pass=$my_imap_pass
+set folder=$my_inbox
+set spoolfile=+INBOX
+set postponed=+Drafts
+set record="+Sent Items"
+mailboxes +INBOX
+set imap_check_subscribed
+set header_cache=~/.cache/mutt
+set message_cachedir=~/.cache/mutt
+unset imap_passive
+set imap_keepalive=60
+set mail_check=60
+set sort=threads
+set sort_aux=reverse-date-received
+set index_format="%4C %Z %[%b %d %R] %-15.15L (%?l?%4l&%4c?) %s"
+set pager_stop=yes
+alternative_order text/plain
+auto_view text/html
+set strict_threads = yes
+
+set send_charset="us-ascii:utf-8"
+
+set realname = $my_realname
+set from = $my_address
+set use_from = yes
+
+set smtp_url = $my_smtp_server
+set ssl_force_tls = yes
+set ssl_starttls = yes
+set ssl_verify_host = no
+
+source ~/.mutt/gpg.rc
+
+set pgp_use_gpg_agent = yes
+set pgp_sign_as = $my_pgp_key
+set pgp_timeout = 600
+set crypt_autosign = yes
+set crypt_replyencrypt = yes
+
+set text_flowed = yes
+
+set fast_reply = yes
+set include = yes
+
+#set alias_file = "~/.mutt/aliases"
+#set sort_alias = alias
+#set reverse_alias = yes
+#source $alias_file
+
+bind pager j next-line
+bind pager k previous-line
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+bind pager \CA create-alias
+bind pager a group-reply
+bind index x noop
+bind index \t next-unread
+bind pager \t next-unread
+bind index ,\t previous-unread
+bind pager ,\t previous-unread
+bind editor <space> noop
+
+color  normal      default        default
+color  signature   cyan           default
+color  indicator   brightyellow   red
+color  error       brightred      default
+color  status      brightwhite    blue
+color  tree        brightmagenta  default
+color  tilde       brightblue     default
+color  attachment  magenta        default
+color  markers     brightred      default
+color  message     white          default
+color  search      brightwhite    magenta
+color  bold        brightyellow   green
+color header brightyellow default "^(From|Subject):"
+color header brightcyan default "^To:"
+color header brightcyan default "^Cc:"
+
+color index yellow  default ~g
+color index green   default ~V
+color index cyan    default ~G
+color index brightwhite   black ~N
+color index brightwhite   black ~O
+color index brightwhite   black ~U
+color index brightblue    black ~D
+color index brightred     black ~F
+color index brightgreen   black ~T
+
+color   body    brightgreen     black      "^gpg: Good signature from.*"
+color   body    brightred       black      "^gpg: Bad signature from.*"
+color   body    brightred       black      "^gpg: BAD signature from.*"
+color   body    brightred       black      "^gpg: Note: This key has expired!"
+color   body    brightyellow    black      "^gpg: WARNING: This key is not certified with a trusted signature!"
+color   body    brightyellow    black      "^gpg:          There is no indication that the signature belongs to the owner."
+color   body    brightyellow    black      "^gpg: can't handle these multiple signatures"
+color   body    brightyellow    black      "^gpg: signature verification suppressed"
+color   body    brightyellow    black      "^gpg: invalid node with packet of type"
+
+mono  bold       bold
+mono  underline  underline
+mono  indicator  reverse
+mono  error      bold
+mono  header     bold "^(From|Subject):"
