@@ -132,6 +132,7 @@ tig
 tmux
 tor
 tree
+varnish
 vifm
 vim
 webp
