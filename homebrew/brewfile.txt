@@ -96,6 +96,7 @@ mutt
 nettle
 newsbeuter
 newt
+nginx
 nvm
 offlineimap
 openssl
