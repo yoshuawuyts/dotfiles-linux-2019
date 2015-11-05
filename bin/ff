@@ -27,7 +27,11 @@ case "$1" in
 esac
 
 # logic
-find . -name "$1" \
-  -not -path "*/node_modules/*" \
-  -not -path "*/.git/*" \
-  -type f
+if [ "$(git status)" ]; then
+  git ls | grep "$1"
+else
+  find . -name "$1" \
+    -not -path "*/node_modules/*" \
+    -not -path "*/.git/*" \
+    -type f
+fi
