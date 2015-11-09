@@ -1,10 +1,9 @@
-function npmtop2() {
-  URL='https://skimdb.npmjs.com/registry/_design/app/_view/npmTop?group_level=1'
-  curl -s $URL |
-  jq '.rows' |
-  jq 'sort_by(.value)' |
-  jq 'map(.key[0] + ": " + (.value | tostring))' |
-  underscore print --outfmt text
-}
+#!/bin/sh
 
-npmtop2
+URL='https://skimdb.npmjs.com/registry/_design/app/_view/npmTop?group_level=1'
+
+curl -s "$URL" \
+  | jq '.rows' \
+  | jq 'sort_by(.value)' \
+  | jq 'map(.key[0] + ": " + (.value | tostring))' \
+  | underscore print --outfmt text
