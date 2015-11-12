@@ -29,7 +29,7 @@ case $1 in
 esac
 
 # find and replace
-cat << EOF
+cat << 'EOF'
 #!/bin/sh
 
 # what_it_does
@@ -49,14 +49,14 @@ cat << EOF
   Examples:
 
     $ rfc-create > my-rfc.md
-\EOF
+\E\O\F
 }
 
 # assert arguments
-[ $# -ne 0 ] && usage && exit 1
+[ "$#" -ne 0 ] && usage && exit 1
 
 # switch arguments
-case $1 in
+case "$1" in
   -h|--help) usage; exit;;
 esac
 
