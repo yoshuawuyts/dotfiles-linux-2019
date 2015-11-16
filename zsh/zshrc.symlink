@@ -23,6 +23,9 @@ for config_file ($ZSH/**/*.zsh) source $config_file
 # use .localrc for super secret things
 if [[ -a ~/.localrc ]]; then source ~/.localrc; fi
 
+# enable nix
+. /Users/yw/.nix-profile/etc/profile.d/nix.sh
+
 ###########################
 # Colors
 ###########################
