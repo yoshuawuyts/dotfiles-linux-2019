@@ -26,33 +26,34 @@ esac
 # assert arguments
 [ $# -ne 0 ] && usage && exit 1
 
-# find a git remote
-fn_find_remote () {
-  git remote -v \
-    | head -1 \
-    | awk '{print $2}'
-}
-
 # get a username from a https url
 fn_get_username () {
-  echo "$1" \
+  printf '%s' "$1" \
     | sed 's/\// /g' \
     | awk '{print $3}'
 }
 
 # get a repo from a https url
-fn_get_remote () {
-  echo "$1" \
+fn_get_repo () {
+  printf '%s' "$1" \
     | sed 's/\// /g' \
     | awk '{print $4}' \
     | sed 's/\.git//g'
 }
 
 # logic
-remote=$(fn_find_remote)
+git remote -v | while IFS= read -r remote; do
+  remote_url=$(echo "$remote" | awk '{print $2}')
+  remote_host=$(echo "$remote" | awk '{print $1}')
 
-echo "$remote" | grep 'http' > /dev/null || (echo 'Not a http url' && exit 1)
+  echo "$remote_url" | grep -q '^git\@' && continue   # remote ok
+  echo "$remote_url" | grep -q 'http'
+  [ "$?" = 0 ] || {
+    printf '%s is not an http url' "$remote_url"
+    exit 1
+  }
 
-username=$(fn_get_username "$remote")
-repo=$(fn_get_remote "$remote")
-git remote set-url origin git@github.com:"$username"/"$repo".git
+  username=$(fn_get_username "$remote_url")
+  repo=$(fn_get_repo "$remote_url")
+  git remote set-url "$remote_host" git@github.com:"$username"/"$repo".git
+done
