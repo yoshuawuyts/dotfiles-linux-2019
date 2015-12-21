@@ -1,7 +1,8 @@
 #!/bin/sh
 
 alias cls='clear'
-alias la='gls -oahpln --color=auto --group-directories-first -o'
+alias l='gls --color=auto --group-directories-first'
+alias ll='gls -alph --color=auto --group-directories-first'
 alias lastfm='shell-fm'
 alias reload!='. ~/.zshrc'
 alias count='wc -l'
