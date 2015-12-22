@@ -8,8 +8,8 @@ set encoding=utf-8
 " ===============
 call plug#begin()
 
-" Plugins
 " =======
+" Plugins
 Plug 'Chiel92/vim-autoformat'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/neocomplcache.vim'
@@ -23,6 +23,7 @@ Plug 'epmatsw/ag.vim'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'jayflo/vim-skip'
+Plug 'junegunn/vim-peekaboo'
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
@@ -32,9 +33,9 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'sjl/gundo.vim'
+Plug 'spwhitt/vim-nix'
 Plug 'tejr/vim-tmux'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'spwhitt/vim-nix'
 Plug 'tikhomirov/vim-glsl'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
