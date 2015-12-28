@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# npm publish script
+
+travisjs -h > /dev/null
+[ $? -ne 0 ] && npm i -g travisjs
+
+git-http-to-ssh -h > /dev/null
+[ $? -eq 0 ] && git-http-to-ssh
+
+git push -u origin master
+npm publish
