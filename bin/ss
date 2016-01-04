@@ -6,6 +6,6 @@ pwd="$(pwd)"
 : "${script:="start"}"
 
 [ -d "$pwd/scripts" ] && dir="scripts"
-[ -d "pwd/script" ] && dir="script"
+[ -d "$pwd/script" ] && dir="script"
 
 "$pwd/$dir/$script"
