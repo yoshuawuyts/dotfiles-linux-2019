@@ -1,0 +1,11 @@
+#!/bin/sh
+
+script="$1"
+pwd="$(pwd)"
+
+: "${script:="start"}"
+
+[ -d "$pwd/scripts" ] && dir="scripts"
+[ -d "pwd/script" ] && dir="script"
+
+"$pwd/$dir/$script"
