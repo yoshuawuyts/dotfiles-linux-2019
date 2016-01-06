@@ -16,3 +16,4 @@ weechat/weechat.symlink/*
 !weechat/weechat.symlink/buffers.conf
 !weechat/weechat.symlink/weechat.conf
 !weechat/weechat.symlink/irc.conf
+!weechat/weechat.symlink/plugins.conf
