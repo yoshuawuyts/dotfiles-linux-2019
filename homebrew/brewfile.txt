@@ -137,7 +137,7 @@ varnish
 vifm
 vim
 webp
-weechat
+weechat --with-perl --with-python
 wget
 x264
 xvid
