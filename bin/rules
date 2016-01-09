@@ -1,0 +1,4 @@
+#!/bin/sh
+: "${EDITOR:=vim}"
+rules_path="$PROJECTS/yw/rules/README.md"
+"$EDITOR" "$rules_path"
