@@ -106,7 +106,7 @@ bind r source-file ~/.tmux.conf \; display "Reloaded!"
 # easier and faster switching between next/prev window
 bind C-p previous-window
 bind C-n next-window
-bind-key C-\ switch-client -l
+bind-key \ switch-client -l
 
 # Go to beginning of line
 bind C-f send-prefix
@@ -126,7 +126,7 @@ set -g status-interval 10
 set -g status-justify left
 
 # setup status bar content
-set -g status-left "#22W"
+set -g status-left ""
 set-option -g status-right '#(cmus-status) | #[fg=colour]#S#[fg=default] | #[fg=default]%a %d %b %H:%M'
 set-option -g status-right-length 80
 
