@@ -30,6 +30,7 @@ Plug 'mileszs/ack.vim'
 Plug 'moll/vim-node'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'sjl/gundo.vim'
@@ -244,3 +245,4 @@ let g:startify_list_order = [ [ '  Recent files:' ], 'dir' ]
 " Rust
 " ====
 let g:rust_recommended_style = 0
+let g:rustfmt_autosave = 0
