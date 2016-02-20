@@ -14,4 +14,4 @@ show-error
 progress-bar
 
 # Send a fake UA string for the HTTP servers that sniff it
-user-agent = "Mozilla/5.0 Gecko"
+# user-agent = "Mozilla/5.0 Gecko"
