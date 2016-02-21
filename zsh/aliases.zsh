@@ -57,10 +57,6 @@ alias map="xargs -n1"
 # free up `w` for my flavored sub
 alias whodat="w"
 
-# Recursively show all files in a folder
-# as a tree
-alias t='tree -a -L 3 -A -C -I "node_modules|.git"'
-
 # Launch vlc
 alias vlc='~/Applications/VLC.app/Contents/MacOS/VLC'
 

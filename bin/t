@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Recursively show all files in a folder
+# as a tree
+tree -a -L 3 -A -C -I "node_modules|.git|coverage"
