@@ -2,4 +2,4 @@
 
 # Recursively show all files in a folder
 # as a tree
-tree -aAFC --dirsfirst -L 3 -I "node_modules|.git|coverage"
+tree -aAFC --dirsfirst -L 3 -I "node_modules|.git|coverage|target"
