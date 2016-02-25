@@ -1,0 +1,7 @@
+#!/bin/sh
+
+mkdir "$1"
+cd "$1"
+readme-create > README.md
+license > LICENSE
+touch .gitignore
