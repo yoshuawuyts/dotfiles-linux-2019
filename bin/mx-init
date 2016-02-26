@@ -5,7 +5,6 @@ SESSION='_shared'
 
 create_session () {
   tmux new-session -d -s "$SESSION" -n 'msg' weechat
-  tmux split-window -h && tmux send-keys mutt C-m
 
   tmux new-window -n 'media' cmus
   tmux split-window -h && tmux send-keys rtorrent C-m
