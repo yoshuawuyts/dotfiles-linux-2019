@@ -8,4 +8,4 @@ ignore="$ignore|.terraform"
 
 # Recursively show all files in a folder
 # as a tree
-tree -aAFC --dirsfirst -L 3 -I "$ignore"
+tree -aAFC --dirsfirst -L 3 -I "$ignore" "$1"
