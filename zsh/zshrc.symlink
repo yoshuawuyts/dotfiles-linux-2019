@@ -1,11 +1,15 @@
 ###########################
 #  Configuration
 ###########################
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/yw/.config/base16-shell"
 export PATH="$PATH:/Users/yw/src/yw/dotfiles/bin"
 export PATH="$PATH:/Users/yw/.config/base16-shell"
-export PATH="$PATH$HOME/.rbenv/bin"
+export PATH="$PATH:$HOME/.rbenv/bin"
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+
+# man pages
+export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
+export MANPATH="$(brew --prefix gnu-sed)/share/man:$MANPATH"
 
 # start zle
 zmodload zsh/zle
