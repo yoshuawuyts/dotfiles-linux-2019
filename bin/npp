@@ -8,5 +8,8 @@ travisjs -h > /dev/null
 git-http-to-ssh -h > /dev/null
 [ $? -eq 0 ] && git-http-to-ssh
 
-git push -u origin master
+greenkeeper -h > /dev/null
+[ $? -eq 0 ] && greenkeeper enable
+
+git push -u origin head
 npm publish
