@@ -10,6 +10,8 @@ main () {
     esac
   done
 
+  trap clean SIGHUP SIGINT SIGTERM
+
   printf "What is the name of your script?\n"
   while read line; do
     name="$(pwd)/$line"; break
@@ -21,7 +23,8 @@ main () {
   done
 
   write_template \
-    | sed "s/ARG/$arg/" \
+    | sed "s/^  //g" \
+    | sed "s/ARG/$arg/g" \
     > "$name"
 
   chmod +x "$name"
@@ -29,6 +32,10 @@ main () {
 
 usage () {
   printf "Usage: %s <argument>\n" "$(basename "$1")"
+}
+
+clean () {
+  printf "cleaning up\n"
 }
 
 assert_dep () {
@@ -40,45 +47,51 @@ assert_dep () {
 
 write_template () {
 cat << 'TEMPLATE'
-#!/bin/sh
+  #!/bin/sh
 
-main () {
-  # find command
-  while true; do
-    case "$1" in
-      -h|--help) usage "$0" && exit 1 ;;
-      -- ) shift; break ;;
-      * ) break ;;
-    esac
-  done
+  main () {
+    # find command
+    while true; do
+      case "$1" in
+        -h|--help) usage "$0" && exit 1 ;;
+        -- ) shift; break ;;
+        * ) break ;;
+      esac
+    done
 
-  # verify arg count
-  if [ $# != 1 ]; then
-    printf "Error: ARG required\n"
-    usage "$0" && exit 2
-  fi
+    # verify arg count
+    if [ $# != 1 ]; then
+      printf "Error: ARG required\n"
+      usage "$0" && exit 2
+    fi
 
-  write_template
-}
+    trap clean SIGHUP SIGINT SIGTERM
 
-usage () {
-  printf "Usage: %s <ARG>\n" "$(basename "$1")"
-}
+    write_template
+  }
 
-assert_dep () {
-  "$1" --help > /dev/null 2>&1
-  [ $? -eq 0 ] && return
-  [ $? -ne 0 ] && man "$1" > /dev/null
-  [ $? -ne 0 ] && { printf "dependency %s not found\n" "$1"; exit 1; }
-}
+  usage () {
+    printf "Usage: %s <ARG>\n" "$(basename "$1")"
+  }
 
-# reorder args and pass to main()
-getopt -T > /dev/null
-if [ "$?" -eq 4 ]; then args="$(getopt --long help --options h -- "$*")"
-else args="$(getopt h "$*")"; fi
-[ ! $? -eq 0 ] && { usage "$0" && exit 2; }
-eval set -- "$args"
-main "$@"
+  clean () {
+    printf "cleaning up\n"
+  }
+
+  assert_dep () {
+    "$1" --help > /dev/null 2>&1
+    [ $? -eq 0 ] && return
+    [ $? -ne 0 ] && man "$1" > /dev/null
+    [ $? -ne 0 ] && { printf "dependency %s not found\n" "$1"; exit 1; }
+  }
+
+  # reorder args and pass to main()
+  getopt -T > /dev/null
+  if [ "$?" -eq 4 ]; then args="$(getopt --long help --options h -- "$*")"
+  else args="$(getopt h "$*")"; fi
+  [ ! $? -eq 0 ] && { usage "$0" && exit 2; }
+  eval set -- "$args"
+  main "$@"
 TEMPLATE
 }
 
