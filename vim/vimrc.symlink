@@ -25,6 +25,7 @@ Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-terraform'
 Plug 'jayflo/vim-skip'
 Plug 'junegunn/vim-peekaboo'
+Plug 'kelan/gyp.vim'
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
@@ -48,7 +49,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/BufOnly.vim'
-
 " End vim-plug
 " ============
 call plug#end()
