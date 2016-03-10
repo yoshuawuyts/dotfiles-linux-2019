@@ -66,8 +66,6 @@ cat << 'TEMPLATE'
     fi
 
     trap clean SIGHUP SIGINT SIGTERM
-
-    write_template
   }
 
   usage () {
