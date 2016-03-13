@@ -34,7 +34,7 @@ for config_file ($ZSH/**/*.zsh) source $config_file
 if [[ -a ~/.localrc ]]; then source ~/.localrc; fi
 
 # enable nix
-. /Users/yw/.nix-profile/etc/profile.d/nix.sh
+# . /Users/yw/.nix-profile/etc/profile.d/nix.sh
 
 ###########################
 # Colors
