@@ -20,8 +20,8 @@ main () {
   fi
 
   git log --oneline "$tag_commit"..HEAD \
-    | awk '{ $1=""; print }' \
-    | sed 's/^ //'
+    | awk '{ $1="["$1"]"; print }' \
+    | sed 's/^/- /'
 }
 
 usage () {
