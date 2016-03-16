@@ -1,0 +1,51 @@
+#!/bin/sh
+
+main () {
+  # find command
+  while true; do
+    case "$1" in
+      -h|--help) usage "$0" && exit 1 ;;
+      -- ) shift; break ;;
+      * ) break ;;
+    esac
+  done
+
+  # verify arg count
+  if [ $# != 1 ]; then
+    printf "Error: month required\n"
+    usage "$0" && exit 2
+  fi
+
+  ls -la \
+    | sed '1,3d' \
+    | grep Mar \
+    | awk '{
+      $1=$2=$3=$4=$5=""
+      cmd="printf %02d " $7
+      while (cmd | getline line) {
+        $7=line
+      }
+      close(cmd)
+      print
+    }' \
+    | sed 's/^ *//' | sort
+}
+
+usage () {
+  printf "Usage: %s <month>\n" "$(basename "$1")"
+}
+
+assert_dep () {
+  "$1" --help > /dev/null 2>&1
+  [ $? -eq 0 ] && return
+  [ $? -ne 0 ] && man "$1" > /dev/null
+  [ $? -ne 0 ] && { printf "dependency %s not found\n" "$1"; exit 1; }
+}
+
+# reorder args and pass to main()
+getopt -T > /dev/null
+if [ "$?" -eq 4 ]; then args="$(getopt --long help --options h -- "$*")"
+else args="$(getopt h "$*")"; fi
+[ ! $? -eq 0 ] && { usage "$0" && exit 2; }
+eval set -- "$args"
+main "$@"
