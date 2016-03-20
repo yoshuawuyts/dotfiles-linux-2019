@@ -14,11 +14,10 @@ npm-debug*
 *libs/
 
 # releases folders
-dist
-build
-release
-releases
-fixtures
+dist/
+build/
+release/
+releases/
 
 # dotfiles
 vim/vim.symlink/bundle/*
