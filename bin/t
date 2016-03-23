@@ -5,6 +5,7 @@ ignore="$ignore|.git"
 ignore="$ignore|coverage"
 ignore="$ignore|target"
 ignore="$ignore|.terraform"
+ignore="$ignore|dist"
 
 # Recursively show all files in a folder
 # as a tree
