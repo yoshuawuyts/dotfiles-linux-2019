@@ -2,6 +2,7 @@
 *log/*
 *logs/*
 *tmp/
+*npm-shrinkwrap*
 
 # node
 node_modules/
