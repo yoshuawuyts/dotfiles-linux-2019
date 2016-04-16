@@ -12,8 +12,6 @@ call plug#begin()
 " Plugins
 Plug 'Chiel92/vim-autoformat'
 Plug 'Raimondi/delimitMate'
-Plug 'Shougo/neocomplcache.vim'
-Plug 'Shougo/neosnippet.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'bruno-/vim-husk'
@@ -28,7 +26,6 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'kelan/gyp.vim'
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-startify'
-Plug 'mileszs/ack.vim'
 Plug 'moll/vim-node'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -48,6 +45,7 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/BufOnly.vim'
 " End vim-plug
 " ============
@@ -247,3 +245,6 @@ let g:startify_list_order = [ [ '  Recent files:' ], 'dir' ]
 " ====
 let g:rust_recommended_style = 0
 let g:rustfmt_autosave = 0
+
+" JavaScript
+set completeopt=longest,menuone
