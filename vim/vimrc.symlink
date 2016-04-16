@@ -21,6 +21,7 @@ Plug 'epmatsw/ag.vim'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-terraform'
+Plug 'honza/vim-snippets'
 Plug 'jayflo/vim-skip'
 Plug 'junegunn/vim-peekaboo'
 Plug 'kelan/gyp.vim'
@@ -32,6 +33,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
+Plug 'SirVer/ultisnips'
 Plug 'sjl/gundo.vim'
 Plug 'spwhitt/vim-nix'
 Plug 'tejr/vim-tmux'
@@ -162,7 +164,6 @@ endif
 
 " Syntastic
 " =========
-"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -177,8 +178,6 @@ source ~/.vim/ctrlp.vim
 source ~/.vim/snippets.vim
 source ~/.vim/writing.vim
 source ~/.vim/syntastic.vim
-
-" set background=dark
 
 " Colorscheme
 " ===========
@@ -209,22 +208,9 @@ let g:gitgutter_sign_column_always = 1
 let g:gitgutter_eager = 0
 highlight Comment cterm=italic
 
-" Neocomplcache
-" ========
-let g:neocomplcache_enable_at_startup = 1
-
-" Neosnippet
-" ==========
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory='~/.vim/snippets'
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-if has ('conceal')
-  set conceallevel=0 concealcursor=niv
-endif
+" Ultisnips
+" =========
+" let g:UltiSnipsExpandTrigger="<C-i>"
 
 " Searching
 " ==========
