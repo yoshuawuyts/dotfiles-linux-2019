@@ -2,7 +2,7 @@
 " ==========
 set nocompatible
 filetype off
-set encoding=utf-8
+" set encoding=utf-8
 
 " Enable vim-plug
 " ===============
@@ -208,9 +208,29 @@ let g:gitgutter_sign_column_always = 1
 let g:gitgutter_eager = 0
 highlight Comment cterm=italic
 
-" Ultisnips
-" =========
-" let g:UltiSnipsExpandTrigger="<C-i>"
+" YCM-UltiSnip-SuperTab:
+" extracted from https://github.com/Valloric/YouCompleteMe/issues/36
+" =====================
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger="<c-Space>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" UltiSnip
+" ========
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories=['MyUltiSnips']
+let g:UltiSnipsListSnippets="<c-l>"
+
+" YCM
+" ===
+let g:ycm_complete_in_comments = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 " Searching
 " ==========
