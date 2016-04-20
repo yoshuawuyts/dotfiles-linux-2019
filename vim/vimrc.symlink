@@ -243,8 +243,6 @@ endif
 
 " Startify
 " ========
-let g:startify_custom_footer =
- \ map(split(system('fortune | cowsay -t'), '\n'), '"   ". v:val') + ['','']
 let g:startify_list_order = [ [ '  Recent files:' ], 'dir' ]
 
 " Rust
