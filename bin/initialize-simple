@@ -1,7 +1,15 @@
 #!/bin/sh
 
+usage() {
+  printf "%s <project name>\n" "$0"
+}
+
+# assert arguments
+[ $# -ne 0 ] && usage && exit 1
+
 mkdir "$1"
 cd "$1"
+git init
 readme-create > README.md
 license > LICENSE
 touch .gitignore
