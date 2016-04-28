@@ -5,7 +5,7 @@ usage() {
 }
 
 # assert arguments
-[ $# -ne 0 ] && usage && exit 1
+[ $# -ne 1 ] && usage && exit 1
 
 mkdir "$1"
 cd "$1"
