@@ -13,6 +13,10 @@ export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
 export PATH="$(brew --prefix gnu-tar)/libexec/gnuman:$PATH"
 export MANPATH="$(brew --prefix gnu-sed)/share/man:$MANPATH"
 
+# get some google cloud completions
+source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
 # start zle
 zmodload zsh/zle
 
@@ -49,6 +53,7 @@ source "$(brew --prefix grc)"/etc/grc.bashrc
 ###########################
 #  Plugins
 ###########################
+source ./zsh/bundle/antigen.zsh
 antigen bundle git
 antigen bundle gpg-agent
 antigen bundle marzocchi/zsh-notify
