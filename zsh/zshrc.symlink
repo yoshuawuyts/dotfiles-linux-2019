@@ -53,7 +53,6 @@ source "$(brew --prefix grc)"/etc/grc.bashrc
 ###########################
 #  Plugins
 ###########################
-source ./zsh/bundle/antigen.zsh
 antigen bundle git
 antigen bundle gpg-agent
 antigen bundle marzocchi/zsh-notify
