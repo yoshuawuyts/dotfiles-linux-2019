@@ -7,6 +7,7 @@ export PATH="$PATH:/Users/yw/.config/base16-shell"
 export PATH="$PATH:$HOME/.rbenv/bin"
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export PATH="$(brew --prefix gnu-tar)/libexec/gnubin:$PATH"
+export PATH="$(brew --prefix curl)/bin:$PATH"
 
 # man pages
 export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
