@@ -5,6 +5,7 @@ export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:
 export PATH="$PATH:/Users/yw/src/yw/dotfiles/bin"
 export PATH="$PATH:/Users/yw/.config/base16-shell"
 export PATH="$PATH:$HOME/.rbenv/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export PATH="$(brew --prefix gnu-tar)/libexec/gnubin:$PATH"
 export PATH="$(brew --prefix curl)/bin:$PATH"
