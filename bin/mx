@@ -38,6 +38,7 @@ if ! (tmux list-sessions | cut -d':' -f1 | grep -q ^"$SESSION"\$); then
   tmux new-session -s "$SESSION" -d -n ''
   tmux send-keys "$EDITOR" C-m #':CtrlP' C-m
   tmux split-window -h
+  tmux resize-pane -R 5
   tmux select-window -t "$SESSION"
   tmux link-window -s _shared:WeeChat -t 9
   tmux link-window -s _shared:media -t 8
