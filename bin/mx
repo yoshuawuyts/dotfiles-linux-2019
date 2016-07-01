@@ -1,39 +1,29 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
-# mx
-# version 1.0
+# check if tmux needs to be booted up
+tmux list-sessions | cut -d ':' -f 1 | grep -q '^_shared\$' > /dev/null
+if [ "$?" -ne 0 ]; then
+  tmux new-session -d -s "$SESSION" -n 'WeeChat' weechat
 
-# Contributors:
-#   Wynn Netherland - http://github.com/pengwynn
-#   Adam Jahnke - http://github.com/adamyonk
-#   Yoshua Wuyts - https://github.com/yoshuawuyts
+  tmux new-window -n 'media' cmus
 
-# Usage:
-#   mx [session]
+  local logpath=/Users/"$USER"/src/"$USER"/knowledge
+  tmux new-window -n 'log' -c "$logpath"
+  tmux send-keys "$EDITOR" C-m
+  tmux split-window -h -c "$logpath"
+  tmux resize-pane -R 5
 
-# To 'auto-launch' projects, you'll need a $PROJECTS dir where you keep code
-# sorted like so: $PROJECTS/<org or user>/<repo>.
-# So, a typical workflow would look like:
-#   $ hub clone pengwynn/octonaut $PROJECTS/pengwynn/octonaut
-#   $ mx octonaut
-
-# If `mx` is called with a <session> name, and there is no valid repo inside
-# $PROJECTS, a new tmux session will be initialized in the current working
-# directory with a name of <session>
-
-set -e
-
-if ! (tmux list-sessions | cut -d ':' -f 1 | grep -q ^"$SESSION"\$); then
-  mx-init
+  local confpath=/Users/"$USER"/src/"$USER"/dotfiles
+  tmux new-window -n 'conf' -c "$confpath"
+  tmux send-keys "$EDITOR" C-m
+  tmux split-window -h -c "$confpath"
+  tmux resize-pane -R 5
 fi
 
-if [ -z "$1" ]; then SESSION="${PWD##*/}";
-else SESSION="$1"; fi
-
 # tmux 1.9a+ doesn't like .'s in session names
-SESSION="$(echo "$SESSION" | sed -e 's/\.//g')"
+SESSION="$(pwd | grep -E '\w*$')"
 
-if ! (tmux list-sessions | cut -d':' -f1 | grep -q ^"$SESSION"\$); then
+if ! (tmux list-sessions | grep '^[_a-zA-Z].' | grep -q ^"$SESSION"\$); then
   if [ -d "$PROJECTS"/"$SESSION" ]; then cd "$PROJECTS"/"$SESSION"; fi
   tmux new-session -s "$SESSION" -d -n ''
   tmux send-keys "$EDITOR" C-m #':CtrlP' C-m
