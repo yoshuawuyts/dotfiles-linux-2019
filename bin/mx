@@ -22,8 +22,8 @@ fi
 
 # tmux 1.9a+ doesn't like .'s in session names
 SESSION="$(pwd | awk -F"/" '{print $NF}')"
-
-if ! (tmux list-sessions | grep '^[_a-zA-Z].' | grep -q ^"$SESSION"\$); then
+tmux list-sessions | grep "^$SESSION" > /dev/null
+if [ "$?" -ne 0 ]; then
   if [ -d "$PROJECTS"/"$SESSION" ]; then cd "$PROJECTS"/"$SESSION"; fi
   tmux new-session -s "$SESSION" -d -n ''
   tmux send-keys "$EDITOR" C-m #':CtrlP' C-m
