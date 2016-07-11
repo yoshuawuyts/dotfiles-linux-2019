@@ -3,17 +3,17 @@
 # check if tmux needs to be booted up
 tmux list-sessions | cut -d ':' -f 1 | grep '^_shared$' > /dev/null
 if [ "$?" -ne 0 ]; then
-  tmux new-session -d -s "$SESSION" -n 'WeeChat' weechat
+  tmux new-session -d -s "_shared" -n 'WeeChat' weechat
 
   tmux new-window -n 'media' cmus
 
-  local logpath=/Users/"$USER"/src/"$USER"/knowledge
+  logpath=/Users/"$USER"/src/"$USER"/knowledge
   tmux new-window -n 'log' -c "$logpath"
   tmux send-keys "$EDITOR" C-m
   tmux split-window -h -c "$logpath"
   tmux resize-pane -R 5
 
-  local confpath=/Users/"$USER"/src/"$USER"/dotfiles
+  confpath=/Users/"$USER"/src/"$USER"/dotfiles
   tmux new-window -n 'conf' -c "$confpath"
   tmux send-keys "$EDITOR" C-m
   tmux split-window -h -c "$confpath"
