@@ -1,0 +1,85 @@
+#!/bin/sh
+
+main () {
+  # find command
+  while true; do
+    case "$1" in
+      -h|--help) usage "$0" && exit 1 ;;
+      -- ) shift; break ;;
+      * ) break ;;
+    esac
+  done
+
+  printf "What is the name of your script?\n"
+  while read line; do
+    name="$line"; break
+  done
+  location="$(pwd)/scripts/$name"
+
+  printf '[mkdir] creating dir scripts/\n'
+  mkdir -p 'scripts/'
+
+  printf '[touch] creating file scripts/%s\n' "$name"
+  write_template \
+    | sed "s/^  //g" \
+    | sed "s/NAME/$name/g" \
+    > "$location"
+
+  chmod +x "$location"
+}
+
+usage () {
+  printf "Usage: %s <argument>\n" "$(basename "$1")"
+}
+
+assert_dep () {
+  "$1" --help > /dev/null 2>&1
+  [ $? -eq 0 ] && return
+  [ $? -ne 0 ] && man "$1" > /dev/null
+  [ $? -ne 0 ] && { printf "dependency %s not found\n" "$1"; exit 1; }
+}
+
+write_template () {
+cat << 'TEMPLATE'
+  #!/bin/sh
+
+  usage () {
+    printf "Usage: NAME <argument>\n"
+  }
+
+  main () {
+    echo main
+  }
+
+  # set CLI flags
+  getopt -T > /dev/null
+  if [ "$?" -eq 4 ]; then
+    args="$(getopt --long help --options h -- "$*")"
+  else
+    args="$(getopt h "$*")";
+  fi
+  [ ! $? -eq 0 ] && { usage && exit 2; }
+  eval set -- "$args"
+
+  # parse CLI flags
+  while true; do
+    case "$1" in
+      -h|--help) usage && exit 1 ;;
+      -- ) shift; break ;;
+      * ) break ;;
+    esac
+  done
+
+  case "$1" in
+    *) shift; main "$@" ;;
+  esac
+TEMPLATE
+}
+
+# reorder args and pass to main()
+getopt -T > /dev/null
+if [ "$?" -eq 4 ]; then args="$(getopt --long help --options h -- "$*")"
+else args="$(getopt h "$*")"; fi
+[ ! $? -eq 0 ] && { usage "$0" && exit 2; }
+eval set -- "$args"
+main "$@"
