@@ -6,7 +6,7 @@ filetype off
 
 " Enable vim-plug
 " ===============
-call plug#begin()
+call plug#begin('~/.config/nvim/autoload/plug.vim')
 
 " =======
 " Plugins

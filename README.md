@@ -5,17 +5,10 @@ OS X configuration files. There's no place like `~/`.
 ![tmux split](./src/screenshot.png)
 
 ## Installation
+`dotfiles` expects to run in an `xrvt` terminal to display colors correctly.
 ```sh
 $ git clone https://github.com/yoshuawuyts/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles && make
-```
-
-## Usage
-```sh
-$ make       # update, symlinks, vim, tmux
-$ make setup # update repo, symlink files
-$ make vim   # install vim files and plugins
-$ make tmux  # install tmux files and plugins
 ```
 
 ## Installed software

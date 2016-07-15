@@ -1,4 +1,3 @@
-battle-net
 caffeine
 caskroom/versions/firefoxdeveloperedition
 consul
