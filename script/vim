@@ -1,5 +1,16 @@
+#!/bin/sh
+
+set -e
+
+# nvim expects to live in ~/.config/nvim
+rm -rf "$HOME/.config/nvim"
+mkdir -p "$HOME/.config"
+ln -s "$HOME/.vim" "$HOME/.config/nvim"
+
+# get vim plug so plugins can be installed
 curl -fLo ~/.config/nvim/autoload/plug.vim \
   --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# install all the plugins
 vim +PluginInstall +qall
