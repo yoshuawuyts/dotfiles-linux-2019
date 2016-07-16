@@ -1,0 +1,6 @@
+#!/bin/sh
+
+mkdir -p ~/src/yw
+cd ~/src/yw
+git clone yoshuawuyts/knowledge
+git clone yoshuawuyts/talks
