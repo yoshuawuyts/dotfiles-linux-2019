@@ -18,7 +18,6 @@ cmatrix
 cmus
 coreutils
 cowsay
-ctags
 dirmngr
 docker
 elinks
