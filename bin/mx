@@ -7,13 +7,13 @@ if [ "$?" -ne 0 ]; then
 
   tmux new-window -n 'media' cmus
 
-  logpath=/Users/"$USER"/src/"$USER"/knowledge
+  logpath=/Users/"$USER"/src/yw/knowledge
   tmux new-window -n 'log' -c "$logpath"
   tmux send-keys "$EDITOR" C-m
   tmux split-window -h -c "$logpath"
   tmux resize-pane -R 5
 
-  confpath=/Users/"$USER"/src/"$USER"/dotfiles
+  confpath=/Users/"$USER"/src/yw/dotfiles
   tmux new-window -n 'conf' -c "$confpath"
   tmux send-keys "$EDITOR" C-m
   tmux split-window -h -c "$confpath"
