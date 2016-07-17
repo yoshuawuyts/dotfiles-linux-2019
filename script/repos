@@ -1,6 +1,10 @@
 #!/bin/sh
 
 mkdir -p ~/src/yw
-cd ~/src/yw
+cd "$HOME/src/yw" || exit
+
 git clone yoshuawuyts/knowledge
 git clone yoshuawuyts/talks
+git clone yoshuawuyts/passwords
+
+ln -s "$(pwd)/passwords" "$HOME/.password-store"
