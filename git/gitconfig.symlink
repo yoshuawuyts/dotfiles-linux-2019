@@ -1,6 +1,7 @@
 [user]
   name = Yoshua Wuyts
   email = yoshuawuyts@gmail.com
+	signingkey = 7AC8EA5280B1FD6A
 
 [color]
   ui = auto
@@ -112,3 +113,5 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[commit]
+	gpgsign = true

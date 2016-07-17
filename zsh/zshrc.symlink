@@ -15,6 +15,9 @@ export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
 export PATH="$(brew --prefix gnu-tar)/libexec/gnuman:$PATH"
 export MANPATH="$(brew --prefix gnu-sed)/share/man:$MANPATH"
 
+# source pgp conf
+source "$HOME/.profile"
+
 # get some google cloud completions
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
