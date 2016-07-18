@@ -1,6 +1,7 @@
 caffeine
 caskroom/versions/firefoxdeveloperedition
 consul
+ccmenu
 electron
 firefox
 flash-player
