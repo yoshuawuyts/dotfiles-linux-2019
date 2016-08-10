@@ -17,3 +17,8 @@ curl -fLo ~/.config/nvim/autoload/plug.vim \
 
 # install all the plugins
 vim +PluginInstall +qall
+
+# install YCM plugins
+# https://github.com/Valloric/YouCompleteMe#mac-os-x
+cd ~/.config/nvim/plugged/YouCompleteMe
+./install.py --clang-completer
