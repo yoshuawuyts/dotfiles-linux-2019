@@ -1,0 +1,4 @@
+#!/bin/sh
+
+dir="$(pwd | awk -F"/" '{print $NF}')"
+open "https://buildkite.com/yoshuawuyts/$dir"
