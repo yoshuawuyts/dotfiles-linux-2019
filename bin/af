@@ -1,0 +1,3 @@
+#!/bin/sh
+
+git commit -a --amend && git push -f
