@@ -1,0 +1,4 @@
+#!/bin/sh
+printf '[docker] removing all images\n'
+docker rm $(docker ps -a -q)
+docker rmi $(docker images -q)
