@@ -105,3 +105,9 @@ eval "$(rbenv init -)"
 
 export NVM_DIR="/Users/anon/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+###############################################################################
+# Configure prompt
+###############################################################################
+# export PS1="\[\033[44m\] \W \[\033[49m\]\[\033[42m\]\$(pwd)\[\033[49m\] "
+# export PS1="$PS1\$(echo hey hey)"
