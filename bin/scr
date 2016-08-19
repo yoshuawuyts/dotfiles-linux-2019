@@ -1,0 +1,5 @@
+#!/bin/sh
+
+touch "$1"
+chmod +x "$1"
+printf '#!/bin/sh\n' > "$1"
