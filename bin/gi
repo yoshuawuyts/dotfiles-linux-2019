@@ -1,0 +1,6 @@
+#!/bin/sh
+
+hub create
+git http-to-ssh
+git commit -m .
+git push -u origin head
