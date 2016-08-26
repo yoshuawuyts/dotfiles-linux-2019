@@ -38,6 +38,7 @@ software that I personally use and recommend.
 - [kevensuttle/osxdefaults](https://github.com/kevinSuttle/OSXDefaults/blob/master/.osx)
 - [marcusandre/dotfiles](https://github.com/marcusandre/dotfiles)
 - [inject3d/dotfiles](https://github.com/inject3d/dotfiles)
+- [nicknikolov/dotfiles](https://github.com/nicknikolov/dotfiles)
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
