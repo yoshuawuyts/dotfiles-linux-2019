@@ -2,11 +2,15 @@
 
 # npm publish script
 
-travisjs -h > /dev/null
-[ $? -ne 0 ] && npm i -g travisjs
+desc="$(jq -r '.description' < package.json)"
+hub create -d "$desc"
+[ $? -eq 0 ] || { printf 'git creation error!\n'; exit 1; }
 
 git-http-to-ssh -h > /dev/null
 [ $? -eq 0 ] && git-http-to-ssh
+
+travisjs -h > /dev/null
+[ $? -eq 0 ] && travisjs hook
 
 greenkeeper -h > /dev/null
 [ $? -eq 0 ] && greenkeeper enable
