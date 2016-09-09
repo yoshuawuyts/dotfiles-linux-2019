@@ -25,6 +25,9 @@ main () {
 
   git push
   [ $? -ne 0 ] && { printf 'git push failed\n'; exit 1; }
+
+  # yay all good!
+  exit 0
 }
 
 usage () {
