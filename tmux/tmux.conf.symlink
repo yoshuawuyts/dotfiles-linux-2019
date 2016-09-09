@@ -121,7 +121,7 @@ set -g status-justify left
 
 # setup status bar content
 set -g status-left ""
-set-option -g status-right '#(cmus-status) | #[fg=colour]#S#[fg=default] | #[fg=default]%a %d %b %H:%M'
+set-option -g status-right '#(spotify-status) | #[fg=colour]#S#[fg=default] | #[fg=default]%a %d %b %H:%M'
 set-option -g status-right-length 80
 
 ###########################
