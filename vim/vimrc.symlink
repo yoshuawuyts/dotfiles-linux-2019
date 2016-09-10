@@ -12,6 +12,8 @@ call plug#begin('~/.vim/plugged')
 " Plugins
 Plug 'Chiel92/vim-autoformat'
 Plug 'Raimondi/delimitMate'
+Plug 'SirVer/ultisnips'
+Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'bruno-/vim-husk'
@@ -33,7 +35,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
-Plug 'SirVer/ultisnips'
 Plug 'sjl/gundo.vim'
 Plug 'spwhitt/vim-nix'
 Plug 'tejr/vim-tmux'
@@ -47,8 +48,9 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/BufOnly.vim'
+Plug 'wakatime/vim-wakatime'
+
 " End vim-plug
 " ============
 call plug#end()
