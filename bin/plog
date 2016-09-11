@@ -1,0 +1,18 @@
+#!/bin/sh
+
+knowdir="$HOME/src/yw/knowledge"
+
+if [ $# -ne 1 ]; then
+  echo 'usage: plog <url>'
+  exit 1
+fi
+
+url="$*"
+name="$(echo "$url" | sed 's/https:\/\/github.com\///')"
+
+printf '* [%s](%s)\n' "$name" "$url"
+  >> "$knowdir/js/packages.md"
+
+cd "$knowdir" || { echo 'could not cd' && exit 1; }
+git add 'js/packages.md'
+git commit -m "chore(js): add package $name"
