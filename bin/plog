@@ -10,9 +10,10 @@ fi
 url="$*"
 name="$(echo "$url" | sed 's/https:\/\/github.com\///')"
 
-printf '* [%s](%s)\n' "$name" "$url"
+printf '* [%s](%s)\n' "$name" "$url" \
   >> "$knowdir/js/packages.md"
 
 cd "$knowdir" || { echo 'could not cd' && exit 1; }
 git add 'js/packages.md'
 git commit -m "chore(js): add package $name"
+git push
