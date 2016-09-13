@@ -37,6 +37,7 @@
   di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
   # Diff
   df = diff
+  e = commit --allow-empty -t /Users/anon/src/yw/dotfiles/git/templates/feature.txt
   # Get short SHA-1 for object
   hash = rev-parse --short HEAD
   l = log --graph --decorate --pretty=oneline --abbrev-commit -5
