@@ -5,5 +5,5 @@ URL='https://skimdb.npmjs.com/registry/_design/app/_view/npmTop?group_level=1'
 curl -s "$URL" \
   | jq '.rows' \
   | jq 'sort_by(.value)' \
-  | jq 'map(.key[0] + ": " + (.value | tostring))' \
-  | underscore print --outfmt text
+  | jq -r 'map(.key[0] + ": " + (.value | tostring))' \
+  | tail -n 100
