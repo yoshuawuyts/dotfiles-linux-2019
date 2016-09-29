@@ -20,12 +20,6 @@ fi
 
 boot_project () {
   cd "$projectdir" || exit 1
-
-  # only run tmux if not within tmux
-  test -z "$TMUX"
-  if [ $? -eq 0 ]; then
-    mx
-  fi
 }
 
 clone_project () {

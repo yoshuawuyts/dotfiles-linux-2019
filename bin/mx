@@ -1,19 +1,16 @@
 #!/bin/sh
+username="yoshuawuyts"
 
 # check if tmux needs to be booted up
 tmux list-sessions | cut -d ':' -f 1 | grep '^_shared$' > /dev/null
 if [ "$?" -ne 0 ]; then
-  tmux new-session -d -s "_shared" -n 'monitor' htop
-
-  tmux new-window -n 'media' cmus
-
-  logpath=/Users/"$USER"/src/yw/knowledge
-  tmux new-window -n 'log' -c "$logpath"
+  logpath="/Users/$USER/src/$username/knowledge"
+  tmux new-session -d -s "_shared" -n 'log' -c "$logpath"
   tmux send-keys "$EDITOR" C-m
   tmux split-window -h -c "$logpath"
   tmux resize-pane -R 5
 
-  confpath=/Users/"$USER"/src/yw/dotfiles
+  confpath="/Users/$USER/src/$username/dotfiles"
   tmux new-window -n 'conf' -c "$confpath"
   tmux send-keys "$EDITOR" C-m
   tmux split-window -h -c "$confpath"

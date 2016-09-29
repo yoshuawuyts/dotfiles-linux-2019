@@ -7,7 +7,6 @@ set -ga update-environment ' ITERM_PROFILE TMUX_STATUS_LEFT'
 
 # use 256 term for pretty colors
 set -g default-terminal "screen-256color"
-set-option -gw utf8 on
 
 # increase scroll-back history
 set -g history-limit 5000
@@ -30,12 +29,6 @@ set-window-option -g window-status-current-attr bold
 set-window-option -g window-status-current-format '[ #I ]'
 set-window-option -g window-status-format ' #I '
 set-window-option -g window-status-attr dim
-
-# enable mouse
-set -g mode-mouse on
-set -g mouse-resize-pane on
-set -g mouse-select-pane on
-set -g mouse-select-window on
 
 # decrease command delay (increases vim responsiveness)
 set -sg escape-time 1
@@ -109,9 +102,6 @@ bind f last-window
 ###########################
 # Status Bar
 ###########################
-
-# enable UTF-8 support in status bar
-set -g status-utf8 on
 
 # set refresh interval for status bar
 set -g status-interval 10
