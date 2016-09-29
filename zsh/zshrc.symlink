@@ -8,9 +8,13 @@ export PATH="$PATH:/Users/$USER/src/$username/dotfiles/bin"
 export PATH="$PATH:/Users/$USER/.config/base16-shell"
 export PATH="$PATH:$HOME/.rbenv/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="/usr/local/opt/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"
+
+# man pages
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 
 # source pgp conf
 source "$HOME/.profile"
