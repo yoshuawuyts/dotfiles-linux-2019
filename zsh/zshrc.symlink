@@ -2,26 +2,18 @@
 #  Configuration
 ###########################
 username="yoshuawuyts"
+# if this ever breaks run "$ brew prefix <toolname>"
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/$username/.config/base16-shell"
 export PATH="$PATH:/Users/$USER/src/$username/dotfiles/bin"
 export PATH="$PATH:/Users/$USER/.config/base16-shell"
 export PATH="$PATH:$HOME/.rbenv/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-export PATH="$(brew --prefix gnu-tar)/libexec/gnubin:$PATH"
-export PATH="$(brew --prefix curl)/bin:$PATH"
-
-# man pages
-export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
-export PATH="$(brew --prefix gnu-tar)/libexec/gnuman:$PATH"
-export MANPATH="$(brew --prefix gnu-sed)/share/man:$MANPATH"
+export PATH="/usr/local/opt/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/curl/bin:$PATH"
 
 # source pgp conf
 source "$HOME/.profile"
-
-# get some google cloud completions
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
 # start zle
 zmodload zsh/zle
@@ -45,24 +37,14 @@ for config_file ($ZSH/**/*.zsh) source $config_file
 ###########################
 # base-16
 BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-eighties.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
-# colorize unix tools
-# source "$(brew --prefix grc)"/etc/grc.bashrc
+if [ -s $BASE16_SHELL ]; then
+  source $BASE16_SHELL
+fi
 
 ###########################
 #  Plugins
 ###########################
-antigen bundle git
-antigen bundle gpg-agent
 antigen bundle marzocchi/zsh-notify
-antigen bundle mosh
-antigen bundle nvm
-antigen bundle osx
-antigen bundle pass
-antigen bundle vi-mode
-antigen bundle vundle
-antigen bundle z
 antigen bundle zsh-users/fizsh
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
@@ -74,11 +56,9 @@ antigen bundle tarruda/zsh-autosuggestions
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
-for config_file ($ZSH/**/completion.sh) source $config_file
-
-# quote pasted URLs
-autoload -U url-quote-magic
-zle -N self-insert url-quote-magic
+for f in $ZSH/**/completion.sh; do
+  source "$f"
+done
 
 # Fix history search in tmux
 bindkey '^R' history-incremental-search-backward
@@ -98,11 +78,8 @@ export GHI_PAGER=less
 # configure rbenv
 eval "$(rbenv init -)"
 
+# load nvm
 export NVM_DIR="/Users/anon/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-###############################################################################
-# Configure prompt
-###############################################################################
-# export PS1="\[\033[44m\] \W \[\033[49m\]\[\033[42m\]\$(pwd)\[\033[49m\] "
-# export PS1="$PS1\$(echo hey hey)"
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  . "$NVM_DIR/nvm.sh"
+fi
