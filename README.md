@@ -13,26 +13,6 @@ $ cd ~/src/yw/dotfiles
 $ ./script/{setup,vim,zsh,tmux}
 ```
 
-## Installed software
-Not all of this is required for the configuration, it's just the list of
-software that I personally use and recommend.
-
-### interface
-
-### internet
-
-### media
-
-### office
-
-### programming
-
-### utilities
-
-### fonts / themes
-
-### included scripts and tools
-
 ## See also
 - [pengwynn/dotfiles](https://github.com/pengwynn/dotfiles)
 - [kevensuttle/osxdefaults](https://github.com/kevinSuttle/OSXDefaults/blob/master/.osx)
