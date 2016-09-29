@@ -1,6 +1,16 @@
 #!/bin/sh
 username="yoshuawuyts"
 
+get_session () {
+  if [ -z "$1" ]; then
+    # tmux 1.9a+ doesn't like .'s in session names
+    pwd | awk -F"/" '{print $NF}'
+  else
+    c "$1"
+    echo "$1" | awk -F"/" '{print $NF}'
+  fi
+}
+
 # check if tmux needs to be booted up
 tmux list-sessions | cut -d ':' -f 1 | grep '^_shared$' > /dev/null
 if [ "$?" -ne 0 ]; then
@@ -17,8 +27,7 @@ if [ "$?" -ne 0 ]; then
   tmux resize-pane -R 5
 fi
 
-# tmux 1.9a+ doesn't like .'s in session names
-SESSION="$(pwd | awk -F"/" '{print $NF}')"
+SESSION="$(get_session "$1")"
 tmux list-sessions | grep "^$SESSION" > /dev/null
 if [ "$?" -ne 0 ]; then
   if [ -d "$PROJECTS"/"$SESSION" ]; then
@@ -29,12 +38,13 @@ if [ "$?" -ne 0 ]; then
   tmux split-window -h
   tmux resize-pane -R 5
   tmux select-window -t "$SESSION"
-  tmux link-window -s _shared:monitor -t 9
-  tmux link-window -s _shared:media -t 8
-  tmux link-window -s _shared:log -t 7
-  tmux link-window -s _shared:conf -t 6
+  tmux link-window -s _shared:log -t 9
+  tmux link-window -s _shared:conf -t 8
   tmux select-window -t 1
 fi
 
-if [ -z "$TMUX" ]; then tmux attach -t "$SESSION";
-else tmux switch-client -t "$SESSION"; fi
+if [ -z "$TMUX" ]; then
+  tmux attach -t "$SESSION";
+else
+  tmux switch-client -t "$SESSION"
+fi
