@@ -1,8 +1,9 @@
 ###########################
 #  Configuration
 ###########################
-export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/yw/.config/base16-shell"
-export PATH="$PATH:/Users/$USER/src/yw/dotfiles/bin"
+username="yoshuawuyts"
+export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/$username/.config/base16-shell"
+export PATH="$PATH:/Users/$USER/src/$username/dotfiles/bin"
 export PATH="$PATH:/Users/$USER/.config/base16-shell"
 export PATH="$PATH:$HOME/.rbenv/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
@@ -30,20 +31,14 @@ export LC_ALL="en_US.UTF-8"
 export TERM=screen-256color
 
 # shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/src/yw/dotfiles
-export DOTFILES=$HOME/src/yw/dotfiles
+export ZSH=$HOME/src/$username/dotfiles
+export DOTFILES=$HOME/src/$username/dotfiles
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/src
 
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
-
-# use .localrc for super secret things
-if [[ -a ~/.localrc ]]; then source ~/.localrc; fi
-
-# enable nix
-# . /Users/yw/.nix-profile/etc/profile.d/nix.sh
 
 ###########################
 # Colors

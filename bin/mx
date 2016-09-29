@@ -24,7 +24,9 @@ fi
 SESSION="$(pwd | awk -F"/" '{print $NF}')"
 tmux list-sessions | grep "^$SESSION" > /dev/null
 if [ "$?" -ne 0 ]; then
-  if [ -d "$PROJECTS"/"$SESSION" ]; then cd "$PROJECTS"/"$SESSION"; fi
+  if [ -d "$PROJECTS"/"$SESSION" ]; then
+    cd "$PROJECTS"/"$SESSION" || exit 1
+  fi
   tmux new-session -s "$SESSION" -d -n ''
   tmux send-keys "$EDITOR" C-m #':CtrlP' C-m
   tmux split-window -h
