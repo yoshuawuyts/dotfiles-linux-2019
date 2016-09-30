@@ -14,16 +14,22 @@ get_session () {
 # check if tmux needs to be booted up
 tmux list-sessions | cut -d ':' -f 1 | grep '^_shared$' > /dev/null
 if [ "$?" -ne 0 ]; then
-  logpath="/Users/$USER/src/$username/knowledge"
-  tmux new-session -d -s "_shared" -n 'log' -c "$logpath"
+  knowledgepath="/Users/$USER/src/$username/knowledge"
+  tmux new-session -d -s "_shared" -n 'knowledge' -c "$knowledgepath"
   tmux send-keys "$EDITOR" C-m
-  tmux split-window -h -c "$logpath"
+  tmux split-window -h -c "$knowledgepath"
   tmux resize-pane -R 5
 
-  confpath="/Users/$USER/src/$username/dotfiles"
-  tmux new-window -n 'conf' -c "$confpath"
+  dotfilespath="/Users/$USER/src/$username/dotfiles"
+  tmux new-window -n 'dotfiles' -c "$dotfilespath"
   tmux send-keys "$EDITOR" C-m
-  tmux split-window -h -c "$confpath"
+  tmux split-window -h -c "$dotfilespath"
+  tmux resize-pane -R 5
+
+  templatespath="/Users/$USER/src/$username/templates"
+  tmux new-window -n 'templates' -c "$templatespath"
+  tmux send-keys "$EDITOR" C-m
+  tmux split-window -h -c "$templatespath"
   tmux resize-pane -R 5
 fi
 
@@ -38,8 +44,9 @@ if [ "$?" -ne 0 ]; then
   tmux split-window -h
   tmux resize-pane -R 5
   tmux select-window -t "$SESSION"
-  tmux link-window -s _shared:log -t 9
-  tmux link-window -s _shared:conf -t 8
+  tmux link-window -s _shared:knowledge -t 9
+  tmux link-window -s _shared:dotfiles -t 8
+  tmux link-window -s _shared:templates -t 7
   tmux select-window -t 1
 fi
 
