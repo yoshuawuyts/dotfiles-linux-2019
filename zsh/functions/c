@@ -9,6 +9,11 @@ fi
 
 user="$(echo "$1" | sed 's|/.*||')"
 repo="$(echo "$1" | sed 's|.*/||')"
+
+if [ "$user" = "yw" ]; then
+  user="yoshuawuyts"
+fi
+
 projectdir="$PROJECTS/$1"
 userdir="$PROJECTS/$user"
 
@@ -19,7 +24,7 @@ if [ "$?" -eq 0 ]; then
 fi
 
 boot_project () {
-  cd "$projectdir" || exit 1
+  cd "$projectdir" || return 1
 }
 
 clone_project () {
@@ -28,6 +33,10 @@ clone_project () {
   fi
   cd "$userdir" || exit 1
   git clone "git@github.com:$user/$repo.git"
+  if [ $? -ne 0 ]; then
+    printf 'zsh/c: git clone failed. Exiting\n'
+    return 1
+  fi
   boot_project
 }
 
@@ -35,4 +44,5 @@ if [ -d "$projectdir" ]; then
   boot_project
 else
   clone_project
+  return $?
 fi
