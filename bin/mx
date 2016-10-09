@@ -31,6 +31,18 @@ if [ "$?" -ne 0 ]; then
   tmux send-keys "$EDITOR" C-m
   tmux split-window -h -c "$templatespath"
   tmux resize-pane -R 5
+
+  infrastructurepath="/Users/$USER/src/$username/infrastructure"
+  tmux new-window -n 'infrastructure' -c "$infrastructurepath"
+  tmux send-keys "$EDITOR" C-m
+  tmux split-window -h -c "$infrastructurepath"
+  tmux resize-pane -R 5
+
+  dockerpath="/Users/$USER/src/$username/dockerfiles"
+  tmux new-window -n 'dockerfiles' -c "$dockerpath"
+  tmux send-keys "$EDITOR" C-m
+  tmux split-window -h -c "$dockerpath"
+  tmux resize-pane -R 5
 fi
 
 SESSION="$(get_session "$1")"
@@ -47,6 +59,8 @@ if [ "$?" -ne 0 ]; then
   tmux link-window -s _shared:knowledge -t 9
   tmux link-window -s _shared:dotfiles -t 8
   tmux link-window -s _shared:templates -t 7
+  tmux link-window -s _shared:infrastructure -t 6
+  tmux link-window -s _shared:dockerfiles -t 5
   tmux select-window -t 1
 fi
 
