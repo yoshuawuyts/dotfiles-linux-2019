@@ -7,14 +7,22 @@ if [ "$?" -eq 0 ]; then
   exit 1
 fi
 
-user="$(echo "$1" | sed 's|/.*||')"
-repo="$(echo "$1" | sed 's|.*/||')"
+clean_uri () {
+  echo "$1" \
+    | sed 's|^https://github.com/||' \
+    | tr '/' ' ' \
+    | awk '{print $1 "/" $2}'
+}
+
+uri="$(clean_uri "$1")"
+user="$(echo "$uri" | sed 's|/.*||')"
+repo="$(echo "$uri" | sed 's|.*/||')"
 
 if [ "$user" = "yw" ]; then
   user="yoshuawuyts"
 fi
 
-projectdir="$PROJECTS/$1"
+projectdir="$PROJECTS/$uri"
 userdir="$PROJECTS/$user"
 
 test -z "$PROJECTS"
