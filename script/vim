@@ -22,3 +22,6 @@ vim +PluginInstall +qall
 # https://github.com/Valloric/YouCompleteMe#mac-os-x
 cd ~/.config/nvim/plugged/YouCompleteMe
 ./install.py --clang-completer
+
+# rust completion
+cargo install racer

@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
 
 " =======
 " Plugins
+
 Plug 'Chiel92/vim-autoformat'
 Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips'
@@ -32,6 +33,7 @@ Plug 'mhinz/vim-startify'
 Plug 'moll/vim-node'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
@@ -51,7 +53,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'wakatime/vim-wakatime'
-
 " End vim-plug
 " ============
 call plug#end()
@@ -253,6 +254,10 @@ let g:startify_list_order = [ [ '  Recent files:' ], 'dir' ]
 " ====
 let g:rust_recommended_style = 0
 let g:rustfmt_autosave = 0
+set hidden
+let g:racer_cmd = "/Users/" . $USER . "/.cargo/bin/racer/target/release/racer"
+let $RUST_SRC_PATH= "/Users/" . $USER . "/.cargo/bin/racer/src/"
+let g:racer_experimental_completer = 1
 
 " JavaScript
 set completeopt=longest,menuone
