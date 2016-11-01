@@ -1,3 +1,5 @@
 #!/bin/sh
 npm version prerelease
 npm publish --tag=next
+git push
+git push --tags
