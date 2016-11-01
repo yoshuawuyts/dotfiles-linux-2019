@@ -46,7 +46,7 @@ if [ "$?" -ne 0 ]; then
 fi
 
 SESSION="$(get_session "$1")"
-tmux list-sessions | grep "^$SESSION$" > /dev/null
+tmux list-sessions | grep "^$SESSION\:.*$" > /dev/null
 if [ "$?" -ne 0 ]; then
   if [ -d "$PROJECTS"/"$SESSION" ]; then
     cd "$PROJECTS"/"$SESSION" || exit 1
