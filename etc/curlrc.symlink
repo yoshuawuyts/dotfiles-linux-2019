@@ -10,8 +10,5 @@ referer = ";auto"
 # Show error messages
 show-error
 
-# Show progress using a progress meter
-progress-bar
-
 # Send a fake UA string for the HTTP servers that sniff it
 # user-agent = "Mozilla/5.0 Gecko"
