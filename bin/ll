@@ -1,0 +1,2 @@
+#!/bin/sh
+gls -alph --color=auto --group-directories-first
