@@ -26,6 +26,8 @@ Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-terraform'
 Plug 'honza/vim-snippets'
 Plug 'jayflo/vim-skip'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'kelan/gyp.vim'
 Plug 'mattn/emmet-vim'
@@ -39,20 +41,22 @@ Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'sjl/gundo.vim'
 Plug 'spwhitt/vim-nix'
-Plug 'tmux-plugins/vim-tmux'
 Plug 'ternjs/tern_for_vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tikhomirov/vim-glsl'
+Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'wakatime/vim-wakatime'
+
 " End vim-plug
 " ============
 call plug#end()
@@ -249,6 +253,51 @@ endif
 " Startify
 " ========
 let g:startify_list_order = [ [ '  Recent files:' ], 'dir' ]
+
+" Markdown writer mode
+" ====================
+let g:goyo_height = '95%'
+let g:vim_markdown_frontmatter=1
+let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascript', 'sh', 'bash=sh']
+autocmd! User GoyoEnter GitGutterEnable
+autocmd BufNewFile,BufReadPost *.md :Goyo
+autocmd FileType mkd set | set autoindent | set colorcolumn=0 | set linebreak | set nonumber | set shiftwidth=4 | set spell | set tabstop=4 | set wrap
+map <Leader>g :Goyo<CR>
+
+function! s:goyo_enter()
+  silent !tmux resize-pane -t $TMUX_PANE -Z
+
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux resize-pane -t $TMUX_PANE -Z
+
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+
+  set showmode
+  set showcmd
+  set scrolloff=5
+  Limelight!
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " Rust
 " ====
