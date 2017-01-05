@@ -15,8 +15,8 @@ git-http-to-ssh -h > /dev/null
 
 # expose `--bare` flag to not do npm stuff
 if [ ! "$1" = '-b' ]; then
-  # travisjs -h > /dev/null
-  # [ $? -eq 0 ] && travisjs hook
+  travisjs -h > /dev/null
+  [ $? -eq 0 ] && travisjs hook
 
   # greenkeeper -h > /dev/null
   # [ $? -eq 0 ] && greenkeeper enable
