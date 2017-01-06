@@ -1,0 +1,22 @@
+#!/bin/sh
+list_names () {
+  tmux ls \
+    | awk '{ print $1 }' \
+    | sed '1d;s/:$//'
+}
+
+create_command_string () {
+  awk '{ print $1; print $1; print "on" }' | tr '\n' ' '
+}
+
+msg="Please select which tmux sessions to close:"
+
+list="$(list_names)"
+length="$(echo "$list" | wc -l)"
+string="$(echo "$list" | create_command_string | head -n 1)"
+closed="$(whiptail --checklist "$msg" 10 60 "$length" $string 3>&1 1>&2 2>&3)"
+closed="$(echo "$closed" | sed 's/"//g')"
+
+for session in $closed; do
+  tmux kill-session -t "$session"
+done
