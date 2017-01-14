@@ -1,0 +1,17 @@
+#!/bin/sh
+
+server_name="$1"
+
+printf '[provision-server] installing apt-get dependencies\n'
+ssh "$server_name" 'sudo apt-get update -y && sudo apt-get upgrade -y'
+ssh "$server_name" 'sudo apt-get install -y mosh tmux vim tree htop iftop unzip jq git nginx'
+
+printf '[provision-server] configuring nginx\n'
+ssh "$server_name" 'sudo update-rc.d nginx defaults'
+
+printf '[provision-server] installing nvm\n'
+ssh "$server_name" 'curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash'
+ssh "$server_name" 'nvm install --lts'
+
+printf '[provision-server] installing npm deps\n'
+ssh "$server_name" 'npm i -g lil-pids'
