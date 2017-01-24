@@ -5,6 +5,7 @@ server_name="$1"
 printf '[provision-server] installing apt-get dependencies\n'
 ssh "$server_name" 'sudo apt-get update -y && sudo apt-get upgrade -y'
 ssh "$server_name" 'sudo apt-get install -y mosh tmux vim tree htop iftop unzip jq git nginx'
+ssh "$server_name" 'sudo apt-get install -y build-essential autoconf libtool bison flex devscripts'
 
 printf '[provision-server] configuring nginx\n'
 ssh "$server_name" 'sudo update-rc.d nginx defaults'
