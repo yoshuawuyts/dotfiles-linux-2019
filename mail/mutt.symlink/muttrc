@@ -4,8 +4,8 @@ set mailcap_path = ~/.mutt/mailcap
 # account config
 set folder    = imaps://yoshuawuyts@imap.gmail.com/
 set imap_user = yoshuawuyts@gmail.com
-set spoolfile =+ INBOX
-mailboxes     =+ INBOX
+# set spoolfile =+ "INBOX"
+# mailboxes     =+ "INBOX"
 
 # cache messages to speed things up
 set header_cache     = ~/.cache/mutt
