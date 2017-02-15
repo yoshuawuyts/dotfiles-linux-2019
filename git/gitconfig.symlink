@@ -73,6 +73,8 @@
   push = push --follow-tags
   puo = push -u origin head
   pou = push -u origin head
+  pyo = push -u yoshuawuyts head
+  poy = push -u yoshuawuyts head
   # github
   pr = "pull-request"
 
