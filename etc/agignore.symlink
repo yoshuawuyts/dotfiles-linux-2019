@@ -3,10 +3,11 @@
 *logs/*
 *tmp/
 *npm-shrinkwrap*
+*nyc_output*
 
 # node
-node_modules/
 bower_components/
+node_modules/
 npm-debug*
 
 # vendor
