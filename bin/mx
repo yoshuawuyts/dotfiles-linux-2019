@@ -32,10 +32,10 @@ if [ "$?" -ne 0 ]; then
   tmux split-window -h -c "$templatespath"
   tmux resize-pane -R 5
 
-  infrastructurepath="/Users/$USER/src/$username/infrastructure"
-  tmux new-window -n 'infrastructure' -c "$infrastructurepath"
+  notespath="/Users/$USER/src/$username/notes"
+  tmux new-window -n 'notes' -c "$notespath"
   tmux send-keys "$EDITOR" C-m
-  tmux split-window -h -c "$infrastructurepath"
+  tmux split-window -h -c "$notespath"
   tmux resize-pane -R 5
 
   dockerpath="/Users/$USER/src/$username/dockerfiles"
@@ -59,7 +59,7 @@ if [ "$?" -ne 0 ]; then
   tmux link-window -s _shared:knowledge -t 9
   tmux link-window -s _shared:dotfiles -t 8
   tmux link-window -s _shared:templates -t 7
-  tmux link-window -s _shared:infrastructure -t 6
+  tmux link-window -s _shared:notes -t 6
   tmux link-window -s _shared:dockerfiles -t 5
   tmux select-window -t 1
 fi
