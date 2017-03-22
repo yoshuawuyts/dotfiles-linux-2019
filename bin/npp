@@ -4,6 +4,10 @@
 if [ -f 'package.json' ]; then
   desc="$(jq -r '.description' < package.json)"
   hub create -d "$desc"
+
+  str="$(jq -r '.repository' < package.json | tr '/' ' ')"
+  author="$(echo "$str" | awk '{ print $1 }')"
+  repo="$(echo "$str" | awk '{ print $2 }')"
 else
   hub create
 fi
@@ -17,6 +21,9 @@ git-http-to-ssh -h > /dev/null
 if [ ! "$1" = '-b' ]; then
   travisjs -h > /dev/null
   [ $? -eq 0 ] && travisjs hook
+
+  github-standard-labels -h > /dev/null
+  [ $? -eq 0 ] && github-standard-labels "$author" "$repo"
 
   # greenkeeper -h > /dev/null
   # [ $? -eq 0 ] && greenkeeper enable
