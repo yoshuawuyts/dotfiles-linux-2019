@@ -261,7 +261,7 @@ let g:goyo_width = '81'
 let g:vim_markdown_frontmatter=1
 let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascript', 'sh', 'bash=sh']
 " autocmd! User GoyoEnter GitGutterEnable
-autocmd BufNewFile,BufReadPost *.md :Goyo
+" autocmd BufNewFile,BufReadPost *.md :Goyo
 autocmd FileType mkd set | set autoindent | set colorcolumn=0 | set linebreak | set nonumber | set shiftwidth=4 | set spell | set tabstop=4 | set wrap
 map <Leader>g :Goyo<CR>
 
