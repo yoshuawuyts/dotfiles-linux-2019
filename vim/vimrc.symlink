@@ -30,6 +30,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'kelan/gyp.vim'
+Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-startify'
 Plug 'moll/vim-node'
@@ -56,7 +57,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'wakatime/vim-wakatime'
-
 " End vim-plug
 " ============
 call plug#end()
@@ -311,3 +311,13 @@ let g:racer_experimental_completer = 1
 
 " JavaScript
 set completeopt=longest,menuone
+
+" Ctags
+autocmd FileType javascript TagbarOpen
+let g:tagbar_ctags_bin = "/usr/local/bin/ctags"
+let g:tagbar_compact = 1                        " Make compact
+let g:tagbar_show_linenumbers = 0               " Show line numbers
+let g:tagbar_hide_nonpublic = 1
+let g:tagbar_singleclick = 1
+let g:tagbar_indent = 1
+let g:tagbar_width = 30

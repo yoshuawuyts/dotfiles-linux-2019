@@ -54,7 +54,7 @@ if [ "$?" -ne 0 ]; then
   tmux new-session -s "$SESSION" -d -n ''
   tmux send-keys "$EDITOR" C-m #':CtrlP' C-m
   tmux split-window -h
-  tmux resize-pane -R 5
+  tmux resize-pane -x 60
   tmux select-window -t "$SESSION"
   tmux link-window -s _shared:knowledge -t 9
   tmux link-window -s _shared:dotfiles -t 8
