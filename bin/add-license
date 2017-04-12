@@ -1,0 +1,4 @@
+#!/bin/sh
+jq '. + { license: "MIT" }' < package.json > /tmp/pkg
+rm package.json
+mv /tmp/pkg package.json
