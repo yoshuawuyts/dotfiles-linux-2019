@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 " Plugins
 
 Plug 'Chiel92/vim-autoformat'
+Plug 'chr4/nginx.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe'
