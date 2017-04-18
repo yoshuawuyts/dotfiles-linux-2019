@@ -4,6 +4,7 @@
 # ~/.tmux.conf
 # new-session
 # set -g history-limit 30000
+# setw -g mode-keys vi
 
 remote="$1"
 
