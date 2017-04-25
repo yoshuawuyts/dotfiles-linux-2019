@@ -2,6 +2,7 @@
 
 ignore="node_modules"
 ignore="$ignore|.git"
+ignore="$ignore|build"
 ignore="$ignore|coverage"
 ignore="$ignore|target"
 ignore="$ignore|doc"
