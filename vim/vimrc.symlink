@@ -12,14 +12,15 @@ call plug#begin('~/.vim/plugged')
 " Plugins
 
 Plug 'Chiel92/vim-autoformat'
-Plug 'chr4/nginx.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'bruno-/vim-husk'
+Plug 'chr4/nginx.vim'
 Plug 'chriskempson/base16-vim'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'epmatsw/ag.vim'
 Plug 'ervandew/supertab'
