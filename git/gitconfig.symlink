@@ -1,6 +1,6 @@
 [user]
-  name = Yoshua Wuyts
-  email = yoshuawuyts@gmail.com
+	name = Yoshua Wuyts
+	email = yoshuawuyts@gmail.com
 	signingkey = D97B99ED650ED277
 
 [color]

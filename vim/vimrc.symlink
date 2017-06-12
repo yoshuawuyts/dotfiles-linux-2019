@@ -323,3 +323,10 @@ let g:tagbar_hide_nonpublic = 1
 let g:tagbar_indent = 1
 let g:tagbar_width = 30
 let g:tagbar_iconchars = ['˅', '˃']
+
+" Autocomplete
+let g:python_support_python2_requirements = add(get(g:,'python_support_python2_requirements',[]),'virtualenv')
+let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'jedi')
+let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'mistune')
+let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'psutil')
+let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'setproctitle')
