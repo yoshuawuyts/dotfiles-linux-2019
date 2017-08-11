@@ -17,6 +17,9 @@ fi
 git-http-to-ssh -h > /dev/null
 [ $? -eq 0 ] && git-http-to-ssh
 
+# github is kinda slow, sometimes
+sleep 5
+
 # expose `--bare` flag to not do npm stuff
 if [ ! "$1" = '-b' ]; then
   travisjs -h > /dev/null
