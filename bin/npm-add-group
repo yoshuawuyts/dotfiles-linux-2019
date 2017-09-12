@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ $# -ne 2 ]; then
+  echo 'usage: npm-add-group <group> <repo>'
+  exit 1
+fi
+
+group="$1"
+repo="$2"
+
+npm access grant read-write "$group":developers "$repo"
