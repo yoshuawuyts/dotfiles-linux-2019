@@ -1,0 +1,83 @@
+# Fix locale
+export LC_ALL=C
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# colors for later use
+clr_reset="$(tput sgr0)"
+clr_red="$(tput setaf 1)"
+clr_blue="$(tput setaf 4)"
+clr_cyan="$(tput setaf 6)"
+clr_white="$(tput setaf 7)"
+
+# command prompt
+prompt_command () {
+  if [ $? -eq 0 ]; then local clr_status="$clr_white"
+  else local clr_status="$clr_red"; fi
+  local branch=""
+  if [ -d $PWD/.git ]; then
+    local branch="$(git rev-parse --abbrev-ref HEAD)"
+    local has_uncommitted="$(git status --short | wc -c)"
+    if [ ! "$has_uncommitted" == 0 ]; then
+      local branch="$branch*"
+    else
+      git diff "remotes/origin/$branch" > /dev/null 2>&1
+      if [ $? -eq 0 ]; then
+        local len="$(git diff "remotes/origin/$branch" | wc -c)"
+        [ ! $len = 0 ] && local branch="$branch'"
+      else
+        local branch="$branch'"
+      fi
+    fi
+  fi
+  local left="$clr_blue[\W]$clr_reset $branch"
+  local right="$(date +'%H:%M:%S')"
+  local prompt="$clr_status\$$clr_reset"
+  PS1="$(printf "\n%*s\r%s\n%s " "$(tput cols)" "$right" "$left" "$prompt")"
+}
+PROMPT_COMMAND=prompt_command
+
+# vim mode
+set -o vi
+
+# Global config
+export EDITOR=vim
+export VISUAL=vim
+export PAGER=less
+export PROJECTS="$HOME/Code"
+
+# Fix application chrome
+GDK_DPI_SCALE=1.4
+
+# Aliases
+alias g='git'
+alias ls='ls --color=auto --group-directories-first'
+alias ll='ls -alph --color=auto --group-directories-first'
+alias s='git status --short'
+alias t="tree . -L 3"
+
+# Node
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Enable SSH
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# Start X if it's not started yet
+if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
+  exec startx
+fi
+
+# Enable autocompletion
+if [ -f /etc/bash_completion ]; then
+  /etc/bash_completion
+fi
+
+_complete_c () {
+  local cur_word="${COMP_WORDS[COMP_CWORD]}"
+  local files="$(ls "$PROJECTS/$cur_word")"
+  COMPREPLY="$(compgen -W "$files")"
+}
+complete -F _complete_c c

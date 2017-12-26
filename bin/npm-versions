@@ -1,6 +1,0 @@
-#!/bin/sh
-# list the given versions for an npm module
-
-module=${1:?'specify a module to check'}
-
-npm info "$module" time

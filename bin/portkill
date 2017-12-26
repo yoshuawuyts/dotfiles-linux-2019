@@ -1,7 +1,0 @@
-#!/bin/sh
-
-port=${1-"8080"}
-shift
-
-pid="$(ports | grep "$port" | awk '{ print $2 }')"
-kill "$pid" "$@"

@@ -1,8 +1,0 @@
-#!/bin/sh
-
-if [ ! "$1" ]; then
-  echo 'usage: iodocs <module>'
-  exit 1
-fi
-
-open "https://nodejs.org/api/$1.html"

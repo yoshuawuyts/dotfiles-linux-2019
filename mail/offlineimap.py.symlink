@@ -1,6 +1,0 @@
-#! /usr/bin/env python2
-from subprocess import check_output
-
-# get mailbox passwords from pass(1)
-def get_pass(account):
-    return check_output("pass yw/mail/" + account, shell=True).rstrip()

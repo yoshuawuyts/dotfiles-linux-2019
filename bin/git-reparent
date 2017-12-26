@@ -5,10 +5,12 @@
 
 OPTIONS_SPEC="\
 git reparent [OPTIONS] ((-p <parent>)... | --no-parent)
+
 Recommit HEAD with a new set of parents.
 --
 h,help          show the help
 e,edit          edit the commit message in an editor first
+keep-committer  do not rewrite committer name and date
 m,message=      use the given message instead of that of HEAD
 p,parent=!      new parent to use; may be given multiple times
 no-parent!      create a parentless commit
@@ -28,64 +30,8 @@ die_with_usage() {
 	usage
 }
 
-edit=
-message=
-no_parent=
-no_reset=
-parent_flags=
-quiet=
-while [ $# -gt 0 ]; do
-	case "$1" in
-	-p)
-		[ $# -eq 0 ] && die_with_usage "-p requires an argument"
-		shift
-		parent_flags="$parent_flags$(git rev-parse --sq-quote -p "$1")"
-		;;
-	--no-parent) no_parent=1 ;;
-	-e)          edit=1 ;;
-	--no-edit)   edit= ;;
-	-m)          message="$2"; shift ;;
-	--no-message)message= ;;
-	-q)          quiet=-q ;;
-	--no-quiet)  quiet= ;;
-	--reset)     no_reset= ;;
-	--no-reset)  no_reset=1 ;;
-	--)          shift; break ;;
-	*)           die "internal error: unknown flag $1" ;;
-	esac
-	shift
-done
-[ $# -gt 0 ] && \
-	die_with_usage "no positional arguments expected"
-[ -z "$no_parent" -a -z "$parent_flags" ] && \
-	die_with_usage "either -p or --no-parent is required"
-[ -n "$no_parent" -a -n "$parent_flags" ] && \
-	die_with_usage "-p and --no-parent are mutually exclusive"
-
-# Create the commit.
-if [ -n "$message" ]; then
-	echo "$message" > "$msg_file"
-else
-	git cat-file commit HEAD | sed "1,/^$/d" > "$msg_file"
-fi
-if [ -n "$edit" ]; then
-	# TODO: use the normal `git commit` comment stripping stuff
-	git_editor "$msg_file" || die "no editor configured"
-	[ -s "$msg_file" ] || die "aborting due to empty commit message"
-fi
-eval "$(get_author_ident_from_commit HEAD)"
-export GIT_AUTHOR_NAME GIT_AUTHOR_EMAIL GIT_AUTHOR_DATE
-old_head="$(git rev-parse --short HEAD)" || exit $?
-new_head="$(eval "git commit-tree HEAD: $parent_flags" '< $msg_file')" || \
-	exit $?
-rm "$msg_file"
-
-# Print out the commit if --no-reset; otherwise update HEAD.
-if [ -n "$no_reset" ]; then
-	echo "$new_head"
-else
-	set_reflog_action reparent
-	git reset $quiet "$new_head" || exit $?
-	new_abbrev="$(git rev-parse --short HEAD)" || exit $?
-	[ -z "$quiet" ] && echo "Moved HEAD to $new_abbrev (was $old_head)"
-fi
+get_committer_ident_from_commit () {
+	encoding=$(git config i18n.commitencoding || echo UTF-8)
+	git show -s --pretty=raw --encoding="$encoding" "$1" -- |
+	parse_ident_from_commit committer COMMITTER
+}

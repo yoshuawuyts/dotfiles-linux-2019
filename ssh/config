@@ -1,0 +1,3 @@
+Include ./hosts
+
+AddKeysToAgent yes

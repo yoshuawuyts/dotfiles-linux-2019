@@ -1,0 +1,66 @@
+[user]
+	name = Yoshua Wuyts
+	email = yoshuawuyts@gmail.com
+	signingkey = D97B99ED650ED277
+
+[color]
+  ui = auto
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = yellow
+  changed = blue
+  untracked = cyan
+
+[alias]
+  br = branch
+  co = checkout
+  c = commit
+  d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat --color-words"
+  l = log --graph --decorate --pretty=oneline --abbrev-commit -5
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  rb = rebase
+  rbc = rebase --continue
+  push = push --follow-tags
+  puo = push -u origin head
+  pou = push -u origin head
+  pyo = push -u yoshuawuyts head
+  poy = push -u yoshuawuyts head
+  pr = "pull-request"
+
+[core]
+  excludesfile = /opt/boxen/config/git/gitignore
+
+[push]
+  default = upstream
+
+[hub]
+  protocol = ssh
+
+[github]
+  user = yoshuawuyts
+
+[difftool]
+  prompt = false
+
+[diff]
+  tool = vimdiff
+
+[web]
+  browser = open
+
+[help]
+	autocorrect = 5
+
+[commit]
+	gpgsign = true

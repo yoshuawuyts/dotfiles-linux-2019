@@ -1,9 +1,0 @@
-#!/bin/sh
-# track="$(spotify track)"
-# artist="$(spotify artist)"
-
-# if [ $? -eq 0 ]; then
-#   printf '%s - %s\n' "$track" "$artist"
-# else
-echo '—'
-# fi

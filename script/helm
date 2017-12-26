@@ -1,2 +1,0 @@
-#!/bin/sh
-curl -s https://get.helm.sh | bash

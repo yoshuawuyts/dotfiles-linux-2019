@@ -1,3 +1,0 @@
-#!/bin/sh
-
-ln -s /Library/TeX/Root/bin/x86_64-darwin/pdflatex /usr/local/bin/pdflatex

@@ -1,0 +1,4 @@
+[ dependencies ]
+alsa-utils # ALSA CLI control
+playerctl  # Pulse audio CLI control
+xbindkeys  # Figure out the XF86 names for keys

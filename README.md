@@ -1,24 +1,20 @@
-# Dotfiles
-OS X configuration files. There's no place like `~/`.
+# dotfiles
+Personal configuration files for Linux.
 
-## Preview
-![tmux split](./src/screenshot.png)
-
-## Installation
-`dotfiles` expects to run in an `xrvt` terminal to display colors correctly.
-```sh
-$ mkdir -p ~/src/yw
-$ git clone https://github.com/yoshuawuyts/dotfiles.git ~/src/yw/dotfiles
-$ cd ~/src/yw/dotfiles
-$ ./script/{setup,vim,zsh,tmux}
+## Packages
+```txt
+alacritty  Terminal
+bash       Shell
+dunst      Notifications
+git        Version control
+i3         Window manager
+polybar    Status bar
+redshift   Display color temperature adjustment
+ssh        Remote shell
+tmux       Terminal multiplexer
+vim        Text editor
+xorg       GUI environment
 ```
 
-## See also
-- [pengwynn/dotfiles](https://github.com/pengwynn/dotfiles)
-- [kevensuttle/osxdefaults](https://github.com/kevinSuttle/OSXDefaults/blob/master/.osx)
-- [marcusandre/dotfiles](https://github.com/marcusandre/dotfiles)
-- [inject3d/dotfiles](https://github.com/inject3d/dotfiles)
-- [nicknikolov/dotfiles](https://github.com/nicknikolov/dotfiles)
-
 ## License
-[MIT](https://tldrlegal.com/license/mit-license)
+Apache-2.0

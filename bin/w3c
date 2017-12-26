@@ -1,3 +1,0 @@
-#/bin/sh
-# search w3c
-open https://www.google.com/search?q=site:w3.org+$1

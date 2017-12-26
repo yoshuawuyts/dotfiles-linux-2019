@@ -1,7 +1,0 @@
-feature(name): message
-
-issue: url
-
-Tasks
-=====
-- [ ] task1

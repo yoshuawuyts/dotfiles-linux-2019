@@ -1,5 +1,0 @@
-text/plain; cat %s; copiousoutput
-text/html; links -dump %s; nametemplate=%s.html; copiousoutput
-application/pdf; /usr/bin/evince %s
-text/pdf; /usr/bin/evince %s
-image/*; feh %s

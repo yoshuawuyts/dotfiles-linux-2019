@@ -1,0 +1,75 @@
+[global]
+  follow = mouse
+  geometry = "420x5-0+33"
+  indicate_hidden = yes
+  shrink = no
+  transparency = 0
+
+  separator_height = 2
+  padding = 20
+  horizontal_padding = 20
+  frame_width = 0
+  frame_color = "#2d2d2d"
+  separator_color = frame
+  sort = yes
+  idle_threshold = 0
+
+  # Text
+  ######
+  font = Noto Sans 12
+  line_height = 0
+  markup = full
+  format = "<b>%s</b>\n%b"
+  alignment = left
+
+  show_age_threshold = 60       # Show age of message if message is older than num
+  word_wrap = yes               # Split notifications into multiple lines if they don't fit
+  ignore_newline = no           # Ignore newlines '\n' in notifications.
+  stack_duplicates = true       # Merge multiple notifications with the same content
+  hide_duplicate_count = false  # Hide the count of merged notifications with the same content
+  show_indicators = yes         # Display indicators for URLs (U) and actions (A).
+
+  # Icons
+  #######
+  icon_position = left # Align icons left/right/off
+  max_icon_size = 32   # Scale larger icons down to this size
+
+  # Paths to default icons.
+  icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+
+  # History
+  #########
+  sticky_history = yes
+  history_length = 20
+
+  ### Misc/Advanced ###
+
+  dmenu = /usr/bin/dmenu -p dunst:    # dmenu path.
+  browser = /usr/bin/firefox -new-tab # Browser for opening urls in context menu.
+  always_run_script = true            # Always run rule-defined scripts, even if the notification is suppressed
+  title = Dunst                       # Define the title of the windows spawned by dunst
+  class = Dunst                       # Define the class of the windows spawned by dunst
+  startup_notification = false        # Print a notification on startup.
+
+[shortcuts]
+  close = ctrl+space           # Close notification.
+  close_all = ctrl+shift+space # Close all notifications.
+  history = ctrl+grave         # Redisplay last message(s).
+  context = ctrl+shift+period  # Context menu.
+
+[urgency_low]
+  background = "#2d2d2d"
+  foreground = "#d3c0c8"
+  timeout = 4
+
+[urgency_normal]
+  background = "#d3c0c8"
+  foreground = "#2d2d2d"
+  timeout = 4
+
+[urgency_critical]
+  background = "#bd2c40"
+  foreground = "#d3c0c8"
+  timeout = 0
+
+# vim: ft=cfg

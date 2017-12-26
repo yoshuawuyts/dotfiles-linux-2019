@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ ! "$1" ]; then
-  open 'https://devdocs.io'
-else
-  open "https://devdocs.io/#q=$1"
-fi

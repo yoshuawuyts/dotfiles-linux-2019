@@ -1,5 +1,3 @@
 #!/bin/sh
 
-touch "$1"
-chmod +x "$1"
-printf '#!/bin/sh\n' > "$1"
+scrot '/home/anon/Screenshots/%Y-%m-%d-%H%M%S_\$hx\$w.png'

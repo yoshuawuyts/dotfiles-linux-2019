@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export PATH=$PATH:$HOME/bin
+
+# Fix application chrome
+export GDK_DPI_SCALE=1.4

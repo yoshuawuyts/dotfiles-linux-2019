@@ -14,8 +14,8 @@ userdir="$PROJECTS/$user"
 
 test -z "$PROJECTS"
 if [ "$?" -eq 0 ]; then
-  printf 'PROJECTS env var was not set, exiting\n'
-  exit 1
+printf 'PROJECTS env var was not set, exiting\n'
+exit 1
 fi
 
 boot_project () {
@@ -23,15 +23,11 @@ boot_project () {
 
   # only run tmux if not within tmux
   test -z "$TMUX"
-  if [ $? -eq 0 ]; then
-    mx
-  fi
+  [ $? -eq 0 ] && mx
 }
 
 clone_project () {
-  if [ ! -d "$userdir" ]; then
-    mkdir "$userdir"
-  fi
+  [ ! -d "$userdir" ] && mkdir "$userdir"
   cd "$userdir" || exit 1
   git clone "git@github.com:$user/$repo.git"
   boot_project

@@ -1,3 +1,0 @@
-#!/bin/sh
-
-cat "$ZSH"/npm/Packagefile | xargs -n1 npm install -g

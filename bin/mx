@@ -1,5 +1,5 @@
 #!/bin/sh
-username="yoshuawuyts"
+username="yw"
 
 get_session () {
   if [ -z "$1" ]; then
@@ -37,12 +37,6 @@ if [ "$?" -ne 0 ]; then
   tmux send-keys "$EDITOR" C-m
   tmux split-window -h -c "$notespath"
   tmux resize-pane -R 5
-
-  dockerpath="/Users/$USER/src/$username/dockerfiles"
-  tmux new-window -n 'dockerfiles' -c "$dockerpath"
-  tmux send-keys "$EDITOR" C-m
-  tmux split-window -h -c "$dockerpath"
-  tmux resize-pane -R 5
 fi
 
 # create a new session if there isn't one already
@@ -55,7 +49,6 @@ if [ "$?" -ne 0 ]; then
   tmux new-session -s "$SESSION" -d -n ''
   tmux send-keys "$EDITOR" C-m #':CtrlP' C-m
   tmux split-window -h
-  tmux resize-pane -x 60
   tmux select-window -t "$SESSION"
   tmux link-window -s _shared:knowledge -t 9
   tmux link-window -s _shared:dotfiles -t 8
