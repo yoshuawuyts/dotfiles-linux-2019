@@ -42,6 +42,3 @@ xterm -geometry 80x20+494-0 &
 
 # Initialize i3
 exec i3
-
-# Enable polybar
-polybar -r top &
