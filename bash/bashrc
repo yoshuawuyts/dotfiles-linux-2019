@@ -46,6 +46,7 @@ export EDITOR=vim
 export VISUAL=vim
 export PAGER=less
 export PROJECTS="$HOME/Code"
+export TEMPLATES="$PROJECTS/yw/templates"
 
 # Fix application chrome
 GDK_DPI_SCALE=1.4
