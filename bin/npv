@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# bump the module version by <newversion>,
+# push to git and publish to npm
+main () {
+  [ ! "$1" ] && usage && exit 1
+  [ "$1" = '-h' ] && usage && exit 0
+
+  # assert_dep 'git-tag-diff'
+  # message="$(git-tag-diff)"
+
+  git push
+  [ $? -ne 0 ] && { printf 'git push failed\n'; exit 1; }
+
+  # npm_msg="%s$(printf "\n\n%s" "$message")"
+  # npm version "$1" -m "$npm_msg"
+  npm version "$1"
+  [ $? -ne 0 ] && { printf 'npm version failed\n'; exit 1; }
+
+  npm publish
+  [ $? -ne 0 ] && { printf 'npm publish failed\n'; exit 1; }
+
+  git push --tags
+  [ $? -ne 0 ] && { printf 'git push tags failed\n'; exit 1; }
+
+  git push
+  [ $? -ne 0 ] && { printf 'git push failed\n'; exit 1; }
+
+  # yay all good!
+  exit 0
+}
+
+usage () {
+  echo 'usage: npv <newversion>'
+}
+
+assert_dep () {
+  "$1" --help > /dev/null 2>&1
+  [ $? -eq 0 ] && return
+  [ $? -ne 0 ] && man "$1" > /dev/null
+  [ $? -ne 0 ] && { printf "dependency %s not found\n" "$1"; exit 1; }
+}
+
+main "$@"
