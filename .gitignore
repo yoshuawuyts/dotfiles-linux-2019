@@ -18,3 +18,4 @@ weechat/weechat.symlink/*
 !weechat/weechat.symlink/irc.conf
 !weechat/weechat.symlink/plugins.conf
 *.swp
+package-lock.json
