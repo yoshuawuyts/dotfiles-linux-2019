@@ -107,8 +107,8 @@ colors:
     background: '0x2d2d2d'  # base 05
     foreground: '0xd3c0c8'  # base 00
   cursor:
-    background: '0x2d2d2d'  # base 00
-    foreground: '0xd3d0c8'  # base 05
+    cursor: '0x2d2d2d'  # base 00
+    text:   '0xd3d0c8'  # base 05
 
   # Normal colors
   normal:
