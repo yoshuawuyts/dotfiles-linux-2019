@@ -1,5 +1,5 @@
 # Font
-font pango:monospace 16
+font pango:Noto Sans 12
 
 # Movement
 set $left h
@@ -8,7 +8,15 @@ set $up k
 set $right l
 
 # Window look
+for_window [class=".*"] title_format " %title"
 new_window none
+# class                 border  backgr. text    indicator child_border
+client.focused          #2d2d2d #2d2d2d #d3c0c8 #2d2d2d   #2d2d2d
+client.focused_inactive #2d2d2d #2d2d2d #747369 #2d2d2d   #2d2d2d
+client.unfocused        #2d2d2d #2d2d2d #747369 #292d2e   #2d2d2d
+client.urgent           #f2777a #f2777a #2d2d2d #f2777a   #f2777a
+client.placeholder      #2d2d2d #2d2d2d #747369 #292d2e   #2d2d2d
+client.background       #2d2d2d
 
 # Enable Mouse
 floating_modifier Mod1
