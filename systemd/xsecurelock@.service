@@ -4,11 +4,13 @@ Before=suspend.target
 
 [Service]
 Type=simple
+User=%i
 Environment=DISPLAY=:0
 Environment=XAUTHORITY=/home/%i/.Xauthority
 Environment=XSECURELOCK_AUTH=auth_pam_x11
 Environment=XSECURELOCK_SAVER=saver_blank
 ExecStart=/usr/bin/xsecurelock
+ExecStartPost=/usr/bin/sleep 1
 
 [Install]
 WantedBy=suspend.target
