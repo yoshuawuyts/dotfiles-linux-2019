@@ -5,7 +5,7 @@ clr_black='%{F#d3c0c8}'
 clr_bg_white='%{B#2d2d2d}'
 clr_bg_black='%{B#d3c0c8}'
 
-tmux ls > /dev/null
+tmux ls > /dev/null 2>&1
 if [ $? -eq 0 ]; then
   session_name="$(tmux display-message -p '#S')"
   windows="$(tmux list-windows | sed 's/://' | awk '{ print $1 }')"
@@ -19,4 +19,6 @@ if [ $? -eq 0 ]; then
       printf "%s%s  %s  " "$clr_bg_white" "$clr_black" "$n"
     fi
   done
+else
+  printf 'tmux offline'
 fi
