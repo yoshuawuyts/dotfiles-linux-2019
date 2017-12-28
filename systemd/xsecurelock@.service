@@ -1,0 +1,14 @@
+[Unit]
+Description=Lock X session using xsecurelock
+Before=suspend.target
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/%i/.Xauthority
+Environment=XSECURELOCK_AUTH=auth_pam_x11
+Environment=XSECURELOCK_SAVER=saver_blank
+ExecStart=/usr/bin/xsecurelock
+
+[Install]
+WantedBy=suspend.target
