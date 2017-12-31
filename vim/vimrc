@@ -74,6 +74,7 @@ set colorcolumn=80   " Show a marker at 80 chars
 set nowrap           " Don't wrap lines
 set linebreak        " Wrap lines at convenient points
 set formatoptions+=j " Auto collapse comments
+set textwidth=80     " Show gutter at 80 chars
 
 " File Extension Aliases
 " ======================
