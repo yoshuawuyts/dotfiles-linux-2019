@@ -4,6 +4,8 @@ playerctl  # Pulse audio CLI control
 xbindkeys  # Figure out the XF86 names for keys
 perf       # perf command
 gpsd       # get lat,long coordinates
+arc-theme  # GTK theme
 
 [ aur ]
-flamegraph-git  # Tools to generate flamegraphs from perf(1)
+flamegraph-git     # Tools to generate flamegraphs from perf(1)
+# arc-firefox-theme  # Arch theme for firefox -- broken on FF 57+
