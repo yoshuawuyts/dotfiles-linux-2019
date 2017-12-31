@@ -36,7 +36,8 @@ font-1 = Material Design Icons:pixelsize=13;3
 fixed-center = true
 
 modules-left = i3 tmux
-modules-right = mpv cmus volume xbacklight cpu memory wlan battery date
+modules-center = weather
+modules-right = volume xbacklight cpu memory wlan battery date
 
 [module/i3]
 type = internal/i3
@@ -182,5 +183,10 @@ animation-charging-framerate = 750
 type = custom/script
 interval = 3
 exec = $HOME/.config/polybar/tmux.sh
+
+[module/weather]
+type = custom/script
+interval = 120
+exec = ~/.config/polybar/weather.sh
 
 ; vim:ft=dosini

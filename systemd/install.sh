@@ -8,3 +8,7 @@ dst="/usr/lib/systemd/system/xsecurelock@.service"
 chmod 644 "$src"
 _sudo_link "$src" "$dst"
 _sudo_enable "xsecurelock@$(whoami).service"
+
+# Allow retrieving lat,long
+sudo systemctl enable gpsd
+sudo systemctl start gpsd

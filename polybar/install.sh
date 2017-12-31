@@ -10,3 +10,7 @@ _link "$src" "$dst"
 src="$dirname/tmux.sh"
 dst="$HOME/.config/polybar/tmux.sh"
 _link "$src" "$dst"
+
+src="$dirname/weather.sh"
+dst="$HOME/.config/polybar/weather.sh"
+_link "$src" "$dst"
