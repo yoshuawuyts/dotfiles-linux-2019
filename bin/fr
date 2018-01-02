@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Recursive find and replace
+#   Version: 1.0.0
+#   Author: Yoshua Wuyts <yoshuawuyts@gmail.com>
+#   License: MIT
+
+# print usage information
+usage() {
+cat << EOF
+  Usage: fr <old> <new>
+
+  Options:
+
+    -h, --help  output usage information
+
+  Examples:
+
+    $ fr heello hello  # replace 'heello' with 'hello'
+EOF
+}
+
+# assert arguments
+[ $# -ne 2 ] && usage && exit 1
+
+# switch arguments
+case $1 in
+  -h|--help) usage; exit;;
+esac
+
+# find and replace
+ag -l "$1" | xargs sed -i "s/$1/$2/g"
