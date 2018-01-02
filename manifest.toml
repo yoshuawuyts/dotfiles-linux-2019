@@ -5,6 +5,7 @@ xbindkeys  # Figure out the XF86 names for keys
 perf       # perf command
 gpsd       # get lat,long coordinates
 arc-theme  # GTK theme
+tlp        # Linux power management
 
 [ aur ]
 flamegraph-git     # Tools to generate flamegraphs from perf(1)
