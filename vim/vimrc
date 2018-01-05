@@ -70,7 +70,7 @@ set shiftwidth=2     " Tabs are now 2 width long
 set softtabstop=2
 set tabstop=2
 set expandtab
-set colorcolumn=80   " Show a marker at 80 chars
+set colorcolumn=81   " Show a marker at 80+1 chars
 set nowrap           " Don't wrap lines
 set linebreak        " Wrap lines at convenient points
 set formatoptions+=j " Auto collapse comments
