@@ -8,7 +8,7 @@ clr_bg_black='%{B#d3c0c8}'
 tmux ls > /dev/null 2>&1
 if [ $? -eq 0 ]; then
   session_name="$(tmux display-message -p '#S')"
-  windows="$(tmux list-windows | sed 's/://' | awk '{ print $1 }')"
+  windows="$(tmux list-windows -F '#{window_index}')"
   window_number="$(tmux display-message -p '#I')"
 
   printf "%s    " "$session_name"
