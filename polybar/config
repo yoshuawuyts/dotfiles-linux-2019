@@ -151,6 +151,7 @@ label = %date% %time%
 [module/volume]
 type = internal/volume
 
+format-volume = <label-volume>
 format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground}
 label-muted = muted
