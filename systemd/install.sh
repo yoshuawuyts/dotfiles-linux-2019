@@ -9,12 +9,10 @@ chmod 644 "$src"
 _sudo_link "$src" "$dst"
 _sudo_enable "xsecurelock@$(whoami).service"
 
-# Allow retrieving lat,long
-sudo systemctl enable gpsd
-sudo systemctl start gpsd
+# power management
+echo '[power] masking rfkill.service'
+sudo systemctl mask systemd-rfkill.service
 
-# Enable power management
-sudo systemctl enable tlp.service
-sudo systemctl start tlp.service
-sudo systemctl enable tlp-sleep.service
-sudo systemctl start tlp-sleep.service
+_sudo_enable 'gpsd'               # Allow retrieving lat,long
+_sudo_enable 'tlp.service'        # Battery management.
+_sudo_enable 'tlp-sleep.service'  # Enable battery management after idle.
