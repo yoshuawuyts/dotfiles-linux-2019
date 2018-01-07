@@ -13,4 +13,8 @@ if [ ! -d ~/.vim/autoload/vim-plug ]; then
   --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   vim +PluginInstall +qall
+  pushd ~/.vim/plugged/completor.vim
+  npm install -g tern
+  make js
+  popd
 fi
