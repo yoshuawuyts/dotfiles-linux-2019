@@ -10,3 +10,5 @@ tlp        # Linux power management
 [ aur ]
 flamegraph-git     # Tools to generate flamegraphs from perf(1)
 # arc-firefox-theme  # Arch theme for firefox -- broken on FF 57+
+rofi-dmenu         # Symlink rofi to dmenu
+teiler-git         # Screenshot / screencast tool
