@@ -1,18 +1,19 @@
 [ dependencies ]
-alsa-utils             # ALSA CLI control
-playerctl              # Pulse audio CLI control
-xbindkeys              # Figure out the XF86 names for keys
-perf                   # perf command
-gpsd                   # get lat,long coordinates
-arc-theme              # GTK theme
-tlp                    # Linux power management
-tp_smapi               # Thinkpad power management
-acpi_call              # Thinkpad power management
-ethtool                # Disable Wake On LAN
-smartmontools          # disk drive health info
-x86_energy_perf_policy # Tune power CPU power saving
-noto-fonts-emoji       # Emoji font
-ttf-freefont           # Base unicode symbols
+alsa-utils                    # ALSA CLI control
+playerctl                     # Pulse audio CLI control
+xbindkeys                     # Figure out the XF86 names for keys
+perf                          # perf command
+gpsd                          # get lat,long coordinates
+arc-theme                     # GTK theme
+tlp                           # Linux power management
+tp_smapi                      # Thinkpad power management
+acpi_call                     # Thinkpad power management
+ethtool                       # Disable Wake On LAN
+smartmontools                 # disk drive health info
+x86_energy_perf_policy        # Tune power CPU power saving
+noto-fonts-emoji              # Emoji font
+ttf-freefont                  # Base unicode symbols
+nodejs-material-design-icons  # Icon set
 
 [ aur ]
 flamegraph-git     # Tools to generate flamegraphs from perf(1)
