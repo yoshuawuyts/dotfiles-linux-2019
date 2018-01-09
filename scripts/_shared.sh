@@ -17,4 +17,5 @@ _sudo_link () {
 _sudo_enable () {
   echo "[enable] $1"
   sudo systemctl enable "$1" > /dev/null
+  sudo systemctl start "$1" > /dev/null
 }

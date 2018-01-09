@@ -42,4 +42,5 @@ xterm -geometry 80x20+494-0 &
 
 # Initialize i3
 (sleep 3; polybar top) &
+(sleep 6; workrave) &
 exec i3

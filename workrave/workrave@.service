@@ -1,12 +1,13 @@
 [Unit]
 Description=RSI prevention tool
 Documentation=https://www.archlinux.org/packages/community/x86_64/workrave/
-
-After=display-manager.service
+After=graphical.target
 
 [Service]
+Type=simple
+User=%i
+Environment=LC_ALL=C
 ExecStart=/usr/bin/workrave
-Restart=always
 
 [Install]
-WantedBy=default.target
+WantedBy=main.target
