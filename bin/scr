@@ -1,3 +1,4 @@
 #!/bin/sh
 
 scrot '/home/anon/Screenshots/%Y-%m-%d-%H%M%S_$wx$h.png'
+notify-send -u low -a 'scrot' 'scrot' 'Screenshot taken'
