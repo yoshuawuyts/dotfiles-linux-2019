@@ -14,6 +14,7 @@ x86_energy_perf_policy        # Tune power CPU power saving
 noto-fonts-emoji              # Emoji font
 ttf-freefont                  # Base unicode symbols
 nodejs-material-design-icons  # Icon set
+wpa_actiond                   # Auto connect to wifi
 
 [ aur ]
 flamegraph-git     # Tools to generate flamegraphs from perf(1)
