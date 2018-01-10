@@ -164,25 +164,16 @@ label-muted = muted
 type = internal/battery
 battery = BAT0
 adapter = AC
-full-at = 98
+full-at = 100
 
-format-charging = <animation-charging> <label-charging>
+time-format = %H:%M
+format-full = <label-full
+format-charging = <label-charging>
+format-discharging = <label-discharging>
 
-format-discharging = <ramp-capacity> <label-discharging>
-
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground}
-animation-charging-framerate = 750
+label-charging = Charging %time%   %percentage%%
+label-discharging = %time%   %percentage%%
+label-full = %time%   Full
 
 [module/tmux]
 type = custom/script
