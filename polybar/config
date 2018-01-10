@@ -41,7 +41,7 @@ fixed-center = true
 
 modules-left = i3 tmux
 modules-center = weather
-modules-right = volume xbacklight cpu memory wlan battery date
+modules-right = wlan volume xbacklight cpu memory battery date
 
 [module/i3]
 type = internal/i3
