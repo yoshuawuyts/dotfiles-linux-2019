@@ -167,7 +167,7 @@ adapter = AC
 full-at = 100
 
 time-format = %H:%M
-format-full = <label-full
+format-full = <label-full>
 format-charging = <label-charging>
 format-discharging = <label-discharging>
 
