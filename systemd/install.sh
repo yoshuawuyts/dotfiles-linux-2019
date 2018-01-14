@@ -18,3 +18,4 @@ _sudo_enable 'tlp.service'                 # Battery management.
 _sudo_enable 'tlp-sleep.service'           # Enable battery management after idle.
 _sudo_enable 'netctl-auto@wlp4s0.service'  # Enable wifi.
 _sudo_enable 'netctl-sleep.service'        # Enable wifi after idle.
+_sudo_enable 'cronie.service'              # Enable cron.
