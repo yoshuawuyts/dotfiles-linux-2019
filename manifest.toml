@@ -5,6 +5,7 @@ arc-theme                     # GTK theme
 cronie                        # Crontab
 ethtool                       # Disable Wake On LAN
 gpsd                          # get lat,long coordinates
+iftop                         # Network monitor
 nodejs-material-design-icons  # Icon set
 noto-fonts-emoji              # Emoji font
 perf                          # perf command
