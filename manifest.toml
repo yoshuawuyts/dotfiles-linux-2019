@@ -2,6 +2,7 @@
 acpi_call                     # Thinkpad power management
 alsa-utils                    # ALSA CLI control
 arc-theme                     # GTK theme
+bind-tools                    # DNS utils like dig(1)
 cronie                        # Crontab
 ethtool                       # Disable Wake On LAN
 gpsd                          # get lat,long coordinates
