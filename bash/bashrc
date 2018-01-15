@@ -17,17 +17,22 @@ prompt_command () {
   else local clr_status="$clr_red"; fi
   local branch=""
   if [ -d $PWD/.git ]; then
-    local branch="$(git rev-parse --abbrev-ref HEAD)"
-    local has_uncommitted="$(git status --short | wc -c)"
-    if [ ! "$has_uncommitted" == 0 ]; then
-      local branch="$branch*"
+    git log > /dev/null 2>&1
+    if [ $? -ne 0 ]; then
+      local branch="master*"
     else
-      git diff "remotes/origin/$branch" > /dev/null 2>&1
-      if [ $? -eq 0 ]; then
-        local len="$(git diff "remotes/origin/$branch" | wc -c)"
-        [ ! $len = 0 ] && local branch="$branch'"
+      local branch="$(git rev-parse --abbrev-ref HEAD)"
+      local has_uncommitted="$(git status --short | wc -c)"
+      if [ ! "$has_uncommitted" == 0 ]; then
+        local branch="$branch*"
       else
-        local branch="$branch'"
+        git diff "remotes/origin/$branch" > /dev/null 2>&1
+        if [ $? -eq 0 ]; then
+          local len="$(git diff "remotes/origin/$branch" | wc -c)"
+          [ ! $len = 0 ] && local branch="$branch'"
+        else
+          local branch="$branch'"
+        fi
       fi
     fi
   fi
