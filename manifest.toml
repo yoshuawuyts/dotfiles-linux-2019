@@ -1,26 +1,29 @@
 [ dependencies ]
-acpi_call                     # Thinkpad power management
-alsa-utils                    # ALSA CLI control
-arc-theme                     # GTK theme
-bind-tools                    # DNS utils like dig(1)
-cronie                        # Crontab
-ethtool                       # Disable Wake On LAN
-gpsd                          # get lat,long coordinates
-iftop                         # Network monitor
-nodejs-material-design-icons  # Icon set
-noto-fonts-emoji              # Emoji font
-perf                          # perf command
-playerctl                     # Pulse audio CLI control
-smartmontools                 # disk drive health info
-tlp                           # Linux power management
-tp_smapi                      # Thinkpad power management
-ttf-freefont                  # Base unicode symbols
-wpa_actiond                   # Auto connect to wifi
-x86_energy_perf_policy        # Tune power CPU power saving
-xbindkeys                     # Figure out the XF86 names for keys
+base = [
+  "acpi_call",                     # Thinkpad power management
+  "alsa-utils",                    # ALSA CLI control
+  "arc-theme",                     # GTK theme
+  "bind-tools",                    # DNS utils like dig(1)
+  "cronie",                        # Crontab
+  "ethtool",                       # Disable Wake On LAN
+  "gpsd",                          # get lat,long coordinates
+  "iftop",                         # Network monitor
+  "nodejs-material-design-icons",  # Icon set
+  "noto-fonts-emoji",              # Emoji font
+  "perf",                          # perf command
+  "playerctl",                     # Pulse audio CLI control
+  "smartmontools",                 # disk drive health info
+  "tlp",                           # Linux power management
+  "tp_smapi",                      # Thinkpad power management
+  "ttf-freefont",                  # Base unicode symbols
+  "wpa_actiond",                   # Auto connect to wifi
+  "x86_energy_perf_policy",        # Tune power CPU power saving
+  "xbindkeys",                     # Figure out the XF86 names for keys
+]
 
-[ aur ]
-flamegraph-git          # Tools to generate flamegraphs from perf(1)
-rofi-dmenu              # Symlink rofi to dmenu
-teiler-git              # Screenshot / screencast tool
-google-drive-ocamlfuse  # Google Drive client
+aur = [
+  "flamegraph-git",          # Tools to generate flamegraphs from perf(1)
+  "rofi-dmenu",              # Symlink rofi to dmenu
+  "teiler-git",              # Screenshot / screencast tool
+  "google-drive-ocamlfuse",  # Google Drive client
+]
