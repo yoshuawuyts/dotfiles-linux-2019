@@ -7,7 +7,9 @@ base = [
   "cronie",                        # Crontab
   "ethtool",                       # Disable Wake On LAN
   "gpsd",                          # get lat,long coordinates
+  "guvcview",                      # Webcam application
   "iftop",                         # Network monitor
+  "net-tools",                     # Network tooling
   "nodejs-material-design-icons",  # Icon set
   "noto-fonts-emoji",              # Emoji font
   "perf",                          # perf command
