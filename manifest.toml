@@ -20,6 +20,7 @@ x86_energy_perf_policy        # Tune power CPU power saving
 xbindkeys                     # Figure out the XF86 names for keys
 
 [ aur ]
-flamegraph-git       # Tools to generate flamegraphs from perf(1)
-rofi-dmenu           # Symlink rofi to dmenu
-teiler-git           # Screenshot / screencast tool
+flamegraph-git          # Tools to generate flamegraphs from perf(1)
+rofi-dmenu              # Symlink rofi to dmenu
+teiler-git              # Screenshot / screencast tool
+google-drive-ocamlfuse  # Google Drive client
