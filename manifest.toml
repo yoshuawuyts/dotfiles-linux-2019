@@ -25,7 +25,8 @@ base = [
 
 aur = [
   "flamegraph-git",          # Tools to generate flamegraphs from perf(1)
+  "google-drive-ocamlfuse",  # Google Drive client
+  "obs-linuxbrowser",        # OBS Plugin Overlay
   "rofi-dmenu",              # Symlink rofi to dmenu
   "teiler-git",              # Screenshot / screencast tool
-  "google-drive-ocamlfuse",  # Google Drive client
 ]
