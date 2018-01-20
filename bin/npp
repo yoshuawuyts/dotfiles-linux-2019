@@ -25,8 +25,8 @@ if [ ! "$1" = '-b' ]; then
   travisjs -h > /dev/null
   [ $? -eq 0 ] && travisjs hook
 
-  git push -u origin head
+  git push -u origin HEAD
   npm publish
 else
-  git push -u origin head
+  git push -u origin HEAD
 fi

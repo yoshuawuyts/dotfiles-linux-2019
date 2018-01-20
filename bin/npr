@@ -31,8 +31,8 @@ if [ ! "$1" = '-b' ]; then
   # greenkeeper -h > /dev/null
   # [ $? -eq 0 ] && greenkeeper enable
 
-  git push -u origin head
+  git push -u origin HEAD
   npm publish
 else
-  git push -u origin head
+  git push -u origin HEAD
 fi
