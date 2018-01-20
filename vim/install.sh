@@ -17,4 +17,5 @@ if [ ! -d ~/.vim/autoload/vim-plug ]; then
   npm install -g tern
   make js
   popd
+  npm install -g prettier_standard
 fi
