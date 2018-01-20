@@ -172,6 +172,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 " Rust.vim
 " ========
 let g:rustfmt_autosave = 1
+au FileType rust setl sw=2 sts=2 et
 
 " Utilities
 " ================
