@@ -1,6 +1,8 @@
 # Fix locale
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export
+RUST_SRC_PATH="/home/anon/.rustup/toolchains/stable-x86_64-stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 
 # Expand path
 [ -d "$HOME/.cargo/bin" ] && PATH="$PATH:$HOME/.cargo/bin"
