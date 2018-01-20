@@ -9,6 +9,12 @@ chmod 644 "$src"
 _sudo_link "$src" "$dst"
 _sudo_enable "xsecurelock@$(whoami).service"
 
+# Increase the max file handle count
+src="$dirname/sysctl.d/99-sysctl.conf"
+dst="/etc/sysctl.d/99-sysctl.conf"
+_sudo_link "$src" "$dst"
+sudo sysctl --system
+
 # power management
 echo '[power] masking rfkill.service'
 sudo systemctl mask systemd-rfkill.service
