@@ -30,5 +30,6 @@ aur = [
   "obs-linuxbrowser",        # OBS Plugin Overlay
   "rofi-dmenu",              # Symlink rofi to dmenu
   "teiler-git",              # Screenshot / screencast tool
+  "tzupdate",                # Auto set timezone
   "wrk"                      # Benchmarking tool
 ]
