@@ -171,7 +171,7 @@ let g:completor_node_binary = '/home/anon/.nvm/versions/node/v9.3.0/bin/node'
 let g:completor_racer_binary = '/home/anon/.cargo/bin/racer'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 " Rust.vim
 " ========
