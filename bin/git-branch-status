@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# colors for later use
+clr_reset="$(tput sgr0)"
+clr_red="$(tput setaf 1)"
+clr_blue="$(tput setaf 4)"
+clr_cyan="$(tput setaf 6)"
+clr_white="$(tput setaf 7)"
+
+if [ $? -eq 0 ]; then clr_status="$clr_white"
+else clr_status="$clr_red"; fi
+
+branch=""
+
+if [ -d $PWD/.git ]; then
+  git log > /dev/null 2>&1
+  if [ $? -ne 0 ]; then
+    branch="master*"
+  else
+    branch="$(git rev-parse --abbrev-ref HEAD)"
+    has_uncommitted="$(git status --short | wc -c)"
+    if [ ! "$has_uncommitted" == 0 ]; then
+      branch="$branch*"
+    else
+      git diff "remotes/origin/$branch" > /dev/null 2>&1
+      if [ $? -eq 0 ]; then
+        len="$(git diff "remotes/origin/$branch" | wc -c)"
+        [ ! $len = 0 ] && branch="$branch'"
+      else
+        branch="$branch'"
+      fi
+    fi
+  fi
+fi
+
+echo "$branch"
