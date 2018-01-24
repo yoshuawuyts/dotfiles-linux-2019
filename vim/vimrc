@@ -152,7 +152,7 @@ let g:ale_set_loclist = 0                                  " Don't use loclist.
 let g:ale_fix_on_save = 1                                  " Auto fix js.
 let g:ale_open_list = 1                                    " Auto open quicklist buffer.
 let g:ale_fixers = {
-\   'javascript': ['prettier_standard']
+\   'javascript': []
 \}
 let g:ale_linters = {
 \   'javascript': ['standard'],
