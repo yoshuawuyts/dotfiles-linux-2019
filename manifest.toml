@@ -30,6 +30,7 @@ aur = [
   "google-drive-ocamlfuse",  # Google Drive client
   "mininet",                 # Network emulator
   "obs-linuxbrowser",        # OBS Plugin Overlay
+  "perf-tools",              # Scripts to measure performance
   "rofi-dmenu",              # Symlink rofi to dmenu
   "teiler-git",              # Screenshot / screencast tool
   "tzupdate",                # Auto set timezone
