@@ -1,0 +1,17 @@
+#!/bin/sh
+
+SCALE="700"
+
+usage () {
+  printf "mp4-to-gif - convert video files to gifs\n\n  Usage: mp4-to-gif <video-path> <outfile-path>\n"
+}
+
+[ -z "$1" ] && { usage; exit 1; }
+[ -z "$2" ] && { usage; exit 1; }
+
+ffmpeg -i "$1" \
+  -vf scale="$SCALE":-1 \
+  -r 10 \
+  -f image2pipe \
+  -vcodec ppm - \
+    | convert -delay 5 -loop 0 - "$2"
