@@ -33,6 +33,7 @@ aur = [
   "peek-git",                # Gif recorder
   "perf-tools",              # Scripts to measure performance
   "rofi-dmenu",              # Symlink rofi to dmenu
+  "shotcut",                 # Video editor
   "screenkey-git",           # Show keys on screen
   "teiler-git",              # Screenshot / screencast tool
   "tzupdate",                # Auto set timezone
