@@ -121,6 +121,15 @@ bindsym Mod1+Shift+8 move container to workspace $w8
 bindsym Mod1+Shift+9 move container to workspace $w9
 bindsym Mod1+Shift+0 move container to workspace $w10
 
+# auto bind applications to workspaces
+# find it through `$ xprop | grep WM_CLASS`
+assign [class="Alacritty"] $w1
+assign [class="Google-chrome"] $w2
+assign [class="Firefox"] $w3
+assign [class="Nautilus"] $w3
+assign [class="Spotify"] $w9
+assign [class="obs"] $w10
+
 # reload the configuration file
 bindsym Mod1+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
