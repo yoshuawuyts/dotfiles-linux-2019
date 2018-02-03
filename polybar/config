@@ -47,34 +47,32 @@ modules-right = cpu volume battery date
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
+strip-wsnumbers = true
 wrapping-scroll = false
 
 label-mode-padding = 2
 label-mode-foreground = ${colors.background}
 label-mode-background = ${colors.primary}
 
-underline-size = 2
-underline-color = ${colors.foreground}
-
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %name%
 label-focused-background = ${colors.foreground}
 label-focused-underline = ${colors.foreground}
 label-focused-foreground = ${colors.background}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %name%
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = %name%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
@@ -90,12 +88,6 @@ label-unmounted-foreground = ${colors.foreground}
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
 label-song-maxlen = 25
 label-song-ellipsis = true
 
@@ -104,16 +96,9 @@ type = internal/xbacklight
 format = <label>
 enable-scroll = true
 
-ramp-0 = 🌕
-ramp-1 = 🌔
-ramp-2 = 🌓
-ramp-3 = 🌒
-ramp-4 = 🌑
-
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 label = C %percentage%%
 
@@ -133,13 +118,6 @@ format-connected = <label-connected>
 label-connected = %essid%
 
 format-disconnected = offline
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground}
 
 [module/date]
 type = internal/date
