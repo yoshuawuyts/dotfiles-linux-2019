@@ -125,7 +125,7 @@ bindsym Mod1+Shift+0 move container to workspace $w10
 # find it through `$ xprop | grep WM_CLASS`
 assign [class="Alacritty"] $w1
 assign [class="Google-chrome"] $w2
-assign [class="Firefox"] $w3
+assign [class="Firefox"] $w2
 assign [class="Nautilus"] $w3
 assign [class="Spotify"] $w9
 assign [class="obs"] $w10
