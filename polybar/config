@@ -25,10 +25,10 @@ offset-y = 0
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-padding-left = 2
-padding-right = 6
+padding-left = 0
+padding-right = 2
 module-margin-left = 1
-module-margin-right = 3
+module-margin-right = 0
 
 font-0 = "Noto Sans:pixelsize=12;3"
 font-1 = "Material Design Icons:pixelsize=13;3"
@@ -39,9 +39,9 @@ font-5 = "FreeSans:pixelsize=12;3"
 
 fixed-center = true
 
-modules-left = i3 tmux
-modules-center = weather
-modules-right = wlan volume xbacklight cpu memory battery date
+modules-left = i3
+modules-center = wlan
+modules-right = cpu volume battery date
 
 [module/i3]
 type = internal/i3
@@ -115,7 +115,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
-label = %percentage%%
+label = C %percentage%%
 
 [module/memory]
 type = internal/memory
@@ -129,7 +129,7 @@ type = internal/network
 interface = wlp4s0
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <label-connected>
 label-connected = %essid%
 
 format-disconnected = offline
@@ -150,15 +150,15 @@ time = %H:%M
 
 format-prefix-foreground = ${colors.foreground}
 
-label = %date% %time%
+label = | %time%
 
 [module/volume]
 type = internal/volume
 
 format-volume = <label-volume>
-format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground}
-label-muted = muted
+label-muted = | V muted
+label-volume = | V %percentage%%
 
 [module/battery]
 type = internal/battery
@@ -171,9 +171,9 @@ format-full = <label-full>
 format-charging = <label-charging>
 format-discharging = <label-discharging>
 
-label-charging = Charging %time%   %percentage%%
-label-discharging = %time%   %percentage%%
-label-full = Charged
+label-charging = | B %percentage%%
+label-discharging = | B %percentage%%
+label-full = | B 100%
 
 [module/tmux]
 type = custom/script
