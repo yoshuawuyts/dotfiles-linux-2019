@@ -1,0 +1,8 @@
+#!/bin/sh
+
+[ -z "$1" ] && { echo 'Usage: npm-org <orgname>'; exit 1; }
+
+package="$(jq .name package.json -r)"
+org="$1"
+printf "Granting access to the %s package for the %s org" "$package" "$org"
+npm access grant read-write "$1":developers "$(jq .name package.json -r)"
