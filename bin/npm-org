@@ -2,7 +2,10 @@
 
 [ -z "$1" ] && { echo 'Usage: npm-org <orgname>'; exit 1; }
 
-package="$(jq .name package.json -r)"
 org="$1"
+package="$2" && [ -z "$2" ] && package="$(jq .name package.json -r)"
+
+[ -z "$package" ] && { echo 'Package name not specified. Either pass a second argument, or have a valid package.json file';}
+
 printf "Granting access to the %s package for the %s org" "$package" "$org"
-npm access grant read-write "$1":developers "$(jq .name package.json -r)"
+npm access grant read-write "$1":developers "$package"
