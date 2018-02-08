@@ -25,6 +25,10 @@ Plug 'tpope/vim-repeat'                   " Repeat the last set of commands, rat
 Plug 'tpope/vim-surround'                 " Enable inserting brackets around words
 Plug 'vim-airline/vim-airline-themes'     " Airline themes
 Plug 'w0rp/ale'                           " Asynchronous linting engine
+Plug 'autozimu/LanguageClient-neovim', {
+\ 'branch': 'next',
+\ 'do': 'bash install.sh',
+\ }
 call plug#end()
 
 " General Config
@@ -166,16 +170,35 @@ highlight ALEStyleError ctermbg=Red
 highlight ALEError ctermfg=Black
 highlight ALEError ctermbg=Red
 
-" Completor Plugin
+" " Completor Plugin
+" " ================
+" let g:completor_node_binary = '/home/anon/.nvm/versions/node/v9.3.0/bin/node'
+" let g:completor_racer_binary = '/home/anon/.cargo/bin/racer'
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>\<space>" : "\<cr>"
+
+" Language Server
 " ================
-let g:completor_node_binary = '/home/anon/.nvm/versions/node/v9.3.0/bin/node'
-let g:completor_racer_binary = '/home/anon/.cargo/bin/racer'
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<space>" : "\<cr>"
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+\ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+\ 'javascript': ['javascript-typescript-stdio']
+\ }
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+let g:LanguageClient_loggingLevel = 'DEBUG'
 
 " Rust.vim
 " ========
+augroup filetype_rust
+  autocmd!
+  autocmd BufReadPost *.rs setlocal filetype=rust
+augroup END
 let g:rustfmt_autosave = 1
 au FileType rust setl sw=2 sts=2 et
 
