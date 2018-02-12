@@ -1,3 +1,5 @@
 #!/bin/sh
 
-mpv av://v4l2:/dev/video0
+webcams="$(ls /dev/ | grep video | sort)"
+webcam="$(echo "$webcams" | awk '/./{line=$0} END{print line}')"
+mpv av://v4l2:/dev/"$webcam"
