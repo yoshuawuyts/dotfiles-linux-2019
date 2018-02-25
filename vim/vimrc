@@ -148,13 +148,13 @@ endif
 
 " Ale Plugin
 " ==========
-let g:ale_lint_on_text_changed = 'never'                   " Only lint when text is saved.
-let g:ale_completion_enabled = 1                           " Enable completion where enabled.
-let g:ale_set_highlights = 1                               " Highlight code in file.
-let g:ale_set_quickfix = 1                                 " Use the quicklist buffer.
-let g:ale_set_loclist = 0                                  " Don't use loclist.
-let g:ale_fix_on_save = 1                                  " Auto fix js.
-let g:ale_open_list = 1                                    " Auto open quicklist buffer.
+let g:ale_lint_on_text_changed = 'never' " Only lint when text is saved.
+let g:ale_completion_enabled = 1         " Enable completion where enabled.
+let g:ale_set_highlights = 1             " Highlight code in file.
+let g:ale_set_quickfix = 1               " Use the quicklist buffer.
+let g:ale_set_loclist = 0                " Don't use loclist.
+let g:ale_fix_on_save = 1                " Auto fix js.
+let g:ale_open_list = 1                  " Auto open quicklist buffer.
 let g:ale_fixers = {
 \   'javascript': []
 \}
@@ -200,7 +200,9 @@ augroup filetype_rust
   autocmd BufReadPost *.rs setlocal filetype=rust
 augroup END
 let g:rustfmt_autosave = 1
+let g:rust_recommended_style = 0
 au FileType rust setl sw=2 sts=2 et
+au BufRead,BufNewFile *.rs set filetype=rust
 
 " Utilities
 " ================
