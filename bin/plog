@@ -1,0 +1,29 @@
+#!/bin/sh
+
+knowdir="$HOME/src/yw/knowledge"
+
+if [ $# -ne 1 ]; then
+  echo 'usage: plog <url>'
+  exit 1
+fi
+
+# define description
+if [ -z "$2" ]; then
+  printf 'What does this module do?\n❯ '
+  read -r description
+  if [ "$description" = "" ]; then
+    printf 'no description, exiting\n'
+    exit 1
+  fi
+else
+  description="$2"
+fi
+
+printf '- %s - %s\n' "$url" "$description" \
+  >> "$knowdir/computers/rust/packages.md"
+
+cd "$knowdir" || { echo 'could not cd' && exit 1; }
+git add 'computers/js/packages.md'
+git commit -m "add package $name"
+git push
+
