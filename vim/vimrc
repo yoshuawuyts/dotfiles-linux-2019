@@ -48,6 +48,13 @@ set splitright                  " Opens vertical split right of current window
 set splitbelow                  " Opens horizontal split below current window
 set shell=/bin/bash             " Run commands in bash
 
+" Clipboard
+" =========
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+"
+
 " Colors
 " ======
 hi Search cterm=NONE ctermfg=black ctermbg=yellow
