@@ -8,6 +8,7 @@ base = [
   "ethtool",                       # Disable Wake On LAN
   "gpsd",                          # get lat,long coordinates
   "guvcview",                      # Webcam application
+  "gvim",                          # Editor
   "iftop",                         # Network monitor
   "net-tools",                     # Network tooling
   "nautilus",                      # File Manager
