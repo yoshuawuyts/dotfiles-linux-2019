@@ -1,8 +1,8 @@
 #!/bin/sh
 
-knowdir="$HOME/src/yw/knowledge"
+knowdir="$HOME/Code/yw/knowledge"
 
-if [ $# -ne 1 ]; then
+if [ $# -lt 1 ]; then
   echo 'usage: plog <url>'
   exit 1
 fi
@@ -19,11 +19,11 @@ else
   description="$2"
 fi
 
-printf '- %s - %s\n' "$url" "$description" \
+printf '%s %s %s %s\n' '-' "$1" '-' "$description" \
   >> "$knowdir/computers/rust/packages.md"
 
 cd "$knowdir" || { echo 'could not cd' && exit 1; }
-git add 'computers/js/packages.md'
+git add 'computers/rust/packages.md'
 git commit -m "add package $name"
 git push
 
