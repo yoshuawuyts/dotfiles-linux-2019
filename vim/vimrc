@@ -16,7 +16,8 @@ Plug 'bling/vim-airline'                  " Status bar
 Plug 'chriskempson/base16-vim'            " Color theme (note: I think alacritty is good enough for us, heh
 Plug 'ctrlpvim/ctrlp.vim'                 " Fuzzy file search
 Plug 'maralla/completor.vim'              " Autocomplete
-Plug 'rust-lang/rust.vim'                  " Rust helpers
+Plug 'rust-lang/rust.vim'                 " Rust helpers
+Plug 'scrooloose/nerdtree'                " Tree Explorer
 Plug 'sheerun/vim-polyglot'               " More language syntax highlighting
 Plug 'terryma/vim-multiple-cursors'       " Enable sublime-style multi-cursors
 Plug 'tpope/vim-abolish'                  " Enable finding / replacing word permutations
@@ -136,6 +137,10 @@ let g:airline_right_sep = ''
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#ale#enabled = 1
+
+" Nerdtree
+" ========
+map <C-_> :NERDTreeToggle<CR>
 
 " Git Gutter Plugin
 " =================
