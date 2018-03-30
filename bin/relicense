@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+
+base="/home/anon/Code/yw/templates/project-base"
+
+read -r -d '' readme_dst << EOM
+## License
+[Apache-2.0](./LICENSE)
+EOM
+
+read -r -d '' readme_src << EOM
+## License
+[MIT](./MIT) OR [Apache-2.0](./APACHE)
+EOM
+
+rm LICENSE
+cp "$base/LICENSE-APACHE" LICENSE-APACHE
+cp "$base/LICENSE-MIT" LICENSE-MIT
+
+sed -i "s|$readme_src|$readme_dst|" README.md
+sed -i "s|Apache-2.0|MIT OR Apache-2.0|" Cargo.toml
+
+git commit -am 'Relicense to MIT OR Apache-2.0'
