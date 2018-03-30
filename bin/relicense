@@ -1,24 +1,51 @@
 #!/bin/bash
 
-set -e
+readf () {
+  file="$(readlink -f "$1")"
+  cat "$file"
+}
+
+replace () {
+  sed "s|{{$1}}|$2|g"
+}
+
+copy () {
+  echo "[copy] $1 -> $2" >&2
+  cp "$1" "$2"
+}
+
+to_camel_case () {
+  sed 's/[_|-]\([a-z]\)/\U\1/g;s/^\([a-z]\)/\1/g'
+}
 
 base="/home/anon/Code/yw/templates/project-base"
+readme_src="\[Apache-2.0](./LICENSE)"
+readme_dst="[MIT](./MIT) OR [Apache-2.0](./APACHE)"
 
-read -r -d '' readme_dst << EOM
-## License
-[Apache-2.0](./LICENSE)
-EOM
+pwd
 
-read -r -d '' readme_src << EOM
-## License
-[MIT](./MIT) OR [Apache-2.0](./APACHE)
-EOM
+echo '[rm] LICENSE'
+rm -f LICENSE
 
-rm LICENSE
-cp "$base/LICENSE-APACHE" LICENSE-APACHE
-cp "$base/LICENSE-MIT" LICENSE-MIT
+echo '[copy] LICENSE-APACHE'
+readf "$base/LICENSE-APACHE" \
+  | replace YEAR "$(date +%Y)" \
+  | replace NAME "Yoshua Wuyts" \
+  > LICENSE-APACHE
 
+echo '[copy] LICENSE-MIT'
+readf "$base/LICENSE-MIT" \
+  | replace YEAR "$(date +%Y)" \
+  | replace NAME "Yoshua Wuyts" \
+  > LICENSE-MIT
+
+echo '[edit] README.md'
 sed -i "s|$readme_src|$readme_dst|" README.md
-sed -i "s|Apache-2.0|MIT OR Apache-2.0|" Cargo.toml
 
-git commit -am 'Relicense to MIT OR Apache-2.0'
+echo '[edit] Cargo.toml'
+sed -i 's|"Apache-2.0"|"MIT OR Apache-2.0"|' Cargo.toml
+
+echo '[commit]'
+git add -A
+git commit -m 'Relicense to MIT OR Apache-2.0'
+git push
