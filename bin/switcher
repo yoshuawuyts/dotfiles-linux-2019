@@ -1,0 +1,10 @@
+#!/bin/sh
+rofi \
+  -show window  \
+  -kb-cancel "Alt+Escape,Escape" \
+  -kb-accept-entry "!Alt-Tab,Return"\
+  -kb-row-down "Alt+Tab,Alt+Down" \
+  -kb-row-up "Alt+Shift+Tab,Alt+Up"&
+
+sleep .16       # random number, 10 is too low - 20 feels slow.
+xdotool key Tab # send the Tab key to jump to the next line.

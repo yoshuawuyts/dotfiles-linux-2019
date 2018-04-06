@@ -23,6 +23,7 @@ base = [
   "wpa_actiond",                   # Auto connect to wifi
   "x86_energy_perf_policy",        # Tune power CPU power saving
   "xbindkeys",                     # Figure out the XF86 names for keys
+  "xdotool",                       # Send key commands to an open app
 ]
 
 aur = [

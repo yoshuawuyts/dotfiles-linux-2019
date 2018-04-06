@@ -30,7 +30,7 @@ bindsym Mod1+Shift+q kill
 # Star thte program launcher
 bindsym Mod1+space exec rofi -show run
 bindsym Mod1+Shift+space exec --no-startup-id "rofi -show drun -run-command 'gksudo {cmd}'"
-bindsym Mod1+Tab exec rofi -show window
+bindsym Mod1+Tab exec switcher
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
