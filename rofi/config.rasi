@@ -3,7 +3,15 @@
  * User: Chris Kempson (http://chriskempson.com)
  * Copyright: Andrea Scarpino
  */
+
+configuration {
+  display-run: "> ";
+  display-drun: "sudo > ";
+  display-ssh: "ssh > ";
+}
+
 * {
+    font:                        "Noto Sans Mono 12";
     selected-normal-foreground:  @lightbg;
     foreground:                  rgba ( 211, 208, 200, 100 % );
     normal-foreground:           @foreground;
