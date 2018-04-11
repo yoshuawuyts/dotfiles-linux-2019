@@ -1,5 +1,5 @@
 # Font
-font pango:Noto Sans 12
+font pango:Noto Sans Mono 12
 
 # Movement
 set $left h
@@ -27,7 +27,7 @@ bindsym Mod1+Return exec alacritty
 # Kill focused window
 bindsym Mod1+Shift+q kill
 
-# Star thte program launcher
+# Start the program launcher
 bindsym Mod1+space exec rofi -show run
 bindsym Mod1+Shift+space exec --no-startup-id "rofi -show drun -run-command 'gksudo {cmd}'"
 bindsym Mod1+Tab exec switcher
@@ -48,6 +48,9 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioMicMute exec amixer set Capture toggle
 bindsym Print exec scr
+
+# Peripheral controls
+bindsym XF86Display exec hdmi
 
 # change focus
 bindsym Mod1+$left focus left
