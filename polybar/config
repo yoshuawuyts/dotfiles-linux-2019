@@ -134,7 +134,7 @@ type = internal/volume
 
 format-volume = <label-volume>
 format-muted-foreground = ${colors.foreground}
-label-muted = | V muted
+label-muted = | V ---
 label-volume = | V %percentage%%
 
 [module/battery]
