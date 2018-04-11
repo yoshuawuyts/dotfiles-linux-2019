@@ -219,7 +219,7 @@ augroup END
 
 " JavaScript
 " ==========
-au BufRead,BufNewFile *.rs set filetype=javascript
+au BufRead,BufNewFile *.js set filetype=javascript
 augroup filetype_javascript
   nmap ! :s/^/\=printf("console.log(\'%s:%d\')\n", expand('%'), line('.'))<CR>:noh<CR>
 augroup END
