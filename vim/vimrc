@@ -205,19 +205,27 @@ nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 let g:LanguageClient_loggingLevel = 'DEBUG'
 
-" Rust.vim
-" ========
+" Rust
+" ====
+au BufRead,BufNewFile *.rs set filetype=rust
+let g:rustfmt_autosave = 1
+let g:rust_recommended_style = 0
 augroup filetype_rust
   autocmd!
   autocmd BufReadPost *.rs setlocal filetype=rust
+  nmap ! :s/^/\=printf("println!(\"%s:%d\");\n", expand('%'), line('.'))<CR>:noh<CR>
+  setl sw=2 sts=2 et
 augroup END
-let g:rustfmt_autosave = 1
-let g:rust_recommended_style = 0
-au FileType rust setl sw=2 sts=2 et
-au BufRead,BufNewFile *.rs set filetype=rust
+
+" JavaScript
+" ==========
+au BufRead,BufNewFile *.rs set filetype=javascript
+augroup filetype_javascript
+  nmap ! :s/^/\=printf("console.log(\'%s:%d\')\n", expand('%'), line('.'))<CR>:noh<CR>
+augroup END
 
 " Utilities
-" ================
+" =========
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
 " Reselect visual block after indent/outdent
