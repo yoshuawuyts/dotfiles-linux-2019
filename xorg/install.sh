@@ -18,3 +18,7 @@ _link "$src" "$dst"
 src="$dirname/xsession"
 dst="$HOME/.xsession"
 _link "$src" "$dst"
+
+src="$dirname/xorg.conf.d"
+dst="/etc/X11/xorg.conf.d"
+_sudo_link "$src" "$dst"
