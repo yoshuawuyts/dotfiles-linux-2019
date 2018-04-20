@@ -13,7 +13,7 @@ _sudo_link () {
   [ -e "$2" ] && sudo unlink "$2"
   sudo ln -s "$1" "$2"
 }
-  
+
 _sudo_enable () {
   echo "[enable] $1"
   sudo systemctl enable "$1" > /dev/null
