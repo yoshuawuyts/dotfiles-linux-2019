@@ -80,8 +80,6 @@ font:
   # Point size of the font
   size: 16.0
 
-  # Will probably be enabled in the future.
-  # https://github.com/jwilm/alacritty/issues/957
   # antialias: lcd
   # hinting: true
 
