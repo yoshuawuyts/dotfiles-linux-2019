@@ -148,7 +148,7 @@ format-full = <label-full>
 format-charging = <label-charging>
 format-discharging = <label-discharging>
 
-label-charging = | B %percentage%%
+label-charging = | ^ %percentage%%
 label-discharging = | B %percentage%%
 label-full = | B 100%
 
