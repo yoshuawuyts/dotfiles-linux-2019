@@ -17,6 +17,7 @@ base = [
   "noto-fonts-emoji",              # Emoji font
   "perf",                          # perf command
   "playerctl",                     # Pulse audio CLI control
+  "powertop",                      # Monitor power consumption
   "smartmontools",                 # disk drive health info
   "tlp",                           # Linux power management
   "tp_smapi",                      # Thinkpad power management
