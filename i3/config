@@ -91,7 +91,7 @@ bindsym Mod1+minus scratchpad show
 # workspaces
 set $w1 1:Terminal
 set $w2 2:Browser
-set $w3 3:Explorer
+set $w3 3:Finder
 set $w4 4:Wasteland
 set $w5 5:Wasteland
 set $w6 6:Wasteland
