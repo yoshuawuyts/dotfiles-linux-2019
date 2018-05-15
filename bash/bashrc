@@ -2,6 +2,7 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export RUST_SRC_PATH="/home/anon/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+export GPG_TTY=$(tty)
 
 # Expand path
 [ -d "$HOME/.cargo/bin" ] && {
