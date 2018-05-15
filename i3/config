@@ -133,6 +133,8 @@ assign [class="obs"] $w10
 bindsym Mod1+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym Mod1+Shift+r restart
+# exit i3
+bindsym Mod1+Shift+e exit
 
 # resize window (you can also use the mouse for that)
 bindsym Mod1+r mode "resize"
