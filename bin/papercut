@@ -1,0 +1,20 @@
+#!/bin/sh
+
+dir="$HOME/Code/yw/papercuts"
+
+printf "Which project did you experience this papercut on?\n> "
+read subject
+
+printf "Could you briefly describe what happened?\n> "
+read summary
+
+file="$dir/$(date +%F)-$subject.md"
+printf "# $subject\n\n$summary\n\n## Details\n" > "$file"
+
+vim "$file"
+
+pushd "$dir"
+git add "$file"
+git commit -m "$(date +%F)-$subject"
+git push -u origin master
+popd
