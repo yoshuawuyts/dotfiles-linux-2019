@@ -1,5 +1,5 @@
 #!/bin/sh
-username="yw"
+username="/home/anon/src/yw"
 
 get_session () {
   if [ -z "$1" ]; then
@@ -11,32 +11,20 @@ get_session () {
   fi
 }
 
+create_session () {
+  tmux new-session -d -s "_shared" -n '$name' -c "$src/$1"
+  tmux send-keys "$EDITOR" C-m
+  tmux split-window -h -c "$src/$1"
+  tmux resize-pane -R 10
+}
+
 # check if tmux needs to be booted up
 tmux list-sessions | cut -d ':' -f 1 | grep '^_shared$' > /dev/null
 if [ "$?" -ne 0 ]; then
-  knowledgepath="/Users/$USER/src/$username/knowledge"
-  tmux new-session -d -s "_shared" -n 'knowledge' -c "$knowledgepath"
-  tmux send-keys "$EDITOR" C-m
-  tmux split-window -h -c "$knowledgepath"
-  tmux resize-pane -R 10
-
-  dotfilespath="/Users/$USER/src/$username/dotfiles"
-  tmux new-window -n 'dotfiles' -c "$dotfilespath"
-  tmux send-keys "$EDITOR" C-m
-  tmux split-window -h -c "$dotfilespath"
-  tmux resize-pane -R 10
-
-  templatespath="/Users/$USER/src/$username/templates"
-  tmux new-window -n 'templates' -c "$templatespath"
-  tmux send-keys "$EDITOR" C-m
-  tmux split-window -h -c "$templatespath"
-  tmux resize-pane -R 10
-
-  notespath="/Users/$USER/src/$username/notes"
-  tmux new-window -n 'notes' -c "$notespath"
-  tmux send-keys "$EDITOR" C-m
-  tmux split-window -h -c "$notespath"
-  tmux resize-pane -R 10
+  create_session "knowledge"
+  create_session "dotfiles"
+  create_session "templates"
+  create_session "notes"
 fi
 
 # create a new session if there isn't one already
@@ -55,7 +43,6 @@ if [ "$?" -ne 0 ]; then
   tmux link-window -s _shared:dotfiles -t 8
   tmux link-window -s _shared:templates -t 7
   tmux link-window -s _shared:notes -t 6
-  tmux link-window -s _shared:dockerfiles -t 5
   tmux select-window -t 1
 fi
 
