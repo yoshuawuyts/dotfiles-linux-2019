@@ -3,5 +3,9 @@ set -ex
 perf record -F 99 -g "$@"
 perf script > /tmp/out.perf
 stackcollapse-perf /tmp/out.perf > /tmp/out.folded
-flamegraph /tmp/out.folded > flamegraph.svg
+
+outfile="/tmp/$(date +%F-%T)-flamegraph.svg"
+flamegraph /tmp/out.folded > "$outfile"
 rm perf.data /tmp/out.perf /tmp/out.folded
+
+firefox "$outfile"
