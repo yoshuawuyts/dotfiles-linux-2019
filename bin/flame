@@ -4,4 +4,4 @@ perf record -F 99 -g "$@"
 perf script > /tmp/out.perf
 stackcollapse-perf /tmp/out.perf > /tmp/out.folded
 flamegraph /tmp/out.folded > flamegraph.svg
-rm /tmp/perf.data /tmp/out.perf /tmp/out.folded
+rm perf.data /tmp/out.perf /tmp/out.folded
