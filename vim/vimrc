@@ -17,7 +17,6 @@ Plug 'chriskempson/base16-vim'            " Color theme (note: I think alacritty
 Plug 'ctrlpvim/ctrlp.vim'                 " Fuzzy file search
 Plug 'maralla/completor.vim'              " Autocomplete
 Plug 'rust-lang/rust.vim'                 " Rust helpers
-Plug 'scrooloose/nerdtree'                " Tree Explorer
 Plug 'sheerun/vim-polyglot'               " More language syntax highlighting
 Plug 'terryma/vim-multiple-cursors'       " Enable sublime-style multi-cursors
 Plug 'tpope/vim-abolish'                  " Enable finding / replacing word permutations
@@ -203,11 +202,13 @@ let g:LanguageClient_serverCommands = {
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+noremap <silent> R :call LanguageClient_textDocument_rename()<CR>
 let g:LanguageClient_loggingLevel = 'DEBUG'
 
 " Rust
 " ====
 au BufRead,BufNewFile *.rs set filetype=rust
+let g:rustfmt_command = "cargo fmt -- "
 let g:rustfmt_autosave = 1
 let g:rust_recommended_style = 0
 augroup filetype_rust
