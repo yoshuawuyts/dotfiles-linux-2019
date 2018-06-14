@@ -5,7 +5,10 @@ source "$dirname/../scripts/_shared.sh"
 
 src="$dirname/vimrc"
 dst="$HOME/.vimrc"
+_link "$src" "$dst"
 
+src="$dirname/spell/"
+dst="$HOME/.vim"
 _link "$src" "$dst"
 
 if [ ! -d ~/.vim/autoload/vim-plug ]; then
