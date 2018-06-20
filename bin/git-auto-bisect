@@ -1,0 +1,6 @@
+#!/bin/bash
+set -ex
+
+git bisect start HEAD "$1"
+shift
+git bisect run "$@"
