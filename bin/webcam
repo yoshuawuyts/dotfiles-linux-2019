@@ -1,5 +1,7 @@
 #!/bin/sh
 
 webcams="$(ls /dev/ | grep video | sort)"
-webcam="$(echo "$webcams" | awk '/./{line=$0} END{print line}')"
+
+# Get the second to last line, the kernel is creating some weird ghost files.
+webcam="$(echo "$webcams" | tail -n 2 | head -n 1)"
 mpv av://v4l2:/dev/"$webcam"
