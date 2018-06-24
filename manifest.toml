@@ -16,8 +16,10 @@ base = [
   "nodejs-material-design-icons",  # Icon set
   "noto-fonts-emoji",              # Emoji font
   "perf",                          # perf command
+  "python-pip",                           # Python package manager
   "playerctl",                     # Pulse audio CLI control
   "powertop",                      # Monitor power consumption
+  "python-neovim",                 # Python support for Neovim
   "smartmontools",                 # disk drive health info
   "tlp",                           # Linux power management
   "tp_smapi",                      # Thinkpad power management
