@@ -67,6 +67,7 @@ imap <C-v> <C-r><C-o>+"
 " Colors
 " ======
 hi Search cterm=NONE ctermfg=black ctermbg=yellow
+hi Folded cterm=NONE ctermfg=black ctermbg=white
 
 " Mouse
 " ======
@@ -236,6 +237,7 @@ let g:LanguageClient_loggingLevel = 'DEBUG'
 au BufRead,BufNewFile *.rs set filetype=rust
 let g:rustfmt_autosave = 1
 let g:rust_recommended_style = 0
+let g:rust_fold = 1
 augroup filetype_rust
   autocmd!
   autocmd BufReadPost *.rs setlocal filetype=rust
