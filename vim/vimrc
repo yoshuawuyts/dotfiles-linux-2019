@@ -17,7 +17,6 @@ Plug 'chriskempson/base16-vim'            " Color theme (note: I think alacritty
 Plug 'ctrlpvim/ctrlp.vim'                 " Fuzzy file search
 Plug 'rust-lang/rust.vim'                 " Rust helpers
 Plug 'sheerun/vim-polyglot'               " More language syntax highlighting
-Plug 'terryma/vim-multiple-cursors'       " Enable sublime-style multi-cursors
 Plug 'tpope/vim-abolish'                  " Enable finding / replacing word permutations
 Plug 'tpope/vim-commentary'               " Add comments in blocks
 Plug 'tpope/vim-repeat'                   " Repeat the last set of commands, rather than single command
@@ -104,6 +103,11 @@ set nowrap           " Don't wrap lines
 set linebreak        " Wrap lines at convenient points
 set formatoptions+=j " Auto collapse comments
 set textwidth=80     " Show gutter at 80 chars
+
+
+" Custom Key Bindings
+" ===================
+nmap ! g*Nciw
 
 " File Extension Aliases
 " ======================
@@ -242,15 +246,7 @@ let g:rust_fold = 1
 augroup filetype_rust
   autocmd!
   autocmd BufReadPost *.rs setlocal filetype=rust
-  nmap ! :s/^/\=printf("println!(\"%s:%d\");\n", expand('%'), line('.'))<CR>:noh<CR>
   setl sw=2 sts=2 et
-augroup END
-
-" JavaScript
-" ==========
-au BufRead,BufNewFile *.js set filetype=javascript
-augroup filetype_javascript
-  " nmap ! :s/^/\=printf("console.log(\'%s:%d\')\n", expand('%'), line('.'))<CR>:noh<CR>
 augroup END
 
 " Utilities
