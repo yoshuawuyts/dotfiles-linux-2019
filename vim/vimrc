@@ -15,7 +15,6 @@ Plug 'airblade/vim-gitgutter'             " Show git status in the sidebar
 Plug 'bling/vim-airline'                  " Status bar
 Plug 'chriskempson/base16-vim'            " Color theme (note: I think alacritty is good enough for us, heh
 Plug 'ctrlpvim/ctrlp.vim'                 " Fuzzy file search
-Plug 'honza/vim-snippets'                 " Useful snippets
 Plug 'rust-lang/rust.vim'                 " Rust helpers
 Plug 'sheerun/vim-polyglot'               " More language syntax highlighting
 Plug 'terryma/vim-multiple-cursors'       " Enable sublime-style multi-cursors
@@ -142,6 +141,8 @@ endif
 " Snippets
 " ========
 let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory = "~/.vim/snippets"
+call deoplete#custom#source('neosnippet', 'rank', 9999)
 
 " Scrolling
 " =========
