@@ -56,6 +56,7 @@ set hidden                      " Buffers can exist in the background
 set splitright                  " Opens vertical split right of current window
 set splitbelow                  " Opens horizontal split below current window
 set shell=/bin/bash             " Run commands in bash
+au FocusGained * :checktime     " Automatically reload files when changed
 
 " Clipboard
 " =========
