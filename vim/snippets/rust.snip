@@ -5,6 +5,10 @@ snippet letmut
 abbr let mut
   let mut ${1:TARGET} = ${2};${3}
 
+snippet println
+abbr println!("");
+  println!("${1:VAL}");${2}
+
 snippet dbg
 abbr println!("<file:line> {:?}", val)
-  println!("${0:`printf("%s:%d", expand('%'), line('.'))`} {:?}", ${1:VAL});
+  println!("${0:`printf("%s:%d", expand('%'), line('.'))`} {:?}", ${1:#:value});${2}
