@@ -119,17 +119,21 @@ autocmd! BufWritePost vimrc so ~/.vimrc"  " Automatically reload vimrc when it's
 " Completion
 " ==========
 let g:deoplete#enable_at_startup = 1
+
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<space>" : "\<cr>"
+
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
+
+imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<CR>"
 imap <expr><TAB> pumvisible() ? "\<C-n>" :
- \ neosnippet#expandable_or_jumpable() ?
- \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  \ neosnippet#expandable_or_jumpable() ?
+  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
