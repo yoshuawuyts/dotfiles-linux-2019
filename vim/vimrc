@@ -185,6 +185,7 @@ highlight SignColumn ctermbg=black
 map <Leader>e :CtrlPBuffer<CR>
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_switch_buffer = 'et'
+let g:ctrlp_use_caching = 0
 
 if executable('rg')
   let g:ctrlp_user_command = 'rg --files %s'
