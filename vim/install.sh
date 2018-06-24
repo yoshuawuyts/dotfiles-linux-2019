@@ -11,14 +11,13 @@ src="$dirname/spell/"
 dst="$HOME/.vim"
 _link "$src" "$dst"
 
-if [ ! -d ~/.vim/autoload/vim-plug ]; then
+src="$dirname/snippets/"
+dst="$HOME/.vim"
+_link "$src" "$dst"
+
+if [ ! -d ~/.vim/autoload/plug.vim ]; then
   curl -sfLo ~/.vim/autoload/plug.vim \
   --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   vim +PluginInstall +qall
-  pushd ~/.vim/plugged/completor.vim
-  npm install -g tern
-  make js
-  popd
-  npm install -g prettier_standard
 fi
