@@ -107,7 +107,7 @@ set textwidth=80     " Show gutter at 80 chars
 
 " Custom Key Bindings
 " ===================
-nmap ! g*Nciw
+nmap <C-k> g*Ncw
 
 " File Extension Aliases
 " ======================
@@ -127,10 +127,6 @@ let g:deoplete#enable_at_startup = 1
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
 
 imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<CR>"
 imap <expr><TAB> pumvisible() ? "\<C-n>" :
