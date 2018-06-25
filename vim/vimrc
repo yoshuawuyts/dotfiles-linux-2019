@@ -49,7 +49,6 @@ set showmode                    " Show current mode down the bottom
 set gcr=a:blinkon0              " Disable cursor blink
 set autoread                    " Reload files changed outside vim
 set laststatus=2                " Always show status line
-set clipboard=unnamed           " Use system clipboard
 set hidden                      " Buffers can exist in the background
 set splitright                  " Opens vertical split right of current window
 set splitbelow                  " Opens horizontal split below current window
@@ -58,10 +57,11 @@ au FocusGained * :checktime     " Automatically reload files when changed
 
 " Clipboard
 " =========
+set clipboard^=unnamed,unnamedplus
 vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
-imap <C-v> <C-r><C-o>+"
+imap <C-v> <C-r><C-o>+
 
 " Colors
 " ======
