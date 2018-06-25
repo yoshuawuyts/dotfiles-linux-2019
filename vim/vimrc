@@ -108,6 +108,7 @@ set textwidth=80     " Show gutter at 80 chars
 " Custom Key Bindings
 " ===================
 nmap <C-k> g*Ncw
+vmap <C-k> <ESC><C-k>
 
 " File Extension Aliases
 " ======================
