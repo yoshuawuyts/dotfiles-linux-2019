@@ -44,5 +44,6 @@ xterm -geometry 80x20+494-0 &
 (sleep 6; notify-critical) &
 (sleep 3; polybar top) &
 (sleep 6; workrave) &
+(sleep 6; power-warn) &
 (sleep 1; feh --bg-scale ~/Code/yw/dotfiles/feh/xp.jpg) &
 exec i3

@@ -78,3 +78,5 @@ letmut
 src
 Result
 journalctl
+sys
+BAT0
