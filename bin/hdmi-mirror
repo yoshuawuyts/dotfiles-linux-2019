@@ -3,3 +3,5 @@ intern=eDP1
 extern=HDMI1
 
 xrandr --output "$extern" --auto --output "$intern" --auto
+keeb
+re-bar

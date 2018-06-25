@@ -1,0 +1,5 @@
+#!/bin/sh
+
+pkill polybar
+polybar top
+feh --bg-scale ~/Code/yw/dotfiles/feh/xp.jpg

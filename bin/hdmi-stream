@@ -4,3 +4,4 @@ extern=HDMI1
 
 xrandr --output "$extern" --mode 1920x1080
 keeb
+re-bar
