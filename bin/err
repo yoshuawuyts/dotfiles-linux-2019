@@ -1,0 +1,3 @@
+#!/bin/sh
+
+journalctl -p err -n 5
