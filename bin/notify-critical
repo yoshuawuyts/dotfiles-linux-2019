@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# consider adding -n0 to journalctl
+journalctl -p err -f -b -o cat \
+  | notify-cat file:-,urgency:critical

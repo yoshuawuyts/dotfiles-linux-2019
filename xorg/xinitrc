@@ -41,6 +41,7 @@ xterm -geometry 80x50+494+51 &
 xterm -geometry 80x20+494-0 &
 
 # Initialize i3
+(sleep 6; notify-critical) &
 (sleep 3; polybar top) &
 (sleep 6; workrave) &
 (sleep 1; feh --bg-scale ~/Code/yw/dotfiles/feh/xp.jpg) &
