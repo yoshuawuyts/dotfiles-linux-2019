@@ -23,6 +23,7 @@ Plug 'tpope/vim-repeat'                   " Repeat the last set of commands, rat
 Plug 'tpope/vim-surround'                 " Enable inserting brackets around words
 Plug 'vim-airline/vim-airline-themes'     " Airline themes
 Plug 'w0rp/ale'                           " Asynchronous linting engine
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "NERDTree
 Plug 'autozimu/LanguageClient-neovim', {
 \ 'branch': 'next',
 \ 'do': 'bash install.sh',
