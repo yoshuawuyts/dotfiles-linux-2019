@@ -131,15 +131,12 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<CR>"
-imap <expr><TAB> pumvisible() ? "\<C-n>" :
-  \ neosnippet#expandable_or_jumpable() ?
-  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+xmap <CR>     <Plug>(neosnippet_expand_target)
+"/ imap <expr><TAB> pumvisible() ? "\<C-n>" :
+"   \ neosnippet#expandable_or_jumpable() ?
+"   \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
   \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
 
 " Snippets
 " ========
