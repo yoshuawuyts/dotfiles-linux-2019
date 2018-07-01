@@ -58,7 +58,7 @@ fi
 git branch "$branch"
 git reset -q --hard "$tracking"
 git checkout -q "$branch"
-git branch --set-upstream "$branch" "$tracking"
+git branch --set-upstream-to "$branch" "$tracking"
 git reset -q --hard "$sha"
 echo "[$(shortsha "$sha")...$(shortsha $(git rev-parse $tracking))] $current"
 echo "[0000000...$(shortsha $(git rev-parse HEAD))] $branch"
