@@ -96,7 +96,7 @@ set $w4 4:Wasteland
 set $w5 5:Wasteland
 set $w6 6:Wasteland
 set $w7 7:Wasteland
-set $w8 8:Wasteland
+set $w8 8:VPN
 set $w9 9:Media
 set $w10 10:Broadcast
 
