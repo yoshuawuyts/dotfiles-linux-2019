@@ -110,6 +110,7 @@ set textwidth=80     " Show gutter at 80 chars
 " ===================
 nmap <C-k> g*Ncw
 vmap <C-k> <ESC><C-k>
+cmap <Leader>n :noh
 
 " File Extension Aliases
 " ======================
