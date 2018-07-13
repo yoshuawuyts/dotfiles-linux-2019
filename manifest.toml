@@ -33,6 +33,7 @@ base = [
 
 aur = [
   "apvlv",                   # PDF viewer
+  "consolas-font",           # Consolas font
   "flamegraph-git",          # Tools to generate flamegraphs from perf(1)
   "google-drive-ocamlfuse",  # Google Drive client
   "mininet",                 # Network emulator
