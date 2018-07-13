@@ -23,7 +23,7 @@ Plug 'tpope/vim-repeat'                   " Repeat the last set of commands, rat
 Plug 'tpope/vim-surround'                 " Enable inserting brackets around words
 Plug 'vim-airline/vim-airline-themes'     " Airline themes
 Plug 'w0rp/ale'                           " Asynchronous linting engine
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "NERDTree
+Plug 'fidian/hexmode'                     " Hex mode editor
 Plug 'autozimu/LanguageClient-neovim', {
 \ 'branch': 'next',
 \ 'do': 'bash install.sh',
@@ -111,6 +111,13 @@ set textwidth=80     " Show gutter at 80 chars
 nmap <C-k> g*Ncw
 vmap <C-k> <ESC><C-k>
 cmap <Leader>n :noh
+
+" Hex Mode
+" ========
+let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o'
+nnoremap <C-H> :Hexmode<CR>
+inoremap <C-H> <Esc>:Hexmode<CR>
+vnoremap <C-H> :<C-U>Hexmode<CR>
 
 " File Extension Aliases
 " ======================
@@ -207,6 +214,7 @@ let g:ale_fixers = {
 \}
 let g:ale_linters = {
 \   'javascript': ['standard'],
+\   'asm': [],
 \}
 highlight ALEStyleWarning ctermfg=Black
 highlight ALEStyleWarning ctermbg=Yellow
