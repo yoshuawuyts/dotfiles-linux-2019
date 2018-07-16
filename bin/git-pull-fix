@@ -1,17 +1,21 @@
-#!/bin/sh
+#!/bin/bash
 
-set +ex
+set -ex
 
 curr="$(git rev-parse --abbrev-ref HEAD)"
-now="$(date +%F-%T)"
+now="$(date +%F-%s)"
 tmp="tmp-$now"
 
+# setup branches
 git branch "$tmp"
 git reset --hard "origin/$curr"
+
+# get patch & apply
+git pull
 git checkout "$tmp"
 git rebase "$curr"
 git checkout "$curr"
-git cherry-pick "$tmp"
+git rebase "$tmp"
 
 # cleanup
 git branch -D "$tmp"
