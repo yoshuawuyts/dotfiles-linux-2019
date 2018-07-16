@@ -21,6 +21,7 @@ base = [
   "powertop",                      # Monitor power consumption
   "python-neovim",                 # Python support for Neovim
   "smartmontools",                 # disk drive health info
+  "sysstat",                       # performance monitoring tools
   "tlp",                           # Linux power management
   "tp_smapi",                      # Thinkpad power management
   "ttf-freefont",                  # Base unicode symbols
