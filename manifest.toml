@@ -37,6 +37,7 @@ aur = [
   "consolas-font",           # Consolas font
   "flamegraph-git",          # Tools to generate flamegraphs from perf(1)
   "google-drive-ocamlfuse",  # Google Drive client
+  "noto-main",               # Noto fonts
   "mininet",                 # Network emulator
   "obs-linuxbrowser",        # OBS Plugin Overlay
   "opensnitch-git",          # Little Snitch
