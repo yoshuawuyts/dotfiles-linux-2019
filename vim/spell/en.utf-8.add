@@ -161,3 +161,7 @@ WASM
 vim
 vim
 tmp
+async
+cli
+AppSettings
+ColoredHelp
