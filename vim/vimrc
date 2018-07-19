@@ -116,8 +116,6 @@ cmap <Leader>n :noh
 " ========
 let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o'
 nnoremap <C-H> :Hexmode<CR>
-inoremap <C-H> <Esc>:Hexmode<CR>
-vnoremap <C-H> :<C-U>Hexmode<CR>
 
 " File Extension Aliases
 " ======================
