@@ -36,6 +36,7 @@ aur = [
   "apvlv",                   # PDF viewer
   "bingrep",                 # Inspect binaries
   "consolas-font",           # Consolas font
+  "hyperfine",               # Benchmark arbitrary things
   "flamegraph-git",          # Tools to generate flamegraphs from perf(1)
   "google-drive-ocamlfuse",  # Google Drive client
   "noto-main",               # Noto fonts
