@@ -109,7 +109,6 @@ set textwidth=80     " Show gutter at 80 chars
 " ===================
 nmap <C-k> g*Ncw
 vmap <C-k> <ESC><C-k>
-cmap <Leader>n :noh
 
 " Hex Mode
 " ========
@@ -122,7 +121,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 augroup markdown
   au!
   autocmd Syntax markdown setlocal wm=2
-  set spell                                  " Enable spell checking
+  autocmd Syntax markdown set spell
 augroup END
 
 " Auto Commands
