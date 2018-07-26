@@ -104,7 +104,6 @@ set linebreak        " Wrap lines at convenient points
 set formatoptions+=j " Auto collapse comments
 set textwidth=80     " Show gutter at 80 chars
 
-
 " Custom Key Bindings
 " ===================
 nmap <C-k> g*Ncw
@@ -121,7 +120,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 augroup markdown
   au!
   autocmd Syntax markdown setlocal wm=2
-  autocmd Syntax markdown set spell
+  autocmd Syntax markdown setlocal spell
 augroup END
 
 " Auto Commands
