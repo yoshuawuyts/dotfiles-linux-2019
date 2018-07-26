@@ -69,12 +69,13 @@ imap <C-v> <C-r><C-o>+
 highlight Search cterm=NONE ctermfg=black ctermbg=yellow
 highlight Folded cterm=NONE ctermfg=gray ctermbg=237
 highlight ColorColumn ctermbg=237
+highlight Visual ctermfg=blue ctermbg=white
 let &colorcolumn=join(range(81,999),",") " Show a marker at 80+1 chars
 let base16colorspace=256
 
 " Folds
 " =====
-set foldlevel=1
+set foldlevel=0
 set foldmethod=syntax
 set foldtext=CustomFoldText('.')
 set fillchars=fold:.
