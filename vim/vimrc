@@ -71,6 +71,7 @@ hi Folded cterm=NONE ctermfg=black ctermbg=gray
 
 " Folds
 " =====
+set foldlevel=0
 set foldmethod=syntax
 
 " Mouse
