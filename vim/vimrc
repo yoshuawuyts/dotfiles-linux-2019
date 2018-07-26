@@ -66,13 +66,55 @@ imap <C-v> <C-r><C-o>+
 
 " Colors
 " ======
-hi Search cterm=NONE ctermfg=black ctermbg=yellow
-hi Folded cterm=NONE ctermfg=black ctermbg=gray
+highlight Search cterm=NONE ctermfg=black ctermbg=yellow
+highlight Folded cterm=NONE ctermfg=gray ctermbg=237
+highlight ColorColumn ctermbg=237
+let &colorcolumn=join(range(81,999),",") " Show a marker at 80+1 chars
+let base16colorspace=256
 
 " Folds
 " =====
-set foldlevel=0
+set foldlevel=1
 set foldmethod=syntax
+set foldtext=CustomFoldText('.')
+set fillchars=fold:.
+function! CustomFoldText(string)
+  let fs = v:foldstart
+
+  while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
+  endwhile
+
+  if fs > v:foldend
+    let line = getline(v:foldstart)
+  else
+    let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
+  endif
+
+  let pat  = matchstr(&l:cms, '^\V\.\{-}\ze%s\m')
+  let line = substitute(line, '^\s*'.pat.'\s*', '', '')
+  let pat  = '\%('. pat. '\)\?\s*'. split(&l:fmr, ',')[0]. '\s*\d\+'
+  let line = substitute(line, pat, '', '')
+
+  let w = winwidth(0) - &foldcolumn - (&number ? 8 : 0)
+
+  let foldSize = 1 + v:foldend - v:foldstart
+  let foldSizeStr = " " . foldSize . " lines "
+  let foldLevelStr = '  '
+  let lineCount = line("$")
+  if has("float")
+    try
+      let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
+    catch /^Vim\%((\a\+)\)\=:E806/	" E806: Using Float as String
+      let foldPercentage = printf("[of %d lines] ", lineCount)
+    endtry
+  endif
+  if exists("*strwdith")
+      let expansionString = repeat(a:string, w - strwidth(foldSizeStr.line.foldLevelStr.foldPercentage))
+        else
+      let expansionString = repeat(a:string, w - strlen(substitute(foldSizeStr.line.foldLevelStr.foldPercentage, '.', 'x', 'g')))
+  endif
+  return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
+endf
 
 " Mouse
 " ======
@@ -104,7 +146,6 @@ set shiftwidth=2     " Tabs are now 2 width long
 set softtabstop=2
 set tabstop=2
 set expandtab
-set colorcolumn=81   " Show a marker at 80+1 chars
 set nowrap           " Don't wrap lines
 set linebreak        " Wrap lines at convenient points
 set formatoptions+=j " Auto collapse comments
