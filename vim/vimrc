@@ -14,15 +14,16 @@ Plug 'airblade/vim-gitgutter'             " Show git status in the sidebar
 Plug 'bling/vim-airline'                  " Status bar
 Plug 'chriskempson/base16-vim'            " Color theme (note: I think alacritty is good enough for us, heh
 Plug 'ctrlpvim/ctrlp.vim'                 " Fuzzy file search
+Plug 'fidian/hexmode'                     " Hex mode editor
 Plug 'rust-lang/rust.vim'                 " Rust helpers
 Plug 'sheerun/vim-polyglot'               " More language syntax highlighting
+Plug 'terryma/vim-multiple-cursors'       " Multi cursor support
 Plug 'tpope/vim-abolish'                  " Enable finding / replacing word permutations
 Plug 'tpope/vim-commentary'               " Add comments in blocks
 Plug 'tpope/vim-repeat'                   " Repeat the last set of commands, rather than single command
 Plug 'tpope/vim-surround'                 " Enable inserting brackets around words
 Plug 'vim-airline/vim-airline-themes'     " Airline themes
 Plug 'w0rp/ale'                           " Asynchronous linting engine
-Plug 'fidian/hexmode'                     " Hex mode editor
 Plug 'autozimu/LanguageClient-neovim', {
 \ 'branch': 'next',
 \ 'do': 'bash install.sh',
@@ -130,22 +131,15 @@ autocmd! BufWritePost vimrc so ~/.vimrc"  " Automatically reload vimrc when it's
 " Completion
 " ==========
 let g:deoplete#enable_at_startup = 1
-
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<CR>"
-xmap <CR>     <Plug>(neosnippet_expand_target)
-"/ imap <expr><TAB> pumvisible() ? "\<C-n>" :
-"   \ neosnippet#expandable_or_jumpable() ?
-"   \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " Snippets
 " ========
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory = "~/.vim/snippets"
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 call deoplete#custom#source('neosnippet', 'rank', 9999)
 
 " Scrolling
