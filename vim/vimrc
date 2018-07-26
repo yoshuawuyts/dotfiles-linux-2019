@@ -78,6 +78,7 @@ set foldlevel=1
 set foldmethod=syntax
 set foldtext=CustomFoldText('.')
 set fillchars=fold:.
+
 function! CustomFoldText(string)
   let fs = v:foldstart
 
@@ -280,9 +281,9 @@ let g:LanguageClient_loggingLevel = 'DEBUG'
 " Rust
 " ====
 au BufRead,BufNewFile *.rs set filetype=rust
+let g:rust_fold = 2
 let g:rustfmt_autosave = 1
 let g:rust_recommended_style = 0
-let g:rust_fold = 2
 augroup filetype_rust
   autocmd!
   autocmd BufReadPost *.rs setlocal filetype=rust
