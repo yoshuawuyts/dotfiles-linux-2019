@@ -4,7 +4,6 @@ set encoding=utf8                          " utf8 everywhere
 set t_Co=256                               " Enable 256 colors
 syntax on                                  " Syntax highlighting on
 syntax enable                              " Yep, really
-set spell                                  " Enable spell checking
 if &term =~ '256color' | set t_ut= | endif " Disable Background Color Erase (tmux)
 
 " Plugins
@@ -123,6 +122,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 augroup markdown
   au!
   autocmd Syntax markdown setlocal wm=2
+  set spell                                  " Enable spell checking
 augroup END
 
 " Auto Commands
