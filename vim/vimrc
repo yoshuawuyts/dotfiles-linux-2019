@@ -99,14 +99,14 @@ function! CustomFoldText(string)
   let w = winwidth(0) - &foldcolumn - (&number ? 8 : 0)
 
   let foldSize = 1 + v:foldend - v:foldstart
-  let foldSizeStr = " " . foldSize . " lines "
-  let foldLevelStr = '  '
+  let foldSizeStr = " " . foldSize . " "
+  let foldLevelStr = '    '
   let lineCount = line("$")
   if has("float")
     try
-      let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
+      let foldPercentage = printf("[%.0f", (foldSize*1.0)/lineCount*100) . "%] "
     catch /^Vim\%((\a\+)\)\=:E806/	" E806: Using Float as String
-      let foldPercentage = printf("[of %d lines] ", lineCount)
+      let foldPercentage = printf("[of %d] ", lineCount)
     endtry
   endif
   if exists("*strwdith")
@@ -114,7 +114,7 @@ function! CustomFoldText(string)
         else
       let expansionString = repeat(a:string, w - strlen(substitute(foldSizeStr.line.foldLevelStr.foldPercentage, '.', 'x', 'g')))
   endif
-  return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
+  return line . ' ' . expansionString . foldSizeStr . foldPercentage . foldLevelStr
 endf
 
 " Mouse
