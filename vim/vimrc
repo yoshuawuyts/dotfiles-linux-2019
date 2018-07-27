@@ -240,13 +240,19 @@ endif
 
 " Ale Plugin
 " ==========
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_lint_on_text_changed = 'never' " Only lint when text is saved.
 let g:ale_completion_enabled = 1         " Enable completion where enabled.
+let g:ale_set_balloons = 1               " Highlight information on the fly.
 let g:ale_set_highlights = 1             " Highlight code in file.
 let g:ale_set_quickfix = 1               " Use the quicklist buffer.
 let g:ale_set_loclist = 0                " Don't use loclist.
 let g:ale_fix_on_save = 1                " Auto fix js.
 let g:ale_open_list = 1                  " Auto open quicklist buffer.
+let g:ale_list_window_size = 5           " Shrink the suggestion window
+let g:ale_completion_max_numbers = 20    " Max suggestions.
+let g:airline#extensions#ale#enabled = 1
 let g:ale_fixers = {
 \   'javascript': []
 \}
@@ -262,6 +268,18 @@ highlight ALEStyleError ctermfg=Black
 highlight ALEStyleError ctermbg=Red
 highlight ALEError ctermfg=Black
 highlight ALEError ctermbg=Red
+
+" Close quickfix window if it's the last one open.
+aug QFClose
+  au!
+  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+aug END
+
+augroup ALEEvents
+  autocmd!
+  autocmd User ALELint echom "ALE run!"
+  autocmd CursorHold * :ALEHover
+augroup END
 
 " Language Server
 " ================
