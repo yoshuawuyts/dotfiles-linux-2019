@@ -66,13 +66,15 @@ imap <C-v> <C-r><C-o>+
 
 " Colors
 " ======
+let base16colorspace=256
 highlight Search ctermfg=black ctermbg=yellow
 highlight Folded cterm=NONE ctermfg=gray ctermbg=237
 highlight ColorColumn ctermbg=237
 highlight Visual ctermfg=blue ctermbg=white
+
+" Change the color of the editor after 80 chars, except for the quickfix panel.
+let &colorcolumn=join(range(81,999),",")
 au FileType qf setlocal nonumber colorcolumn=
-let &colorcolumn=join(range(81,999),",") " Show a marker at 80+1 chars
-let base16colorspace=256
 
 " Folds
 " =====
@@ -207,16 +209,9 @@ let g:airline_section_b = ''
 let g:airline_section_z = airline#section#create(['%l:%c:%L'])
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-" let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.paste = 'ρ'
-" let g:airline_symbols.whitespace = 'Ξ'
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#ale#enabled = 1
-
-" Nerdtree
-" ========
-map <C-_> :NERDTreeToggle<CR>
 
 " Git Gutter Plugin
 " =================
@@ -275,12 +270,6 @@ aug QFClose
   au!
   au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
 aug END
-
-augroup ALEEvents
-  autocmd!
-  autocmd User ALELint echom "ALE run!"
-  autocmd CursorHold * :ALEHover
-augroup END
 
 " Language Server
 " ================
