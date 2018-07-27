@@ -66,10 +66,11 @@ imap <C-v> <C-r><C-o>+
 
 " Colors
 " ======
-highlight Search cterm=NONE ctermfg=black ctermbg=yellow
+highlight Search ctermfg=black ctermbg=yellow
 highlight Folded cterm=NONE ctermfg=gray ctermbg=237
 highlight ColorColumn ctermbg=237
 highlight Visual ctermfg=blue ctermbg=white
+au FileType qf setlocal nonumber colorcolumn=
 let &colorcolumn=join(range(81,999),",") " Show a marker at 80+1 chars
 let base16colorspace=256
 
