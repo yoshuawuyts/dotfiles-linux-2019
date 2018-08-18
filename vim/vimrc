@@ -15,6 +15,7 @@ Plug 'bling/vim-airline'                  " Status bar
 Plug 'chriskempson/base16-vim'            " Color theme (note: I think alacritty is good enough for us, heh
 Plug 'ctrlpvim/ctrlp.vim'                 " Fuzzy file search
 Plug 'fidian/hexmode'                     " Hex mode editor
+Plug 'junegunn/vim-easy-align'            " Align markdown tables
 Plug 'rust-lang/rust.vim'                 " Rust helpers
 Plug 'sheerun/vim-polyglot'               " More language syntax highlighting
 Plug 'terryma/vim-multiple-cursors'       " Multi cursor support
@@ -166,8 +167,9 @@ vmap <C-k> <ESC><C-k>
 let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o'
 nnoremap <C-H> :Hexmode<CR>
 
-" File Extension Aliases
+" Markdown
 " ======================
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 au BufRead,BufNewFile *.md set filetype=markdown
 augroup markdown
   au!
