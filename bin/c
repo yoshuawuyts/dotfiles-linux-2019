@@ -7,29 +7,44 @@ if [ "$?" -eq 0 ]; then
   exit 1
 fi
 
-user="$(echo "$1" | sed 's|/.*||')"
-repo="$(echo "$1" | sed 's|.*/||')"
-projectdir="$PROJECTS/$1"
+clean_uri () {
+  echo "$1" \
+    | sed 's|^https://github.com/||' \
+    | tr '/' ' ' \
+    | awk '{print $1 "/" $2}'
+}
+
+uri="$(clean_uri "$1")"
+user="$(echo "$uri" | sed 's|/.*||')"
+repo="$(echo "$uri" | sed 's|.*/||')"
+
+if [ "$user" = "yw" ]; then
+  user="yoshuawuyts"
+fi
+
+projectdir="$PROJECTS/$uri"
 userdir="$PROJECTS/$user"
 
 test -z "$PROJECTS"
 if [ "$?" -eq 0 ]; then
-printf 'PROJECTS env var was not set, exiting\n'
-exit 1
+  printf '$PROJECTS env var was not set, exiting\n'
+  exit 1
 fi
 
 boot_project () {
-  cd "$projectdir" || exit 1
-
-  # only run tmux if not within tmux
-  test -z "$TMUX"
-  [ $? -eq 0 ] && mx
+  cd "$projectdir" || return 1
 }
 
 clone_project () {
-  [ ! -d "$userdir" ] && mkdir "$userdir"
+  if [ ! -d "$userdir" ]; then
+    mkdir "$userdir"
+  fi
   cd "$userdir" || exit 1
   git clone "git@github.com:$user/$repo.git"
+  if [ $? -ne 0 ]; then
+    printf 'c: git clone failed. Exiting\n'
+    return 1
+  fi
   boot_project
 }
 
@@ -37,4 +52,5 @@ if [ -d "$projectdir" ]; then
   boot_project
 else
   clone_project
+  return $?
 fi
