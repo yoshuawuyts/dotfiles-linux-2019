@@ -16,6 +16,7 @@ Plug 'chriskempson/base16-vim'            " Color theme (note: I think alacritty
 Plug 'ctrlpvim/ctrlp.vim'                 " Fuzzy file search
 Plug 'fidian/hexmode'                     " Hex mode editor
 Plug 'junegunn/vim-easy-align'            " Align markdown tables
+Plug 'kristijanhusak/vim-carbon-now-sh'   " Open in carbon.sh
 Plug 'rust-lang/rust.vim'                 " Rust helpers
 Plug 'sheerun/vim-polyglot'               " More language syntax highlighting
 Plug 'terryma/vim-multiple-cursors'       " Multi cursor support
@@ -161,6 +162,7 @@ set textwidth=80     " Show gutter at 80 chars
 " ===================
 nmap <C-k> g*Ncw
 vmap <C-k> <ESC><C-k>
+vnoremap <Leader>c :CarbonNowSh<CR>
 
 " Hex Mode
 " ========
