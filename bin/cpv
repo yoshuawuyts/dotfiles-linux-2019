@@ -2,6 +2,5 @@
 
 [ $# -ne 1 ] && { echo 'usage: cpv <version>' && exit 1; }
 
-git push || exit 1
 cargo release --sign --no-dev-version --no-confirm -l "$1" || exit 1
 git push --tags
