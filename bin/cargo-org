@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+  echo 'usage: cargo-org <org> <team>'
+  exit 64
+fi
+
+org=$1
+team=$2
+
+cargo owner --add "github:$org:$team"
