@@ -1,6 +1,11 @@
-#!/bin/sh
+#!/bin/bash
+
+set -ex
 
 [ $# -ne 1 ] && { echo 'usage: cpv <version>' && exit 1; }
 
-cargo release --sign --no-dev-version --no-confirm -l "$1" || exit 1
+cargo release --sign --no-dev-version --no-confirm -l "$1"
+changelog -o CHANGELOG.md
+git commit -am 'update changelog'
+git push
 git push --tags
