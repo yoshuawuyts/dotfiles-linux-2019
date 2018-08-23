@@ -1,7 +1,7 @@
 [user]
-	name = Yoshua Wuyts
-	email = yoshuawuyts@gmail.com
-	signingkey = D97B99ED650ED277
+  name = Yoshua Wuyts
+  email = yoshuawuyts@gmail.com
+  signingkey = D97B99ED650ED277
 
 [color]
   ui = auto
@@ -23,6 +23,7 @@
   untracked = cyan
 
 [alias]
+  commit = commit -s
   br = branch
   co = checkout
   c = commit
@@ -60,7 +61,7 @@
   browser = open
 
 [help]
-	autocorrect = 5
+  autocorrect = 5
 
 [commit]
-	gpgsign = true
+  gpgsign = true
