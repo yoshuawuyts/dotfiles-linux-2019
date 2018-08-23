@@ -3,6 +3,9 @@
   email = yoshuawuyts@gmail.com
   signingKey = 720f214980521133e85a938905689effd212f9b990e4b296b5ffc923ae2bf3f7
 
+[format]
+  signoff = true
+
 [color]
   ui = auto
 
