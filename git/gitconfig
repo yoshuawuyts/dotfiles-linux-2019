@@ -65,3 +65,6 @@
 
 [commit]
   gpgsign = true
+
+[gpg]
+  program = bpb
