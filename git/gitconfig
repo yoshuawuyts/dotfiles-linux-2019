@@ -23,7 +23,7 @@
   untracked = cyan
 
 [alias]
-  commit = commit -s
+  commit = commit -S
   br = branch
   co = checkout
   c = commit
