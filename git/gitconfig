@@ -1,7 +1,7 @@
 [user]
   name = Yoshua Wuyts
   email = yoshuawuyts@gmail.com
-  signingkey = 720f214980521133e85a938905689effd212f9b990e4b296b5ffc923ae2bf3f7
+  signingKey = 720f214980521133e85a938905689effd212f9b990e4b296b5ffc923ae2bf3f7
 
 [color]
   ui = auto
