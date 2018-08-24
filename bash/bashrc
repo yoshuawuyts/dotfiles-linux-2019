@@ -10,6 +10,8 @@ export GPG_TTY=$(tty)
   PATH="$PATH:$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin"
 }
 
+export PATH="$PATH:/usr/share/bcc/tools"
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 

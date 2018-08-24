@@ -34,6 +34,8 @@ base = [
 
 aur = [
   "apvlv",                   # PDF viewer
+  "bcc",                     # eBPF tools
+  "bcc-tools",               # eBPF tools
   "bingrep",                 # Inspect binaries
   "consolas-font",           # Consolas font
   "hyperfine",               # Benchmark arbitrary things
@@ -45,6 +47,8 @@ aur = [
   "opensnitch-git",          # Little Snitch
   "peek-git",                # Gif recorder
   "perf-tools",              # Scripts to measure performance
+  "python-bcc",              # eBPF tools
+  "python2-bcc",             # eBPF tools
   "rofi-dmenu",              # Symlink rofi to dmenu
   "shotcut",                 # Video editor
   "screenkey-git",           # Show keys on screen
