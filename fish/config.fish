@@ -1,7 +1,7 @@
 fish_vi_key_bindings
 
 # Set PATH
-set -g -x PATH $PATH /usr/share/bcc/tools
+set -g -x PATH $PATH /usr/share/bcc/tools/ /usr/share/bcc/tools/lib/
 
 # Aliases
 alias git='hub'
