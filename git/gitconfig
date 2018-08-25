@@ -43,6 +43,7 @@
 
 [core]
   excludesfile = /opt/boxen/config/git/gitignore
+  hooksPath = ~/.config/git/hooks
 
 [push]
   default = upstream
