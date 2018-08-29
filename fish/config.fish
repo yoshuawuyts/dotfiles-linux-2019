@@ -1,7 +1,11 @@
 fish_vi_key_bindings
 
 # Set PATH
-set -g -x PATH /usr/share/bcc/tools/ /usr/share/bcc/tools/lib/ $PATH
+if test "$MANPATH" = ""
+  set -gx MANPATH (manpath)
+end
+set -gx PATH /usr/share/bcc/tools/ /usr/share/bcc/tools/lib/ $PATH
+set -gx MANPATH /usr/share/bcc/man/man8 $MANPATH
 
 # Aliases
 alias git='hub'
