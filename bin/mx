@@ -35,7 +35,11 @@ if [ "$?" -ne 0 ]; then
     cd "$PROJECTS"/"$SESSION" || exit 1
   fi
   tmux new-session -s "$SESSION" -d -n ''
-  tmux send-keys "$EDITOR" C-m #':CtrlP' C-m
+  if [ -e README.md ]; then
+    tmux send-keys "$EDITOR README.md" C-m #':CtrlP' C-m
+  else
+    tmux send-keys "$EDITOR" C-m #':CtrlP' C-m
+  fi
   tmux split-window -h
   tmux resize-pane -R 10
   tmux select-window -t "$SESSION"
