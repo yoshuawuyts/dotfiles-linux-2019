@@ -1,0 +1,9 @@
+#!/bin/sh
+
+crate="$(mktemp -d)/scratch"
+ln -sfn "$crate" /tmp/tmprust
+cargo new --bin "$crate"
+pushd "$crate"
+git add -A
+git commit -m .
+vim src/main.rs
