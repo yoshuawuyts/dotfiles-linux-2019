@@ -38,6 +38,7 @@ aur = [
   "bcc-tools",               # eBPF tools
   "bingrep",                 # Inspect binaries
   "consolas-font",           # Consolas font
+  "dropbox",                 # File storage
   "hyperfine",               # Benchmark arbitrary things
   "flamegraph-git",          # Tools to generate flamegraphs from perf(1)
   "google-drive-ocamlfuse",  # Google Drive client
