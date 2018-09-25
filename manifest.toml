@@ -16,10 +16,11 @@ base = [
   "nodejs-material-design-icons",  # Icon set
   "noto-fonts-emoji",              # Emoji font
   "perf",                          # perf command
-  "python-pip",                           # Python package manager
+  "python-pip",                    # Python package manager
   "playerctl",                     # Pulse audio CLI control
   "powertop",                      # Monitor power consumption
   "python-neovim",                 # Python support for Neovim
+  "rr",                            # Reverse Debugging
   "smartmontools",                 # disk drive health info
   "sysstat",                       # performance monitoring tools
   "tlp",                           # Linux power management
