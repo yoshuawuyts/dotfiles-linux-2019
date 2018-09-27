@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Initialize a new SSH key
+
+dir="$HOME/.ssh"
+mkdir -p "$dir"
+
+# define name
+if [ -z "$1" ]; then
+  printf 'What is the key name?\n❯ '
+  read -r name
+  if [ "$name" = "" ]; then
+    printf 'no name, exiting\n'
+    exit 1
+  fi
+else
+  name="$1"
+fi
+
+out="$dir/$name"
+pub="$out.pub"
+ssh-keygen -b 2048 -t rsa -q -N "" -f "$out"
+xclip -in -select clipboard < "$pub"
+echo "Copied $pub to clipboard"
