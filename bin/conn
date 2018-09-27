@@ -1,4 +1,3 @@
-
 #!/bin/sh
 # requires remote to always have tmux running
 
