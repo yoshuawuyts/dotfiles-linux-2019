@@ -19,6 +19,6 @@ fi
 
 out="$dir/$name"
 pub="$out.pub"
-ssh-keygen -b 2048 -t ed25519 -q -N "" -f "$out"
+ssh-keygen -b 2048 -a 250 -t ed25519 -q -N "" -f "$out"
 xclip -in -select clipboard < "$pub"
 echo "Copied $pub to clipboard"
