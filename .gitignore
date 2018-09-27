@@ -20,3 +20,4 @@ weechat/weechat.symlink/*
 *.swp
 package-lock.json
 *.spl
+.gdb_history
