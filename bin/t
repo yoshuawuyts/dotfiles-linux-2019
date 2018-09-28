@@ -17,4 +17,3 @@ if [ "$1" ]; then
 else
   tree -aAFC --dirsfirst -L 3 -I "$ignore"
 fi
-

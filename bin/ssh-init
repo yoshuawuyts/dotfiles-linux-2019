@@ -20,5 +20,7 @@ fi
 out="$dir/$name"
 pub="$out.pub"
 ssh-keygen -b 2048 -a 250 -t ed25519 -q -N "" -f "$out"
+
+ssh-keygen -E md5 -lf "$pub" | awk '{print $2}'
 xclip -in -select clipboard < "$pub"
 echo "Copied $pub to clipboard"
