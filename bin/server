@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set +x
+
+keyname="digital_ocean"
+
+ip="$(doctl compute d list | awk '{print $3}' | tail -n 1)"
+mosh --ssh="ssh -i $HOME/.ssh/$keyname" "root@$ip"
