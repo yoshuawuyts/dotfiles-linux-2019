@@ -27,31 +27,15 @@ clr_white="$(tput setaf 7)"
 prompt_command () {
   if [ $? -eq 0 ]; then local clr_status="$clr_white"
   else local clr_status="$clr_red"; fi
-  local branch=""
-  if [ -d $PWD/.git ]; then
-    git log > /dev/null 2>&1
-    if [ $? -ne 0 ]; then
-      local branch="master*"
-    else
-      local branch="$(git rev-parse --abbrev-ref HEAD)"
-      local has_uncommitted="$(git status --short | wc -c)"
-      if [ ! "$has_uncommitted" == 0 ]; then
-        local branch="$branch*"
-      else
-        git diff "remotes/origin/$branch" > /dev/null 2>&1
-        if [ $? -eq 0 ]; then
-          local len="$(git diff "remotes/origin/$branch" | wc -c)"
-          [ ! $len = 0 ] && local branch="$branch'"
-        else
-          local branch="$branch'"
-        fi
-      fi
-    fi
-  fi
-  local left="$clr_blue[\W]$clr_reset $branch"
-  local right="$(date +'%H:%M:%S')"
-  local prompt="$clr_status\$$clr_reset"
-  PS1="$(printf "\n%*s\r%s\n%s " "$(tput cols)" "$right" "$left" "$prompt")"
+
+  if [ $USER = root ]; then local sign="#"
+  else local sign="$"; fi
+
+  local timestamp="$(date +'%H:%M:%S')"
+  local top="$timestamp \u@\H"
+  local prompt="$clr_blue[\w]$clr_reset $clr_status$sign$clr_reset"
+
+  PS1="$(printf "\n\r%s\n%s " "$top" "$prompt")"
 }
 PROMPT_COMMAND=prompt_command
 
