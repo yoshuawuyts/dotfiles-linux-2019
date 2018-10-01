@@ -1,5 +1,6 @@
 [ dependencies ]
 base = [
+  "apache-tools",                  # Create .htaccess files
   "acpi_call",                     # Thinkpad power management
   "alsa-utils",                    # ALSA CLI control
   "arc-theme",                     # GTK theme
