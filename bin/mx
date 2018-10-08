@@ -1,58 +1,69 @@
-#!/bin/sh
-username="/home/anon/src/yw"
+#!/bin/bash
+set -x
+src="/home/anon/src/yoshuawuyts"
+
+main () {
+  # check if tmux needs to be booted up
+  tmux has-session '_shared' > /dev/null 2>&1
+  if [ "$?" -ne 0 ]; then
+    set -e
+    tmux new-session -c "$src/knowledge" -s "_shared"
+    tmux detach-client
+    create_window "dotfiles"
+    create_window "templates"
+    create_window "notes"
+    set +e
+  fi
+
+  # create a new session if there isn't one already
+  SESSION="$(get_session "$1")"
+  tmux list-sessions | grep "^$SESSION\:.*$" > /dev/null
+  if [ "$?" -ne 0 ]; then
+    if [ -d "$PROJECTS"/"$SESSION" ]; then
+      cd "$PROJECTS"/"$SESSION" || exit 1
+    fi
+
+    tmux new-session -s "$SESSION" -d -n ''
+    if [ -e README.md ]; then
+      tmux send-keys "$EDITOR README.md" C-m
+    else
+      tmux send-keys "$EDITOR" C-m
+    fi
+
+    tmux split-window -h
+    tmux resize-pane -R 10
+    tmux select-window -t "$SESSION"
+    tmux link-window -s _shared:notes -t 7
+    tmux link-window -s _shared:templates -t 8
+    tmux link-window -s _shared:dotfiles -t 9
+    tmux link-window -s _shared:knowledge -t 0
+    tmux select-window -t 1
+  fi
+
+  # attach to session
+  if [ -z "$TMUX" ]; then
+    tmux attach -t "$SESSION";
+  else
+    tmux switch-client -t "$SESSION"
+  fi
+}
 
 get_session () {
   if [ -z "$1" ]; then
     # tmux 1.9a+ doesn't like .'s in session names
     pwd | sed 's/\./-/g' | awk -F"/" '{print $NF}'
   else
-    c "$1"
+    cd "$1" # TODO: replace this with `c` once it works again
     echo "$1" | sed 's/\./-/g' | awk -F"/" '{print $NF}'
   fi
 }
 
-create_session () {
-  tmux new-session -d -s "_shared" -n '$name' -c "$src/$1"
+create_window () {
+  tmux new-window -d -t "_shared" -n '$name'
   tmux send-keys "$EDITOR" C-m
   tmux split-window -h -c "$src/$1"
   tmux resize-pane -R 10
+  tmux detach-client
 }
 
-# check if tmux needs to be booted up
-tmux list-sessions | cut -d ':' -f 1 | grep '^_shared$' > /dev/null
-if [ "$?" -ne 0 ]; then
-  create_session "knowledge"
-  create_session "dotfiles"
-  create_session "templates"
-  create_session "notes"
-fi
-
-# create a new session if there isn't one already
-SESSION="$(get_session "$1")"
-tmux list-sessions | grep "^$SESSION\:.*$" > /dev/null
-if [ "$?" -ne 0 ]; then
-  if [ -d "$PROJECTS"/"$SESSION" ]; then
-    cd "$PROJECTS"/"$SESSION" || exit 1
-  fi
-  tmux new-session -s "$SESSION" -d -n ''
-  if [ -e README.md ]; then
-    tmux send-keys "$EDITOR README.md" C-m #':CtrlP' C-m
-  else
-    tmux send-keys "$EDITOR" C-m #':CtrlP' C-m
-  fi
-  tmux split-window -h
-  tmux resize-pane -R 10
-  tmux select-window -t "$SESSION"
-  tmux link-window -s _shared:knowledge -t 9
-  tmux link-window -s _shared:dotfiles -t 8
-  tmux link-window -s _shared:templates -t 7
-  tmux link-window -s _shared:notes -t 6
-  tmux select-window -t 1
-fi
-
-# attach to session
-if [ -z "$TMUX" ]; then
-  tmux attach -t "$SESSION";
-else
-  tmux switch-client -t "$SESSION"
-fi
+main "$@"

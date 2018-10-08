@@ -16,6 +16,7 @@ setopt histignoredups
 
 set -o vi
 
+source /usr/share/zsh/plugins/history-search-multi-word/history-search-multi-word.plugin.zsh
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 

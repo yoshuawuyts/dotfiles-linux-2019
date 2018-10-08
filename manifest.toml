@@ -42,6 +42,7 @@ aur = [
   "consolas-font",           # Consolas font
   "dropbox",                 # File storage
   "zsh-fast-syntax-highlighting",
+  "history-search-multi-word-git",
   "zsh-autosuggestions",
   "hyperfine",               # Benchmark arbitrary things
   "flamegraph-git",          # Tools to generate flamegraphs from perf(1)
