@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 
 src="/home/anon/src/yoshuawuyts"
 shared="_shared"

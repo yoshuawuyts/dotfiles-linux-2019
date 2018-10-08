@@ -32,7 +32,7 @@ tmux_status() {
   if [ $? -eq 0 ]; then
     session_name="$(tmux list-sessions | grep attached | awk '{print $1}' | sed 's/://g' )"
     windows="$(tmux list-windows -t "$session_name" -F '#{window_index}')"
-    window_number="$(tmux display-message -t "$session_name" -p '#I')"
+    window_number="$(tmux list-windows -t "$session_name"| grep active | awk '{print $1}' | sed 's/://')"
 
     val="$session_name:"
     while read -r n; do
