@@ -41,6 +41,8 @@ aur = [
   "bingrep",                 # Inspect binaries
   "consolas-font",           # Consolas font
   "dropbox",                 # File storage
+  "zsh-fast-syntax-highlighting",
+  "zsh-autosuggestions",
   "hyperfine",               # Benchmark arbitrary things
   "flamegraph-git",          # Tools to generate flamegraphs from perf(1)
   "google-drive-ocamlfuse",  # Google Drive client

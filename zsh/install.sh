@@ -3,7 +3,7 @@
 dirname="$(dirname "$(readlink -f "$0")")"
 source "$dirname/../scripts/_shared.sh"
 
-src="$dirname/zsh"
-dst="$HOME/.zsh"
+src="$dirname/zshrc"
+dst="$HOME/.zshrc"
 
 _link "$src" "$dst"

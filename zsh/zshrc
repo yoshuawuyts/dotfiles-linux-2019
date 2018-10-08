@@ -1,0 +1,54 @@
+autoload -Uz compinit promptinit
+compinit
+promptinit
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
+bindkey '^R' history-incremental-search-backward # Fix history search in tmux
+
+export LC_ALL="en_US.UTF-8"
+export TERM=screen-256color
+export PROJECTS=~/Code
+
+set -o vi
+
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+
+# autocomplete
+setopt COMPLETE_ALIASES
+zstyle ':completion:*' menu select
+zstyle ':completion::complete:*' gain-privileges 1
+zstyle ':completion:*' rehash true
+
+# prompt
+autoload -Uz add-zsh-hook
+prompt_command () {
+  if [ $? -eq 0 ]; then local clr_status="%F{white}"
+  else local clr_status="%F{red}"; fi
+
+  if [ $USER = root ]; then local sign="#"
+  else local sign="❯"; fi
+
+  # TODO(yw): check if conneted over SSH, and print user@machine
+  # https://unix.stackexchange.com/questions/9605/how-can-i-detect-if-the-shell-is-controlled-from-ssh#9607
+
+  # TODO(yw): print git status
+  # https://coderwall.com/p/pn8f0g/show-your-git-status-and-branch-in-color-at-the-command-prompt
+
+  # TODO(yw): print rust version by finding Cargo.toml in parent dirs
+  # https://unix.stackexchange.com/a/35265/118157
+
+  TIME='[%*]'
+  DIR="%F{blue}%~%F{white}"
+  NEWLINE=$'\n'
+  PROMPT="$NEWLINE$DIR$NEWLINE$TIME $clr_status$sign%F{white} "
+  RPROMPT=""
+}
+add-zsh-hook precmd prompt_command
+
+# aliases
+alias git='hub'
+alias g='git'
+alias gh='hub browse'
+alias ls='ls --color=auto --group-directories-first'
+alias ll='ls -alph --color=auto --group-directories-first'
+alias s='git status --short'

@@ -1,14 +1,7 @@
 # Fix locale
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export RUST_SRC_PATH="/home/anon/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 export GPG_TTY=$(tty)
-
-# Expand path
-[ -d "$HOME/.cargo/bin" ] && {
-  PATH="$PATH:$HOME/.cargo/bin";
-  PATH="$PATH:$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin"
-}
 
 export MANPATH="/usr/share/bcc/man/man8:$MANPATH"
 export PATH="/usr/share/bcc/tools:$PATH"
