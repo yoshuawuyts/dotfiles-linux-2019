@@ -7,6 +7,12 @@ bindkey '^R' history-incremental-search-backward # Fix history search in tmux
 export LC_ALL="en_US.UTF-8"
 export TERM=screen-256color
 export PROJECTS=~/Code
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt SHARE_HISTORY
+setopt hist_ignore_space
+setopt histignoredups
 
 set -o vi
 
@@ -22,10 +28,11 @@ zstyle ':completion:*' rehash true
 # git status
 setopt prompt_subst
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats '%F{6}%F{2}%b%F{3}|%F{1}%a%F{5}%f '
-zstyle ':vcs_info:*' formats '%F{5}%F{2}%b%F{5}%f '
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' actionformats '%F{6}%F{2}%b%F{3}|%F{1}%a%F{5}%f %a '
+zstyle ':vcs_info:*' formats '%F{5}%F{2}%b%F{5}%f %a '
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-# zstyle ':vcs_info:*' enable git cvs svn
+zstyle ':vcs_info:*' enable git hg
 
 vcs_info_wrapper() {
   vcs_info
@@ -45,19 +52,16 @@ prompt_command () {
   if [ $USER = root ]; then local sign="#"
   else local sign="❯"; fi
 
-  # TODO(yw): check if connected over SSH, and print user@machine
-  # https://unix.stackexchange.com/questions/9605/how-can-i-detect-if-the-shell-is-controlled-from-ssh#9607
-
-  # TODO(yw): print rust version by finding Cargo.toml in parent dirs
-  # https://unix.stackexchange.com/a/35265/118157
+  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then local host="%n@%m "
+  else local host=""; fi
 
   # TODO(yw): print exit code on failure
 
   GIT_STATUS=$'$(vcs_info_wrapper)'
   TIME='[%*]'
-  DIR="%F{blue}%~%F{white}"
+  DIR="%F{blue}%~%F{white} "
   NEWLINE=$'\n'
-  PROMPT="$NEWLINE$DIR $GIT_STATUS$NEWLINE$TIME $clr_status$sign%F{white} "
+  PROMPT="$NEWLINE$DIR$host$GIT_STATUS$NEWLINE$TIME $clr_status$sign%F{white} "
   RPROMPT=""
 }
 add-zsh-hook precmd prompt_command
