@@ -1,6 +1,6 @@
 #!/bin/bash
 
-src="/home/anon/src/yoshuawuyts"
+src="/home/anon/Code/yoshuawuyts"
 shared="_shared"
 
 create_session () {
