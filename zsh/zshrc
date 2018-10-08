@@ -47,7 +47,7 @@ autoload -Uz add-zsh-hook
 prompt_command () {
   exit_status="$?"
 
-  if [ "$exit_status" -eq 0 ]; then local clr_status="%F{white}"
+  if [ "$exit_status" -eq 0 ]; then local clr_status="%F{cyan}"
   else local clr_status="%F{red}"; fi
 
   if [ $USER = root ]; then local sign="#"
@@ -60,7 +60,7 @@ prompt_command () {
   else local exit_code="$exit_status "; fi
 
   GIT_STATUS=$'$(vcs_info_wrapper)'
-  TIME='[%*]'
+  TIME='%F{gray}[%*]'
   DIR="%F{blue}%~%F{white} "
   NEWLINE=$'\n'
   PROMPT="$NEWLINE$DIR$host$GIT_STATUS$NEWLINE$TIME $clr_status$exit_code$sign%F{white} "
