@@ -26,6 +26,26 @@ zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*' rehash true
 
+# tmux status
+tmux_status() {
+  tmux ls > /dev/null 2>&1
+  if [ $? -eq 0 ]; then
+    session_name="$(tmux list-sessions | grep attached | awk '{print $1}' | sed 's/://g' )"
+    windows="$(tmux list-windows -t "$session_name" -F '#{window_index}')"
+    window_number="$(tmux display-message -t "$session_name" -p '#I')"
+
+    val="$session_name:"
+    while read -r n; do
+      if [ $n = $window_number ]; then
+        val+="$n"
+      fi
+    done <<< "$windows"
+    echo "[$val]"
+  else
+    echo ""
+  fi
+}
+
 # git status
 setopt prompt_subst
 autoload -Uz vcs_info
@@ -44,7 +64,7 @@ vcs_info_wrapper() {
 
 # prompt
 autoload -Uz add-zsh-hook
-prompt_command () {
+prompt_command() {
   exit_status="$?"
 
   if [ "$exit_status" -eq 0 ]; then local clr_status="%F{cyan}"
@@ -59,12 +79,14 @@ prompt_command () {
   if [ "$exit_status" = "0" ]; then local exit_code=""
   else local exit_code="$exit_status "; fi
 
+  TMUX_STATUS="$(tmux_status)"
   GIT_STATUS=$'$(vcs_info_wrapper)'
   TIME='%F{gray}[%*]'
   DIR="%F{blue}%~%F{white} "
+
   NEWLINE=$'\n'
+  RPROMPT="$TMUX_STATUS"
   PROMPT="$NEWLINE$DIR$host$GIT_STATUS$NEWLINE$TIME $clr_status$exit_code$sign%F{white} "
-  RPROMPT=""
 }
 add-zsh-hook precmd prompt_command
 

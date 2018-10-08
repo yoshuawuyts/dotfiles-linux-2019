@@ -1,14 +1,31 @@
 #!/bin/bash
 set -x
+
 src="/home/anon/src/yoshuawuyts"
+shared="_shared"
+
+create_session () {
+  loc="$src/$1"
+  tmux new-session -d -s "$shared" -n "$1" -c "$loc"
+  tmux send-keys "$EDITOR" C-m
+  tmux split-window -h -c "$loc"
+  tmux resize-pane -R 10
+}
+
+create_window () {
+  loc="$src/$1"
+  tmux new-window -t "$shared" -n "$1" -c "$loc"
+  tmux send-keys "$EDITOR" C-m
+  tmux split-window -h -c "$loc"
+  tmux resize-pane -R 10
+}
 
 main () {
   # check if tmux needs to be booted up
   tmux has-session '_shared' > /dev/null 2>&1
   if [ "$?" -ne 0 ]; then
     set -e
-    tmux new-session -c "$src/knowledge" -s "_shared"
-    tmux detach-client
+    create_session "knowledge"
     create_window "dotfiles"
     create_window "templates"
     create_window "notes"
@@ -33,10 +50,10 @@ main () {
     tmux split-window -h
     tmux resize-pane -R 10
     tmux select-window -t "$SESSION"
-    tmux link-window -s _shared:notes -t 7
-    tmux link-window -s _shared:templates -t 8
-    tmux link-window -s _shared:dotfiles -t 9
-    tmux link-window -s _shared:knowledge -t 0
+    tmux link-window -s _shared:notes -t 6
+    tmux link-window -s _shared:templates -t 7
+    tmux link-window -s _shared:dotfiles -t 8
+    tmux link-window -s _shared:knowledge -t 9
     tmux select-window -t 1
   fi
 
@@ -50,20 +67,11 @@ main () {
 
 get_session () {
   if [ -z "$1" ]; then
-    # tmux 1.9a+ doesn't like .'s in session names
     pwd | sed 's/\./-/g' | awk -F"/" '{print $NF}'
   else
     cd "$1" # TODO: replace this with `c` once it works again
     echo "$1" | sed 's/\./-/g' | awk -F"/" '{print $NF}'
   fi
-}
-
-create_window () {
-  tmux new-window -d -t "_shared" -n '$name'
-  tmux send-keys "$EDITOR" C-m
-  tmux split-window -h -c "$src/$1"
-  tmux resize-pane -R 10
-  tmux detach-client
 }
 
 main "$@"
