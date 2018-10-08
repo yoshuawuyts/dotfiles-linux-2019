@@ -55,13 +55,14 @@ prompt_command () {
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then local host="%n@%m "
   else local host=""; fi
 
-  # TODO(yw): print exit code on failure
+  if [ "$exit_status" = "0" ]; then local exit_code=""
+  else local exit_code="$exit_status "; fi
 
   GIT_STATUS=$'$(vcs_info_wrapper)'
   TIME='[%*]'
   DIR="%F{blue}%~%F{white} "
   NEWLINE=$'\n'
-  PROMPT="$NEWLINE$DIR$host$GIT_STATUS$NEWLINE$TIME $clr_status$sign%F{white} "
+  PROMPT="$NEWLINE$DIR$host$GIT_STATUS$NEWLINE$TIME $clr_status$exit_code$sign%F{white} "
   RPROMPT=""
 }
 add-zsh-hook precmd prompt_command
