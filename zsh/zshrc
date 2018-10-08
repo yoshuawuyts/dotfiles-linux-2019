@@ -19,28 +19,45 @@ zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*' rehash true
 
+# git status
+setopt prompt_subst
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats '%F{6}%F{2}%b%F{3}|%F{1}%a%F{5}%f '
+zstyle ':vcs_info:*' formats '%F{5}%F{2}%b%F{5}%f '
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+# zstyle ':vcs_info:*' enable git cvs svn
+
+vcs_info_wrapper() {
+  vcs_info
+  if [ -n "$vcs_info_msg_0_" ]; then
+    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+  fi
+}
+
 # prompt
 autoload -Uz add-zsh-hook
 prompt_command () {
-  if [ $? -eq 0 ]; then local clr_status="%F{white}"
+  exit_status="$?"
+
+  if [ "$exit_status" -eq 0 ]; then local clr_status="%F{white}"
   else local clr_status="%F{red}"; fi
 
   if [ $USER = root ]; then local sign="#"
   else local sign="❯"; fi
 
-  # TODO(yw): check if conneted over SSH, and print user@machine
+  # TODO(yw): check if connected over SSH, and print user@machine
   # https://unix.stackexchange.com/questions/9605/how-can-i-detect-if-the-shell-is-controlled-from-ssh#9607
-
-  # TODO(yw): print git status
-  # https://coderwall.com/p/pn8f0g/show-your-git-status-and-branch-in-color-at-the-command-prompt
 
   # TODO(yw): print rust version by finding Cargo.toml in parent dirs
   # https://unix.stackexchange.com/a/35265/118157
 
+  # TODO(yw): print exit code on failure
+
+  GIT_STATUS=$'$(vcs_info_wrapper)'
   TIME='[%*]'
   DIR="%F{blue}%~%F{white}"
   NEWLINE=$'\n'
-  PROMPT="$NEWLINE$DIR$NEWLINE$TIME $clr_status$sign%F{white} "
+  PROMPT="$NEWLINE$DIR $GIT_STATUS$NEWLINE$TIME $clr_status$sign%F{white} "
   RPROMPT=""
 }
 add-zsh-hook precmd prompt_command
