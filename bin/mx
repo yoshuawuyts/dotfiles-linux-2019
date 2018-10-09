@@ -23,7 +23,7 @@ create_window () {
 
 main () {
   # check if tmux needs to be booted up
-  tmux has-session '_shared' > /dev/null 2>&1
+  tmux has-session -t '_shared' > /dev/null 2>&1
   if [ "$?" -ne 0 ]; then
     set -e
     create_session "knowledge"

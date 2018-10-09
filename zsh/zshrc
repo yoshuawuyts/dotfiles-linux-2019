@@ -28,8 +28,9 @@ zstyle ':completion:*' rehash true
 
 # tmux status
 tmux_status() {
-  tmux ls > /dev/null 2>&1
-  if [ $? -eq 0 ]; then
+  if [ "$TMUX" = "" ]; then
+    echo ""
+  else
     session_name="$(tmux list-sessions | grep attached | awk '{print $1}' | sed 's/://g' )"
     windows="$(tmux list-windows -t "$session_name" -F '#{window_index}')"
     window_number="$(tmux list-windows -t "$session_name"| grep active | awk '{print $1}' | sed 's/://')"
@@ -41,8 +42,6 @@ tmux_status() {
       fi
     done <<< "$windows"
     echo "[$val]"
-  else
-    echo ""
   fi
 }
 
