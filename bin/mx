@@ -9,6 +9,7 @@ create_session () {
   tmux send-keys "$EDITOR" C-m
   tmux split-window -h -c "$loc"
   tmux resize-pane -R 10
+  tmux send-keys "clear"
 }
 
 create_window () {
@@ -17,6 +18,7 @@ create_window () {
   tmux send-keys "$EDITOR" C-m
   tmux split-window -h -c "$loc"
   tmux resize-pane -R 10
+  tmux send-keys "clear"
 }
 
 main () {
