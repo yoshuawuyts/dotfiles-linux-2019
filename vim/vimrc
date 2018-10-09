@@ -214,7 +214,6 @@ let g:airline_section_z = airline#section#create(['%l:%c %L'])
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#ale#enabled = 1
 
 " Git Gutter Plugin
