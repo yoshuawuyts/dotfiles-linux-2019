@@ -1,24 +1,34 @@
+# init options
 autoload -Uz compinit promptinit
 compinit
 promptinit
-[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
-bindkey '^R' history-incremental-search-backward # Fix history search in tmux
 
+# load .profile
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
+
+# globals
 export LC_ALL="en_US.UTF-8"
 export TERM=screen-256color
 export PROJECTS=~/Code
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+
+# set options
 setopt SHARE_HISTORY
 setopt hist_ignore_space
 setopt histignoredups
-
 set -o vi
 
+# source extensions
 source /usr/share/zsh/plugins/history-search-multi-word/history-search-multi-word.plugin.zsh
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+
+# key bindings
+bindkey '^R' history-incremental-search-backward  # Fix history search in tmux
+bindkey -M viins '^?' backward-delete-char        # Fix backspace delete
+bindkey -M viins '^H' backward-delete-char        # Fix backspace delete
 
 # autocomplete
 setopt COMPLETE_ALIASES

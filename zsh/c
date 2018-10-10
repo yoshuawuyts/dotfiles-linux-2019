@@ -27,7 +27,7 @@ userdir="$PROJECTS/$user"
 
 test -z "$PROJECTS"
 if [ "$?" -eq 0 ]; then
-  printf '$PROJECTS env var was not set, exiting\n'
+  printf 'PROJECTS env var was not set, exiting\n'
   exit 1
 fi
 
@@ -42,7 +42,7 @@ clone_project () {
   cd "$userdir" || exit 1
   git clone "git@github.com:$user/$repo.git"
   if [ $? -ne 0 ]; then
-    printf 'c: git clone failed. Exiting\n'
+    printf 'zsh/c: git clone failed. Exiting\n'
     return 1
   fi
   boot_project
