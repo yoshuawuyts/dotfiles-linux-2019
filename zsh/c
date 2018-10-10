@@ -1,46 +1,53 @@
 #!/bin/sh
 
-test -z "$1"
-if [ "$?" -eq 0 ]; then
-  echo "$1"
-  printf 'Usage: c <user/repo>\n'
-  exit 1
-fi
+main() {
+  if [ -z "$1" ]; then
+    echo "$1"
+    printf 'Usage: c <user/repo>\n'
+    exit 1
+  fi
 
-clean_uri () {
+  uri="$(clean_uri "$1")"
+  user="$(echo "$uri" | sed 's|/.*||')"
+  repo="$(echo "$uri" | sed 's|.*/||')"
+
+  if [ "$user" = "yw" ]; then
+    user="yoshuawuyts"
+  fi
+
+  if [ -z "$PROJECTS" ]; then
+    printf 'PROJECTS env var was not set, exiting\n'
+    exit 1
+  fi
+
+  projectdir="$PROJECTS/$uri"
+  userdir="$PROJECTS/$user"
+
+  if [ -d "$projectdir" ]; then
+    boot_project
+  else
+    clone_project
+    return $?
+  fi
+}
+
+clean_uri() {
   echo "$1" \
     | sed 's|^https://github.com/||' \
     | tr '/' ' ' \
     | awk '{print $1 "/" $2}'
 }
 
-uri="$(clean_uri "$1")"
-user="$(echo "$uri" | sed 's|/.*||')"
-repo="$(echo "$uri" | sed 's|.*/||')"
-
-if [ "$user" = "yw" ]; then
-  user="yoshuawuyts"
-fi
-
-projectdir="$PROJECTS/$uri"
-userdir="$PROJECTS/$user"
-
-test -z "$PROJECTS"
-if [ "$?" -eq 0 ]; then
-  printf 'PROJECTS env var was not set, exiting\n'
-  exit 1
-fi
-
-boot_project () {
+boot_project() {
   cd "$projectdir" || return 1
 }
 
-clone_project () {
+clone_project() {
   if [ ! -d "$userdir" ]; then
     mkdir "$userdir"
   fi
   cd "$userdir" || exit 1
-  git clone "git@github.com:$user/$repo.git"
+  hub clone "$user/$repo"
   if [ $? -ne 0 ]; then
     printf 'zsh/c: git clone failed. Exiting\n'
     return 1
@@ -48,9 +55,4 @@ clone_project () {
   boot_project
 }
 
-if [ -d "$projectdir" ]; then
-  boot_project
-else
-  clone_project
-  return $?
-fi
+main "$@"
