@@ -39,14 +39,15 @@ clean_uri() {
 }
 
 boot_project() {
-  cd "$projectdir" || return 1
+  pushd "$projectdir" || return 1
+  if [ -z "$TMUX" ]; then mx; fi
 }
 
 clone_project() {
   if [ ! -d "$userdir" ]; then
     mkdir "$userdir"
   fi
-  cd "$userdir" || exit 1
+  pushd "$userdir" || exit 1
   hub clone "$user/$repo"
   if [ $? -ne 0 ]; then
     printf 'zsh/c: git clone failed. Exiting\n'

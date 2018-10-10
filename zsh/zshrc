@@ -24,7 +24,8 @@ set -o vi
 source /usr/share/zsh/plugins/history-search-multi-word/history-search-multi-word.plugin.zsh
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-fpath=("$HOME/zsh" $fpath)
+fpath=("$HOME/.zsh" $fpath)
+autoload -U $HOME/.zsh/functions/*(:t)
 
 # key bindings
 bindkey '^R' history-incremental-search-backward  # Fix history search in tmux
