@@ -9,6 +9,7 @@ promptinit
 # globals
 export LC_ALL="en_US.UTF-8"
 export TERM=screen-256color
+export PATH="$PATH:$HOME/.cargo/bin"
 export PROJECTS=~/Code
 HISTFILE=~/.histfile
 HISTSIZE=1000
