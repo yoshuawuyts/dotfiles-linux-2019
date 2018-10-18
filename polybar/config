@@ -122,12 +122,12 @@ format-disconnected = offline
 type = internal/date
 interval = 5
 
-date = "%U   %y-%m-%d   "
+date = "%d/%m"
 time = %H:%M
 
 format-prefix-foreground = ${colors.foreground}
 
-label = | %time%
+label = | %date% %time%
 
 [module/volume]
 type = internal/volume
