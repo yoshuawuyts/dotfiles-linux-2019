@@ -1,0 +1,167 @@
+#!/bin/sh
+# source from: https://crates.io/category_slugs
+
+fmt () {
+   # awk '{ print $1; $1 = ""; printf("\"%s\"\n", $0); print "off"; }' \
+   #   | tr '\n' ' '
+  awk '{ print $1; print $1; print "off" }' | tr '\n' ' '
+}
+
+read -r -d '' categories <<'EOF'
+algorithms
+api-bindings
+asynchronous
+authentication
+caching
+command-line-interface
+command-line-utilities
+compression
+concurrency
+config
+cryptography
+database
+database-implementations
+data-structures
+date-and-time
+development-tools
+development-tools::build-utils
+development-tools::cargo-plugins
+development-tools::debugging
+development-tools::ffi
+development-tools::procedural-macro-helpers
+development-tools::profiling
+development-tools::testing
+email
+embedded
+emulators
+encoding
+external-ffi-bindings
+filesystem
+game-engines
+games
+gui
+hardware-support
+internationalization
+localization
+memory-management
+multimedia
+multimedia::audio
+multimedia::encoding
+multimedia::images
+multimedia::video
+network-programming
+no-std
+os
+os::macos-apis
+os::unix-apis
+os::windows-apis
+parser-implementations
+parsing
+rendering
+rendering::data-formats
+rendering::engine
+rendering::graphics-api
+rust-patterns
+science
+science::robotics
+simulation
+template-engine
+text-editors
+text-processing
+value-formatting
+visualization
+wasm
+web-programming
+web-programming::http-client
+web-programming::http-server
+web-programming::websocket
+EOF
+
+read -r -d '' explanations <<'EOF'
+Rust implementations of core algorithms such as hashing, sorting, searching, and more.
+Idiomatic wrappers of specific APIs for convenient access from Rust. Includes HTTP API wrappers as well. Non-idiomatic or unsafe bindings can be found in External FFI bindings.
+Crates to help you deal with events independently of the main program flow, using techniques like futures, promises, waiting, or eventing.
+Crates to help with the process of confirming identities.
+Crates to store the results of previous computations in order to reuse the results.
+Crates to help create command line interfaces, such as argument parsers, line-editing, or output coloring and formatting.
+Applications to run at the command line.
+Algorithms for making data smaller.
+Crates for implementing concurrent and parallel computation.
+Crates to facilitate configuration management for applications.
+Algorithms intended for securing data.
+Crates to interface with database management systems.
+Databases allow clients to store and query large amounts of data in an efficient manner. This category is for database management systems implemented in Rust.
+Rust implementations of particular ways of organizing data suited for specific purposes.
+Crates to manage the inherent complexity of dealing with the fourth dimension.
+Crates that provide developer-facing features such as testing, debugging, linting, performance profiling, autocompletion, formatting, and more.
+Utilities for build scripts and other build time steps.
+Subcommands that extend the capabilities of Cargo.
+Crates to help you figure out what is going on with your code such as logging, tracing, or assertions.
+Crates to help you better interface with other languages. This includes binding generators and helpful language constructs.
+Crates to help you write procedural macros in Rust.
+debugger eval code:1:36
+Crates to help you figure out the performance of your code.
+Crates to help you verify the correctness of your code.
+Crates to help with Sending, receiving, formatting, and parsing email.
+Crates that are primarily useful on embedded devices or without an operating system.
+debugger eval code:1:36
+Emulators allow one computer to behave like another, often to allow running software that is not natively available on the host computer. Video game systems are commonly emulated.
+Encoding and/or decoding data from one data format to another.
+Direct Rust FFI bindings to libraries written in other languages; often denoted by a -sys suffix. Safe and idiomatic wrappers are in the API bindings category.
+debugger eval code:1:36
+Crates for dealing with files and filesystems.
+Crates for creating games.
+Applications for fun and entertainment. If Rust the video game were implemented in Rust the programming language, it would belong in this category. Libraries to help create video games are in the Game engines category.
+Crates to help you create a graphical user interface.
+Crates to interface with specific CPU or other hardware features.
+Crates to help develop software capable of adapting to various languages and regions.
+Crates to help adapting internationalized software to specific languages and regions.
+Crates to help with allocation, memory mapping, garbage collection, reference counting, or interfaces to foreign memory managers.
+Crates that provide audio, video, and image processing or rendering engines.
+Crates that record, output, or process audio.
+debugger eval code:1:36
+Crates that encode or decode binary data in multimedia formats.
+debugger eval code:1:36
+Crates that process or build images.
+debugger eval code:1:36
+Crates that record, output, or process video.
+debugger eval code:1:36
+Crates dealing with higher-level network protocols such as FTP, HTTP, or SSH, or lower-level network protocols such as TCP or UDP.
+Crates that are able to function without the Rust standard library.
+debugger eval code:1:36
+Bindings to operating system-specific APIs.
+Bindings to mac OS-specific APIs.
+Bindings to Unix-specific APIs.
+Bindings to Windows-specific APIs.
+Parsers implemented for particular formats or languages.
+Crates to help create parsers of binary and text formats. Format-specific parsers belong in other, more specific categories.
+Real-time or offline rendering of 2D or 3D graphics, usually with the help of a graphics card.
+Loading and parsing of data formats related to 2D or 3D rendering, like 3D models or animation sheets.
+High-level solutions for rendering on the screen.
+Crates that provide direct access to the hardware's or the operating system's rendering capabilities.
+Shared solutions for particular situations specific to programming in Rust.
+Crates related to solving problems involving math, physics, chemistry, biology, machine learning, geoscience, and other scientific fields.
+Crates related to robotics.
+Crates used to model or construct models for some activity, e.g. to.simulate a networking protocol.
+Crates designed to combine templates with data to produce result documents, usually with an emphasis on processing text.
+Applications for editing text.
+Crates to deal with the complexities of human language when expressed in textual form.
+Crates to allow an application to format values for display to a user, potentially adapting the display to various languages and regions.
+Ways to view data, such as plotting or graphing.
+Crates for use when targeting WebAssembly, or for manipulating WebAssembly.
+Crates to create applications for the web.
+Crates to make HTTP network requests.
+Crates to serve data over HTTP.
+Crates to communicate over the WebSocket protocol.
+EOF
+
+text="Please select which categories apply (max 5):"
+height=30
+width=80
+list_height="$(echo "$categories" | wc -l)"
+# merged="$(paste -d ' ' <(echo "$categories") <(echo "$explanations"))"
+categories="$(echo "$categories" | fmt)"
+
+selected="$(dialog --checklist "$text" "$height" "$width" "$list_height" $categories 3>&1 1>&2 2>&3)"
+selected="$(echo "$selected" | sed 's/"//g')"
+echo "selected: $selected"
