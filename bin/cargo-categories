@@ -162,7 +162,5 @@ list_height="$(echo "$categories" | wc -l)"
 # merged="$(paste -d ' ' <(echo "$categories") <(echo "$explanations"))"
 categories="$(echo "$categories" | fmt)"
 
-selected="$(dialog --checklist "$text" "$height" "$width" "$list_height" $categories 3>&1 1>&2 2>&3)"
-selected="$(echo "$selected" | sed 's/"//g')"
-clear
+selected="$(dialog --stdout --checklist "$text" "$height" "$width" "$list_height" $categories)"
 echo "$selected"

@@ -15,7 +15,7 @@ msg="Please select which tmux sessions to close:"
 list="$(list_names)"
 length="$(echo "$list" | wc -l)"
 string="$(echo "$list" | create_command_string | head -n 1)"
-closed="$(dialog --checklist "$msg" 10 60 "$length" $string 3>&1 1>&2 2>&3)"
+closed="$(dialog --stdout --checklist "$msg" 10 60 "$length" $string)"
 closed="$(echo "$closed" | sed 's/"//g')"
 
 clear
