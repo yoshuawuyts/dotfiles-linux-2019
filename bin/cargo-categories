@@ -164,4 +164,5 @@ categories="$(echo "$categories" | fmt)"
 
 selected="$(dialog --checklist "$text" "$height" "$width" "$list_height" $categories 3>&1 1>&2 2>&3)"
 selected="$(echo "$selected" | sed 's/"//g')"
-echo "selected: $selected"
+clear
+echo "$selected"
