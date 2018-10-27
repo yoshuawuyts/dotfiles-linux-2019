@@ -4,7 +4,7 @@
 fmt () {
    # awk '{ print $1; $1 = ""; printf("\"%s\"\n", $0); print "off"; }' \
    #   | tr '\n' ' '
-  awk '{ print $1; print $1; print "off" }' | tr '\n' ' '
+  awk '{ print $1; print "."; print "off" }' | tr '\n' ' '
 }
 
 read -r -d '' categories <<'EOF'
