@@ -61,4 +61,5 @@ aur = [
   "teiler-git",              # Screenshot / screencast tool
   "tzupdate",                # Auto set timezone
   "wrk"                      # Benchmarking tool
+  "xkbset",                  # Toggle keys
 ]
