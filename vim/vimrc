@@ -37,8 +37,8 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/neosnippet.vim'
+" Plug 'Shougo/neosnippet-snippets'
 call plug#end()
 
 " General Config
@@ -191,11 +191,11 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Snippets
 " ========
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory = "~/.vim/snippets"
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-call deoplete#custom#source('neosnippet', 'rank', 9999)
+" let g:neosnippet#enable_snipmate_compatibility = 1
+" let g:neosnippet#snippets_directory = "~/.vim/snippets"
+" imap <C-k> <Plug>(neosnippet_expand_or_jump)
+" xmap <C-k> <Plug>(neosnippet_expand_target)
+" call deoplete#custom#source('neosnippet', 'rank', 9999)
 
 " Scrolling
 " =========
