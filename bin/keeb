@@ -1,4 +1,5 @@
 #!/bin/sh
 
-setxkbmap -option 'caps:ctrl_modifier' && xcape -e 'Caps_Lock=Escape' &
-setxkbmap -option 'escape:alupckeys' & # remap escape to tilde / accent grave
+xmodmap -e "clear lock" # clear caps lock if enabled
+setxkbmap -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape' &
