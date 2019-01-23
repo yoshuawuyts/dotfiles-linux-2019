@@ -304,3 +304,4 @@ cmap w!! %!sudo tee > /dev/null %
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
+vnoremap <Leader>m #_*\(\u\)\(\u*\)#\1\L\2#g<CR>
