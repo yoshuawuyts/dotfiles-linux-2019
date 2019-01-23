@@ -4,4 +4,4 @@ webcams="$(ls /dev/ | grep video | sort)"
 
 # Get the second to last line, the kernel is creating some weird ghost files.
 webcam="$(echo "$webcams" | tail -n 2 | head -n 1)"
-mpv av://v4l2:/dev/"$webcam"
+mplayer tv:// -tv driver="v4l2:width=1024:height=1024:device=/dev/$webcam:fps=30"

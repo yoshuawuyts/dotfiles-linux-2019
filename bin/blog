@@ -5,6 +5,7 @@ set +ex
 keyname="digital_ocean"
 
 ip="$(doctl compute d list | awk '{print $3}' | tail -n 1)"
+zola build
 rsync -avz -e "ssh -i $HOME/.ssh/$keyname" public/* "root@$ip:/var/www/blog"
 
 echo 'deploy successful'
