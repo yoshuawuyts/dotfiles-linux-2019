@@ -40,6 +40,7 @@ twm &
 xclock -geometry 50x50-1+1 &
 xterm -geometry 80x50+494+51 &
 xterm -geometry 80x20+494-0 &
+xset r rate 250 60 # set key repeat speed
 
 # Initialize i3
 (sleep 6; notify-critical) &
