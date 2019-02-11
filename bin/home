@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -ex
+
+keyname="digital_ocean"
+
+ip="$(doctl compute d list | awk '{print $3}' | tail -n 1)"
+rsync -avz -e "ssh -i $HOME/.ssh/$keyname" templates/* "root@$ip:/var/www/yoshuawuyts"
+
+echo 'deploy successful'
+
+sleep 1
+
+xdg-open https://yoshuawuyts.com &
