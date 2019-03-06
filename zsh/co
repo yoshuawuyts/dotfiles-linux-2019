@@ -3,7 +3,7 @@
 main() {
   if [ -z "$1" ]; then
     echo "$1"
-    printf 'Usage: c <user/repo>\n'
+    printf 'Usage: co <user/repo>\n'
     exit 1
   fi
 

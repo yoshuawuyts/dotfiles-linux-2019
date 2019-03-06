@@ -388,3 +388,6 @@ webassembly
 shaders
 rustasync
 lang
+linter
+GLSL
+json

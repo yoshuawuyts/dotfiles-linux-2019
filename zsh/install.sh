@@ -9,10 +9,10 @@ src="$dirname/zshrc"
 dst="$HOME/.zshrc"
 _link "$src" "$dst"
 
-src="$dirname/c"
-dst="$HOME/.zsh/functions/c"
+src="$dirname/co"
+dst="$HOME/.zsh/functions/co"
 _link "$src" "$dst"
 
 src="$dirname/_c"
-dst="$HOME/.zsh/functions/_c"
+dst="$HOME/.zsh/functions/_co"
 _link "$src" "$dst"
