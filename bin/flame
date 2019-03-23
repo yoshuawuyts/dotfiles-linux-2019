@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
-perf record -F 99 -g "$@"
+perf record -F 997 -g "$@"
 perf script > /tmp/out.perf
 stackcollapse-perf /tmp/out.perf > /tmp/out.folded
 

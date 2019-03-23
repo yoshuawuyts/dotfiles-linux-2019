@@ -290,11 +290,13 @@ let g:LanguageClient_loggingLevel = 'DEBUG'
 au BufRead,BufNewFile *.rs set filetype=rust
 let g:rust_fold = 2
 let g:rustfmt_autosave = 1
-let g:rust_recommended_style = 0
+let g:rust_recommended_style = 1
 augroup filetype_rust
   autocmd!
   autocmd BufReadPost *.rs setlocal filetype=rust
-  setl sw=2 sts=2 et
+  let &colorcolumn=join(range(101,999),",")
+  au FileType qf setlocal nonumber colorcolumn=
+  set textwidth=100     " Show gutter at 100 chars
 augroup END
 
 " Utilities

@@ -1,3 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 cargo doc --open "$@"
+cwd
