@@ -1,0 +1,9 @@
+[package]
+name = "async-h2"
+version = "0.0.0"
+description = "Reserved for future use"
+license = "MIT/Apache-2.0"
+authors = ["Yoshua Wuyts <yoshuawuyts@gmail.com>"]
+edition = "2018"
+
+[dependencies]

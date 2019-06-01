@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -ex
+
+[ $# -ne 1 ] && { echo 'usage: cpv <version>' && exit 1; }
+
+cargo publish
+changelog -o CHANGELOG.md
+# git add CHANGELOG.md
+# git commit -m 'Update changelog'
+git push
+git push --tags

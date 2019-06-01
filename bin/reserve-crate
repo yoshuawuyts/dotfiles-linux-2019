@@ -1,0 +1,24 @@
+#!/bin/bash
+
+toml() {
+cat << EOF
+[package]
+name = "TITLE"
+version = "0.0.0"
+description = "Reserved for future use"
+license = "MIT/Apache-2.0"
+authors = ["Yoshua Wuyts <yoshuawuyts@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+EOF
+}
+
+cargo new "$1"
+pushd "$1"
+toml | sed "s/TITLE/$1/" > Cargo.toml
+git add -A
+git commit -m .
+cargo publish
+popd
+rm -rf "$1"

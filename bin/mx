@@ -8,7 +8,7 @@ create_session () {
   tmux new-session -d -s "$shared" -n "$1" -c "$loc"
   tmux send-keys "$EDITOR" C-m
   tmux split-window -h -c "$loc"
-  tmux resize-pane -R 10
+  tmux resize-pane -R 25
   tmux send-keys "clear"
 }
 
@@ -17,7 +17,7 @@ create_window () {
   tmux new-window -t "$shared" -n "$1" -c "$loc"
   tmux send-keys "$EDITOR" C-m
   tmux split-window -h -c "$loc"
-  tmux resize-pane -R 10
+  tmux resize-pane -R 25
   tmux send-keys "clear"
 }
 
@@ -49,7 +49,7 @@ main () {
     fi
 
     tmux split-window -h
-    tmux resize-pane -R 10
+    tmux resize-pane -R 25
     tmux select-window -t "$SESSION"
     tmux link-window -s _shared:server -t 6
     tmux link-window -s _shared:templates -t 7
