@@ -28,6 +28,12 @@ set -o vi
 fpath=("$HOME/.zsh/functions" $fpath)
 autoload -U $HOME/.zsh/functions/*(:t)
 
+# start ssh (for linux)
+eval $(ssh-agent -s)
+for f in "$HOME"/.ssh/*.pub; do
+  ssh-add "${f%.*}" > /dev/null 2>&1
+done
+
 # key bindings
 bindkey '^R' history-incremental-search-backward  # Fix history search in tmux
 bindkey -M viins '^?' backward-delete-char        # Fix backspace delete
