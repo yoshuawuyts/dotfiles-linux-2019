@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 dirname="$(dirname "$(readlink -f "$0")")"
 source "$dirname/../scripts/_shared.sh"

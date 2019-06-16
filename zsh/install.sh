@@ -5,6 +5,15 @@ source "$dirname/../scripts/_shared.sh"
 
 mkdir -p "$HOME/.zsh/functions"
 
+# dir="/usr/share/plugins/zsh"
+# mkdir -p "$dir"
+# pushd "$dir"
+# pwd
+# sudo git clone git@github.com:zdhrarma/fast-syntax-highlighting.git
+# sudo git clone git@github.com:zdhrarma/history-search-multi-word
+# sudo git clone git@github.com:zsh-users/zsh-autosuggestions
+# popd
+
 src="$dirname/zshrc"
 dst="$HOME/.zshrc"
 _link "$src" "$dst"

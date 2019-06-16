@@ -22,9 +22,9 @@ setopt histignoredups
 set -o vi
 
 # source extensions
-source /usr/share/zsh/plugins/history-search-multi-word/history-search-multi-word.plugin.zsh
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+# source /usr/share/zsh/plugins/history-search-multi-word/history-search-multi-word.plugin.zsh
+# source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 fpath=("$HOME/.zsh/functions" $fpath)
 autoload -U $HOME/.zsh/functions/*(:t)
 
@@ -83,7 +83,7 @@ prompt_command() {
   else local clr_status="%F{red}"; fi
 
   if [ $USER = root ]; then local sign="#"
-  else local sign="❯"; fi
+  else local sign=">"; fi
 
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then local host="%n@%m "
   else local host=""; fi
