@@ -11,10 +11,11 @@ if &term =~ '256color' | set t_ut= | endif " Disable Background Color Erase (tmu
 call plug#begin('~/.vim/plugged')
 Plug 'Raimondi/delimitMate'               " Autocomplete brackets
 Plug 'airblade/vim-gitgutter'             " Show git status in the sidebar
+Plug 'rbgrouleff/bclose.vim'              " Dependency for ranger.vim
 Plug 'bling/vim-airline'                  " Status bar
 Plug 'chriskempson/base16-vim'            " Color theme (note: I think alacritty is good enough for us, heh
-Plug 'ctrlpvim/ctrlp.vim'                 " Fuzzy file search
 Plug 'fidian/hexmode'                     " Hex mode editor
+Plug 'francoiscabrol/ranger.vim'          " Replace netrw with ranger
 Plug 'junegunn/fzf.vim'                   " Fuzzy finder
 Plug 'junegunn/vim-easy-align'            " Align markdown tables
 Plug 'kristijanhusak/vim-carbon-now-sh'   " Open in carbon.sh
@@ -192,14 +193,6 @@ let g:deoplete#enable_at_startup = 1
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" Snippets
-" ========
-" let g:neosnippet#enable_snipmate_compatibility = 1
-" let g:neosnippet#snippets_directory = "~/.vim/snippets"
-" imap <C-k> <Plug>(neosnippet_expand_or_jump)
-" xmap <C-k> <Plug>(neosnippet_expand_target)
-" call deoplete#custom#source('neosnippet', 'rank', 9999)
-
 " Scrolling
 " =========
 " Start scrolling when we're getting close to margins
@@ -229,16 +222,22 @@ highlight SignColumn ctermbg=black
 
 " Ctrlp Plugin
 " ============
-map <Leader>e :CtrlPBuffer<CR>
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_switch_buffer = 'et'
-let g:ctrlp_use_caching = 0
+" map <Leader>e :CtrlPBuffer<CR>
+" let g:ctrlp_working_path_mode = 'ra'
+" let g:ctrlp_switch_buffer = 'et'
+" let g:ctrlp_use_caching = 0
 
-if executable('rg')
-  let g:ctrlp_user_command = 'rg --files %s'
-elseif executable('ag')
-  let g:ctrlp_user_command = 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
-endif
+" if executable('rg')
+"   let g:ctrlp_user_command = 'rg --files %s'
+" elseif executable('ag')
+"   let g:ctrlp_user_command = 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
+" endif
+
+" FZF Plugin
+" ==========
+map <Leader>e :Buffers<CR>
+nnoremap <C-p> :Files<Cr>
+nnoremap <C-f> :Rg<Cr>
 
 " Ale Plugin
 " ==========
@@ -310,6 +309,10 @@ cmap w!! %!sudo tee > /dev/null %
 vnoremap < <gv
 vnoremap > >gv
 vnoremap <Leader>m #_*\(\u\)\(\u*\)#\1\L\2#g<CR>
+
+" Ranger
+" ======
+let g:ranger_replace_netrw = 1
 
 " No swap suck
 " ============
