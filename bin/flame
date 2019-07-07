@@ -6,6 +6,6 @@ stackcollapse-perf /tmp/out.perf > /tmp/out.folded
 
 outfile="/tmp/$(date +%F-%T)-flamegraph.svg"
 flamegraph /tmp/out.folded > "$outfile"
-rm perf.data /tmp/out.perf /tmp/out.folded
+# rm perf.data /tmp/out.perf /tmp/out.folded
 
 firefox "$outfile"

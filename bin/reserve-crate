@@ -14,6 +14,7 @@ edition = "2018"
 EOF
 }
 
+pushd /tmp
 cargo new "$1"
 pushd "$1"
 toml | sed "s/TITLE/$1/" > Cargo.toml

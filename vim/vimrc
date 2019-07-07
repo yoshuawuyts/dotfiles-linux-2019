@@ -15,6 +15,7 @@ Plug 'bling/vim-airline'                  " Status bar
 Plug 'chriskempson/base16-vim'            " Color theme (note: I think alacritty is good enough for us, heh
 Plug 'ctrlpvim/ctrlp.vim'                 " Fuzzy file search
 Plug 'fidian/hexmode'                     " Hex mode editor
+Plug 'junegunn/fzf.vim'                   " Fuzzy finder
 Plug 'junegunn/vim-easy-align'            " Align markdown tables
 Plug 'kristijanhusak/vim-carbon-now-sh'   " Open in carbon.sh
 Plug 'rust-lang/rust.vim'                 " Rust helpers
@@ -172,6 +173,8 @@ nnoremap <C-H> :Hexmode<CR>
 " Markdown
 " ======================
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+au FileType markdown set textwidth=80
+au FileType markdown let &colorcolumn=join(range(81,999),",")
 au BufRead,BufNewFile *.md set filetype=markdown
 augroup markdown
   au!
