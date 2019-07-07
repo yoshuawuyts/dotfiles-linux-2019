@@ -310,3 +310,62 @@ cmap w!! %!sudo tee > /dev/null %
 vnoremap < <gv
 vnoremap > >gv
 vnoremap <Leader>m #_*\(\u\)\(\u*\)#\1\L\2#g<CR>
+
+" No swap suck
+" ============
+let g:NoSwapSuck_Enabled = get(g:, 'NoSwapSuck_Enabled', 1)
+let g:NoSwapSuck_CloseSwapfileOnWrite = get(g:, 'NoSwapSuck_CloseSwapfileOnWrite', 1)
+let g:NoSwapSuck_CheckSwapfileOnLoad = get(g:, 'NoSwapSuck_CheckSwapfileOnLoad', 1)
+let g:NoSwapSuck_CreateSwapfileOnInsert = get(g:, 'NoSwapSuck_CreateSwapfileOnInsert', 1)
+let g:NoSwapSuck_Debug = get(g:, 'NoSwapSuck_Debug', 0)
+if !g:NoSwapSuck_Enabled
+  finish
+endif
+if g:NoSwapSuck_Debug && g:NoSwapSuck_CheckSwapfileOnLoad
+  set noswapfile
+endif
+augroup NoSwapSuck
+  autocmd!
+  autocmd BufReadPre *  if g:NoSwapSuck_CheckSwapfileOnLoad | call s:SetSwapfileToCheck() | endif
+  autocmd BufReadPost * call s:ConsiderClosingSwapfile()
+  autocmd InsertEnter * if g:NoSwapSuck_CreateSwapfileOnInsert | call s:ConsiderCreatingSwapfile(1) | endif
+  autocmd InsertLeave * call s:ConsiderCreatingSwapfile()
+  autocmd CursorHold * call s:ConsiderCreatingSwapfile()
+  autocmd BufWritePost * if g:NoSwapSuck_CloseSwapfileOnWrite | call s:ConsiderClosingSwapfile() | endif
+  autocmd WinLeave * call s:ConsiderClosingSwapfile()
+  autocmd WinEnter * call s:ConsiderCreatingSwapfile()
+  autocmd BufLeave * call s:ConsiderClosingSwapfile()
+  autocmd BufEnter * call s:ConsiderCreatingSwapfile()
+augroup END
+
+function! s:ConsiderClosingSwapfile()
+  if !g:NoSwapSuck_Enabled
+    return
+  endif
+  if &swapfile && !&modified
+    if g:NoSwapSuck_Debug | echo "Setting NO swapfile" | endif
+    setlocal noswapfile
+  endif
+endfunction
+
+function! s:ConsiderCreatingSwapfile(...)
+  if !g:NoSwapSuck_Enabled
+    return
+  endif
+  let about_to_be_modified = a:0 ? a:1 : 0
+  if !&swapfile && ( &modified || about_to_be_modified ) && !s:SwapfileDisableForCurrentBuffer()
+    if g:NoSwapSuck_Debug | echo "Setting swapfile" | endif
+    setlocal swapfile
+  endif
+endfunction
+
+function! s:SetSwapfileToCheck()
+  if !g:NoSwapSuck_Enabled
+    return
+  endif
+  set swapfile
+endfunction
+
+function! s:SwapfileDisableForCurrentBuffer()
+  return get(b:, 'NoSwapSuck_NoSwapfile', 0)
+endfunction
